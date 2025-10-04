@@ -80,4 +80,9 @@ int main()
 {
     Movement m;
     char move = m.Movement_Counter('x'); //temp line for test
+    
+    //Test line for room
+    Room testRoom("Lab", "A quiet research area filled with strange equipment.");
+    testRoom.printRoomInformation();
+
 }

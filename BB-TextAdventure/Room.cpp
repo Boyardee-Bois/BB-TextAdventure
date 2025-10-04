@@ -1,5 +1,6 @@
 #include "Room.h"
 
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -10,92 +11,85 @@ using namespace std;
 *   Represents one location in the text adventure.
 *   Stores a room name, description, and a visited flag.
 *   Will later connect to other rooms through exits.
-*
-* Current Implementation:
-*   - Member variables declared for name, description, and visited state.
-*   - Basic constructor placeholder.
-*   - Getter and setter stubs for all member variables.
-*   - enterRoom() placeholder for entry logic.
-*
-* To Do:
-*   - Implement constructor to initialize name and description.
-*   - Implement enterRoom() to print or return the room description.
-*   - Complete getters/setters to return and modify private data members.
-*   - Add exits once movement between rooms is ready.
 */
 
-class Room
+/*
+* Default constructor
+*/
+Room::Room(){}
+
+
+/*
+* Creates a room with a name and description
+*/
+Room::Room(string newRoomName, string newRoomDescription)
 {
-private:
+	roomName = newRoomName;
+	roomDescription = newRoomDescription;
+}
 
-	string roomName;
-	string roomDescription;
-
-	bool isVisited = false;
-
-public:
-
+/*
+* TODO: Enter room
+*/
+void Room::enterRoom()
+{
 	/*
-	* Creates a room with a name and description
+	* Need to implement
 	*/
-	Room(string newRoomName, string newRoomDescription) {}
+}
 
-	/*
-	* TODO: Enter room
-	*/
-	void enterRoom()
-	{
+/*
+* Gets the name of the room
+*/
+string Room::getRoomName()
+{
+	return roomName;
+}
 
-	}
+/*
+* Sets the name of the room
+*/
+void Room::setRoomName(string newName)
+{
+	roomName = newName;
+}
 
-	/*
-	* Gets the name of the room
-	*/
-	string getRoomName()
-	{
-		//returns false until implemented
-		return "false";
-	}
+/*
+* Gets the name of the room
+*/
+string Room::getRoomDescription()
+{
+	return roomDescription;
+}
 
-	/*
-	* Sets the name of the room
-	*/
-	void setRoomName(string newName)
-	{
+/*
+* Sets the name of the room
+*/
+void Room::setRoomDescription(string newDescription)
+{
+	roomDescription = newDescription;
+}
 
-	}
+/*
+* Checks if a room has been visited
+*/
+bool Room::getIsVisited()
+{
+	return isVisited;
+}
 
-	/*
-	* Gets the name of the room
-	*/
-	string getRoomDescription()
-	{
-		//returns false until implemented
-		return "false";
-	}
+/*
+* Sets if a room has been visited
+*/
+void Room::setVisited(bool visited)
+{
+	isVisited = visited;
+}
 
-	/*
-	* Sets the name of the room
-	*/
-	void setRoomDesciption(string newDescription)
-	{
-
-	}
-
-	/*
-	* Checks if a room has been visited
-	*/
-	bool isVisited()
-	{
-		//returns false until implemented
-		return false;
-	}
-
-	/*
-	* Sets if a room has been visited
-	*/
-	void setVisited(bool visted)
-	{
-
-	}
-};
+/*
+* Prints the name and description of a room
+*/
+void Room::printRoomInformation()
+{
+	cout << roomName << ": " << roomDescription << endl;
+}
