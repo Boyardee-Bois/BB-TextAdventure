@@ -81,8 +81,11 @@ int main()
     Movement m;
     char move = m.Movement_Counter('x'); //temp line for test
     
-    //Test line for room
-    Room testRoom("Lab", "A quiet research area filled with strange equipment.");
-    testRoom.printRoomInformation();
+    //Test line for room and adding an exit
+    Room labRoom("Lab", "A quiet research area filled with strange equipment.");
+    Room wildernessRoom("Wilderness", "The great outdoors! There is a loud screech in the distance....");
+
+    labRoom.addExit("North", &wildernessRoom);
+    labRoom.printRoomInformation();
 
 }

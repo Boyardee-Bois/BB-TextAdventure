@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <map>
 using namespace std;
 
 /*
@@ -17,6 +18,7 @@ private:
     string roomName;
     string roomDescription;
     bool isVisited;
+    map<string, Room*> exits;
 
 public:
     
@@ -35,4 +37,7 @@ public:
     void setVisited(bool visited);
 
     void printRoomInformation();
+
+    void addExit(const string& direction, Room* neighbor);
+    Room* getExit(const string& direction);
 };

@@ -2,21 +2,24 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 using namespace std;
 
 /*
 * Class: Room
 * --------------------------------------------
-* Scope:
-*   Represents one location in the text adventure.
-*   Stores a room name, description, and a visited flag.
-*   Will later connect to other rooms through exits.
+* Represents a single location in the text adventure game.
+* Each Room has:
+*    A name (roomName)
+*    A description (roomDescription)
+*    A visited flag (isVisited)
+*    A collection of exits (connections to other rooms)
 */
 
 /*
 * Default constructor
 */
-Room::Room(){}
+Room::Room() { isVisited = false; }
 
 
 /*
@@ -26,10 +29,13 @@ Room::Room(string newRoomName, string newRoomDescription)
 {
 	roomName = newRoomName;
 	roomDescription = newRoomDescription;
+	isVisited = false;
 }
 
 /*
-* TODO: Enter room
+* Placeholder for logic when the player enters this room.
+* This function will later be expanded to handle interactions,
+* events, or special messages upon entering.
 */
 void Room::enterRoom()
 {
@@ -92,4 +98,45 @@ void Room::setVisited(bool visited)
 void Room::printRoomInformation()
 {
 	cout << roomName << ": " << roomDescription << endl;
+
+	if (exits.empty())
+	{
+		cout << "There are no exits from here." << endl;
+		return;
+	}
+
+	cout << "Exits: ";
+
+	for (const auto& exitPair : exits)
+	{
+		cout << exitPair.first << " ";
+	}
+
+	cout << endl;
+}
+
+/*
+* Adds an exit to this room.
+* Each exit connects a direction (string) to another room (Room*).
+*/
+void Room::addExit(const string& direction, Room* neighbor)
+{
+	exits[direction] = neighbor;
+}
+
+/*
+* Gets the exit (Room*) for a specific direction.
+* If no exit is found, prints an error message and returns nullptr.
+*/
+Room* Room::getExit(const string& direction)
+{
+	auto iterator = exits.find(direction);
+
+	if (iterator == exits.end())
+	{
+		cout << "You can't go " << direction << " from here!" << endl;
+		return nullptr;
+	}
+
+	return iterator->second;
 }
