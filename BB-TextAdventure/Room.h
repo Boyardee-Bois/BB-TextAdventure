@@ -1,4 +1,7 @@
 #pragma once
+#ifndef ROOM_H
+#define ROOM_H
+
 
 #include <string>
 #include <map>
@@ -41,3 +44,5 @@ public:
     void addExit(const string& direction, Room* neighbor);
     Room* getExit(const string& direction);
 };
+
+#endif

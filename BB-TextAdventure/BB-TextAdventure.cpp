@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <string>
 using namespace std;
+
 /* To do
 * Scope:
 Requirements: Define the command for movement
@@ -17,7 +18,9 @@ After a successful move, the screen updates with the new position of the player 
 Attempting an invalid movement command results in a helpful error message (Ex. "You can't go that way.")
 */
 
-class Movement {
+class Movement 
+{
+
 public:
     //Creates directions of movement and adds +1 to a direction everytime it's entered
     char Movement_Counter(char move_count) {
@@ -58,9 +61,11 @@ public:
     For X: Add move_right, minus move_left
     For Y: Add move_up, minus move_down
     */
-    char Player_Position(char pos) {
+    char Player_Position(char pos) 
+    {
         return pos;
     }
+
     /*
     char CtrlZ_avoid() {
         while (true) {
@@ -85,7 +90,10 @@ int main()
     Room labRoom("Lab", "A quiet research area filled with strange equipment.");
     Room wildernessRoom("Wilderness", "The great outdoors! There is a loud screech in the distance....");
 
+    //Adding an exit in the north direction
     labRoom.addExit("North", &wildernessRoom);
+
+    //Print the room information
     labRoom.printRoomInformation();
 
 }
