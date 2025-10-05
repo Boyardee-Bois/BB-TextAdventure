@@ -18,7 +18,7 @@ void UI::GameIntro()
    
     UI::GameTitle();
 
-  cout << "In the distant future, you're tasked with working on humanity's most volatile Mission... Projecte Chronoscape. The breakthrough in time travel\n\n";
+  cout << "In the distant future, you're tasked with working on humanity's most important Mission yet... Project Chronoscape. The breakthrough in time travel\n\n";
 
   cout << "Your primary obstacle isn't the science, rather it's the ego of your co-worker Dr. (Insert Name), your brilliant but reckless rival. He craves absolute control over the anomaly and views your measured approach as cowardice.\n\n";
 
@@ -29,7 +29,7 @@ void UI::GameIntro()
   cout << "When the light fades, the air is thick, the humidity crushing, and the familiar scent of ozone is replaced by something ancient and savage.\n\n";
 
 
-  cout << "You are alive. You are separated from (Insert Name). And you are catastrophically **out of time**.\n";
+  cout << "You are alive. You are separated from (Insert Name). And you are catastrophically out of time.\n";
   UI::SectionSeperator();
   cout << "Press ENTER to begin your journey...\n";
    cin.get();
