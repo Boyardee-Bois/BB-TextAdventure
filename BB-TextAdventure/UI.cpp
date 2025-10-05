@@ -37,7 +37,16 @@ void UI::GameIntro()
 
 void UI::HelpMenu()
 {
-	//Need to update
+    cout << "HELP MENU\n";
+    UI::SectionSeperator();
+    cout << "The following controls will enable you to traverse this prehistoric land where danger lurks in every corner...\n";
+    UI::SectionSeperator();
+    cout << "W - Move Up/Forwards\n";
+    cout << "A - Move Left\n";
+    cout << "S - Move Down/Backwards\n";
+    cout << "D - Move Right\n";
+    UI::SectionSeperator();
+    cout << "Utilize these to survive, locate friend or foe, and locate the missing pieces of the chronoscape to save the future as we know it...\n";
 }
 
 
