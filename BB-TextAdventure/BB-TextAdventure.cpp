@@ -1,8 +1,11 @@
-
-
 #include <iostream>
+#include "UI.h"
+using namespace std; 
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	UI::GameIntro();
+	UI::HelpMenu();
+
 }
