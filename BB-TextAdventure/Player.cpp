@@ -10,8 +10,8 @@ using namespace std;
 class PlayerMove
 {
 public:
-    int x = 0;
-    int y = 0;
+    int x_coord = 0;
+    int y_coord = 0;
     //Creates directions of movement and adds +1 to a direction everytime it's entered
     char Movement_Counter() {
         char direction;
@@ -23,22 +23,22 @@ public:
             case 'w':
                 cout << "Going North..." << endl;
                 h = true;
-                y++;
+                y_coord++;
                 break;
             case 'a':
                 cout << "Going West..." << endl;
                 h = true;
-                x--;
+                x_coord--;
                 break;
             case 's':
                 cout << "Going South..." << endl;
                 h = true;
-                y--;
+                y_coord--;
                 break;
             case 'd':
                 cout << "Going East..." << endl;
                 h = true;
-                x++;
+                x_coord++;
                 break;
             default:
                 cout << "Not a correct input. Please enter w/a/s/d." << endl;
@@ -55,11 +55,13 @@ public:
     For X: Add move_right, minus move_left
     For Y: Add move_up, minus move_down
     */
+
+    //Previous room coordinates are reset
     void Reset_Coordinates(Room* newRoom) {
         Room* currentRoom;
         currentRoom = newRoom;
-        x = 0;
-        y = 0;
+        x_coord = 0;
+        y_coord = 0;
     }
 
     /*
