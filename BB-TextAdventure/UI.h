@@ -27,7 +27,6 @@ public:
 private:
 	static void SectionSeperator();
 	static void GameTitle();
-	static bool GameIntroParser();
 
 };
 

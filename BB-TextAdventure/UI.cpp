@@ -1,5 +1,4 @@
 #include "UI.h"
-#include <string>
 using namespace std; 
 
 void UI::GameTitle()
@@ -32,7 +31,8 @@ void UI::GameIntro()
 
   cout << "You are alive. You are separated from Jay. And you are catastrophically out of time.\n";
   UI::SectionSeperator();
-  UI::GameIntroParser();
+  cout << "Press ENTER to begin your journey...\n";
+   cin.get();
 }
 
 void UI::HelpMenu()
@@ -49,54 +49,4 @@ void UI::HelpMenu()
     cout << "Utilize these to survive, locate friend or foe, and locate the missing pieces of the chronoscape to save the future as we know it...\n";
 }
 
-bool UI::GameIntroParser()
-{
-		while (true)
-		{
-			cout << "\nPress P to start the Game\nPress H for Game Help\n\n ";
 
-			string response;
-
-			getline(cin >> ws, response);
-
-			if (cin.eof())
-			{
-				cin.clear();
-
-				cout << "\nInvalid input. Please enter P or H.\n";
-
-				continue;
-			}
-
-			if (cin.fail())
-			{
-				cin.clear();
-
-				cout << "\nInvalid input. Please enter P or H.\n";
-
-				continue;
-			}
-
-			if (response.length() == 1)
-			{
-				char choice = response[0];
-
-				if (choice == 'P' || choice == 'p')
-				{
-					//Leaving space here to call in Game methods later
-					//ie. Game game; game.StartGame(); or whatever
-					return true;
-				}
-
-				if (choice == 'H' || choice == 'h')
-				{
-					UI::HelpMenu();
-
-					return false;
-				}
-			}
-
-			cout << "\nInvalid input. Please enter P or H.\n";
-		}
-	
-}

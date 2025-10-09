@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	UI interface; 
-	interface.GameIntro();
+	UI::GameIntro();
+	UI::HelpMenu();
 
 }
