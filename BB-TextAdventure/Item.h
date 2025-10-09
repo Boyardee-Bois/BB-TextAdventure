@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ITEM.H
-#define ITEM.H
+#ifndef ITEM_H
+#define ITEM_H
 
 #include <string>
 using namespace std;
@@ -16,7 +16,7 @@ public:
 
 	Item();
 
-	Item(string newName, string newDescription) {};
+	Item(string newItemName, string newItemDescription);
 
 	string getItemName();
 	void setItemName(string newName);
