@@ -19,16 +19,16 @@ using namespace std;
 /*
 * Default constructor
 */
-Item::Item() {}
+Item::Item(){}
 
 
 /*
 * Creates an item with a name and description
 */
-Item::Item(string newName, string newDescription)
+Item::Item(string newItemName, string newItemDescription)
 {
-	itemName = newName;
-	itemDescription = newDescription;
+	itemName = newItemName;
+	itemDescription = newItemDescription;
 }
 
 /*
@@ -53,6 +53,11 @@ void Item::setItemName(string newName)
 void Item::setItemDescription(string newDescription)
 {
 	itemDescription = newDescription;
+}
+
+string Item::getItemDescription()
+{
+	return itemDescription;
 }
 
 /*
