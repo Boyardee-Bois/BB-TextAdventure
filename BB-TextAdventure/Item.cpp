@@ -47,11 +47,6 @@ void Item::setItemName(string newName)
 	itemName = newName;
 }
 
-string Item::getItemDescription()
-{
-	return itemDescription;
-}
-
 /*
 * Sets the name of the room
 */

@@ -20,7 +20,6 @@ public:
 
 	static void GameIntro();
 	static void HelpMenu();
-	static bool GameIntroParser();
 
 	//Will have more room to add more messages ie. error messages and more
 
