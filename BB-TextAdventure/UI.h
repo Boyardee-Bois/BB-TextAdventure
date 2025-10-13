@@ -20,6 +20,7 @@ public:
 
 	static void GameIntro();
 	static void HelpMenu();
+	
 
 	//Will have more room to add more messages ie. error messages and more
 
@@ -27,6 +28,7 @@ public:
 private:
 	static void SectionSeperator();
 	static void GameTitle();
+	static bool GameIntroParser();
 
 };
 

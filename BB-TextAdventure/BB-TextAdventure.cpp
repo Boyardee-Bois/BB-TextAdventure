@@ -9,8 +9,8 @@ using namespace std;
 
 int main()
 {
-	UI::GameIntro();
-	UI::HelpMenu();
+	UI Interface;
+	Interface.GameIntro();
 
 	Room startRoom("Lab", "You find yourself in a dimly lit lab with scattered papers.");
 	Room hallwayRoom("Hallway", "You see a long hallway leading to the outdoors.");
