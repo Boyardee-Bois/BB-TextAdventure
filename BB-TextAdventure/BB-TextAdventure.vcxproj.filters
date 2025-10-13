@@ -38,5 +38,11 @@
     <ClInclude Include="Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+	  <ClCompile Include="Item.cpp">
+		  <Filter>Source Files</Filter>
+	  </ClCompile>
+	  <ClCompile Include="Item.h">
+		  <Filter>Source Files</Filter>
+	  </ClCompile>
   </ItemGroup>
 </Project>
