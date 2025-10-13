@@ -16,7 +16,7 @@ public:
 
 	Item();
 
-	Item(string newName, string newDescription);
+	Item(string newName, string newDescription) {};
 
 	string getItemName();
 	void setItemName(string newName);
