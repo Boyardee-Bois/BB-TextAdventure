@@ -10,13 +10,13 @@ using namespace std;
 
 int x_coord = 0;
 int y_coord = 0;
-//Creates directions of movement and adds +1 to a direction everytime it's entered
 
+//Creates directions of movement and adds +1 to a direction everytime it's entered
 void Player::Movement_Counter() 
 {
 	char direction;
 
-	bool h = false; //temp line for testing
+	bool h = false;
 
 	while (h == false) {
 		cout << "Enter direction (w/a/s/d): ";
@@ -26,21 +26,25 @@ void Player::Movement_Counter()
 			cout << "Going North..." << endl;
 			h = true;
 			y_coord++;
+			cout << "Coordinates (x,y): " << x_coord << ", " << y_coord << endl;
 			break;
 		case 'a':
 			cout << "Going West..." << endl;
 			h = true;
 			x_coord--;
+			cout << "Coordinates (x,y): " << x_coord << ", " << y_coord << endl;
 			break;
 		case 's':
 			cout << "Going South..." << endl;
 			h = true;
 			y_coord--;
+			cout << "Coordinates (x,y): " << x_coord << ", " << y_coord << endl;
 			break;
 		case 'd':
 			cout << "Going East..." << endl;
 			h = true;
 			x_coord++;
+			cout << "Coordinates (x,y): " << x_coord << ", " << y_coord << endl;
 			break;
 		default:
 			cout << "Not a correct input. Please enter w/a/s/d." << endl;
