@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ITEM.H
-#define ITEM.H
+#ifndef ITEM_H
+#define ITEM_H
 
 #include <string>
 using namespace std;
