@@ -119,6 +119,8 @@ void Room::printRoomInformation()
 /*
 * Adds an exit to this room.
 * Each exit connects a direction (string) to another room (Room*).
+* 
+* Updates for duplicate exits
 */
 void Room::addExit(const string& direction, Room* neighbor)
 {

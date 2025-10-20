@@ -10,25 +10,27 @@
 using namespace std;
 
 /*
-  Header: PlayerRoomMovement
+  Header: Player
   Keeps track of the current room the player is in
   Uses a switch to notify player that they're input is processed
 */
 class Player 
 {
 
-public:
+    private:
+        
+        // The players current location
+        Room* currentRoom;
 
-    void Movement_Counter();
+    public:
 
-    Player(Room* startRoom) :currentRoom(startRoom) {}
+        // Constructor
+        Player();
 
-    Room* getCurrentRoom() { return currentRoom; }
+        // Set the players current location
+        void setCurrentRoom(Room* newRoom);
 
-    void setCurrentRoom(Room* room) { currentRoom = room; }
-
-    Room* currentRoom;
-
-    void Reset_Coordinates(Room* room);
+        // Get the players current location
+        Room* getCurrentRoom();
 };
 #endif
