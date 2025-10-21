@@ -124,26 +124,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BB-TextAdventure.cpp" />
-    <ClCompile Include="Command.cpp" />
-    <ClCompile Include="CommandParser.cpp" />
-    <ClCompile Include="NounLookup.cpp" />
-    <ClCompile Include="VerbLookup.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Command.h" />
-    <ClInclude Include="NounLookup.h" />
-    <ClInclude Include="VerbLookup.h" />
-    <ClInclude Include="CommandParser.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Noun.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="UI.h" />
-    <ClInclude Include="Verb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
