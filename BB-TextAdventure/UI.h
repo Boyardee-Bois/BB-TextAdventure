@@ -20,6 +20,9 @@ public:
 
 	static void GameIntro();
 	static void HelpMenu();
+	static void EnableColor();
+	static void SetColor(int color);
+	static void Reset();
 	
 
 	//Will have more room to add more messages ie. error messages and more

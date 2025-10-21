@@ -1,5 +1,7 @@
 #include "UI.h"
 #include <string>
+#include <iostream>
+#include <windows.h>
 using namespace std;
 
 void UI::GameTitle()
@@ -100,4 +102,24 @@ bool UI::GameIntroParser()
 		cout << "\nInvalid input. Please enter P or H.\n";
 	}
 
+}
+
+
+void UI::EnableColor() //enables the windows color mode inside of terminal (need to include windows.h for it to work) found similar function through StackOverflow
+{
+	HANDLE handleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD dwMode = 0;
+	GetConsoleMode(handleOutput, &dwMode);
+	dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	SetConsoleMode(handleOutput, dwMode);
+}
+
+//Sets the background color of the console output using color codes 0-255
+void UI::SetColor(int color) {
+	std::cout << "\033[48;5;" << color << "m";
+}
+
+//Resets the color 
+void UI::Reset() {
+	std::cout << "\033[0m";
 }
