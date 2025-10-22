@@ -3,6 +3,9 @@
 #include "Player.h"
 #include "Room.h"
 #include "Item.h"
+#include "Tile.h"
+#include <vector>
+#include "Map.h"
 #include "CommandParser.h" 
 #include "Command.h"         
 #include "Verb.h"            
@@ -62,8 +65,18 @@ void printHelp(CommandParser& parser)
 
 int main()
 {
+
 	UI Interface;
+	Map world; // Create our map
+
+
 	Interface.GameIntro();
+	Interface.EnableColor();
+	world.Display();
+	Interface.Reset();
+
+
+
 
 	CommandParser parser;
 	Player player;

@@ -1,5 +1,4 @@
 #include "Room.h"
-
 #include <iostream>
 #include <string>
 #include <map>
@@ -80,7 +79,7 @@ void Room::setRoomDescription(string newDescription)
 /*
 * Checks if a room has been visited
 */
-bool Room::getIsVisited()
+bool Room::getIsVisited() const
 {
 	return isVisited;
 }

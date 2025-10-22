@@ -63,7 +63,7 @@ void Item::setItemDescription(string newDescription)
 /*
 * Prints the name and description of a item
 */
-void Item::printItemInformation()
+void Item::printItemInformation() const
 {
 	cout << itemName << ": " << itemDescription << endl;
 }

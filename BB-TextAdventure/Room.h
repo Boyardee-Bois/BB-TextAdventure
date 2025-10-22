@@ -36,7 +36,7 @@ public:
     string getRoomDescription();
     void setRoomDescription(string newDescription);
 
-    bool getIsVisited();
+    bool getIsVisited() const;
     void setVisited(bool visited);
 
     void printRoomInformation();
