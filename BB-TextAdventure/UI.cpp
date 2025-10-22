@@ -1,4 +1,5 @@
 #include "UI.h"
+#include "Map.h"
 #include <string>
 #include <iostream>
 #include <windows.h>
@@ -116,10 +117,11 @@ void UI::EnableColor() //enables the windows color mode inside of terminal (need
 
 //Sets the background color of the console output using color codes 0-255
 void UI::SetColor(int color) {
-	std::cout << "\033[48;5;" << color << "m";
+	std::cout << "\033[48;5;" << color << "m" << std::flush;
 }
 
 //Resets the color 
-void UI::Reset() {
+void UI::Reset() 
+{
 	std::cout << "\033[0m";
 }

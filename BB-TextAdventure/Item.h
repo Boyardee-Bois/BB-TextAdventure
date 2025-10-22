@@ -24,7 +24,7 @@ public:
 	string getItemDescription();
 	void setItemDescription(string newDescription);
 
-	void printItemInformation();
+	void printItemInformation() const;
 };
 
 #endif

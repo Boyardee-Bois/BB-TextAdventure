@@ -23,7 +23,7 @@ public:
 
     Player(Room* startRoom) :currentRoom(startRoom) {}
 
-    Room* getCurrentRoom() { return currentRoom; }
+    Room* getCurrentRoom() const { return currentRoom; }
 
     void setCurrentRoom(Room* room) { currentRoom = room; }
 

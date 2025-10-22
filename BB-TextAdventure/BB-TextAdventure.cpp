@@ -3,6 +3,9 @@
 #include "Player.h"
 #include "Room.h"
 #include "Item.h"
+#include "Tile.h"
+#include <vector>
+#include "Map.h"
 
 using namespace std; 
 
@@ -11,16 +14,16 @@ int main()
 {
 
 	UI Interface;
-	Interface.GameIntro();
+	Map world; // Create our map
 
-	//used this loop to test color output, will update soon -JoshL
-	for (int i = 0; i < 55; i++)
-	{
-	
-		Interface.SetColor(i);
-		cout << endl; 
-	}
-	
+
+	Interface.GameIntro();
+	Interface.EnableColor();
+	world.Display();
+	Interface.Reset();
+	return 0;
+
+
 
 	/*
 	Room startRoom("Lab", "You find yourself in a dimly lit lab with scattered papers.");
