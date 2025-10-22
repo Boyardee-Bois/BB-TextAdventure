@@ -17,18 +17,19 @@ using namespace std;
 class Player 
 {
 
-public:
-
-    void Movement_Counter();
-
-    Player(Room* startRoom) :currentRoom(startRoom) {}
-
-    Room* getCurrentRoom() const { return currentRoom; }
-
-    void setCurrentRoom(Room* room) { currentRoom = room; }
+private:
 
     Room* currentRoom;
 
-    void Reset_Coordinates(Room* room);
+public:
+
+    //Constructor
+    Player();
+
+    // Set the players current location
+    void setCurrentRoom(Room* newRoom);
+
+    // Get the players current location
+    Room* getCurrentRoom();
 };
 #endif
