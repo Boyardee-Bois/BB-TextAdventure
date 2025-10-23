@@ -29,13 +29,13 @@ public:
 	static void EnableColor();
 	static void SetColor(int color);
 	static void Reset();
+	static void SectionSeperator();
 	
 
 	//Will have more room to add more messages ie. error messages and more
 
 
 private:
-	static void SectionSeperator();
 	static void GameTitle();
 	static bool GameIntroParser();
 

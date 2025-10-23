@@ -106,7 +106,7 @@ int main()
 	// Sample main game loop: will be updated later
 	while (!finished)
 	{
-		cout << "\n======================================================\n";
+		Interface.SectionSeperator();
 		
 		player.getCurrentRoom()->printRoomInformation();
 		
@@ -116,6 +116,8 @@ int main()
 		{
 		case Verb::Go:
 			processGoCommand(command, player);
+			system("cls"); // Clear the screen)
+			world.Display();
 			break;
 
 		case Verb::Help:
