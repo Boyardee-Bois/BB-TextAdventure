@@ -5,10 +5,6 @@
 #include <string>
 #include <map>
 using namespace std;
-NPC::NPC(string npcName, int x_coord, int y_coord) {
-	npc_xcoord = x_coord;
-	npc_ycoord = y_coord;
-}
 //Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
 bool NPC::player_Coord_Check(int x_coord, int y_coord) {
 	return (x_coord == npc_xcoord && y_coord == npc_ycoord);
