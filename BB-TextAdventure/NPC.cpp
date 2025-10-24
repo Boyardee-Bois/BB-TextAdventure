@@ -20,8 +20,28 @@ void NPC::interact() {
 	cin >> response;
 	//If responds with Y/y, give more details
 	if (response == "Y" || response == "y") {
-		cout << "[NPC Name]: Help me X_X\n" << "1) With what?\n2) No, goodbye!\n" << endl;
+		cout << "[NPC Name]: Help me X_X\n" << endl;
+		bool helpNPC = false;
+		while (!helpNPC) { //Loop to let player try again after incorrect input
+		//Dialogue couts and choices
+			cout << "1) With what?\n2) No, goodbye!\n";
+			int choice;
+			cin >> choice;
+			if (choice == 1) {
+				cout << "[NPC Name]: Please find me a specific rock!\n";
+				helpNPC = true;
+			}
+			else if (choice == 2) {
+				cout << "[NPC Name]: Wow okay...\n";
+				helpNPC = true;
+			}
+			else {
+				cout << "Not a correct input. Please enter Y/N." << endl;
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+		}
 	}
+
 	//If responds with N/n, cout an exit line
 	else if (response == "N" || response == "n") {
 		cout << "[NPC Name]: Wow okay...\n" << endl;
@@ -29,7 +49,6 @@ void NPC::interact() {
 	else {
 	//Incorrect input catcher
 		cout << "Not a correct input. Please enter Y/N." << endl;
-		//cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 }
