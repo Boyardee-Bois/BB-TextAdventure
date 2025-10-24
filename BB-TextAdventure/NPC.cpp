@@ -1,0 +1,31 @@
+#include "NPC.h"
+#include "Room.h"
+
+#include <iostream>
+#include <string>
+#include <map>
+using namespace std;
+//Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
+bool NPC::player_Coord_Check(int x_coord, int y_coord) {
+	return (x_coord == npc_xcoord && y_coord == npc_ycoord);
+}
+//The code for when player does interact
+void NPC::interact() {
+	cout << "[NPC Quick Backstory/Explain what they're doing]\n" << "Interact with NPC? (Y/N): " << endl;
+	string response;
+	cin >> response;
+	//If responds with Y/y, give more details
+	if (response == "Y" || response == "y") {
+		cout << "[NPC Name]: Help me X_X\n" << "1) With what?\n2) No, goodbye!\n" << endl;
+	}
+	//If responds with N/n, cout an exit line
+	else if (response == "N" || response == "n") {
+		cout << "[NPC Name]: Wow okay...\n" << endl;
+	}
+	else {
+	//Incorrect input catcher
+		cout << "Not a correct input. Please enter Y/N." << endl;
+		//cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
+}

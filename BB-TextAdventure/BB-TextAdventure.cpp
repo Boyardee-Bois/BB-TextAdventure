@@ -10,7 +10,7 @@
 #include "Command.h"         
 #include "Verb.h"            
 #include "Noun.h"
-
+#include "NPC.h"
 using namespace std;
 
 
