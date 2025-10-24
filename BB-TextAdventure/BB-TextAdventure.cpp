@@ -134,6 +134,17 @@ int main()
 
 	cout << "\nGood-Bye" << endl;
 
+	NPC npc1("QuestGive!", 3, 5);
+
+	// Test player position
+	int player_x = 3;
+	int player_y = 5;
+
+	// Check if the player is standing where the NPC is
+	if (npc1.player_Coord_Check(player_x, player_y)) {
+		npc1.interact();
+	}
+
 	delete lab;
 	delete jungle;
 	delete beach;
