@@ -13,7 +13,10 @@ static const vector<pair<string, Noun>> NOUN_LIST =
     {"north", Noun::North},
     {"south", Noun::South},
     {"east", Noun::East},
-    {"west", Noun::West}
+    {"west", Noun::West},
+    {"W", Noun::North},
+    {"S", Noun::South},
+    {"A", Noun::West}
 };
 
 /*

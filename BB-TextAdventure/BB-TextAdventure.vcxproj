@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BB-TextAdventure.cpp" />
+    <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="VerbLookup.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chunk.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
     <ClInclude Include="Item.h" />

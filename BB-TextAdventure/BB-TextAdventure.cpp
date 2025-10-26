@@ -18,7 +18,7 @@ using namespace std;
 * Sample command processing this will need to be moved into
 * a seperate game manager when time permits.
 */
-void processGoCommand(Command command, Player& player)
+void processGoCommand(Command command, Player& player, Map& world)
 {
 	if (!command.hasDirection())
 	{
@@ -27,27 +27,59 @@ void processGoCommand(Command command, Player& player)
 	}
 
 	string direction;
+	char moveChar = 0; // for controlling player movement
+
 	switch (command.getNoun())
 	{
-	case Noun::North: direction = "north"; break;
-	case Noun::South: direction = "south"; break;
-	case Noun::East:  direction = "east";  break;
-	case Noun::West:  direction = "west";  break;
+	case Noun::North: 
+		direction = "north"; 
+		moveChar = 'w'; 
+		player.movePlayer(moveChar); 
+		break;
+	case Noun::South:
+		direction = "south"; 
+		moveChar = 's'; 
+		player.movePlayer(moveChar); 
+		break;
+	case Noun::East:  
+		direction = "east";
+		moveChar = 'd'; 
+		player.movePlayer(moveChar); 
+		break;
+	case Noun::West:
+		direction = "west";  
+		moveChar = 'a';
+		player.movePlayer(moveChar);
+		break;
+	case Noun::W:
+		direction = "north";
+		moveChar = 'w'; 
+		player.movePlayer(moveChar); 
+		break;
+	case Noun::S: 
+		direction = "south";
+		moveChar = 's'; 
+		player.movePlayer(moveChar); 
+		break;
+	//case Noun::East:  
+	// direction = "east"; 
+	// moveChar = 'd'; 
+	// break;
+	case Noun::A:  
+		direction = "west";  
+		moveChar = 'a'; 
+		player.movePlayer(moveChar);
+		break;
 	default:
-		cout << "That's not a valid direction." << endl;
-		return;
+		break;
 	}
 
-	Room* current = player.getCurrentRoom();
 
-	Room* nextRoom = current->getExit(direction);
-
-	if (nextRoom != nullptr)
-	{
-		player.setCurrentRoom(nextRoom);
-		cout << "You move " << direction << ".\n";
-	}
+	// --- CLEAR AND REDRAW MAP ---
+	system("cls");
+	world.DisplayWithPlayer(player.getX(), player.getY());
 }
+
 
 /*
 * Print the available commands for the player
@@ -96,6 +128,10 @@ int main()
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
+	player.setPosition(13, 13);
+	system("cls");
+	world.DisplayWithPlayer(player.getX(), player.getY());
+
 
 	// Sample statement to display game is starting
 	cout << "\nGAME STARTING...\n";
@@ -115,9 +151,9 @@ int main()
 		switch (command.getVerb())
 		{
 		case Verb::Go:
-			processGoCommand(command, player);
-			system("cls"); // Clear the screen)
-			world.Display();
+			processGoCommand(command, player, world);
+			system("cls"); // clear console before redrawing
+			world.DisplayWithPlayer(player.getX(), player.getY());
 			break;
 
 		case Verb::Help:

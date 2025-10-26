@@ -13,12 +13,12 @@ Create a class called Messages which will handle all messages and pop-ups in gam
 This will handle all output text for the game (UI stuff, messages, backstory, Map, and future dialog).
  */
 
-//This class should hold every display message/Color for the UI
+//This class should hold every display message/Color for the UI and map
 
-constexpr int Green = 34;   // Green
-constexpr int Blue = 27;   // Blue
-constexpr int Brown = 94;  // Brownish
-constexpr int Gray = 240;   // Gray
+constexpr int Green = 34;   
+constexpr int Blue = 27;   
+constexpr int Brown = 94;  
+constexpr int Gray = 240;   
 
 class UI
 {

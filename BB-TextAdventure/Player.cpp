@@ -12,6 +12,8 @@ using namespace std;
 Player::Player()
 {
 	currentRoom = NULL;
+	playerX = 0; 
+	playerY = 0; 
 }
 
 // Set the players current room
@@ -25,3 +27,44 @@ Room* Player::getCurrentRoom()
 {
 	return currentRoom;
 }
+
+void Player::setPosition(int x, int y)
+{
+	playerX = x; 
+	playerY = y; 
+}
+
+int Player::getX() const
+{
+	return playerX;
+}
+
+int Player::getY() const
+{
+	return playerY;
+}
+void Player::movePlayer(char direction)
+{
+    switch (direction)
+    {
+    case 'w': // up / north
+        playerY--;
+        break;
+    case 's': // down / south
+        playerY++;
+        break;
+    case 'a': // left / west
+        playerX--;
+        break;
+    case 'd': // right / east
+        playerX++;
+        break;
+    }
+
+    // Keep player inside map boundaries (25x25 for example)
+    if (playerX < 0) playerX = 0;
+    if (playerY < 0) playerY = 0;
+    if (playerX >= 25) playerX = 24;
+    if (playerY >= 25) playerY = 24;
+}
+

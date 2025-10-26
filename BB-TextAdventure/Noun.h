@@ -14,6 +14,9 @@ enum class Noun
 	South,
 	West,
 	East,
+	W,
+	A,
+	S,
 	Unknown
 };
 

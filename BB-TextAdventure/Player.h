@@ -20,6 +20,8 @@ class Player
 private:
 
     Room* currentRoom;
+    int playerX;       // player's current X position on the map
+    int playerY;       // player's current Y position on the map
 
 public:
 
@@ -31,5 +33,9 @@ public:
 
     // Get the players current location
     Room* getCurrentRoom();
+    void setPosition(int x, int y);        // sets player's position
+    int getX() const;                      // returns player's x position
+    int getY() const;                      // returns player's y position
+    void movePlayer(char direction);       // moves player based on input
 };
 #endif
