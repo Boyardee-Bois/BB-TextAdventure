@@ -1,9 +1,26 @@
+/**
+ * @file PlayerActionManager.cpp
+ * 
+ * @brief Routes parsed player commands to in-game actions (movement, help).
+ * 
+ * @details
+ *  Acts as a layer between parsed input (Command) and game state
+ *  (Player, Map). Validates intent, triggers Player updates, and refreshes the Map.
+ */
 #include "PlayerActionManager.h"
 
-/*
-* Sample command processing this will need to be moved into
-* a seperate game manager when time permits.
-*/
+ /**
+  * @brief Execute a movement command (e.g., "go north", "go w").
+  *
+  * Maps the command's noun to a movement direction and corresponding key,
+  * updates the player's position, and redraws the map.
+  *
+  * @param command Parsed player command.
+  * @param player Reference to the player.
+  * @param world  Reference to the map for re-rendering after movement.
+  *
+  * @note If the command has no direction (e.g just "go"), prints a prompt and returns.
+  */
 void PlayerActionManager::processGoCommand(Command command, Player& player, Map& world)
 {
 	if (!command.hasDirection())
@@ -67,13 +84,11 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Map&
 }
 
 
-/*
-* Print the available commands for the player
-* This also should be moved into the game manager
-* once created
-*
-* Not all functionality is implemented
-*/
+/**
+ * @brief Print available command words and basic help.
+ *
+ * @param parser Reference to the command parser displaying known verbs.
+ */
 void PlayerActionManager::printHelp(CommandParser& parser)
 {
 	cout << "Your available command words are:" << endl;
