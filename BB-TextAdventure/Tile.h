@@ -13,4 +13,7 @@ public:
     void Display() const;
     TileType GetType() const;
     void SetType(TileType t);
+
+    // for automated testing, print a unique character for each tile type (G, S, W, D)
+    char mapTileToChar() const;
 };

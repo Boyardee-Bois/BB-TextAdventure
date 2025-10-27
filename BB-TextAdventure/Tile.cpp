@@ -45,4 +45,27 @@ void Tile::SetType(TileType t)
     type = t; 
 }
 
+// For test purposes - return a character map for each Tile type
+//Displays the color of each assigned tile
+char Tile::mapTileToChar() const {
+    char characterMapping;
+    switch (type) {
+    case TileType::Grass:
+        characterMapping = 'G';
+        break;
+    case TileType::Water:
+        characterMapping = 'W';
+        break;
+    case TileType::Dirt:
+        characterMapping = 'D';
+        break;
+    case TileType::Stone:
+        characterMapping = 'S';
+        break;
+    default:
+        characterMapping = '?';
+    }
+    return characterMapping;
+}
+
 

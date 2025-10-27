@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "UI.h"
 #include <iostream>
+#include <cassert>
 
 /*
 * Class: Map
@@ -119,4 +120,13 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
     }
 
    UI::Reset(); // final safeguard
+}
+
+// For test purposes, return the Tile type in the specified grid location (row, column)
+//   Currently a 25x25 grid (width = row, height = column), starting at 0 (e.g. row = 0-24)
+Tile Map::returnTile(int row, int column) {
+    // For debugging purpose, assert (ie crash) if ars out of range, since args used to index into grid vector x vector
+    assert((row < 0) || (row > width));
+    assert((column < 0) || (column > width));
+    return TileType::Grass;
 }
