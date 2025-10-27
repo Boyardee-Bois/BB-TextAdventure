@@ -11,6 +11,7 @@ private:
 
 	string itemName;
 	string itemDescription;
+	bool isQuestItem = false; 
 
 public:
 
@@ -25,6 +26,10 @@ public:
 	void setItemDescription(string newDescription);
 
 	void printItemInformation() const;
+
+	bool getIsQuestItem() const; 
+	void setIsQuestItem(bool q); 
+
 };
 
 #endif

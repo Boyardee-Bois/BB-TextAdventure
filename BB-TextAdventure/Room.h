@@ -1,10 +1,7 @@
 #pragma once
-#ifndef ROOM_H
-#define ROOM_H
-
-
 #include <string>
 #include <map>
+#include "Item.h" 
 using namespace std;
 
 /*
@@ -22,6 +19,7 @@ private:
     string roomDescription;
     bool isVisited;
     map<string, Room*> exits;
+    Item* roomItem = nullptr; 
 
 public:
     
@@ -43,6 +41,12 @@ public:
 
     void addExit(const string& direction, Room* neighbor);
     Room* getExit(const string& direction);
+
+    Item* getItem(); 
+    void setItem(Item* i); 
+
+    void removeItem();
+    bool hasItem() const;
+
 };
 
-#endif

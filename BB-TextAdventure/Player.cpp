@@ -68,3 +68,41 @@ void Player::movePlayer(char direction)
     if (playerY >= 25) playerY = 24;
 }
 
+void Player::ItemPickUp(Item* item)
+{
+    if (item == nullptr) return;
+
+    // prevent duplicates by name
+    for (auto* it : inventory) {
+        if (it && it->getItemName() == item->getItemName()) {
+            std::cout << "You already have " << item->getItemName() << ".\n";
+            return;
+        }
+    }
+
+    inventory.push_back(item);
+    std::cout << "You picked up " << item->getItemName() << ".\n";
+}
+
+void Player::displayInventory()
+{
+    if (inventory.empty()) {
+        std::cout << "[Inventory] (empty)\n";
+        return;
+    }
+    std::cout << "[Inventory]\n";
+    for (auto* it : inventory) {
+        if (it) std::cout << " - " << it->getItemName()
+            << (it->getIsQuestItem() ? " (Quest Item)" : "")
+            << "\n";
+    }
+}
+
+bool Player::hasItemName(const string& n) const
+{
+    for (auto* it : inventory) {
+        if (it && it->getItemName() == n) return true;
+    }
+    return false;
+}
+

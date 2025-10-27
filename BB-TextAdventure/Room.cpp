@@ -1,4 +1,5 @@
-#include "Room.h"
+#include "Room.h"   
+#include "Item.h"   
 #include <iostream>
 #include <string>
 #include <map>
@@ -139,4 +140,24 @@ Room* Room::getExit(const string& direction)
 	}
 
 	return iterator->second;
+}
+
+Item* Room::getItem()
+{
+	return roomItem;
+}
+
+void Room::setItem(Item* i)
+{
+	roomItem = i;
+}
+
+void Room::removeItem()
+{
+	roomItem = nullptr;
+}
+
+bool Room::hasItem() const
+{
+	return roomItem != nullptr;
 }

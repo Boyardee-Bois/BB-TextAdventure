@@ -67,3 +67,14 @@ void Item::printItemInformation() const
 {
 	cout << itemName << ": " << itemDescription << endl;
 }
+
+
+bool Item::getIsQuestItem() const
+{
+	return isQuestItem;
+}
+
+void Item::setIsQuestItem(bool q)
+{
+	isQuestItem = q;
+}

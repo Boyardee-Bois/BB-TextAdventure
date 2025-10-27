@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-
+#include <vector>
 using namespace std;
 
 /*
@@ -22,6 +22,7 @@ private:
     Room* currentRoom;
     int playerX;       // player's current X position on the map
     int playerY;       // player's current Y position on the map
+    std::vector<Item*> inventory; 
 
 public:
 
@@ -37,5 +38,9 @@ public:
     int getX() const;                      // returns player's x position
     int getY() const;                      // returns player's y position
     void movePlayer(char direction);       // moves player based on input
+
+    void ItemPickUp(Item* item); 
+    void displayInventory(); 
+    bool hasItemName(const string& n) const; 
 };
 #endif
