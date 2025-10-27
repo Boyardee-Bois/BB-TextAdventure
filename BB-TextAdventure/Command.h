@@ -1,43 +1,67 @@
+/**
+ * @file Command.h
+ * @brief Defines the Command class, representing a parsed player command.
+ *
+ * @details
+ * A single player command consisting of a Verb (action)
+ * and an optional Noun (target or direction). 
+ * Unknown values represent invalid or incomplete input.
+ */
 #pragma once
-#ifndef COMMAND_H
-#define COMMAND_H
 
 #include "Verb.h"
 #include "Noun.h"
 
-/*
-* Scope: Represents a single command entered by the player.
-*		 Stores the verb (action), and noun (target).
-*
-*/
-
+ /**
+  * @class Command
+  * @brief Represents a single parsed player command.
+  *
+  * @details
+  * The Command class stores:
+  * - Verb: The player's intended action.
+  * - Noun: The object, target, or direction related to that action.
+  *
+  */
 class Command
 {
 private:
 
-	// The action the player wants to perform
+	/** @brief The verb representing the player's intended action. */
 	Verb commandVerb;
 
-	// The target of the action
+	/** @brief The noun representing the target or direction of the action. */
 	Noun commandNoun;
 
 public:
 
-	// Initializes the command with a verb & noun
+	/**
+	 * @brief Constructs a Command with a specified verb and noun.
+	 * @param verb The action part of the command.
+	 * @param noun The target or direction part of the command.
+	 */
 	Command(Verb verb, Noun noun);
 
-	// Returns the stored verb
+	/**
+	 * @brief Returns the command's verb.
+	 * @return The Verb associated with this command.
+	 */
 	Verb getVerb();
 
-	// Returns the stored noun
+	/**
+	 * @brief Returns the command' noun.
+	 * @return The Noun associated with this command.
+	 */
 	Noun getNoun();
 
-	// Return true if the verb is unknown
+	/**
+	 * @brief Checks if the command verb is unknown.
+	 * @return True if the verb is Verb::Unknown, otherwise false.
+	 */
 	bool isUnknown();
 
-	// Return true if the noun is a valid direction
+	/**
+	 * @brief Checks if the noun represents a valid movement direction.
+	 * @return True if the noun is a directional input (north, south, east, west).
+	 */
 	bool hasDirection();
-
 };
-
-#endif
