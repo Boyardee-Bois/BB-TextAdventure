@@ -16,6 +16,25 @@ namespace BoyardeeBoisAutomatedTests
 		{
 			Logger::WriteMessage("Hello from Boyardee Bois AutomatedTestProject\n");
 		}
+		TEST_METHOD(Get_Grid) 
+		{
+			const int MAX_ROWS = 10;   // for now just pull first 10 rows & columns, rather than all 25
+			const int MAX_COLUMNS = 10;
+			Map gridMap;              // initializes the grid
+			Tile returnedTile;
+			char gridCharArray[MAX_ROWS][MAX_COLUMNS];
+
+			for (int rowIterator = 0; rowIterator < MAX_ROWS; rowIterator++) {
+				string outputString = "";
+				for (int columnIterator = 0; columnIterator < MAX_COLUMNS; columnIterator++) {
+					returnedTile = gridMap.returnTile(rowIterator, columnIterator);
+					gridCharArray[rowIterator][columnIterator] = returnedTile.mapTileToChar();
+					outputString = outputString + gridCharArray[rowIterator][columnIterator] + " ";
+				}
+				outputString += "row" + to_string(rowIterator) + "\n";
+				Logger::WriteMessage(outputString.c_str());
+			}
+		}
 	};
 }
 

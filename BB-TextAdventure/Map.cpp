@@ -126,7 +126,8 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
 //   Currently a 25x25 grid (width = row, height = column), starting at 0 (e.g. row = 0-24)
 Tile Map::returnTile(int row, int column) {
     // For debugging purpose, assert (ie crash) if ars out of range, since args used to index into grid vector x vector
-    assert((row < 0) || (row > width));
-    assert((column < 0) || (column > width));
-    return TileType::Grass;
+    //    assert() fails if condition is NOT met
+    assert((row >= 0) || (row <= width));
+    assert((column >= 0) || (column <= height));
+    return grid[row][column];
 }
