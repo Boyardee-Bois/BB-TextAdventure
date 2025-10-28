@@ -1,3 +1,11 @@
+/**
+ * @file NounLookup.cpp
+ * @brief Implements the NounLookup class used for mapping player input to Noun values.
+ *
+ * @details
+ * Populates a map of valid nouns from a list and
+ * provides lookup, validation, and listing utilities for use by the parser.
+ */
 #include "NounLookup.h"
 #include <vector>
 #include <algorithm>
@@ -5,9 +13,11 @@
 
 using namespace std;
 
-/*
-* A static noun list that will populate the noun lookup constructor.
-*/
+/**
+ * @brief  List of valid nouns used to populate the lookup table.
+ * @details
+ * Extend this list to include new directions or interactive targets.
+ */
 static const vector<pair<string, Noun>> NOUN_LIST =
 {
     {"north", Noun::North},
@@ -19,9 +29,13 @@ static const vector<pair<string, Noun>> NOUN_LIST =
     {"A", Noun::West}
 };
 
-/*
-* Populate the noun lookup map
-*/
+/**
+ * @brief Constructs NounLookup and initializes its map.
+ * 
+ * @details
+ * Populates the validNouns map using predefined values from NOUN_LIST.
+ * Ignores Noun::Unknown entries if present.
+ */
 NounLookup::NounLookup()
 {
     for (auto& input : NOUN_LIST)
@@ -37,10 +51,13 @@ NounLookup::NounLookup()
     }
 }
 
-/*
-* Takes the player's input word
-* and checks if it is in the validNouns map.
-*/
+/**
+ * @brief Retrieves a Noun corresponding to the provided input string.
+ * 
+ * @param input The text input from the player.
+ * 
+ * @return The matching Noun, or Noun::Unknown if no match is found.
+ */
 Noun NounLookup::getNoun(string input)
 {
     auto iterator = validNouns.find(input);
@@ -55,10 +72,13 @@ Noun NounLookup::getNoun(string input)
     }
 }
 
-/*
-* Returns true if the player's input is
-* a match in the valid noun map
-*/
+/**
+ * @brief Checks if the provided input is a valid noun.
+ * 
+ * @param input The input from the player.
+ * 
+ * @return True if the word is recognized, otherwise false.
+ */
 bool NounLookup::isNoun(string input)
 {
     return validNouns.find(input) != validNouns.end();

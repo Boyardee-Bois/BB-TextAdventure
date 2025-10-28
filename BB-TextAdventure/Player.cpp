@@ -1,3 +1,12 @@
+/**
+ * @file Player.cpp
+ * @brief Implements the Player class responsible for tracking position and movement.
+ *
+ * @details
+ * The Player class keeps track of the player's current location in the world
+ * and provides basic movement functionality. 
+ * Movement is controlled using character-based input (W, A, S, D),
+ */
 #include "Player.h"
 #include "Room.h"
 
@@ -8,7 +17,10 @@
 using namespace std;
 
 
-// Contructor: Start the player in "NULL" room
+/**
+ * @brief Default constructor initializing player position and room.
+ * @details The player starts with coordinates (0, 0) and no assigned room.
+ */
 Player::Player()
 {
 	currentRoom = NULL;
@@ -16,33 +28,60 @@ Player::Player()
 	playerY = 0; 
 }
 
-// Set the players current room
+/**
+ * @brief Sets the player's current room.
+ * @param newRoom Pointer to the next Room.
+ */
 void Player::setCurrentRoom(Room* newRoom)
 {
 	currentRoom = newRoom;
 }
 
-// Get the players current room
+/**
+ * @brief Retrieves the player's current room.
+ * @return Pointer to the current Room.
+ */
 Room* Player::getCurrentRoom()
 {
 	return currentRoom;
 }
 
+/**
+ * @brief Sets the player's position on the map.
+ * @param x The new X coordinate.
+ * @param y The new Y coordinate.
+ */
 void Player::setPosition(int x, int y)
 {
 	playerX = x; 
 	playerY = y; 
 }
 
+/**
+ * @brief Returns the player's current X coordinate.
+ * @return The player’s X position.
+ */
 int Player::getX() const
 {
 	return playerX;
 }
 
+/**
+ * @brief Returns the player's current Y coordinate.
+ * @return The player’s Y position.
+ */
 int Player::getY() const
 {
 	return playerY;
 }
+
+/**
+ * @brief Moves the player in a specified direction.
+ * @param direction Character representing movement: 'w' (up), 's' (down), 'a' (left), 'd' (right).
+ *
+ * @details
+ * Updates the player's coordinates based on the given direction.
+ */
 void Player::movePlayer(char direction)
 {
     switch (direction)

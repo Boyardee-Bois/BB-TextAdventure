@@ -1,6 +1,14 @@
+/**
+ * @file Player.h
+ * @brief Defines the Player class, which represents the player in the game world.
+ *
+ * @details
+ * The Player class tracks the player's current location and position.
+ * It is designed to be expanded later with additional gameplay features
+ * such as inventory, health, or stats. Currently, it provides basic
+ * functionality for movement and location tracking.
+ */
 #pragma once
-#ifndef PLAYER_H
-#define PLAYER_H
 
 #include "Room.h"
 #include <iostream>
@@ -9,33 +17,75 @@
 
 using namespace std;
 
-/*
-  Header: PlayerRoomMovement
-  Keeps track of the current room the player is in
-  Uses a switch to notify player that they're input is processed
-*/
+/**
+ * @class Player
+ * @brief Represents the player and manages their current location and position.
+ *
+ * @details
+ * The Player class stores a pointer to the current room the player is in,
+ * along with X and Y coordinates for map tracking. It provides methods to
+ * get and set these values, as well as move the player based on direction input.
+ *
+ * @note This class will be expanded to include features such as inventory,
+ * player stats, and combat.
+ */
 class Player 
 {
 
 private:
 
+    /** @brief Pointer to the current Room where the player is located. */
     Room* currentRoom;
-    int playerX;       // player's current X position on the map
-    int playerY;       // player's current Y position on the map
+
+    /** @brief The player’s current X coordinate on the map. */
+    int playerX;
+
+    /** @brief The player’s current Y coordinate on the map. */
+    int playerY;
 
 public:
 
-    //Constructor
+    /** @brief Default constructor initializing position and room. */
     Player();
 
-    // Set the players current location
+    /**
+     * @brief Sets the player's current room.
+     * @param newRoom Pointer to the Room object to set as current.
+     */
     void setCurrentRoom(Room* newRoom);
 
-    // Get the players current location
+    /**
+     * @brief Gets the player's current room.
+     * @return Pointer to the current Room object.
+     */
     Room* getCurrentRoom();
-    void setPosition(int x, int y);        // sets player's position
-    int getX() const;                      // returns player's x position
-    int getY() const;                      // returns player's y position
-    void movePlayer(char direction);       // moves player based on input
+
+    /**
+     * @brief Sets the player's position.
+     * @param x The X coordinate.
+     * @param y The Y coordinate.
+     */
+    void setPosition(int x, int y);
+    
+    /**
+     * @brief Gets the player's current X coordinate.
+     * @return The X position as an integer.
+     */
+    int getX() const;
+    
+    /**
+     * @brief Gets the player's current Y coordinate.
+     * @return The Y position as an integer.
+     */
+    int getY() const; 
+    
+    /**
+     * @brief Moves the player based on direction input.
+     * @param direction A character representing the movement direction.
+     *
+     * @details
+     * This method updates the player's position and current room based on
+     * valid movement directions and available exits.
+     */
+    void movePlayer(char direction);
 };
-#endif

@@ -10,90 +10,9 @@
 #include "Command.h"         
 #include "Verb.h"            
 #include "Noun.h"
+#include "PlayerActionManager.h"
 
 using namespace std;
-
-
-/*
-* Sample command processing this will need to be moved into
-* a seperate game manager when time permits.
-*/
-void processGoCommand(Command command, Player& player, Map& world)
-{
-	if (!command.hasDirection())
-	{
-		cout << "Go where? (Example: 'go north')" << endl;
-		return;
-	}
-
-	string direction;
-	char moveChar = 0; // for controlling player movement
-
-	switch (command.getNoun())
-	{
-	case Noun::North: 
-		direction = "north"; 
-		moveChar = 'w'; 
-		player.movePlayer(moveChar); 
-		break;
-	case Noun::South:
-		direction = "south"; 
-		moveChar = 's'; 
-		player.movePlayer(moveChar); 
-		break;
-	case Noun::East:  
-		direction = "east";
-		moveChar = 'd'; 
-		player.movePlayer(moveChar); 
-		break;
-	case Noun::West:
-		direction = "west";  
-		moveChar = 'a';
-		player.movePlayer(moveChar);
-		break;
-	case Noun::W:
-		direction = "north";
-		moveChar = 'w'; 
-		player.movePlayer(moveChar); 
-		break;
-	case Noun::S: 
-		direction = "south";
-		moveChar = 's'; 
-		player.movePlayer(moveChar); 
-		break;
-	//case Noun::East:  
-	// direction = "east"; 
-	// moveChar = 'd'; 
-	// break;
-	case Noun::A:  
-		direction = "west";  
-		moveChar = 'a'; 
-		player.movePlayer(moveChar);
-		break;
-	default:
-		break;
-	}
-
-
-	// --- CLEAR AND REDRAW MAP ---
-	system("cls");
-	world.DisplayWithPlayer(player.getX(), player.getY());
-}
-
-
-/*
-* Print the available commands for the player
-* This also should be moved into the game manager
-* once created
-*
-* Not all functionality is implemented
-*/
-void printHelp(CommandParser& parser)
-{
-	cout << "Your available command words are:" << endl;
-	parser.showAllVerbs();
-	cout << "Example: 'go north' or 'quit'" << endl;
-}
 
 int main()
 {
@@ -101,17 +20,17 @@ int main()
 	UI Interface;
 	Map world; // Create our map
 
-
 	Interface.GameIntro();
 	Interface.EnableColor();
 	world.Display();
 	Interface.Reset();
 
-
-
-
+	// Tokenize user input
 	CommandParser parser;
+	// Create the player
 	Player player;
+	// Process the players input
+	PlayerActionManager actionManager;
 
 	// Create rooms for the player to move through
 	Room* lab = new Room("Crashed Lab", "The ruins of the lab. Wires spark and the air smells of ozone.");
@@ -123,8 +42,6 @@ int main()
 	jungle->addExit("south", lab);
 	jungle->addExit("east", beach);
 	beach->addExit("west", jungle);
-
-
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
@@ -151,13 +68,13 @@ int main()
 		switch (command.getVerb())
 		{
 		case Verb::Go:
-			processGoCommand(command, player, world);
+			actionManager.processGoCommand(command, player, world);
 			system("cls"); // clear console before redrawing
 			world.DisplayWithPlayer(player.getX(), player.getY());
 			break;
 
 		case Verb::Help:
-			printHelp(parser);
+			actionManager.printHelp(parser);
 			break;
 
 		case Verb::Quit:

@@ -1,3 +1,11 @@
+/**
+ * @file VerbLookup.cpp
+ * @brief Implements the VerbLookup class for mapping input text to Verb values.
+ *
+ * @details
+ * Populates a map of valid verbs from a list and
+ * provides lookup, validation, and listing utilities for use by the parser.
+ */
 #include "VerbLookup.h"
 #include <iostream>
 #include <vector>
@@ -6,20 +14,21 @@
 
 using namespace std;
 
-/*
-*  A static verb list that will populate the verb word constructor.
-*  This list can be expanded as needed for future updates.
-*
-*/
+/**
+ * @brief Source list of recognized verbs and their enum values.
+ * 
+ * @details Extend this list to add new verbs to the game.
+ */
 static const vector<pair<string, Verb>> VERB_LIST = {
 
 	{"go", Verb::Go},
 	{"help", Verb::Help},
 	{"quit", Verb::Quit}
 };
-/*
-* Populate the verb word list based on the defined valid verbs (actions)
-* in VERB_LIST (available verbs (actions) to the player)
+
+/**
+* @brief Populates the verb map from the list of verbs.
+* @details Ignores Verb::Unknown entries if present.
 */
 VerbLookup::VerbLookup()
 {
@@ -36,13 +45,11 @@ VerbLookup::VerbLookup()
 	}
 }
 
-/*
-* Takes the players and checks if
-* it is in the validVerb map
-*
-* If found returns the Verb value
-* otherwise returns unknown
-*/
+/**
+ * @brief Returns the Verb corresponding to the input text.
+ * @param input Player entered verb.
+ * @return Matching Verb, or Verb::Unknown if not found.
+ */
 Verb VerbLookup::getVerb(string& input)
 {
 	auto iterator = validVerb.find(input);
@@ -57,20 +64,20 @@ Verb VerbLookup::getVerb(string& input)
 	}
 }
 
-/*
-* Returns true if the players input is
-* a match in the valid verb (actions) map
-*/
+/**
+ * @brief Checks whether the input text is a recognized verb.
+ * @param input Player entered verb.
+ * @return True if recognized, false otherwise.
+ */
 bool VerbLookup::isVerb(string& input)
 {
 	return validVerb.find(input) != validVerb.end();
 }
 
-/*
-* Prints all currently implemented verbs (actions) to the console
-*
-* This is used to display the verbs (actions) for the player
-*/
+/**
+ * @brief Prints all recognized verbs on one line.
+ * @details Useful for help output or debugging.
+ */
 void VerbLookup::showAllVerbs()
 {
 	for (const auto& pair : validVerb)
