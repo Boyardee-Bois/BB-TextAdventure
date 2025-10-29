@@ -9,9 +9,10 @@
  * accessor and mutator methods for its attributes.
  */
 #pragma once
-
+#include <iostream>
 #include <string>
 #include <map>
+#include "NPC.h"
 using namespace std;
 
 /**
@@ -45,8 +46,10 @@ private:
     /** @brief Maps exit directions to neighboring rooms. */
     map<string, Room*> exits;
 
+    NPC* roomNPC;
+
 public:
-    
+
     /**
      * @brief Default constructor initializing an empty room.
      */
@@ -118,4 +121,10 @@ public:
      * @return Pointer to the corresponding Room, or nullptr if none exists.
      */
     Room* getExit(const string& direction);
+
+    /*
+    * Sets and Gets an NPC to be placed in a room
+    */
+    void setNPC(NPC* npc);
+    NPC* getNPC() const;
 };

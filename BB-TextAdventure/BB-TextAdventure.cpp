@@ -11,7 +11,7 @@
 #include "Verb.h"            
 #include "Noun.h"
 #include "PlayerActionManager.h"
-
+#include "NPC.h"
 using namespace std;
 
 int main()
@@ -42,6 +42,10 @@ int main()
 	jungle->addExit("south", lab);
 	jungle->addExit("east", beach);
 	beach->addExit("west", jungle);
+
+	//Create an NPC named BeachNPC (for now) and place it in the Beach room
+	NPC beachNPC("BeachNPC", 10, 7);
+	beach->setNPC(&beachNPC);
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
