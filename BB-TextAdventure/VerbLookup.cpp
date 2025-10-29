@@ -23,7 +23,8 @@ static const vector<pair<string, Verb>> VERB_LIST = {
 
 	{"go", Verb::Go},
 	{"help", Verb::Help},
-	{"quit", Verb::Quit}
+	{"quit", Verb::Quit},
+	{"Interact", Verb::Interact}
 };
 
 /**

@@ -5,6 +5,8 @@
 #include<iostream>
 #include <string>
 #include <map>
+#include "Verb.h"
+#include "Noun.h"
 using namespace std;
 
 
@@ -12,13 +14,14 @@ using namespace std;
 
 class NPC {
 private:
-	string npcName;
+    string npcName;
+    int npc_xcoord;
+    int npc_ycoord;
 public:
-	int npc_xcoord, npc_ycoord;
-	NPC(string npcName, int x_coord, int y_coord);
-	//Checks if Player is same coordinates as NPC
-	bool player_Coord_Check(int x_coord, int y_coord);
-	void interact();
+    NPC(string npcName, int x_coord, int y_coord);
+    bool player_Coord_Check(int x_coord, int y_coord);
+    void interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY);
 };
+
 
 #endif
