@@ -76,8 +76,8 @@ void Player::ItemPickUp(Item* item)
     inventory.push_back(item);
 
     cout << "You picked up: " << item->getItemName();
-    if (item->getIsQuestItem())
-        cout << " (Quest Item)";
+    //if (item->getIsQuestItem())
+       
     cout << "\n";
 }
 

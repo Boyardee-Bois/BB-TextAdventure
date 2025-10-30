@@ -21,7 +21,8 @@ using namespace std;
 {
 	if (!command.hasDirection()) {
 		cout << "Go where? (Example: 'go north')" << endl;
-		return;
+		system("pause");
+		
 	}
 
 	char moveChar = 0;
@@ -76,9 +77,7 @@ int main()
 
 
 	Interface.GameIntro();
-	Interface.EnableColor();
-	world.Display();
-	Interface.Reset();
+	
 
 
 
@@ -124,9 +123,9 @@ int main()
 	// Sample main game loop: will be updated later
 	while (!finished)
 	{
+		
 		// clear screen *first*, so the map redraws at top
 		system("cls");
-
 		// draw the map and player position first
 		world.DisplayWithPlayer(player.getX(), player.getY());
 
@@ -145,6 +144,7 @@ int main()
 
 		case Verb::Help:
 			printHelp(parser);
+			system("pause");
 			break;
 
 		case Verb::Quit:
@@ -163,8 +163,6 @@ int main()
 				Item* item = tile.getItem();
 				player.ItemPickUp(item);
 				tile.removeItem();
-
-				cout << "You picked up the " << item->getItemName() << "!\n";
 				system("pause"); //  Waits for user input (press any key)
 			}
 			else
@@ -184,6 +182,7 @@ int main()
 
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;
+			system("pause");
 			break;
 		}
 	}

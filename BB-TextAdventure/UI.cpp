@@ -55,6 +55,8 @@ void UI::HelpMenu()
 
 bool UI::GameIntroParser()
 {
+	UI Interface; 
+	Map world; 
 	while (true)
 	{
 		cout << "\nPress P to start the Game\nPress H for Game Help\n\n ";
@@ -87,14 +89,19 @@ bool UI::GameIntroParser()
 
 			if (choice == 'P' || choice == 'p')
 			{
-				//Leaving space here to call in Game methods later
-				//ie. Game game; game.StartGame(); or whatever
+				Interface.EnableColor();
+				world.Display();
+				Interface.Reset();
 				return true;
 			}
 
 			if (choice == 'H' || choice == 'h')
 			{
+				system("cls");
 				UI::HelpMenu();
+				system("pause");
+				system("cls"); 
+			
 
 				return false;
 			}
