@@ -106,33 +106,40 @@ void Map::Display() const {
         std::cout << std::endl;
     }
 }
-
 void Map::DisplayWithPlayer(int playerX, int playerY) const
 {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
 
             const Tile& tile = grid[y][x];
-            UI::Reset();
-            UI::SetColor(tile.getColorCode()); // use tile color (grass, dirt, etc.)
+            int colorCode = tile.getColorCode();
+
+            // Set tile color first (background color)
+            UI::SetColor(colorCode);
 
             if (x == playerX && y == playerY) {
-                std::cout << "P"; // player
+                // Draw player icon ON TOP of tile color
+                std::cout << "P ";
             }
             else if (tile.getItem() != nullptr) {
-                std::cout << "I"; // item
+                // Item sits on its tile color too
+                std::cout << "I ";
             }
             else {
-                tile.Display(); // normal terrain
+                // Default tile display (terrain)
+                tile.Display();
+               
             }
 
+            // Reset AFTER each tile
             UI::Reset();
         }
         std::cout << std::endl;
     }
 
-    UI::Reset(); // safeguard after all rendering
+    UI::Reset(); // safety reset
 }
+
 
 Tile& Map::getTilePos(int x, int y)
 {

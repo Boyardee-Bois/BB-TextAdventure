@@ -74,10 +74,13 @@ void processGoCommand(Command command, Player& player, Map& world)
 		break;
 	}
 
+	
 
-	// --- CLEAR AND REDRAW MAP ---
 	system("cls");
 	world.DisplayWithPlayer(player.getX(), player.getY());
+
+	
+
 }
 
 
@@ -131,6 +134,9 @@ int main()
 	player.setPosition(13, 13);
 	system("cls");
 	world.DisplayWithPlayer(player.getX(), player.getY());
+	Interface.SectionSeperator();
+	player.getCurrentRoom()->printRoomInformation();
+
 
 	//adding for Testing purposes: putting an item in the starting area
 	Item* testItem = new Item(); 
@@ -144,21 +150,27 @@ int main()
 
 	bool finished = false;
 
+	
 	// Sample main game loop: will be updated later
 	while (!finished)
 	{
+		// clear screen *first*, so the map redraws at top
+		system("cls");
+
+		// draw the map and player position first
+		world.DisplayWithPlayer(player.getX(), player.getY());
+
+		// now draw the separator and current room info below the map
 		Interface.SectionSeperator();
-		
-		player.getCurrentRoom()->printRoomInformation();
-		
+		//player.getCurrentRoom()->printRoomInformation();
+
+		// now prompt for input (so it stays below everything)
 		Command command = parser.getCommand();
 
 		switch (command.getVerb())
 		{
 		case Verb::Go:
 			processGoCommand(command, player, world);
-			system("cls"); // clear console before redrawing
-			world.DisplayWithPlayer(player.getX(), player.getY());
 			break;
 
 		case Verb::Help:
@@ -171,43 +183,40 @@ int main()
 
 		case Verb::Pickup:
 		{
-			// Player’s tile position
 			int playerTilePosX = player.getX();
 			int playerTilePosY = player.getY();
 
-			// Get the tile from the map
 			Tile& tile = world.getTilePos(playerTilePosX, playerTilePosY);
 
-			// Check if item exists
 			if (tile.getItem() != nullptr)
 			{
 				Item* item = tile.getItem();
 				player.ItemPickUp(item);
-				tile.removeItem();   // ? clears from map grid
-				cout << "Item removed from map.\n";
+				tile.removeItem();
+
+				cout << "You picked up the " << item->getItemName() << "!\n";
+				system("pause"); //  Waits for user input (press any key)
 			}
 			else
 			{
 				cout << "No item here.\n";
+				system("pause");
 			}
 
 			system("cls");
 			world.DisplayWithPlayer(player.getX(), player.getY());
 			break;
 		}
-
-
-
 		case Verb::Open:
 			player.displayInventory();
-			break; 
-
+			break;
 
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;
 			break;
 		}
 	}
+
 
 	cout << "\nGood-Bye" << endl;
 
