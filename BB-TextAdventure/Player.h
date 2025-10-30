@@ -47,8 +47,7 @@ private:
     //int playerY;
 
 public:
-    int playerX;
-    int playerY;
+    
     /** @brief Default constructor initializing position and room. */
     Player();
 
@@ -72,4 +71,3 @@ public:
     void displayInventory(); 
     bool hasItemName(const string& n) const; 
 };
-#endif

@@ -60,7 +60,8 @@ void Map::BuildStoneRegion() {
 
 /**
  * Builds our dirt path 
- */void Map::BuildDirtPath() {
+ */void Map::BuildDirtPath() 
+ {
  // Top-left dirt cluster (shifted left)
      grid[3][10] = grid[3][11] = grid[3][13] = grid[3][15] = grid[3][17] = Tile(TileType::Dirt);
 
@@ -149,10 +150,11 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
             /**
             * @brief Displays NPC on map
             */
-            else if (x == 10 && y == 7) {
+            else if (x == 10 && y == 7) 
+            {
                 x = npc_xcoord;
                 y = npc_ycoord;
-                cout << "N";
+                cout << "N" << " ";
                 x = 10;
                 y = 7;
                 UI::Reset();

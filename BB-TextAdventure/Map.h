@@ -9,6 +9,9 @@ class Map {
 private:
     int width;
     int height;
+    int npc_xcoord;
+    int npc_ycoord;
+
     std::vector<std::vector<Tile>> grid; //2D grid of all tiles in said map
     void BuildStoneRegion();  // Creates the upper stone area
     void BuildDirtPath();     // Lays out the dirt trail/path

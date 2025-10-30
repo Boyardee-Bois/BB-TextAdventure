@@ -162,6 +162,8 @@ void Room::setNPC(NPC* npc)
 NPC* Room::getNPC() const
 {
 	return nullptr;
+}
+
 Item* Room::getItem()
 {
 	return roomItem;
