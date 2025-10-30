@@ -72,7 +72,8 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY) {
 			cin >> choice;
 
 			if (choice == 1) {
-				cout << npcName << " Please find me a specific rock!\n";
+				cout << npcName << " Ooga Booga! (There's a shiny thing by the water!)\n";
+				system("pause");
 				helpNPC = true;
 			}
 
