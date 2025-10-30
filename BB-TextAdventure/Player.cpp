@@ -60,6 +60,7 @@ void Player::movePlayer(char direction)
         playerX++;
         break;
     }
+    
 
     // Keep player inside map boundaries (25x25 for example)
     if (playerX < 0) playerX = 0;

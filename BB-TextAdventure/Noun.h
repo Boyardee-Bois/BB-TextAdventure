@@ -17,6 +17,7 @@ enum class Noun
 	W,
 	A,
 	S,
+	D,
 	Item, 
 	Inventory,
 	Unknown

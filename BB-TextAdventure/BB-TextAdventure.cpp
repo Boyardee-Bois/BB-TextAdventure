@@ -17,71 +17,41 @@ using namespace std;
 /*
 * Sample command processing this will need to be moved into
 * a seperate game manager when time permits.
-*/
-void processGoCommand(Command command, Player& player, Map& world)
+*/void processGoCommand(Command command, Player& player, Map& world)
 {
-	if (!command.hasDirection())
-	{
+	if (!command.hasDirection()) {
 		cout << "Go where? (Example: 'go north')" << endl;
 		return;
 	}
 
-	string direction;
-	char moveChar = 0; // for controlling player movement
+	char moveChar = 0;
 
 	switch (command.getNoun())
 	{
-	case Noun::North: 
-		direction = "north"; 
-		moveChar = 'w'; 
-		player.movePlayer(moveChar); 
+	case Noun::North:
+	case Noun::W:
+		moveChar = 'w';
 		break;
 	case Noun::South:
-		direction = "south"; 
-		moveChar = 's'; 
-		player.movePlayer(moveChar); 
+	case Noun::S:
+		moveChar = 's';
 		break;
-	case Noun::East:  
-		direction = "east";
-		moveChar = 'd'; 
-		player.movePlayer(moveChar); 
+	case Noun::East:
+		moveChar = 'd';
 		break;
 	case Noun::West:
-		direction = "west";  
+	case Noun::A:
 		moveChar = 'a';
-		player.movePlayer(moveChar);
-		break;
-	case Noun::W:
-		direction = "north";
-		moveChar = 'w'; 
-		player.movePlayer(moveChar); 
-		break;
-	case Noun::S: 
-		direction = "south";
-		moveChar = 's'; 
-		player.movePlayer(moveChar); 
-		break;
-	//case Noun::East:  
-	// direction = "east"; 
-	// moveChar = 'd'; 
-	// break;
-	case Noun::A:  
-		direction = "west";  
-		moveChar = 'a'; 
-		player.movePlayer(moveChar);
 		break;
 	default:
-		break;
+		cout << "Invalid direction.\n";
+		return;
 	}
 
-	
-
-	system("cls");
-	world.DisplayWithPlayer(player.getX(), player.getY());
-
-	
-
+	// Move the player (no redraw or cls here)
+	player.movePlayer(moveChar);
 }
+
 
 
 /*
@@ -162,7 +132,7 @@ int main()
 
 		// now draw the separator and current room info below the map
 		Interface.SectionSeperator();
-		//player.getCurrentRoom()->printRoomInformation();
+		Interface.DisplayObjective("Retrieve the Arc Reactor (@) near the water.");
 
 		// now prompt for input (so it stays below everything)
 		Command command = parser.getCommand();
