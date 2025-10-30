@@ -84,17 +84,28 @@ void Player::ItemPickUp(Item* item)
 
 void Player::displayInventory()
 {
+    // If the inventory is empty
     if (inventory.empty()) {
         cout << "[Inventory] (empty)\n";
         return;
     }
-    std::cout << "[Inventory]\n";
-    for (auto* it : inventory) {
-        if (it) cout << " - " << it->getItemName()
-            << (it->getIsQuestItem() ? " (Quest Item)" : "")
-            << "\n";
+    cout << "[Inventory]\n";
+
+    // Go through each item in the player's inventory
+    for (auto* item : inventory) {
+        if (item) {
+            cout << " - " << item->getItemName();
+
+            // If the item is a quest item, show that label
+            if (item->getIsQuestItem()) {
+                cout << " (Quest Item)";
+            }
+
+            cout << "\n";
+        }
     }
 }
+
 
 bool Player::hasItemName(const string& n) const
 {

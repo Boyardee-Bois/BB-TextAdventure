@@ -179,6 +179,7 @@ int main()
 		}
 		case Verb::Open:
 			player.displayInventory();
+			system("pause");
 			break;
 
 		case Verb::Unknown:
