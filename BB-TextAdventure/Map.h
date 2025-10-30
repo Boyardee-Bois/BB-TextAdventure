@@ -19,4 +19,6 @@ public:
     void Display() const; //Display map function to actually see everything
     void DisplayWithPlayer(int playerX, int playerY) const;
 
+    //void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
+
 };

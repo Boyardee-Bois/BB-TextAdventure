@@ -12,6 +12,7 @@
 #include "Noun.h"
 #include "PlayerActionManager.h"
 #include "NPC.h"
+
 using namespace std;
 
 int main()
@@ -45,7 +46,9 @@ int main()
 
 	//Create an NPC named BeachNPC (for now) and place it in the Beach room
 	NPC beachNPC("BeachNPC", 10, 7);
-	beach->setNPC(&beachNPC);
+	lab->setNPC(&beachNPC);
+	beachNPC.setNPC_Position(10, 7);
+	//world.DisplayWithNPC(beachNPC.getNPC_X(), beachNPC.getNPC_Y());
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
@@ -85,6 +88,17 @@ int main()
 			finished = true;
 			break;
 
+		case Verb::Interact:
+		{
+			int npcX = beachNPC.getNPC_X();
+			int npcY = beachNPC.getNPC_Y();
+			int playerX = player.getX();
+			int playerY = player.getY();
+			if (playerX == npcX && playerY == npcY) {
+				beachNPC.interact(command.getVerb(), command.getNoun(), playerX, playerY);
+			}
+			break;
+		}
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;
 			break;

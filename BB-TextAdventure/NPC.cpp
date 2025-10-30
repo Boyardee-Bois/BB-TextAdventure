@@ -17,19 +17,44 @@ NPC::NPC(string npcName, int x_coord, int y_coord)
 	npc_xcoord = x_coord;
 	npc_ycoord = y_coord;
 	
-	//Player::playerX = player_xcoord;
-	//Player::playerY = player_ycoord;
+	//Player::playerX = playerX;
+	//Player::playerY = playerY;
 }
-/*
-int NPC::getY() const
+
+/**
+ * @brief Sets the NPC's position on the map.
+ * @param x The new X coordinate.
+ * @param y The new Y coordinate.
+ */
+void NPC::setNPC_Position(int npcX, int npcY)
+{
+	npc_xcoord = npcX;
+	npc_ycoord = npcY;
+}
+
+/**
+ * @brief Returns the NPC's current X coordinate.
+ * @return The NPC’s X position.
+ */
+int NPC::getNPC_X() const
 {
 	return npc_xcoord;
 }
-*/
-//Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
-bool NPC::player_Coord_Check(int x_coord, int y_coord) {
-	return (x_coord == npc_xcoord && y_coord == npc_ycoord);
+
+/**
+ * @brief Returns the NPC's current Y coordinate.
+ * @return The NPC’s Y position.
+ */
+int NPC::getNPC_Y() const
+{
+	return npc_ycoord;
 }
+
+//Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
+bool NPC::player_Coord_Check(int playerX, int playerY) {
+	return (playerX == npc_xcoord && playerY == npc_ycoord);
+}
+
 //The code for when player interacts
 void NPC::interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY) {
 
