@@ -88,7 +88,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY) {
 		}
 	}
 	else if (playerVerb == Verb::Interact && playerNoun == Noun::NPC) {
-		cout << "You can't interact yet! Move closer.\n";
+		cout << "You can't interact yet!\n";
 	}
 	
 	else {

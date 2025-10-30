@@ -17,6 +17,7 @@ private:
     string npcName;
     int npc_xcoord;
     int npc_ycoord;
+
 public:
     NPC(string npcName, int x_coord, int y_coord);
     bool player_Coord_Check(int playerX, int playerY);

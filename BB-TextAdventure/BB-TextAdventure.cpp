@@ -94,6 +94,9 @@ int main()
 			int npcY = beachNPC.getNPC_Y();
 			int playerX = player.getX();
 			int playerY = player.getY();
+			cout << npcX << " " << npcY << " " << playerX << " " << playerY << endl;
+			//Tile& tile = world.getTilePos(npcX, npcY);
+			beachNPC.player_Coord_Check(playerX, playerY);
 			if (playerX == npcX && playerY == npcY) {
 				beachNPC.interact(command.getVerb(), command.getNoun(), playerX, playerY);
 			}
