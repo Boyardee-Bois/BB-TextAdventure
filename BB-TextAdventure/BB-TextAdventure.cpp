@@ -131,7 +131,7 @@ int main()
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
-	player.setPosition(13, 13);
+	player.setPosition(5, 8);
 	system("cls");
 	world.DisplayWithPlayer(player.getX(), player.getY());
 	Interface.SectionSeperator();

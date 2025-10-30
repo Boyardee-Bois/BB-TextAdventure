@@ -3,7 +3,14 @@
 #include "UI.h"
 #include "Item.h"
 
-enum class TileType { Grass, Stone, Dirt, Water };
+enum class TileType {
+    Grass,
+    Stone,
+    Water,
+    Dirt,
+    RedLight  
+};
+
 
 class Tile {
 private:

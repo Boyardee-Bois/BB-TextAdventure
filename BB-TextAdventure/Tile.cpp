@@ -11,33 +11,32 @@ Tile::Tile(TileType t) : type(t)
 }
 
 
-int Tile::getColorCode() const
+int Tile::getColorCode() const 
 {
-    switch (type)
-    {
-    case TileType::Grass: 
-        return Green;
-    case TileType::Stone:
-        return Gray;
-    case TileType::Dirt:  
-        return Brown;
-    case TileType::Water: 
-        return Blue;
-    default: return 0;
+    switch (type) {
+    case TileType::Grass: return Green;
+    case TileType::Water: return Blue;
+    case TileType::Dirt:  return Brown;
+    case TileType::Stone: return Gray;
+    case TileType::RedLight: return Red; 
+
+    default: return Green;
     }
 }
+
+
 
 
 //Displays the color of each assigned tile
 void Tile::Display() const {
     switch (type) {
     case TileType::Grass:
-        UI::SetColor(Green); 
+        UI::SetColor(Green);
         std::cout << "  ";
         UI::Reset();
         break;
     case TileType::Water:
-        UI::SetColor(Blue); 
+        UI::SetColor(Blue);
         std::cout << "  ";
         UI::Reset();
         break;
@@ -47,12 +46,18 @@ void Tile::Display() const {
         UI::Reset();
         break;
     case TileType::Stone:
-        UI::SetColor(Gray); 
+        UI::SetColor(Gray);
+        std::cout << "  ";
+        UI::Reset();
+        break;
+    case TileType::RedLight:
+        UI::SetColor(Red);
         std::cout << "  ";
         UI::Reset();
         break;
     }
 }
+
 
 //Returns current type of tile terrain
 TileType Tile::GetType() const

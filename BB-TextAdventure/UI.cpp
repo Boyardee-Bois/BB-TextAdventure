@@ -125,3 +125,8 @@ void UI::Reset()
 {
 	std::cout << "\033[0m";
 }
+
+void UI::DisplayObjective(const string& objective)
+{
+	cout << "Current Objective: " << objective << "\n";
+}
