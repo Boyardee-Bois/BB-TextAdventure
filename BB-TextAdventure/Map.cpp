@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "UI.h"
+#include "Item.h"
 #include <iostream>
 
 /*
@@ -12,6 +13,9 @@
 Map::Map() {
     width = 25;
     height = 25;
+    Item* questItem = new Item();
+    questItem->setItemName("Arc Reactor"); 
+    questItem->setIsQuestItem(true); 
 
     // Initialize full map with grass tiles
     grid = std::vector<std::vector<Tile>>(height, std::vector<Tile>(width, Tile(TileType::Grass)));
@@ -20,6 +24,10 @@ Map::Map() {
     Map::BuildStoneRegion();
     Map::BuildDirtPath();
     Map::BuildWaterArea();
+    
+
+   grid[12][12].setItem(questItem); 
+    
 }
 
    // Builds the stone region in the top left of the map
@@ -99,24 +107,39 @@ void Map::Display() const {
     }
 }
 
-
 void Map::DisplayWithPlayer(int playerX, int playerY) const
 {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
 
-            UI::Reset(); //  Always reset color before each tile
+            const Tile& tile = grid[y][x];
+            UI::Reset();
+            UI::SetColor(tile.getColorCode()); // use tile color (grass, dirt, etc.)
 
             if (x == playerX && y == playerY) {
-                std::cout << "P";
-                UI::Reset(); 
+                std::cout << "P"; // player
+            }
+            else if (tile.getItem() != nullptr) {
+                std::cout << "I"; // item
             }
             else {
-                grid[y][x].Display();
+                tile.Display(); // normal terrain
             }
+
+            UI::Reset();
         }
         std::cout << std::endl;
     }
 
-   UI::Reset(); // final safeguard
+    UI::Reset(); // safeguard after all rendering
+}
+
+Tile& Map::getTilePos(int x, int y)
+{
+    if (y < 0) y = 0;
+    if (x < 0) x = 0;
+    if (y >= height) y = height - 1;
+    if (x >= width)  x = width - 1;
+
+    return grid[y][x];
 }

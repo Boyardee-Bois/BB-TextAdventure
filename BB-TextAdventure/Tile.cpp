@@ -4,8 +4,29 @@
 using namespace std;
 
 
+Tile::Tile(TileType t) : type(t)
+{
+   gameItem = nullptr;
+ 
+}
 
-Tile::Tile(TileType t) : type(t) {} //Default constructor
+
+int Tile::getColorCode() const
+{
+    switch (type)
+    {
+    case TileType::Grass: 
+        return Green;
+    case TileType::Stone:
+        return Gray;
+    case TileType::Dirt:  
+        return Brown;
+    case TileType::Water: 
+        return Blue;
+    default: return 0;
+    }
+}
+
 
 //Displays the color of each assigned tile
 void Tile::Display() const {
@@ -45,4 +66,33 @@ void Tile::SetType(TileType t)
     type = t; 
 }
 
+void Tile::Display()
+{
+    UI::SetColor(static_cast<int>(Gray));
+
+    if (gameItem != nullptr)
+    {
+        cout << "I"; 
+    }
+    else
+    {
+         UI::SetColor(Green); 
+    }
+
+}
+
+void Tile::setItem(Item* item)
+{
+    gameItem = item; 
+}
+
+Item* Tile::getItem() const
+{
+    return gameItem;
+}
+
+void Tile::removeItem()
+{
+    gameItem = nullptr; 
+}
 

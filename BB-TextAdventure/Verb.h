@@ -13,6 +13,8 @@ enum class Verb
 	Go,
 	Help,
 	Quit,
+	Pickup, 
+	Open,
 	Unknown
 };
 

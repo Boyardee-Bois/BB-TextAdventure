@@ -19,6 +19,7 @@ public:
 
 	Item(string newName, string newDescription);
 
+
 	string getItemName();
 	void setItemName(string newName);
 

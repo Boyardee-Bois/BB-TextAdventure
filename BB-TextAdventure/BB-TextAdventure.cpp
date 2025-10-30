@@ -132,6 +132,11 @@ int main()
 	system("cls");
 	world.DisplayWithPlayer(player.getX(), player.getY());
 
+	//adding for Testing purposes: putting an item in the starting area
+	Item* testItem = new Item(); 
+	testItem->setItemName("Arc Reactor"); 
+	testItem->setIsQuestItem(true); 
+	lab->setItem(testItem);
 
 	// Sample statement to display game is starting
 	cout << "\nGAME STARTING...\n";
@@ -163,6 +168,40 @@ int main()
 		case Verb::Quit:
 			finished = true;
 			break;
+
+		case Verb::Pickup:
+		{
+			// Player’s tile position
+			int playerTilePosX = player.getX();
+			int playerTilePosY = player.getY();
+
+			// Get the tile from the map
+			Tile& tile = world.getTilePos(playerTilePosX, playerTilePosY);
+
+			// Check if item exists
+			if (tile.getItem() != nullptr)
+			{
+				Item* item = tile.getItem();
+				player.ItemPickUp(item);
+				tile.removeItem();   // ? clears from map grid
+				cout << "Item removed from map.\n";
+			}
+			else
+			{
+				cout << "No item here.\n";
+			}
+
+			system("cls");
+			world.DisplayWithPlayer(player.getX(), player.getY());
+			break;
+		}
+
+
+
+		case Verb::Open:
+			player.displayInventory();
+			break; 
+
 
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;

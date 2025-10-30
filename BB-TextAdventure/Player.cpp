@@ -72,27 +72,24 @@ void Player::ItemPickUp(Item* item)
 {
     if (item == nullptr) return;
 
-    // prevent duplicates by name
-    for (auto* it : inventory) {
-        if (it && it->getItemName() == item->getItemName()) {
-            std::cout << "You already have " << item->getItemName() << ".\n";
-            return;
-        }
-    }
-
     inventory.push_back(item);
-    std::cout << "You picked up " << item->getItemName() << ".\n";
+
+    cout << "You picked up: " << item->getItemName();
+    if (item->getIsQuestItem())
+        cout << " (Quest Item)";
+    cout << "\n";
 }
+
 
 void Player::displayInventory()
 {
     if (inventory.empty()) {
-        std::cout << "[Inventory] (empty)\n";
+        cout << "[Inventory] (empty)\n";
         return;
     }
     std::cout << "[Inventory]\n";
     for (auto* it : inventory) {
-        if (it) std::cout << " - " << it->getItemName()
+        if (it) cout << " - " << it->getItemName()
             << (it->getIsQuestItem() ? " (Quest Item)" : "")
             << "\n";
     }

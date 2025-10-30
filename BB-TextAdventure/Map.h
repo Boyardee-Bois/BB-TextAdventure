@@ -18,5 +18,6 @@ public:
     Map(); //builds said map
     void Display() const; //Display map function to actually see everything
     void DisplayWithPlayer(int playerX, int playerY) const;
+    Tile& getTilePos(int x, int y);
 
 };

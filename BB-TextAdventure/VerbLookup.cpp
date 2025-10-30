@@ -15,7 +15,9 @@ static const vector<pair<string, Verb>> VERB_LIST = {
 
 	{"go", Verb::Go},
 	{"help", Verb::Help},
-	{"quit", Verb::Quit}
+	{"quit", Verb::Quit},
+	{"Pickup", Verb::Pickup},
+	{"Open", Verb::Open}
 };
 /*
 * Populate the verb word list based on the defined valid verbs (actions)

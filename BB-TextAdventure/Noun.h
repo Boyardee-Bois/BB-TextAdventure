@@ -17,6 +17,8 @@ enum class Noun
 	W,
 	A,
 	S,
+	Item, 
+	Inventory,
 	Unknown
 };
 
