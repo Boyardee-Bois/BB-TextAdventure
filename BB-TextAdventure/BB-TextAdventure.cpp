@@ -15,6 +15,62 @@
 
 using namespace std;
 
+
+/*
+* Sample command processing this will need to be moved into
+* a seperate game manager when time permits.
+*/void processGoCommand(Command command, Player& player, Map& world)
+{
+	if (!command.hasDirection()) {
+		cout << "Go where? (Example: 'go north')" << endl;
+		system("pause");
+		
+	}
+
+	char moveChar = 0;
+
+	switch (command.getNoun())
+	{
+	case Noun::North:
+	case Noun::W:
+		moveChar = 'w';
+		break;
+	case Noun::South:
+	case Noun::S:
+		moveChar = 's';
+		break;
+	case Noun::East:
+		moveChar = 'd';
+		break;
+	case Noun::West:
+	case Noun::A:
+		moveChar = 'a';
+		break;
+	default:
+		cout << "Invalid direction.\n";
+		return;
+	}
+
+	// Move the player (no redraw or cls here)
+	player.movePlayer(moveChar);
+}
+
+
+
+/*
+* Print the available commands for the player
+* This also should be moved into the game manager
+* once created
+*
+* Not all functionality is implemented
+*/
+void printHelp(CommandParser& parser)
+{
+	cout << "Your available command words are:" << endl;
+	parser.showAllVerbs();
+	cout << "Example: 'go north' or 'quit'" << endl;
+}
+
 int main()
 {
 
@@ -22,9 +78,7 @@ int main()
 	Map world; // Create our map
 
 	Interface.GameIntro();
-	Interface.EnableColor();
-	world.Display();
-	Interface.Reset();
+	
 
 	// Tokenize user input
 	CommandParser parser;
@@ -52,10 +106,18 @@ int main()
 
 	// Set the players current room
 	player.setCurrentRoom(lab);
-	player.setPosition(13, 13);
+	player.setPosition(5, 8);
 	system("cls");
 	world.DisplayWithPlayer(player.getX(), player.getY());
+	Interface.SectionSeperator();
+	player.getCurrentRoom()->printRoomInformation();
 
+
+	//adding for Testing purposes: putting an item in the starting area
+	Item* testItem = new Item(); 
+	testItem->setItemName("Arc Reactor"); 
+	testItem->setIsQuestItem(true); 
+	lab->setItem(testItem);
 
 	// Sample statement to display game is starting
 	cout << "\nGAME STARTING...\n";
@@ -63,13 +125,21 @@ int main()
 
 	bool finished = false;
 
+	
 	// Sample main game loop: will be updated later
 	while (!finished)
 	{
+		
+		// clear screen *first*, so the map redraws at top
+		system("cls");
+		// draw the map and player position first
+		world.DisplayWithPlayer(player.getX(), player.getY());
+
+		// now draw the separator and current room info below the map
 		Interface.SectionSeperator();
-		
-		player.getCurrentRoom()->printRoomInformation();
-		
+		Interface.DisplayObjective("Retrieve the Arc Reactor (@) near the water.");
+
+		// now prompt for input (so it stays below everything)
 		Command command = parser.getCommand();
 
 		switch (command.getVerb())
@@ -82,6 +152,7 @@ int main()
 
 		case Verb::Help:
 			actionManager.printHelp(parser);
+			system("pause");
 			break;
 
 		case Verb::Quit:
@@ -102,11 +173,42 @@ int main()
 			}
 			break;
 		}
+		case Verb::Pickup:
+		{
+			int playerTilePosX = player.getX();
+			int playerTilePosY = player.getY();
+
+			Tile& tile = world.getTilePos(playerTilePosX, playerTilePosY);
+
+			if (tile.getItem() != nullptr)
+			{
+				Item* item = tile.getItem();
+				player.ItemPickUp(item);
+				tile.removeItem();
+				system("pause"); 
+			}
+			else
+			{
+				cout << "No item here.\n";
+				system("pause");
+			}
+
+			system("cls");
+			world.DisplayWithPlayer(player.getX(), player.getY());
+			break;
+		}
+		case Verb::Open:
+			player.displayInventory();
+			system("pause");
+			break;
+
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;
+			system("pause");
 			break;
 		}
 	}
+
 
 	cout << "\nGood-Bye" << endl;
 

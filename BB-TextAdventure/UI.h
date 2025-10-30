@@ -15,10 +15,14 @@ This will handle all output text for the game (UI stuff, messages, backstory, Ma
 
 //This class should hold every display message/Color for the UI and map
 
-constexpr int Green = 34;   
-constexpr int Blue = 27;   
-constexpr int Brown = 94;  
-constexpr int Gray = 240;   
+enum Color 
+{
+	Green = 34,
+	Blue = 27,
+	Brown = 94,
+	Gray = 240,
+	Red = 196
+};
 
 class UI
 {
@@ -29,6 +33,7 @@ public:
 	static void EnableColor();
 	static void SetColor(int color);
 	static void Reset();
+	void DisplayObjective(const string& objective);
 	static void SectionSeperator();
 	
 

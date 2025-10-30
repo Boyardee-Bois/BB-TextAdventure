@@ -4,7 +4,7 @@
  *
  * @details
  * The Noun enum represents the target or object portion
- * of a player’s command. Each value corresponds to a recognized
+ * of a playerï¿½s command. Each value corresponds to a recognized
  * direction or interactable target in the game world.
  * Unrecognized inputs default to Noun::Unknown.
  */
@@ -29,5 +29,8 @@ enum class Noun
 	A,
 	S,
 	NPC,
+	D,
+	Item, 
+	Inventory,
 	Unknown
 };

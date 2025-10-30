@@ -9,6 +9,8 @@
  * mutators, and utility methods to display information and manage exits.
  */
 #include "Room.h"
+#include "Room.h"   
+#include "Item.h"   
 #include <iostream>
 #include <string>
 #include <map>
@@ -154,9 +156,28 @@ Room* Room::getExit(const string& direction)
 
 void Room::setNPC(NPC* npc)
 {
+  //Placeholder
 }
 
 NPC* Room::getNPC() const
 {
 	return nullptr;
+Item* Room::getItem()
+{
+	return roomItem;
+}
+
+void Room::setItem(Item* i)
+{
+	roomItem = i;
+}
+
+void Room::removeItem()
+{
+	roomItem = nullptr;
+}
+
+bool Room::hasItem() const
+{
+	return roomItem != nullptr;
 }

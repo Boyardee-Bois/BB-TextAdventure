@@ -13,6 +13,7 @@
 #include <string>
 #include <map>
 #include "NPC.h"
+#include "Item.h" 
 using namespace std;
 
 /**
@@ -45,6 +46,7 @@ private:
 
     /** @brief Maps exit directions to neighboring rooms. */
     map<string, Room*> exits;
+    Item* roomItem = nullptr; 
 
     NPC* roomNPC;
 
@@ -128,3 +130,12 @@ public:
     void setNPC(NPC* npc);
     NPC* getNPC() const;
 };
+
+    Item* getItem(); 
+    void setItem(Item* i); 
+
+    void removeItem();
+    bool hasItem() const;
+
+};
+

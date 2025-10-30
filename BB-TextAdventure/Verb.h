@@ -21,5 +21,7 @@ enum class Verb
 	Help,
 	Quit,
 	Interact,
+	Pickup, 
+	Open,
 	Unknown
 };

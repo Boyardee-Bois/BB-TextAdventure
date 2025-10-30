@@ -31,6 +31,7 @@ private:
 
 	/** @brief The description details about the item. */
 	string itemDescription;
+	bool isQuestItem = false; 
 
 public:
 
@@ -44,10 +45,7 @@ public:
 	 */
 	Item(string newName, string newDescription);
 
-	/**
-	 * @brief Retrieves the name of the item.
-	 * @return The item's name as a string.
-	 */
+
 	string getItemName();
 
 	/**
@@ -72,4 +70,10 @@ public:
 	 * @brief Prints the item's name and description to the console.
 	 */
 	void printItemInformation() const;
+
+	bool getIsQuestItem() const; 
+	void setIsQuestItem(bool q); 
+
 };
+
+#endif

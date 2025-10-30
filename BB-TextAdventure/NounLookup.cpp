@@ -31,6 +31,8 @@ static const vector<pair<string, Noun>> NOUN_LIST =
     {"a", Noun::West},
     {"d", Noun::East},
     {"npc", Noun::NPC}
+    {"Item", Noun::Item},
+    { "Inventory", Noun::Inventory }
 };
 
 /**
