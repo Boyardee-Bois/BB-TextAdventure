@@ -26,7 +26,7 @@ Map::Map() {
     Map::BuildWaterArea();
     
 
-   grid[16][20].setItem(questItem); 
+   grid[13][20].setItem(questItem); 
     
 }
 

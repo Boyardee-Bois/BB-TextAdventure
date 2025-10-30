@@ -163,7 +163,7 @@ int main()
 				Item* item = tile.getItem();
 				player.ItemPickUp(item);
 				tile.removeItem();
-				system("pause"); //  Waits for user input (press any key)
+				system("pause"); 
 			}
 			else
 			{
