@@ -18,13 +18,15 @@ using namespace std;
  * @brief Source list of recognized verbs and their enum values.
  * 
  * @details Extend this list to add new verbs to the game.
+ *
+ * @note The string in the pair {"word", Verb::Word} NEEDS TO BE LOWERCASE!
  */
 static const vector<pair<string, Verb>> VERB_LIST = {
 
 	{"go", Verb::Go},
 	{"help", Verb::Help},
 	{"quit", Verb::Quit},
-	{"Interact", Verb::Interact}
+	{"interact", Verb::Interact}
 };
 
 /**
