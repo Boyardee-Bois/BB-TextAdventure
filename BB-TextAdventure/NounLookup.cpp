@@ -17,6 +17,8 @@ using namespace std;
  * @brief  List of valid nouns used to populate the lookup table.
  * @details
  * Extend this list to include new directions or interactive targets.
+ * 
+ * @note The string in the pair {"word", Noun::Word} NEEDS TO BE LOWERCASE!
  */
 static const vector<pair<string, Noun>> NOUN_LIST =
 {
@@ -24,9 +26,11 @@ static const vector<pair<string, Noun>> NOUN_LIST =
     {"south", Noun::South},
     {"east", Noun::East},
     {"west", Noun::West},
-    {"W", Noun::North},
-    {"S", Noun::South},
-    {"A", Noun::West}
+    {"w", Noun::North},
+    {"s", Noun::South},
+    {"a", Noun::West},
+    {"d", Noun::East},
+    {"npc", Noun::NPC}
 };
 
 /**

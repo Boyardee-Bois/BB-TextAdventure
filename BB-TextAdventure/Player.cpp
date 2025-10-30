@@ -9,7 +9,7 @@
  */
 #include "Player.h"
 #include "Room.h"
-
+#include "NPC.h"
 #include <iostream>
 #include <limits>
 #include <cstdio>

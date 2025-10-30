@@ -99,6 +99,9 @@ void Map::Display() const {
     }
 }
 
+//Test integers
+int npc_xcoord;
+int npc_ycoord;
 
 void Map::DisplayWithPlayer(int playerX, int playerY) const
 {
@@ -111,12 +114,30 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
                 std::cout << "P";
                 UI::Reset(); 
             }
+            /**
+            * @brief Displays NPC on map
+            */
+            else if (x == 10 && y == 7) {
+                x = npc_xcoord;
+                y = npc_ycoord;
+                cout << "N";
+                x = 10;
+                y = 7;
+                UI::Reset();
+            }
             else {
                 grid[y][x].Display();
             }
+            
         }
         std::cout << std::endl;
     }
 
    UI::Reset(); // final safeguard
 }
+/*
+void Map::DisplayWithNPC(int npc_xcoord, int npc_ycoord) const
+{
+    return;
+}
+*/

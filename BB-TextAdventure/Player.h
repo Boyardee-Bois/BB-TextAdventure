@@ -38,13 +38,14 @@ private:
     Room* currentRoom;
 
     /** @brief The player’s current X coordinate on the map. */
-    int playerX;
+    //int playerX;
 
     /** @brief The player’s current Y coordinate on the map. */
-    int playerY;
+    //int playerY;
 
 public:
-
+    int playerX;
+    int playerY;
     /** @brief Default constructor initializing position and room. */
     Player();
 

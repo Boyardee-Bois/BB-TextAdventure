@@ -151,3 +151,12 @@ Room* Room::getExit(const string& direction)
 
 	return iterator->second;
 }
+
+void Room::setNPC(NPC* npc)
+{
+}
+
+NPC* Room::getNPC() const
+{
+	return nullptr;
+}

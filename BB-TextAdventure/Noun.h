@@ -28,5 +28,6 @@ enum class Noun
 	W,
 	A,
 	S,
+	NPC,
 	Unknown
 };

@@ -20,5 +20,6 @@ enum class Verb
 	Go,
 	Help,
 	Quit,
+	Interact,
 	Unknown
 };

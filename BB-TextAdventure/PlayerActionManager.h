@@ -10,6 +10,7 @@
 #include "Noun.h"
 #include "Room.h"
 #include "Map.h"
+#include "NPC.h"
 #include "Command.h"
 #include "CommandParser.h"
 #include "Player.h"
