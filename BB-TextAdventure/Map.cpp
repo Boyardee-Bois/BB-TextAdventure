@@ -153,11 +153,12 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
 
             if (x == playerX && y == playerY) {
                 // Draw player icon ON TOP of tile color
-                std::cout << "P ";
+             
+                cout << "P ";
             }
             else if (tile.getItem() != nullptr) {
                 // Item sits on its tile color too
-                std::cout << "@ ";
+                cout << "@ ";
             }
             /**
             * @brief Displays NPC on map
@@ -175,7 +176,7 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
             * @brief Displays Enemies on map
             */
              else if (mapEnemy && x == enemyTileX && y == enemyTileY) {
-                UI::SetColor(Red);   // make the enemy visibly red
+                   // make the enemy visibly red
                 cout << "E ";   // E = enemy
             }
             else {
