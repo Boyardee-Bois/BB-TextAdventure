@@ -34,17 +34,23 @@ class Player
 
 private:
 
+    /** @brief Players x coordinate on the map */
+    int playerX;
+
+    /** @brief Players y coordinate on the map. */
+    int playerY;
+
+    /** @brief Players current health */
+    int currentHealth = 100;
+
+    /** @brief Players max health */
+    int maxHealth;
+
     /** @brief Pointer to the current Room where the player is located. */
     Room* currentRoom;
-    int playerX;       // player's current X position on the map
-    int playerY;       // player's current Y position on the map
+
+    /** @brief List of items in the players inventory. */
     std::vector<Item*> inventory; 
-
-    /** @brief The player�s current X coordinate on the map. */
-    //int playerX;
-
-    /** @brief The player�s current Y coordinate on the map. */
-    //int playerY;
 
 public:
     
@@ -70,4 +76,28 @@ public:
     void ItemPickUp(Item* item); 
     void displayInventory(); 
     bool hasItemName(const string& n) const; 
+
+    /**
+     * @brief Gets the player's current health.
+     * @return The players current health as an integer.
+     */
+    int getCurrentHealth();
+
+    /**
+     * @brief Gets the player's max health.
+     * @return The players max health as an integer.
+     */
+    int getMaxHealth();
+
+    /**
+     * @brief Take damage from sources in the game.
+     * @param ammount The amount of damage applied to the player.
+     */
+    void takeDamage(int amount);
+
+    /**
+     * @brief Checks if the player is dead.
+     * @return True if the player is dead, otherwise false.
+     */
+    bool isDead();
 };
