@@ -2,6 +2,7 @@
 #include <vector>
 #include "Tile.h"
 #include "Chunk.h"
+#include "Enemy.h"
 
 
 //Shows the entire grid with each individual tile
@@ -17,6 +18,10 @@ private:
     void BuildDirtPath();     // Lays out the dirt trail/path
     void BuildWaterArea();    // Fills in the central water zone
 
+    Enemy* mapEnemy = nullptr;
+    int enemyTileX = -1;
+    int enemyTileY = -1;
+
 public:
     Map(); //builds said map
     void Display() const; //Display map function to actually see everything
@@ -25,4 +30,7 @@ public:
 
     //void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
 
+    Enemy* getEnemy() const { return mapEnemy; }
+    int getEnemyX() const { return enemyTileX; }
+    int getEnemyY() const { return enemyTileY; }
 };

@@ -1,4 +1,6 @@
 #include "Enemy.h"
+#include <iostream>
+using namespace std; 
 
 Enemy::Enemy()
 {
@@ -42,4 +44,11 @@ bool Enemy::getIsVisible() const
 void Enemy::setIsVisible(bool visibility)
 {
 	isVisible = visibility;
+}
+
+void Enemy::printEnemyInfo() const
+{
+	cout << "Enemy Name: " << enemyName << endl;
+	cout << "Description: " << enemyDescription << endl;
+	cout << "Visible: " << (isVisible ? "Yes" : "No") << endl;
 }

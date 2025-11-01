@@ -130,6 +130,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MiniBoss.cpp" />
     <ClCompile Include="NounLookup.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MiniBoss.h" />
     <ClInclude Include="Noun.h" />
     <ClInclude Include="NounLookup.h" />
     <ClInclude Include="NPC.h" />
