@@ -12,64 +12,9 @@
 #include "Noun.h"
 #include "PlayerActionManager.h"
 #include "NPC.h"
+#include "HealthUI.h"
 
 using namespace std;
-
-
-/*
-* Sample command processing this will need to be moved into
-* a seperate game manager when time permits.
-*/void processGoCommand(Command command, Player& player, Map& world)
-{
-	if (!command.hasDirection()) {
-		cout << "Go where? (Example: 'go north')" << endl;
-		system("pause");
-		
-	}
-
-	char moveChar = 0;
-
-	switch (command.getNoun())
-	{
-	case Noun::North:
-	case Noun::W:
-		moveChar = 'w';
-		break;
-	case Noun::South:
-	case Noun::S:
-		moveChar = 's';
-		break;
-	case Noun::East:
-		moveChar = 'd';
-		break;
-	case Noun::West:
-	case Noun::A:
-		moveChar = 'a';
-		break;
-	default:
-		cout << "Invalid direction.\n";
-		return;
-	}
-
-	// Move the player (no redraw or cls here)
-	player.movePlayer(moveChar);
-}
-
-
-
-/*
-* Print the available commands for the player
-* This also should be moved into the game manager
-* once created
-*
-* Not all functionality is implemented
-*/
-void printHelp(CommandParser& parser)
-{
-	cout << "Your available command words are:" << endl;
-	parser.showAllVerbs();
-	cout << "Example: 'go north' or 'quit'" << endl;
-}
 
 int main()
 {
@@ -82,11 +27,23 @@ int main()
 
 	// Tokenize user input
 	CommandParser parser;
+
 	// Create the player
 	Player player;
+
+	// To test player UI
+	HealthUI ui;
+	
 	// Process the players input
 	PlayerActionManager actionManager;
 
+
+	/*
+	* 
+	* We need to move all of this stuff rooms, npc, etc 
+	* into a sepereat init() function outside of main
+	* 
+	*/
 	// Create rooms for the player to move through
 	Room* lab = new Room("Crashed Lab", "The ruins of the lab. Wires spark and the air smells of ozone.");
 	Room* jungle = new Room("Dense Jungle", "The air is thick and hot. Strange animals cry out.");
@@ -123,6 +80,18 @@ int main()
 	cout << "\nGAME STARTING...\n";
 	cout << "Type 'help' for commands or 'quit' to exit.\n";
 
+	// Testing the UI health bar
+	cout << "Players health being displayed" << endl;
+	cout << ui.render(player) << endl;
+	system("pause");
+
+	cout << "Player taking 10 hit points of damage" << endl;
+	player.takeDamage(10);
+
+	cout << "Re-renderding healthbar after damage" << endl;
+	cout << ui.render(player) << endl;
+	system("pause");
+
 	bool finished = false;
 
 	
@@ -138,6 +107,9 @@ int main()
 		// now draw the separator and current room info below the map
 		Interface.SectionSeperator();
 		Interface.DisplayObjective("Retrieve the Arc Reactor (@) near the water.");
+
+		//Display the health bar
+		cout << ui.render(player) << endl;
 
 		// now prompt for input (so it stays below everything)
 		Command command = parser.getCommand();
@@ -218,5 +190,3 @@ int main()
 
 	return 0;
 };
-
-//This is a change to test for jira, my initial commit message may not be connected :(

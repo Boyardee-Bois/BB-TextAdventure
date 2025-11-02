@@ -127,6 +127,7 @@
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandParser.cpp" />
+    <ClCompile Include="HealthUI.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="NounLookup.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
+    <ClInclude Include="HealthUI.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Noun.h" />

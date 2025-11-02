@@ -41,10 +41,10 @@ private:
     int playerY;
 
     /** @brief Players current health */
-    int currentHealth = 100;
+    int currentHealth;
 
     /** @brief Players max health */
-    int maxHealth;
+    int maxHealth = 100;
 
     /** @brief Pointer to the current Room where the player is located. */
     Room* currentRoom;
