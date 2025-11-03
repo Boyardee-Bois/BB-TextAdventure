@@ -4,7 +4,7 @@
  *
  * @details
  * The Player class keeps track of the player's current location in the world
- * and provides basic movement functionality. 
+ * and provides basic movement functionality.
  * Movement is controlled using character-based input (W, A, S, D),
  */
 #include "Player.h"
@@ -24,8 +24,9 @@ using namespace std;
 Player::Player()
 {
 	currentRoom = NULL;
-	playerX = 0; 
-	playerY = 0; 
+	playerX = 0;
+	playerY = 0;
+	currentHealth = maxHealth;
 }
 
 /**
@@ -53,8 +54,8 @@ Room* Player::getCurrentRoom()
  */
 void Player::setPosition(int x, int y)
 {
-	playerX = x; 
-	playerY = y; 
+	playerX = x;
+	playerY = y;
 }
 
 /**
@@ -84,73 +85,117 @@ int Player::getY() const
  */
 void Player::movePlayer(char direction)
 {
-    switch (direction)
-    {
-    case 'w': // up / north
-        playerY--;
-        break;
-    case 's': // down / south
-        playerY++;
-        break;
-    case 'a': // left / west
-        playerX--;
-        break;
-    case 'd': // right / east
-        playerX++;
-        break;
-    }
-    
+	switch (direction)
+	{
+	case 'w': // up / north
+		playerY--;
+		break;
+	case 's': // down / south
+		playerY++;
+		break;
+	case 'a': // left / west
+		playerX--;
+		break;
+	case 'd': // right / east
+		playerX++;
+		break;
+	}
 
-    // Keep player inside map boundaries (25x25 for example)
-    if (playerX < 0) playerX = 0;
-    if (playerY < 0) playerY = 0;
-    if (playerX >= 25) playerX = 24;
-    if (playerY >= 25) playerY = 24;
+
+	// Keep player inside map boundaries (25x25 for example)
+	if (playerX < 0) playerX = 0;
+	if (playerY < 0) playerY = 0;
+	if (playerX >= 25) playerX = 24;
+	if (playerY >= 25) playerY = 24;
 }
 
 void Player::ItemPickUp(Item* item)
 {
-    if (item == nullptr) return;
+	if (item == nullptr) return;
 
-    inventory.push_back(item);
+	inventory.push_back(item);
 
-    cout << "You picked up: " << item->getItemName();
-    //if (item->getIsQuestItem())
-       
-    cout << "\n";
+	cout << "You picked up: " << item->getItemName();
+	//if (item->getIsQuestItem())
+
+	cout << "\n";
 }
 
 
 void Player::displayInventory()
 {
-    // If the inventory is empty
-    if (inventory.empty()) {
-        cout << "[Inventory] (empty)\n";
-        return;
-    }
-    cout << "[Inventory]\n";
+	// If the inventory is empty
+	if (inventory.empty()) {
+		cout << "[Inventory] (empty)\n";
+		return;
+	}
+	cout << "[Inventory]\n";
 
-    // Go through each item in the player's inventory
-    for (auto* item : inventory) {
-        if (item) {
-            cout << " - " << item->getItemName();
+	// Go through each item in the player's inventory
+	for (auto* item : inventory) {
+		if (item) {
+			cout << " - " << item->getItemName();
 
-            // If the item is a quest item, show that label
-            if (item->getIsQuestItem()) {
-                cout << " (Quest Item)";
-            }
+			// If the item is a quest item, show that label
+			if (item->getIsQuestItem()) {
+				cout << " (Quest Item)";
+			}
 
-            cout << "\n";
-        }
-    }
+			cout << "\n";
+		}
+	}
 }
 
 
 bool Player::hasItemName(const string& n) const
 {
-    for (auto* it : inventory) {
-        if (it && it->getItemName() == n) return true;
-    }
-    return false;
+	for (auto* it : inventory) {
+		if (it && it->getItemName() == n) return true;
+	}
+	return false;
 }
 
+/**
+	 * @brief Gets the player's current health.
+	 * @return The players current health as an integer.
+	 */
+int Player::getCurrentHealth()
+{
+	return currentHealth;
+}
+
+/**
+ * @brief Gets the player's max health.
+ * @return The players max health as an integer.
+ */
+int Player::getMaxHealth()
+{
+	return maxHealth;
+}
+
+/**
+ * @brief Take damage from sources in the game.
+ * 
+ * @details Subtracts the specified amount from the player's current health.
+ *			Ensures health does not drop below zero.
+ * 
+ * @param ammount The amount of damage applied to the player.
+ */
+void Player::takeDamage(int amount)
+{
+	currentHealth -= amount;
+
+	if (currentHealth < 0)
+	{
+		currentHealth = 0;
+	}
+}
+
+/**
+ * @brief Checks if the player is dead.
+ * @return True if the player health is 0, otherwise false.
+ */
+bool Player::isDead()
+{
+	return (currentHealth <= 0);
+}
