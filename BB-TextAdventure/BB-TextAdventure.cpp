@@ -208,6 +208,9 @@ int main()
 			player.displayInventory();
 			system("pause");
 			break;
+		case Verb::Attack:
+			//Will fill in during next story BB-49
+			break;
 
 		case Verb::Unknown:
 			cout << "I don't know what you mean. (Type 'help' for commands)" << endl;

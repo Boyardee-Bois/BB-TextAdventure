@@ -32,5 +32,6 @@ enum class Noun
 	D,
 	Item, 
 	Inventory,
+	Enemy,
 	Unknown
 };
