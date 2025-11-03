@@ -184,6 +184,7 @@ int main()
 			{
 				Item* item = tile.getItem();
 				player.ItemPickUp(item);
+				beachNPC.setQuestItemCollected(true);
 				tile.removeItem();
 				system("pause"); 
 			}

@@ -17,6 +17,7 @@ private:
     string npcName;
     int npc_xcoord;
     int npc_ycoord;
+    bool questItemCollected = false;
 
 public:
     NPC(string npcName, int x_coord, int y_coord);
@@ -42,9 +43,13 @@ public:
      */
     int getNPC_Y() const;
     /**
-    * @brief Displays NPC on map
-    */
-    //void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
+     * @brief Sets Quest item as collected
+     */
+    void setQuestItemCollected(bool collected);
+    /**
+     * @brief Gets Quest item as collected
+     */
+    bool getQuestItemCollected() const;
 };
 
 

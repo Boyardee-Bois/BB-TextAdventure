@@ -184,9 +184,3 @@ Tile& Map::getTilePos(int x, int y)
 
     return grid[y][x];
 }
-/*
-void Map::DisplayWithNPC(int npc_xcoord, int npc_ycoord) const
-{
-    return;
-}
-*/

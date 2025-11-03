@@ -16,9 +16,6 @@ NPC::NPC(string npcName, int x_coord, int y_coord)
 	// Initialize NPC coords
 	npc_xcoord = x_coord;
 	npc_ycoord = y_coord;
-	
-	//Player::playerX = playerX;
-	//Player::playerY = playerY;
 }
 
 /**
@@ -50,6 +47,16 @@ int NPC::getNPC_Y() const
 	return npc_ycoord;
 }
 
+void NPC::setQuestItemCollected(bool collected)
+{
+	questItemCollected = collected;
+}
+
+bool NPC::getQuestItemCollected() const
+{
+	return questItemCollected;
+}
+
 //Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
 bool NPC::player_Coord_Check(int playerX, int playerY) {
 	return (playerX == npc_xcoord && playerY == npc_ycoord);
@@ -60,6 +67,14 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY) {
 
 	//Accepts enum parser "Interact NPC" only if Player and NPC same coords
 	if (playerVerb == Verb::Interact && playerNoun == Noun::NPC && player_Coord_Check(playerX, playerY)) {
+
+		if (questItemCollected)
+		{
+			cout << npcName << ": yes.\nQuest Completed!\n";
+			system("pause");
+			return;
+		}
+
 		cout << npcName << ": Help me X_X\n" << endl;
 		bool helpNPC = false;
 
