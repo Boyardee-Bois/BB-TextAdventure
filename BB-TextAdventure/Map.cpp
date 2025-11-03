@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "UI.h"
 #include "Item.h"
+#include "Enemy.h"
 #include <iostream>
 
 /*
@@ -27,6 +28,17 @@ Map::Map() {
     
 
    grid[13][20].setItem(questItem); 
+
+
+   int enemyX = 18;
+   int enemyY = 12;
+   Enemy* fieldEnemy = new Enemy("Raptor", "A swift and deadly predator.");
+   grid[enemyX][enemyY] = Tile(TileType::Grass);
+
+
+   enemyTileX = enemyX; 
+   enemyTileY = enemyY;
+   mapEnemy = fieldEnemy;
     
 }
 
@@ -141,11 +153,12 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
 
             if (x == playerX && y == playerY) {
                 // Draw player icon ON TOP of tile color
-                std::cout << "P ";
+             
+                cout << "P ";
             }
             else if (tile.getItem() != nullptr) {
                 // Item sits on its tile color too
-                std::cout << "@ ";
+                cout << "@ ";
             }
             /**
             * @brief Displays NPC on map
@@ -154,10 +167,17 @@ void Map::DisplayWithPlayer(int playerX, int playerY) const
             {
                 x = npc_xcoord;
                 y = npc_ycoord;
-                cout << "N" << " ";
+                cout << "N "; 
                 x = 10;
                 y = 7;
                 UI::Reset();
+            }
+            /**
+            * @brief Displays Enemies on map
+            */
+             else if (mapEnemy && x == enemyTileX && y == enemyTileY) {
+                   // make the enemy visibly red
+                cout << "E ";   // E = enemy
             }
             else {
                 // Default tile display (terrain)
@@ -184,6 +204,7 @@ Tile& Map::getTilePos(int x, int y)
 
     return grid[y][x];
 }
+
 /*
 void Map::DisplayWithNPC(int npc_xcoord, int npc_ycoord) const
 {

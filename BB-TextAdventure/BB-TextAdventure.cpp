@@ -12,6 +12,7 @@
 #include "Noun.h"
 #include "PlayerActionManager.h"
 #include "NPC.h"
+#include "Enemy.h"
 #include "HealthUI.h"
 
 using namespace std;
@@ -49,12 +50,18 @@ int main()
 	Room* jungle = new Room("Dense Jungle", "The air is thick and hot. Strange animals cry out.");
 	Room* beach = new Room("Black Sand Beach", "A wide-open beach with dark, volcanic sand.");
 
+	//Declaring enemies and types
+	Enemy* raptor = new Enemy("Raptor", "A swift and deadly predator.");
+	Enemy* miniBoss = new Enemy("MiniBoss", "A larger, more dangerous foe.");
+
 	// Add exits to the room
 	lab->addExit("north", jungle);
 	jungle->addExit("south", lab);
 	jungle->addExit("east", beach);
 	beach->addExit("west", jungle);
 
+	//Place an enemy in the map
+	lab->setEnemy(raptor);
 	//Create an NPC named BeachNPC (for now) and place it in the Beach room
 	NPC beachNPC("BeachNPC", 10, 7);
 	lab->setNPC(&beachNPC);
@@ -168,6 +175,9 @@ int main()
 		case Verb::Open:
 			player.displayInventory();
 			system("pause");
+			break;
+		case Verb::Attack:
+			//Will fill in during next story BB-49
 			break;
 
 		case Verb::Unknown:

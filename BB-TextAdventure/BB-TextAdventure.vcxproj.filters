@@ -57,6 +57,10 @@
     <ClCompile Include="NPC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniBoss.cpp">
     <ClCompile Include="HealthUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -107,6 +111,10 @@
     <ClInclude Include="NPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniBoss.h">
     <ClInclude Include="HealthUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
