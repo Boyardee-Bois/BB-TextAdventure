@@ -80,24 +80,17 @@ int main()
 	cout << "\nGAME STARTING...\n";
 	cout << "Type 'help' for commands or 'quit' to exit.\n";
 
-	// Testing the UI health bar
-	cout << "Players health being displayed" << endl;
-	cout << ui.render(player) << endl;
-	system("pause");
-
-	cout << "Player taking 10 hit points of damage" << endl;
-	player.takeDamage(10);
-
-	cout << "Re-renderding healthbar after damage" << endl;
-	cout << ui.render(player) << endl;
-	system("pause");
-
+	// Game loop controller
 	bool finished = false;
 
 	
 	// Sample main game loop: will be updated later
 	while (!finished)
 	{
+		if (player.isDead())
+		{
+			break;
+		}
 		
 		// clear screen *first*, so the map redraws at top
 		system("cls");
@@ -120,6 +113,9 @@ int main()
 			actionManager.processGoCommand(command, player, world);
 			system("cls"); // clear console before redrawing
 			world.DisplayWithPlayer(player.getX(), player.getY());
+
+			//Testing player health = 0
+			player.takeDamage(100);
 			break;
 
 		case Verb::Help:
@@ -182,7 +178,7 @@ int main()
 	}
 
 
-	cout << "\nGood-Bye" << endl;
+	cout << "\nGame Over!" << endl;
 
 	delete lab;
 	delete jungle;
