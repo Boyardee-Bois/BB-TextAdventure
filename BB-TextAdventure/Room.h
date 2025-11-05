@@ -14,6 +14,7 @@
 #include <map>
 #include "NPC.h"
 #include "Item.h" 
+#include "Enemy.h"
 using namespace std;
 
 /**
@@ -49,6 +50,8 @@ private:
     Item* roomItem = nullptr;
 
     NPC* roomNPC;
+
+	Enemy* roomEnemy = nullptr;
 
 public:
 
@@ -135,5 +138,10 @@ public:
 
     void removeItem();
     bool hasItem() const;
+
+    Enemy* getEnemy();
+    void setEnemy(Enemy* e);
+    void removeEnemy();
+    bool hasEnemy() const;
 
 };

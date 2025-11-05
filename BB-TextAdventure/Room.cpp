@@ -9,11 +9,11 @@
  * mutators, and utility methods to display information and manage exits.
  */
 #include "Room.h"
-#include "Room.h"   
 #include "Item.h"   
 #include <iostream>
 #include <string>
 #include <map>
+#include "Enemy.h"
 
 using namespace std;
 
@@ -182,4 +182,24 @@ void Room::removeItem()
 bool Room::hasItem() const
 {
 	return roomItem != nullptr;
+}
+
+Enemy* Room::getEnemy()
+{
+	return roomEnemy;
+}
+
+void Room::setEnemy(Enemy* e)
+{
+	roomEnemy = e;
+}
+
+void Room::removeEnemy()
+{
+	roomEnemy = nullptr;
+}
+
+bool Room::hasEnemy() const
+{
+	return roomEnemy != nullptr;
 }
