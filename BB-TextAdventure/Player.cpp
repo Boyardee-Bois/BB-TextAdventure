@@ -26,6 +26,7 @@ Player::Player()
 	currentRoom = NULL;
 	playerX = 0; 
 	playerY = 0; 
+    attackPower = 10; 
 }
 
 /**
@@ -154,3 +155,26 @@ bool Player::hasItemName(const string& n) const
     return false;
 }
 
+int Player::getAttackPower() const
+{
+    return attackPower; 
+}
+void Player::setAttackPower(int newPower)
+{
+    attackPower = newPower;
+}
+
+void Player::attackEnemy(Enemy* enemy) const 
+{
+    if (enemy == nullptr) {
+        std::cout << "There is nothing to attack here.\n";
+        return;
+    }
+
+    if (!enemy->getIsAlive()) {
+        std::cout << "That enemy is already defeated.\n";
+        return;
+    }
+
+    enemy->takeDamage(attackPower);
+}

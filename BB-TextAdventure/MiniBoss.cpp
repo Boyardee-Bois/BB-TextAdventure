@@ -1,6 +1,7 @@
 #include "MiniBoss.h"
 #include <iostream>
-using namespace std; 
+#include "Player.h"
+using namespace std;
 
 MiniBoss::MiniBoss(std::string name, std::string description, int hp, int attack)
 {
@@ -17,12 +18,25 @@ void MiniBoss::setHealth(int hp)
 
 int MiniBoss::getAttackPower() const
 {
-	return 0;
+	return attackPower;
 }
 
 void MiniBoss::setAttackPower(int attack)
 {
 	attackPower = attack;
+}
+
+void Player::attackEnemy(Enemy* enemy)
+{
+	if (enemy == nullptr)
+	{
+		cout << "There is no enemy to attack!" << endl;
+		return; 
+	}
+	if(!enemy->getIsAlive())
+	{
+		cout << "There is no enemy to attack!" << endl;
+	}
 }
 
 void MiniBoss::printMiniBossInfo() const

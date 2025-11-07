@@ -6,14 +6,17 @@ Enemy::Enemy()
 {
 	enemyName = "Unknown Enemy";
 	enemyDescription = "No description available.";
-	isVisible = true;
+	health = 100;
+	alive = true;
 }
 
-Enemy::Enemy(string name, string description)
+Enemy::Enemy(string name, string description, int newHealth)
 {
 	enemyName = name;
 	enemyDescription = description;
 	isVisible = true;
+	health = newHealth; 
+	alive = true; 
 }
 
 string Enemy::getEnemyName() const
@@ -53,24 +56,31 @@ void Enemy::printEnemyInfo() const
 	cout << "Visible: " << (isVisible ? "Yes" : "No") << endl;
 }
 
-
-//Removes X amount from player health
-void Enemy::takeDamage(int dmgAmount)
+int Enemy::getHealth() const
+{ 
+	return health; 
+}
+bool Enemy::getIsAlive() const
+{ 
+	return alive;
+}
+void Enemy::setIsAlive(bool healthState)
 {
-	if (!isAlive) return; 
+	alive = healthState;
+}
+//Removes X amount from player health
+void Enemy::takeDamage(int amount) {
+	if (!alive) return;
 
-	health -= amount; 
-	cout << "You attacked " << name << "for " << amount << " damage!\n"; 
+	health -= amount;
+	std::cout << "You attack " << enemyName << " for " << amount << " damage!\n";
 
-	if (health <= 0)
-	{
-		health = 0; 
-		isAlive = false; 
-		cout << name << " has been defeated!\n";
+	if (health <= 0) {
+		health = 0;
+		alive = false;
+		std::cout << enemyName << " has been defeated!\n";
 	}
-	else
-	{
-		cout << name << " has " << health << " HP remaining.\n";
+	else {
+		std::cout << enemyName << " has " << health << " HP remaining.\n";
 	}
-	
 }

@@ -10,10 +10,13 @@ protected:
 	string enemyName; 
 	string enemyDescription;
 	bool isVisible; 
+	int health;
+	bool alive = true;
 
 public: 
 	Enemy(); 
-	Enemy(string name, string description);
+	Enemy(string name, string description, int newHealth);
+
 	virtual ~Enemy() = default; 
 
 	virtual string getEnemyName() const;
@@ -28,4 +31,8 @@ public:
 	virtual void printEnemyInfo() const;
 
 	void takeDamage(int dmgAmount);
+
+	int getHealth() const;
+	bool getIsAlive() const;
+	void setIsAlive(bool state);
 };

@@ -32,7 +32,7 @@ Map::Map() {
 
    int enemyX = 18;
    int enemyY = 12;
-   Enemy* fieldEnemy = new Enemy("Raptor", "A swift and deadly predator.");
+   auto* fieldEnemy = new Enemy("Raptor", "A swift and deadly predator.",100);
    grid[enemyX][enemyY] = Tile(TileType::Grass);
 
 

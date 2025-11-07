@@ -94,8 +94,8 @@ int main()
 	Room* beach = new Room("Black Sand Beach", "A wide-open beach with dark, volcanic sand.");
 
 	//Declaring enemies and types
-	Enemy* raptor = new Enemy("Raptor", "A swift and deadly predator.");
-	Enemy* miniBoss = new Enemy("MiniBoss", "A larger, more dangerous foe.");
+	Enemy* raptor = new Enemy("Raptor", "A swift and deadly predator.",100);
+	//Enemy* miniBoss = new Enemy("MiniBoss", "A larger, more dangerous foe.",);
 
 	// Add exits to the room
 	lab->addExit("north", jungle);
@@ -208,8 +208,32 @@ int main()
 			player.displayInventory();
 			system("pause");
 			break;
+
 		case Verb::Attack:
-			//Will fill in during next story BB-49
+			if (player.getCurrentRoom()->hasEnemy()) 
+			{
+				Enemy* target = player.getCurrentRoom()->getEnemy();
+
+				if (target != nullptr && target->getIsAlive())
+				{
+					player.attackEnemy(target);
+
+					// Remove enemy if defeated
+					if (!target->getIsAlive()) 
+					{
+						player.getCurrentRoom()->removeEnemy();
+					}
+				}
+				else 
+				{
+					cout << "There’s no living enemy here to attack.\n";
+				}
+			}
+			else 
+			{
+				cout << "There’s no enemy in this room.\n";
+			}
+			system("pause");
 			break;
 
 		case Verb::Unknown:

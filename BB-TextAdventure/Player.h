@@ -46,6 +46,8 @@ private:
     /** @brief The player�s current Y coordinate on the map. */
     //int playerY;
 
+    int attackPower;
+
 public:
     
     /** @brief Default constructor initializing position and room. */
@@ -70,4 +72,10 @@ public:
     void ItemPickUp(Item* item); 
     void displayInventory(); 
     bool hasItemName(const string& n) const; 
+
+	int getAttackPower() const;
+	void setAttackPower(int power);
+
+	void attackEnemy(Enemy* enemy) const;
+    void attackEnemy(Enemy* enemy);
 };
