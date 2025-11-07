@@ -15,6 +15,7 @@
 #include "Enemy.h"
 #include "HealthUI.h"
 
+#include <iostream>
 using namespace std;
 
 int main()
@@ -100,7 +101,7 @@ int main()
 		}
 		
 		// clear screen *first*, so the map redraws at top
-		system("cls");
+		//system("cls");
 		// draw the map and player position first
 		world.DisplayWithPlayer(player.getX(), player.getY());
 
@@ -114,15 +115,19 @@ int main()
 		// now prompt for input (so it stays below everything)
 		Command command = parser.getCommand();
 
+		cout << " verb=" << (int)command.getVerb()
+			<< " noun=" << (int)command.getNoun()
+			<< " hasDir=" << command.hasDirection() << "\n";
+
 		switch (command.getVerb())
 		{
 		case Verb::Go:
 			actionManager.processGoCommand(command, player, world);
-			system("cls"); // clear console before redrawing
+			//system("cls"); // clear console before redrawing
 			world.DisplayWithPlayer(player.getX(), player.getY());
 
 			//Testing player health = 0
-			player.takeDamage(100);
+			//player.takeDamage(100);
 			break;
 
 		case Verb::Help:
