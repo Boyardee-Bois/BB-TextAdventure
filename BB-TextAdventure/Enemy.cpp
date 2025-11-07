@@ -52,3 +52,25 @@ void Enemy::printEnemyInfo() const
 	cout << "Description: " << enemyDescription << endl;
 	cout << "Visible: " << (isVisible ? "Yes" : "No") << endl;
 }
+
+
+//Removes X amount from player health
+void Enemy::takeDamage(int dmgAmount)
+{
+	if (!isAlive) return; 
+
+	health -= amount; 
+	cout << "You attacked " << name << "for " << amount << " damage!\n"; 
+
+	if (health <= 0)
+	{
+		health = 0; 
+		isAlive = false; 
+		cout << name << " has been defeated!\n";
+	}
+	else
+	{
+		cout << name << " has " << health << " HP remaining.\n";
+	}
+	
+}

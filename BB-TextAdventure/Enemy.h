@@ -26,4 +26,6 @@ public:
 	void setIsVisible(bool visibility);
 
 	virtual void printEnemyInfo() const;
+
+	void takeDamage(int dmgAmount);
 };
