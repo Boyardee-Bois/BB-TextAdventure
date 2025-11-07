@@ -6,10 +6,9 @@
  */
 #pragma once
 
+#include "Zone.h"
 #include "Verb.h"
 #include "Noun.h"
-#include "Room.h"
-#include "Map.h"
 #include "NPC.h"
 #include "Command.h"
 #include "CommandParser.h"
@@ -46,9 +45,9 @@ public:
 	 *
 	 * @param command Parsed command containing a direction (e.g., "north", "west").
 	 * @param player Reference to the active Player object.
-	 * @param world Reference to the current Map for rendering updates.
+	 * @param zone Reference to the current Map for rendering updates.
 	 */
-	void processGoCommand(Command command, Player& player, Map& world);
+	void processGoCommand(Command command, Player& player, Zone& zone);
 
 	/**
 	 * @brief Displays all available commands and usage examples.

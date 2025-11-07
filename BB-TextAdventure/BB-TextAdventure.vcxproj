@@ -130,7 +130,9 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="HealthUI.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Zone.cpp" />
     <ClCompile Include="MiniBoss.cpp" />
     <ClCompile Include="NounLookup.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -149,13 +151,15 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="HealthUI.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="Zone.h" />
     <ClInclude Include="MiniBoss.h" />
     <ClInclude Include="Noun.h" />
     <ClInclude Include="NounLookup.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerActionManager.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UI.h" />
