@@ -34,25 +34,23 @@ class Player
 
 private:
 
-    /** @brief Pointer to the current Room where the player is located. */
-    Room* currentRoom;
-    int playerX;       // player's current X position on the map
-    int playerY;       // player's current Y position on the map
-    std::vector<Item*> inventory; 
+    /** @brief Players x coordinate on the map */
+    int playerX;
 
-    /** @brief The player�s current X coordinate on the map. */
-    //int playerX;
-
-    /** @brief The player�s current Y coordinate on the map. */
-    //int playerY;
-
-    int attackPower;
+    /** @brief Players y coordinate on the map. */
+    int playerY;
 
     /** @brief Players current health */
     int currentHealth;
 
     /** @brief Players max health */
     int maxHealth = 100;
+
+    /** @brief Pointer to the current Room where the player is located. */
+    Room* currentRoom;
+
+    /** @brief List of items in the players inventory. */
+    std::vector<Item*> inventory; 
 
 public:
     
@@ -79,16 +77,10 @@ public:
     void displayInventory(); 
     bool hasItemName(const string& n) const; 
 
-	int getAttackPower() const;
-	void setAttackPower(int power);
-
-	void attackEnemy(Enemy* enemy) const;
-    void attackEnemy(Enemy* enemy);
-
     /**
-    * @brief Gets the player's current health.
-    * @return The players current health as an integer.
-    */
+     * @brief Gets the player's current health.
+     * @return The players current health as an integer.
+     */
     int getCurrentHealth();
 
     /**
