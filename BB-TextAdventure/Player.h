@@ -48,6 +48,12 @@ private:
 
     int attackPower;
 
+    /** @brief Players current health */
+    int currentHealth;
+
+    /** @brief Players max health */
+    int maxHealth = 100;
+
 public:
     
     /** @brief Default constructor initializing position and room. */
@@ -78,4 +84,28 @@ public:
 
 	void attackEnemy(Enemy* enemy) const;
     void attackEnemy(Enemy* enemy);
+
+    /**
+    * @brief Gets the player's current health.
+    * @return The players current health as an integer.
+    */
+    int getCurrentHealth();
+
+    /**
+     * @brief Gets the player's max health.
+     * @return The players max health as an integer.
+     */
+    int getMaxHealth();
+
+    /**
+     * @brief Take damage from sources in the game.
+     * @param ammount The amount of damage applied to the player.
+     */
+    void takeDamage(int amount);
+
+    /**
+     * @brief Checks if the player is dead.
+     * @return True if the player is dead, otherwise false.
+     */
+    bool isDead();
 };

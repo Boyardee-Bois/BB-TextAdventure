@@ -178,3 +178,50 @@ void Player::attackEnemy(Enemy* enemy) const
 
     enemy->takeDamage(attackPower);
 }
+
+
+
+/**
+     * @brief Gets the player's current health.
+     * @return The players current health as an integer.
+     */
+int Player::getCurrentHealth()
+{
+    return currentHealth;
+}
+
+/**
+ * @brief Gets the player's max health.
+ * @return The players max health as an integer.
+ */
+int Player::getMaxHealth()
+{
+    return maxHealth;
+}
+
+/**
+ * @brief Take damage from sources in the game.
+ *
+ * @details Subtracts the specified amount from the player's current health.
+ *            Ensures health does not drop below zero.
+ *
+ * @param ammount The amount of damage applied to the player.
+ */
+void Player::takeDamage(int amount)
+{
+    currentHealth -= amount;
+
+    if (currentHealth < 0)
+    {
+        currentHealth = 0;
+    }
+}
+
+/**
+ * @brief Checks if the player is dead.
+ * @return True if the player health is 0, otherwise false.
+ */
+bool Player::isDead()
+{
+    return (currentHealth <= 0);
+}
