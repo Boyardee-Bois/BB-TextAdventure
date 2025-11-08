@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['tile_0',['Tile',['../class_tile.html',1,'']]]
+  ['player_0',['Player',['../class_player.html',1,'']]],
+  ['playeractionmanager_1',['PlayerActionManager',['../class_player_action_manager.html',1,'']]],
+  ['portal_2',['Portal',['../struct_portal.html',1,'']]]
 ];

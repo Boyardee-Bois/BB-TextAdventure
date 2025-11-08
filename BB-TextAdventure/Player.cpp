@@ -156,9 +156,9 @@ bool Player::hasItemName(const string& n) const
 }
 
 /**
-	 * @brief Gets the player's current health.
-	 * @return The players current health as an integer.
-	 */
+* @brief Gets the player's current health.
+* @return The players current health as an integer.
+*/
 int Player::getCurrentHealth()
 {
 	return currentHealth;
