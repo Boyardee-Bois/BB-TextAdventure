@@ -30,6 +30,9 @@ class World
 {
 private:
 
+	/** @brief Controls the main game loop*/
+	bool isRunning;
+
 	/** @brief A map storing all loaded zones, keyed by their string ID. */
 	map<string, Zone*> allZones;
 

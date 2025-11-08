@@ -100,4 +100,14 @@ public:
 	 * @param player Reference to the active Player object.
 	 */
 	void processOpenCommand(Command command, Player& player);
+
+	/**
+	* @brief Asks the user if the want to quit
+	* 
+	* @details
+	* This function handles a prompt confirming if the 
+	* user would like to quit the game.  "Are you sure (y/n)"
+	* @return True if the user confirms, otherwise false.
+	*/
+	bool processQuitCommand();
 };

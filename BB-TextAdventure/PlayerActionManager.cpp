@@ -204,3 +204,34 @@ void PlayerActionManager::processOpenCommand(Command command, Player& player)
 	player.displayInventory();
 	UI::Pause();
 }
+
+/**
+	* @brief Asks the user if the want to quit
+	*
+	* @details
+	* This function handles a prompt confirming if the
+	* user would like to quit the game.  "Are you sure (y/n)"
+	* @return True if the user confirms, otherwise false.
+	*/
+bool PlayerActionManager::processQuitCommand()
+{
+	cout << "Are you sure you want to quit? (y/n): ";
+
+	string choice;
+
+	if (!getline(cin, choice))
+	{
+		// In the case of ctrl + z the game will exit
+		cin.clear();
+		return true;
+	}
+
+	if (choice == "y" || choice == "Y")
+	{
+		return true;
+	}
+
+	cout << "Resuming Game..." << endl;
+	UI::Pause();
+	return false;
+}
