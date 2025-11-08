@@ -1,11 +1,16 @@
 /**
  * @file PlayerActionManager.cpp
  *
- * @brief Routes parsed player commands to in-game actions (movement, help).
+ * @brief Routes parsed player commands to in-game actions.
  *
  * @details
  *  Acts as a layer between parsed input (Command) and game state
  *  (Player, Map). Validates intent, triggers Player updates, and refreshes the Map.
+ * 1. Movement
+ * 2. Interaction
+ * 3. Pick up
+ * 4. Attack
+ * 5. Inventory
  */
 #include "PlayerActionManager.h"
 
@@ -111,7 +116,7 @@ void PlayerActionManager::printHelp(CommandParser& parser)
 * @note If there is nothing to interact with a message will be displayed
 * that there are no interactables.
 */
-void processInteractCommand(Command command, Player& player, Zone& zone)
+void PlayerActionManager::processInteractCommand(Command command, Player& player, Zone& zone)
 {
 	// Get the players position
 	int playerX = player.getX();
@@ -139,6 +144,46 @@ void processInteractCommand(Command command, Player& player, Zone& zone)
 	else
 	{
 		cout << "You can not interact with that." << endl;
+		UI::Pause();
+	}
+}
+
+/**
+* @brief Executes a Pickup command.
+*
+* Validates and performs player pickup based on the parsed command.
+* Pickup an item if one exists where the player is standing
+*
+* @param command Parsed command containing an item (ex., "NPC").
+* @param player Reference to the active Player object.
+* @param zone Reference to the current Zone for rendering updates.
+*/
+void PlayerActionManager::processPickupCommand(Command command, Player& player, Zone& zone)
+{
+	// Get the players position
+	int playerX = player.getX();
+	int playerY = player.getY();
+
+	// Get what tile the player is standing on
+	Tile& tile = zone.getTileAt(playerX, playerY);
+
+	// Get an item from the tile  (where player is)
+	Item* itemToCheck = tile.getItem();
+
+	// Check if the item exits
+	if (itemToCheck != nullptr)
+	{
+		// Pick up the item if it exists
+		player.ItemPickUp(itemToCheck);
+
+		// Remove the item from the game world
+		tile.removeItem();
+
+		UI::Pause();
+	}
+	else
+	{
+		cout << "There is nothing to pick up here!" << endl;
 		UI::Pause();
 	}
 }

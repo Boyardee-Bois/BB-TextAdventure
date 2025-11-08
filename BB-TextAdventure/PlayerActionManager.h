@@ -13,6 +13,7 @@
 #include "Command.h"
 #include "CommandParser.h"
 #include "Player.h"
+#include "Item.h"
 #include <string>
 #include <unordered_map>
 
@@ -64,9 +65,21 @@ public:
 	 * Validates and performs player interaction based on the parsed command.
 	 * Interacts with an entity if one exists where the player is standing
 	 *
-	 * @param command Parsed command containing a direction (ex., "NPC").
+	 * @param command Parsed command containing a interactable (ex., "NPC").
 	 * @param player Reference to the active Player object.
 	 * @param zone Reference to the current Zone for rendering updates.
 	*/
 	void processInteractCommand(Command command, Player& player, Zone& zone);
+
+	/**
+	 * @brief Executes a Pickup command.
+	 *
+	 * Validates and performs player pickup based on the parsed command.
+	 * Pickup an item if one exists where the player is standing
+	 *
+	 * @param command Parsed command containing an item (ex., "NPC").
+	 * @param player Reference to the active Player object.
+	 * @param zone Reference to the current Zone for rendering updates.
+	*/
+	void processPickupCommand(Command command, Player& player, Zone& zone);
 };

@@ -135,7 +135,7 @@ void World::Update()
 
 	case Verb::Pickup:
 
-		// TODO: Do something
+		actionManager.processPickupCommand(command, player, *currentZone);
 		break;
 
 	case Verb::Open:
