@@ -9,8 +9,8 @@
  * functionality for movement and location tracking.
  */
 #pragma once
-
-#include "Room.h"
+#include "Enemy.h"
+#include "Item.h"
 #include <iostream>
 #include <string>
 #include <map>
@@ -46,8 +46,6 @@ private:
     /** @brief Players max health */
     int maxHealth = 100;
 
-    /** @brief Pointer to the current Room where the player is located. */
-    Room* currentRoom;
 
     /** @brief List of items in the players inventory. */
     std::vector<Item*> inventory; 
@@ -59,17 +57,12 @@ public:
     /** @brief Default constructor initializing position and room. */
     Player();
 
-    /**
-     * @brief Sets the player's current room.
-     * @param newRoom Pointer to the Room object to set as current.
-     */
-    void setCurrentRoom(Room* newRoom);
 
     /**
      * @brief Gets the player's current room.
      * @return Pointer to the current Room object.
      */
-    Room* getCurrentRoom();
+   
     void setPosition(int x, int y);        // sets player's position
     int getX() const;                      // returns player's x position
     int getY() const;                      // returns player's y position

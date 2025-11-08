@@ -8,7 +8,6 @@
  * Movement is controlled using character-based input (W, A, S, D),
  */
 #include "Player.h"
-#include "Room.h"
 #include "NPC.h"
 #include <iostream>
 #include <limits>
@@ -23,7 +22,6 @@ using namespace std;
  */
 Player::Player()
 {
-	currentRoom = NULL;
 	playerX = 0;
 	playerY = 0;
 	currentHealth = maxHealth;
@@ -33,19 +31,9 @@ Player::Player()
  * @brief Sets the player's current room.
  * @param newRoom Pointer to the next Room.
  */
-void Player::setCurrentRoom(Room* newRoom)
-{
-	currentRoom = newRoom;
-}
 
-/**
- * @brief Retrieves the player's current room.
- * @return Pointer to the current Room.
- */
-Room* Player::getCurrentRoom()
-{
-	return currentRoom;
-}
+
+
 
 /**
  * @brief Sets the player's position on the map.
