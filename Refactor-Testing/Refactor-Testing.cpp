@@ -22,9 +22,8 @@ namespace RefactorTesting
 	{
 	public:
 		
-		TEST_METHOD(MapRenderer)
+		TEST_METHOD(Get_Grid)
 		{
-			Logger::WriteMessage("Test if the Map renders properly");
 
 		}
 	};
