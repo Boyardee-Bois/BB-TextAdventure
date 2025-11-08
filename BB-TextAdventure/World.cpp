@@ -43,6 +43,9 @@ void World::StartGame()
 
 	player.setPosition(6, 7);
 
+	// Set the game to running
+	isRunning = true;
+
 	GameLoop();
 
 	cout << "Game Over!" << endl;
@@ -71,13 +74,14 @@ void World::LoadWorld()
 */
 void World::GameLoop()
 {
-	bool finished = false;
-
-	while (!finished)
+	while (isRunning)
 	{
 		if (player.isDead())
 		{
 			cout << "You have died" << endl;
+
+			isRunning = false;
+
 			break;
 		}
 
@@ -130,21 +134,26 @@ void World::Update()
 
 	case Verb::Interact:
 
-		// TODO: Do something
+		actionManager.processInteractCommand(command, player, *currentZone);
 		break;
 
 	case Verb::Pickup:
 
-		// TODO: Do something
+		actionManager.processPickupCommand(command, player, *currentZone);
 		break;
 
 	case Verb::Open:
 
-		// TODO: Do something
+		actionManager.processOpenCommand(command, player);
+		break;
 
 	case Verb::Quit:
 
-		// TODO: Set finished for main loop = true
+		if (actionManager.processQuitCommand())
+		{
+			isRunning = false;
+		}
+		break;
 
 	case Verb::Unknown:
 

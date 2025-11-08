@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['blue_0',['Blue',['../_u_i_8h.html#a3d60349b52f350585ef830504caaa610',1,'UI.h']]],
-  ['brown_1',['Brown',['../_u_i_8h.html#a88c44b0ef81348b3641085d188924665',1,'UI.h']]]
+  ['enemydescription_0',['enemyDescription',['../class_enemy.html#aa468a1186cac494b00e6143bb43562d2',1,'Enemy']]],
+  ['enemyname_1',['enemyName',['../class_enemy.html#a2ce9b3a855d504ea483934c1a661111c',1,'Enemy']]]
 ];

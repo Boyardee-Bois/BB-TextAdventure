@@ -12,13 +12,17 @@ using namespace std;
 
 //NPC class holding its name and coordinates
 
-class NPC {
+class NPC 
+{
 private:
     string npcName;
     int npc_xcoord;
     int npc_ycoord;
 
 public:
+
+    NPC();
+
     NPC(string npcName, int x_coord, int y_coord);
     bool player_Coord_Check(int playerX, int playerY);
     void interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY);
