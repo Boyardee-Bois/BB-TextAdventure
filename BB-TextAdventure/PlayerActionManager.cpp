@@ -165,19 +165,13 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	int playerY = player.getY();
 
 	// Get what tile the player is standing on
-	Tile& tile = zone.getTileAt(playerX, playerY);
-
-	// Get an item from the tile  (where player is)
-	Item* itemToCheck = tile.getItem();
+	Item* itemToPickup = zone.removeItemsAt(playerX, playerY);
 
 	// Check if the item exits
-	if (itemToCheck != nullptr)
+	if (itemToPickup != nullptr)
 	{
 		// Pick up the item if it exists
-		player.ItemPickUp(itemToCheck);
-
-		// Remove the item from the game world
-		tile.removeItem();
+		player.ItemPickUp(itemToPickup);
 
 		UI::Pause();
 	}

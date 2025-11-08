@@ -11,6 +11,7 @@
 #pragma once
 
 #include "Room.h"
+#include "Zone.h"
 #include <iostream>
 #include <string>
 #include <map>
@@ -73,7 +74,12 @@ public:
     int getY() const;                      // returns player's y position
     void movePlayer(char direction);       // moves player based on input
 
+    /*
+    * Pick up from a zone
+    */
     void ItemPickUp(Item* item); 
+
+
     void displayInventory(); 
     bool hasItemName(const string& n) const; 
 
