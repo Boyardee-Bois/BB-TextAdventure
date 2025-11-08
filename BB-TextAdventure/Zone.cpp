@@ -151,6 +151,46 @@ NPC* Zone::getNpcsAt(int xPos, int yPos) const
 }
 
 /**
+ * @brief Gets an Item exists at a given coordinate (xPos,yPos).
+ * @param xPos The x position of a Item.
+ * @param yPos The y position of a Item.
+ * @return A pointer to a Item if it exits. Otherwise nullptr.
+ */
+Item* Zone::getItemsAt(int xPos, int yPos) const
+{
+	auto iterator = items.find({ xPos,yPos });
+
+	if (iterator != items.end())
+	{
+		return iterator->second;
+	}
+
+	return nullptr;
+}
+
+/**
+ * @brief Gets an Item exists at a given coordinate (xPos,yPos).
+ * @param xPos The x position of a Item.
+ * @param yPos The y position of a Item.
+ * @return True if there was an item to remove, false otherwise.
+ */
+Item* Zone::removeItemsAt(int xPos, int yPos)
+{
+	auto iterator = items.find({ xPos,yPos });
+
+	if (iterator != items.end())
+	{
+		Item* itemToReturn = iterator->second;
+
+		items.erase(iterator);
+
+		return itemToReturn;
+	}
+
+	return nullptr;
+}
+
+/**
 * @brief The width of the grid.
 * @return The width of the level.
 */
@@ -253,13 +293,41 @@ void Zone::CreateDefaultZone()
 
 	// --- Add Items/Enemies/NPCs ---
 	// (Logic from Map::Map() constructor)
+
+	/*
+	* Steps for Item Creation & Placement
+	* 
+	* 1. Create the item
+	* 2. Set is quest item
+	* 3. Place at a location inside of the items map
+	*	 renderer will reference zones map to place the 
+	*	 item on the map.
+	*/
 	Item* questItem = new Item("Arc Reactor", "It's glowing.");
 	questItem->setIsQuestItem(true);
-	grid[13][20].setItem(questItem);
+	items[{13, 20}] = questItem;
 
-	// (Logic from Map::Map() constructor)
-	//m_enemies[{18, 12}] = new Enemy("Raptor", "A swift predator.");
 
-	// (Logic from BB-TextAdventure.cpp)
-	//m_npcs[{10, 7}] = new NPC("BeachNPC", 10, 7);
+	/*
+	* Steps for Item Creation & Placement
+	* 
+	* 1. Create the enemy
+	* 2. Place at a location inside of the items map
+	*	 renderer will reference zones map to place the
+	*	 item on the map.
+	*/
+	Enemy* testEnemy = new Enemy("Bob", "Bob");
+	enemies[{7, 7}] = testEnemy;
+
+
+	/*
+	* Steps for Item Creation & Placement
+	* 
+	* 1. Create the NPC
+	* 2. Place at a location inside of the items map
+	*	 renderer will reference zones map to place the
+	*	 item on the map.
+	*/
+	NPC* testNPC = new NPC("BOB");
+	npcs[{9, 10}] = testNPC;
 }

@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="BB-TextAdventure.cpp" />
-    <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -14,7 +13,6 @@
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerActionManager.cpp" />
-    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="VerbLookup.cpp" />
@@ -22,7 +20,6 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Chunk.h" />
     <ClInclude Include="ColorCodes.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
@@ -36,7 +33,6 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerActionManager.h" />
-    <ClInclude Include="Room.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Verb.h" />

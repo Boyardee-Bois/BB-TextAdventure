@@ -109,16 +109,22 @@ void Player::movePlayer(char direction)
 	if (playerY >= 25) playerY = 24;
 }
 
+/*
+* Picking up an item from a zone
+* 1.Check if
+* 
+*/
 void Player::ItemPickUp(Item* item)
 {
-	if (item == nullptr) return;
+	if (item != nullptr)
+	{
+		inventory.push_back(item);
 
-	inventory.push_back(item);
+		cout << "You picked up: " << item->getItemName();
+		//if (item->getIsQuestItem())
 
-	cout << "You picked up: " << item->getItemName();
-	//if (item->getIsQuestItem())
-
-	cout << "\n";
+		cout << "\n";
+	}
 }
 
 
@@ -156,9 +162,9 @@ bool Player::hasItemName(const string& n) const
 }
 
 /**
-	 * @brief Gets the player's current health.
-	 * @return The players current health as an integer.
-	 */
+* @brief Gets the player's current health.
+* @return The players current health as an integer.
+*/
 int Player::getCurrentHealth()
 {
 	return currentHealth;

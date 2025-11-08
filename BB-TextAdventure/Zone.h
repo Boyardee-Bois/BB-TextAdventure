@@ -64,6 +64,9 @@ private:
     /**@breif A map pairing enemies to coordinates (x,y).*/
     map<pair<int, int>, NPC*> npcs;
 
+    /**@breif A map pairing items to coordinates (x,y).*/
+    map<pair<int, int>, Item*> items;
+
     /**
     * @breif Loads the zone's grid and entities from a text file.
     * @param fileName The path to the .txt file to load.
@@ -129,6 +132,22 @@ public:
     * @return A pointer to a NPC if it exits. Otherwise nullptr.
     */
     NPC* getNpcsAt(int xPos, int yPos) const;
+
+    /**
+    * @brief Gets an Item exists at a given coordinate (xPos,yPos).
+    * @param xPos The x position of a Item.
+    * @param yPos The y position of a Item.
+    * @return A pointer to a Item if it exits. Otherwise nullptr.
+    */
+    Item* getItemsAt(int xPos, int yPos) const;
+
+    /**
+    * @brief Removes an Item exists at a given coordinate (xPos,yPos).
+    * @param xPos The x position of a Item.
+    * @param yPos The y position of a Item.
+    * @return A pointer to a Item to remove if it exits. Otherwise nullptr.
+    */
+    Item* removeItemsAt(int xPos, int yPos);
 
     /**
     * @brief The width of the grid.

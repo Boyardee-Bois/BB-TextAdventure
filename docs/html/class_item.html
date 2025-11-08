@@ -104,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9c84b8d3a28a4bea446a091c9c9cb4d" id="r_aa9c84b8d3a28a4bea446a091c9c9cb4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9c84b8d3a28a4bea446a091c9c9cb4d">Item</a> (string newName, string newDescription)</td></tr>
 <tr class="memdesc:aa9c84b8d3a28a4bea446a091c9c9cb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an item with a given name and description.  <br /></td></tr>
 <tr class="memitem:aafe99466e68f6b99539f25e4985c1ed7" id="r_aafe99466e68f6b99539f25e4985c1ed7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe99466e68f6b99539f25e4985c1ed7">getItemName</a> ()</td></tr>
-<tr class="memdesc:aafe99466e68f6b99539f25e4985c1ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the name of the item.  <br /></td></tr>
+<tr class="memdesc:aafe99466e68f6b99539f25e4985c1ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item's name.  <br /></td></tr>
 <tr class="memitem:a3b239a47dded8b9d0866eea092491979" id="r_a3b239a47dded8b9d0866eea092491979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b239a47dded8b9d0866eea092491979">setItemName</a> (string newName)</td></tr>
 <tr class="memdesc:a3b239a47dded8b9d0866eea092491979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the item.  <br /></td></tr>
 <tr class="memitem:ae56b28c98b15d7101b4878fa01e22f19" id="r_ae56b28c98b15d7101b4878fa01e22f19"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae56b28c98b15d7101b4878fa01e22f19">getItemDescription</a> ()</td></tr>
@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aedae0c563de5090389113405d580c72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the description of the item.  <br /></td></tr>
 <tr class="memitem:ac2fa531cd0da2a1a21e3015dd3c7e1c9" id="r_ac2fa531cd0da2a1a21e3015dd3c7e1c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2fa531cd0da2a1a21e3015dd3c7e1c9">printItemInformation</a> () const</td></tr>
 <tr class="memdesc:ac2fa531cd0da2a1a21e3015dd3c7e1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the item's name and description to the console.  <br /></td></tr>
+<tr class="memitem:a634b03a208997e43a5de11e2d0b7dd76" id="r_a634b03a208997e43a5de11e2d0b7dd76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a634b03a208997e43a5de11e2d0b7dd76">getIsQuestItem</a> () const</td></tr>
+<tr class="memitem:ac5a3d4de1de676236cc88b02c5bf3bd5" id="r_ac5a3d4de1de676236cc88b02c5bf3bd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5a3d4de1de676236cc88b02c5bf3bd5">setIsQuestItem</a> (bool q)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a single interactable or collectible object in the game. </p>
@@ -174,6 +176,23 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a634b03a208997e43a5de11e2d0b7dd76" name="a634b03a208997e43a5de11e2d0b7dd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a634b03a208997e43a5de11e2d0b7dd76">&#9670;&#160;</a></span>getIsQuestItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Item::getIsQuestItem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae56b28c98b15d7101b4878fa01e22f19" name="ae56b28c98b15d7101b4878fa01e22f19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae56b28c98b15d7101b4878fa01e22f19">&#9670;&#160;</a></span>getItemDescription()</h2>
 
@@ -210,8 +229,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieves the name of the item. </p>
-<p>Returns the item's name.</p>
+<p>Returns the item's name. </p>
 <dl class="section return"><dt>Returns</dt><dd>The item's name as a string. </dd></dl>
 
 </div>
@@ -234,6 +252,23 @@ Public Member Functions</h2></td></tr>
 <p>Prints the item's name and description to the console. </p>
 <p>Prints the item's name and description.</p>
 <p>Used to display the item's information. </p>
+
+</div>
+</div>
+<a id="ac5a3d4de1de676236cc88b02c5bf3bd5" name="ac5a3d4de1de676236cc88b02c5bf3bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a3d4de1de676236cc88b02c5bf3bd5">&#9670;&#160;</a></span>setIsQuestItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setIsQuestItem </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>q</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
