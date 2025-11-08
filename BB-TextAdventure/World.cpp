@@ -140,11 +140,13 @@ void World::Update()
 
 	case Verb::Open:
 
-		// TODO: Do something
+		actionManager.processOpenCommand(command, player);
+		break;
 
 	case Verb::Quit:
 
 		// TODO: Set finished for main loop = true
+		break;
 
 	case Verb::Unknown:
 

@@ -6,6 +6,7 @@
  */
 #pragma once
 
+#include "UI.h"
 #include "Zone.h"
 #include "Verb.h"
 #include "Noun.h"
@@ -23,6 +24,7 @@ class Player;
  * @class PlayerActionManager
  * @brief Handles and executes player-related actions in the game.
  *
+ * @details
  * Acts as the bridge between parsed Command objects and game state updates.
  * Interprets player intent (movement, help, etc.) and applies effects to
  * relevant game objects such as the Player and Map.
@@ -41,6 +43,7 @@ public:
 	/**
 	 * @brief Executes a movement command.
 	 *
+	 * @details
 	 * Validates and performs player movement based on the parsed command's direction noun.
 	 * Updates player position and triggers map redraw.
 	 *
@@ -53,6 +56,7 @@ public:
 	/**
 	 * @brief Displays all available commands and usage examples.
 	 *
+	 * @details
 	 * Provides the player with a list of recognized verbs and basic usage patterns.
 	 *
 	 * @param parser Reference to the CommandParser for accessing valid verbs.
@@ -62,6 +66,7 @@ public:
 	/**
 	 * @brief Executes a interact command.
 	 *
+	 * @details
 	 * Validates and performs player interaction based on the parsed command.
 	 * Interacts with an entity if one exists where the player is standing
 	 *
@@ -74,6 +79,7 @@ public:
 	/**
 	 * @brief Executes a Pickup command.
 	 *
+	 * @details
 	 * Validates and performs player pickup based on the parsed command.
 	 * Pickup an item if one exists where the player is standing
 	 *
@@ -82,4 +88,16 @@ public:
 	 * @param zone Reference to the current Zone for rendering updates.
 	*/
 	void processPickupCommand(Command command, Player& player, Zone& zone);
+
+	/**
+	 * @brief Opens the players inventory.
+	 *
+	 * @details
+	 * Opens the players inventory and displays what the player has
+	 * picked up from the world
+	 *
+	 * @param command Parsed command containing an open.
+	 * @param player Reference to the active Player object.
+	 */
+	void processOpenCommand(Command command, Player& player);
 };

@@ -187,3 +187,20 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 		UI::Pause();
 	}
 }
+
+/**
+* @brief Opens the players inventory.
+*
+* @details
+* Opens the players inventory and displays what the player has
+* picked up from the world
+*
+* @param command Parsed command containing an open.
+* @param player Reference to the active Player object.
+*/
+void PlayerActionManager::processOpenCommand(Command command, Player& player)
+{
+	UI::Clear();
+	player.displayInventory();
+	UI::Pause();
+}
