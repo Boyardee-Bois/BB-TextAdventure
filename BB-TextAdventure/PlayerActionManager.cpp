@@ -21,7 +21,7 @@
   *
   * @note If the command has no direction (e.g just "go"), prints a prompt and returns.
   */
-void PlayerActionManager::processGoCommand(Command command, Player& player, Map& world)
+void PlayerActionManager::processGoCommand(Command command, Player& player, Zone& world)
 {
 	if (!command.hasDirection())
 	{
@@ -37,50 +37,53 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Map&
 	case Noun::North:
 		direction = "north";
 		moveChar = 'w';
-		player.movePlayer(moveChar);
 		break;
 	case Noun::South:
 		direction = "south";
 		moveChar = 's';
-		player.movePlayer(moveChar);
 		break;
 	case Noun::East:
 		direction = "east";
 		moveChar = 'd';
-		player.movePlayer(moveChar);
 		break;
 	case Noun::West:
 		direction = "west";
 		moveChar = 'a';
-		player.movePlayer(moveChar);
 		break;
 	case Noun::W:
 		direction = "north";
 		moveChar = 'w';
-		player.movePlayer(moveChar);
 		break;
 	case Noun::S:
 		direction = "south";
 		moveChar = 's';
-		player.movePlayer(moveChar);
 		break;
-		//case Noun::East:  
-		// direction = "east"; 
-		// moveChar = 'd'; 
-		// break;
+	case Noun::D:  
+		 direction = "east"; 
+		 moveChar = 'd'; 
+		 break;
 	case Noun::A:
 		direction = "west";
 		moveChar = 'a';
-		player.movePlayer(moveChar);
 		break;
 	default:
 		break;
 	}
 
+	/*
+	*  TODO: Add collision detection
+	* 
+	*  int newX = player.getX()
+	*  int newY = player.getY()
+	* 
+	*  calculate new X & Y
+	* 
+	* if (zone.getTileAt(newX, newY).isWalkable())
+	*	 player.movePlayer(moveChar)
+	* 
+	*/
 
-	// --- CLEAR AND REDRAW MAP ---
-	system("cls");
-	world.DisplayWithPlayer(player.getX(), player.getY());
+	player.movePlayer(moveChar); // This is temporary need to implement collision check for type of tile
 }
 
 

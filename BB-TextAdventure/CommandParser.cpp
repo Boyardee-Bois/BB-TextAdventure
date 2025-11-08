@@ -35,6 +35,7 @@ CommandParser::CommandParser() {};
 Command CommandParser::getCommand()
 {
 	string input;
+
 	Verb inputVerb = Verb::Unknown;
 	Noun inputNoun = Noun::Unknown;
 

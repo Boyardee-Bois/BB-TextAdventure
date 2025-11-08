@@ -1,31 +1,97 @@
+/**
+* @file Tile.h
+* @breif Declares the Tile class used to represent terrain and items on the map.
+*
+* @details
+* Each Tile defines a single position within the game world. It contains:
+*   - A TileType representing its terrain (grass, stone, etc).
+*   - An optional pointer to an Item located at a specific tile.
+*
+* The Tile is responsible for determining its own color and rendering
+*/
 #pragma once
 #include <iostream>
 #include "UI.h"
 #include "Item.h"
+#include "ColorCodes.h"
 
-enum class TileType {
-    Grass,
-    Stone,
-    Water,
-    Dirt,
-    RedLight  
+/**
+ * @class Tile
+ * @brief Represents one map cell containing terrain and possibly an item.
+ *
+ * @details
+ * Tiles handle their own rendering and color determination, while map classes
+ * arrange them. Each tile can also hold one item (pointer).
+ */
+enum class TileType
+{
+	Grass,
+	Stone,
+	Water,
+	Dirt,
+	RedLight
 };
 
 
-class Tile {
+class Tile
+{
 private:
-    TileType type; // Stores the type of tile (ie terrain).
+
+	/** @brief The terrain type of the tile. */
+	TileType type;
+
+	/** @brief Pointer to an item placed on this tile, or nullptr if none. */
+	Item* gameItem;
 
 public:
-    Tile(TileType t = TileType::Grass);
-    int getColorCode() const;
-    void Display() const;
-    TileType GetType() const;
-    void SetType(TileType t);
-    void Display();
-    Item* gameItem; 
-    void setItem(Item* item); 
-    Item* getItem() const; 
-    void removeItem(); 
-    
+
+	/**
+	 * @brief Constructs a tile with an initial type.
+	 * @param t The terrain type to assign (default is Grass).
+	 */
+	Tile(TileType t = TileType::Grass);
+
+	/**
+	 * @brief Retrieves the color code representing this tile's terrain.
+	 * @return An integer corresponding to an 8 bit ANSI color code.
+	 */
+	int getColorCode() const;
+
+	/**
+	 * @brief Renders the tile's terrain color to the console.
+	 *
+	 * @details
+	 * Uses UI::SetColor() and UI::Reset() to colorize output.
+	 */
+	void Display() const;
+
+	/**
+	 * @brief Returns the tile's current terrain type.
+	 * @return The TileType of the tile.
+	 */
+	TileType GetType() const;
+
+	/**
+	 * @brief Updates the tile's terrain type.
+	 * @param t The new terrain type to assign.
+	 */
+	void SetType(TileType t);
+
+	/**
+	 * @brief Assigns an item to the tile.
+	 * @param item Pointer to the item being placed on the tile.
+	 */
+	void setItem(Item* item);
+
+	/**
+	 * @brief Retrieves the item located on the tile.
+	 * @return Pointer to the item, or nullptr if no item exists.
+	 */
+	Item* getItem() const;
+
+	/**
+	 * @brief Removes any item from this tile.
+	 * @details Sets the internal pointer to nullptr.
+	 */
+	void removeItem();
 };

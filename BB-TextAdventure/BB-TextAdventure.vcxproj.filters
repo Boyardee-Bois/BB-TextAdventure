@@ -1,120 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="BB-TextAdventure.cpp" />
+    <ClCompile Include="Chunk.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CommandParser.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="HealthUI.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Zone.cpp" />
+    <ClCompile Include="MiniBoss.cpp" />
+    <ClCompile Include="NounLookup.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerActionManager.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="VerbLookup.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BB-TextAdventure.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Command.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CommandParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NounLookup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VerbLookup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chunk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerActionManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MiniBoss.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Noun.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NounLookup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Verb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VerbLookup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chunk.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerActionManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MiniBoss.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Chunk.h" />
+    <ClInclude Include="ColorCodes.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandParser.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="HealthUI.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Zone.h" />
+    <ClInclude Include="MiniBoss.h" />
+    <ClInclude Include="Noun.h" />
+    <ClInclude Include="NounLookup.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerActionManager.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="Verb.h" />
+    <ClInclude Include="VerbLookup.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
 </Project>
