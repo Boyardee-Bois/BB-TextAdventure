@@ -84,3 +84,27 @@ void Enemy::takeDamage(int amount) {
 		std::cout << enemyName << " has " << health << " HP remaining.\n";
 	}
 }
+
+void Enemy::setEnemy_Position(int enemyX, int enemyY)
+{
+	enemy_xcoord = enemyX;
+	enemy_ycoord = enemyY;
+}
+
+/**
+ * @brief Returns the NPC's current X coordinate.
+ * @return The NPC’s X position.
+ */
+int Enemy::getEnemy_X() const
+{
+	return enemy_xcoord;
+}
+
+/**
+ * @brief Returns the NPC's current Y coordinate.
+ * @return The NPC’s Y position.
+ */
+int Enemy::getEnemy_Y() const
+{
+	return enemy_ycoord;
+}

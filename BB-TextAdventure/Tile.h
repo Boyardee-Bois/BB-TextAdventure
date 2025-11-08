@@ -13,6 +13,7 @@
 #include <iostream>
 #include "UI.h"
 #include "Item.h"
+#include "Enemy.h"
 #include "ColorCodes.h"
 
 /**
@@ -42,6 +43,8 @@ private:
 
 	/** @brief Pointer to an item placed on this tile, or nullptr if none. */
 	Item* gameItem;
+
+	Enemy* gameEnemy; 
 
 public:
 
@@ -94,4 +97,6 @@ public:
 	 * @details Sets the internal pointer to nullptr.
 	 */
 	void removeItem();
+	void setEnemy(Enemy* enemy);
+	Enemy* getEnemy() const;
 };

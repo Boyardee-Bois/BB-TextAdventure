@@ -99,3 +99,13 @@ void Tile::removeItem()
 {
     gameItem = nullptr;
 }
+
+void Tile::setEnemy(Enemy* enemy)
+{
+    gameEnemy = enemy; 
+}
+
+Enemy* Tile::getEnemy() const
+{
+    return gameEnemy; 
+}

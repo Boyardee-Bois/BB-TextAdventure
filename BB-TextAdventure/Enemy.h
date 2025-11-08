@@ -12,9 +12,11 @@ protected:
 	bool isVisible; 
 	int health;
 	bool alive = true;
+	int enemy_xcoord;
+	int enemy_ycoord;
 
 public: 
-	Enemy(); 
+	Enemy();
 	Enemy(string name, string description, int newHealth);
 
 	virtual ~Enemy() = default; 
@@ -31,6 +33,12 @@ public:
 	virtual void printEnemyInfo() const;
 
 	void takeDamage(int dmgAmount);
+
+	void setEnemy_Position(int enemyX, int enemyY);
+
+	int getEnemy_X() const;
+
+	int getEnemy_Y() const;
 
 	int getHealth() const;
 	bool getIsAlive() const;

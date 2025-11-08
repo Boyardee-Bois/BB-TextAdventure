@@ -262,4 +262,9 @@ void Zone::CreateDefaultZone()
 
 	// (Logic from BB-TextAdventure.cpp)
 	//m_npcs[{10, 7}] = new NPC("BeachNPC", 10, 7);
+
+	Enemy* enemy = new Enemy("Bob", "Bot", 100); 
+
+	grid[19][20].setEnemy(enemy); 
+
 }
