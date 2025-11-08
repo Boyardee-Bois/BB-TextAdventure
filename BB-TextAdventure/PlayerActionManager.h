@@ -57,4 +57,16 @@ public:
 	 * @param parser Reference to the CommandParser for accessing valid verbs.
 	 */
 	void printHelp(CommandParser& parser);
+
+	/**
+	 * @brief Executes a interact command.
+	 *
+	 * Validates and performs player interaction based on the parsed command.
+	 * Interacts with an entity if one exists where the player is standing
+	 *
+	 * @param command Parsed command containing a direction (ex., "NPC").
+	 * @param player Reference to the active Player object.
+	 * @param zone Reference to the current Zone for rendering updates.
+	*/
+	void processInteractCommand(Command command, Player& player, Zone& zone);
 };

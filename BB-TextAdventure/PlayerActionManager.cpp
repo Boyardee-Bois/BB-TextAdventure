@@ -1,8 +1,8 @@
 /**
  * @file PlayerActionManager.cpp
- * 
+ *
  * @brief Routes parsed player commands to in-game actions (movement, help).
- * 
+ *
  * @details
  *  Acts as a layer between parsed input (Command) and game state
  *  (Player, Map). Validates intent, triggers Player updates, and refreshes the Map.
@@ -58,10 +58,10 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Zone
 		direction = "south";
 		moveChar = 's';
 		break;
-	case Noun::D:  
-		 direction = "east"; 
-		 moveChar = 'd'; 
-		 break;
+	case Noun::D:
+		direction = "east";
+		moveChar = 'd';
+		break;
 	case Noun::A:
 		direction = "west";
 		moveChar = 'a';
@@ -72,15 +72,15 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Zone
 
 	/*
 	*  TODO: Add collision detection
-	* 
+	*
 	*  int newX = player.getX()
 	*  int newY = player.getY()
-	* 
+	*
 	*  calculate new X & Y
-	* 
+	*
 	* if (zone.getTileAt(newX, newY).isWalkable())
 	*	 player.movePlayer(moveChar)
-	* 
+	*
 	*/
 
 	player.movePlayer(moveChar); // This is temporary need to implement collision check for type of tile
@@ -97,4 +97,48 @@ void PlayerActionManager::printHelp(CommandParser& parser)
 	cout << "Your available command words are:" << endl;
 	parser.showAllVerbs();
 	cout << "Example: 'go north' or 'quit'" << endl;
+}
+
+/**
+* @brief Executes a interact command.
+*
+* Validates and performs player interaction based on the parsed command.
+* Interacts with an entity if one exists where the player is standing
+ *
+* @param command Parsed command containing a direction (ex., "NPC").
+* @param player Reference to the active Player object.
+* @param zone Reference to the current Zone for rendering updates.
+* @note If there is nothing to interact with a message will be displayed
+* that there are no interactables.
+*/
+void processInteractCommand(Command command, Player& player, Zone& zone)
+{
+	// Get the players position
+	int playerX = player.getX();
+	int playerY = player.getY();
+
+	// Check what the player wants to interact with
+	Noun targetNoun = command.getNoun();
+
+	if (targetNoun == Noun::NPC || targetNoun == Noun::Unknown)
+	{
+		// Check if there is a NPC at the players location
+		NPC* npc = zone.getNpcsAt(playerX, playerY);
+
+		// If the NPC exists... Interact with them
+		if (npc != nullptr)
+		{
+			npc->interact(Verb::Interact, Noun::NPC, playerX, playerY);
+		}
+		else
+		{
+			cout << "There is no one here to interact with!" << endl;
+			UI::Pause();
+		}
+	}
+	else
+	{
+		cout << "You can not interact with that." << endl;
+		UI::Pause();
+	}
 }

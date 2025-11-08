@@ -7,6 +7,12 @@
 #include <string>
 #include <map>
 using namespace std;
+
+/**
+* @breif The default constuctor for and NPC
+*/
+NPC::NPC(){}
+
 //Create NPC name and coordinates
 NPC::NPC(string npcName, int x_coord, int y_coord)
 {

@@ -130,7 +130,7 @@ void World::Update()
 
 	case Verb::Interact:
 
-		// TODO: Do something
+		actionManager.processInteractCommand(command, player, *currentZone);
 		break;
 
 	case Verb::Pickup:
