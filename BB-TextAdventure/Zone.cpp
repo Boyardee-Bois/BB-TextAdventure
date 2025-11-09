@@ -316,7 +316,7 @@ void Zone::CreateDefaultZone()
 	*	 renderer will reference zones map to place the
 	*	 item on the map.
 	*/
-	Enemy* testEnemy = new Enemy("Bob", "Bob");
+	Enemy* testEnemy = new Enemy();
 	enemies[{7, 7}] = testEnemy;
 
 

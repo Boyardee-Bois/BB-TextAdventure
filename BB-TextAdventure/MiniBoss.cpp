@@ -26,7 +26,7 @@ void MiniBoss::setAttackPower(int attack)
 	attackPower = attack;
 }
 
-void Player::attackEnemy(Enemy* enemy)
+void Player::attackEnemy(Enemy* enemy) 
 {
 	if (enemy == nullptr)
 	{
