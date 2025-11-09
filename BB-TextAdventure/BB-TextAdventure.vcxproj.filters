@@ -39,5 +39,9 @@
     <ClInclude Include="VerbLookup.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BB-TextAdventure.rc" />
   </ItemGroup>
 </Project>

@@ -64,11 +64,11 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			{
 				std::cout << "P ";
 			}
-			else if (tile.getItem() != nullptr)
+			else if (zone.getItemsAt(x,y) != nullptr)
 			{
 				std::cout << "@ ";
 			}
-			else if (tile.getEnemy() != nullptr)
+			else if (zone.getEnemyAt(x,y) != nullptr)
 			{
 				std::cout << "E ";
 			}

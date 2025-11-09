@@ -44,7 +44,8 @@ private:
 	/** @brief Pointer to an item placed on this tile, or nullptr if none. */
 	Item* gameItem;
 
-	Enemy* gameEnemy; 
+	/** @brief Pointer to an enemy placed on this tile, or nullptr if none. */
+	Enemy* gameEnemy;
 
 public:
 
@@ -79,24 +80,4 @@ public:
 	 * @param t The new terrain type to assign.
 	 */
 	void SetType(TileType t);
-
-	/**
-	 * @brief Assigns an item to the tile.
-	 * @param item Pointer to the item being placed on the tile.
-	 */
-	void setItem(Item* item);
-
-	/**
-	 * @brief Retrieves the item located on the tile.
-	 * @return Pointer to the item, or nullptr if no item exists.
-	 */
-	Item* getItem() const;
-
-	/**
-	 * @brief Removes any item from this tile.
-	 * @details Sets the internal pointer to nullptr.
-	 */
-	void removeItem();
-	void setEnemy(Enemy* enemy);
-	Enemy* getEnemy() const;
 };

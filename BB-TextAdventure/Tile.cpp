@@ -19,6 +19,7 @@ using namespace std;
 Tile::Tile(TileType t) : type(t)
 {
    gameItem = nullptr;
+   gameEnemy = nullptr;
  
 }
 
@@ -71,41 +72,4 @@ TileType Tile::GetType() const
 void Tile::SetType(TileType t)
 {
     type = t;
-}
-
-/**
- * @brief Assigns an Item to this tile.
- * @param item Pointer to the Item object placed on this tile.
- */
-void Tile::setItem(Item* item)
-{
-    gameItem = item;
-}
-
-/**
- * @brief Retrieves the Item currently placed on this tile.
- * @return Pointer to the Item, or nullptr if none exists.
- */
-Item* Tile::getItem() const
-{
-    return gameItem;
-}
-
-/**
- * @brief Removes any Item from this tile.
- * @details Sets the stored item pointer to nullptr.
- */
-void Tile::removeItem()
-{
-    gameItem = nullptr;
-}
-
-void Tile::setEnemy(Enemy* enemy)
-{
-    gameEnemy = enemy; 
-}
-
-Enemy* Tile::getEnemy() const
-{
-    return gameEnemy; 
 }
