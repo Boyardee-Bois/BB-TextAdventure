@@ -99,15 +99,23 @@ $(function(){initNavTree('class_player_action_manager.html','','class_player_act
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab37c825e102d8234ecc8f741b4911429" id="r_ab37c825e102d8234ecc8f741b4911429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab37c825e102d8234ecc8f741b4911429">processGoCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_map.html">Map</a> &amp;world)</td></tr>
-<tr class="memdesc:ab37c825e102d8234ecc8f741b4911429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a movement command.  <br /></td></tr>
+<tr class="memitem:a09b23a2db7ff006e420d44a372b90167" id="r_a09b23a2db7ff006e420d44a372b90167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09b23a2db7ff006e420d44a372b90167">processGoCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_zone.html">Zone</a> &amp;zone)</td></tr>
+<tr class="memdesc:a09b23a2db7ff006e420d44a372b90167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a movement command.  <br /></td></tr>
 <tr class="memitem:aefd0c888228bb146cfceba9721070d7e" id="r_aefd0c888228bb146cfceba9721070d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefd0c888228bb146cfceba9721070d7e">printHelp</a> (<a class="el" href="class_command_parser.html">CommandParser</a> &amp;parser)</td></tr>
 <tr class="memdesc:aefd0c888228bb146cfceba9721070d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all available commands and usage examples.  <br /></td></tr>
+<tr class="memitem:a656bc6c8d4414798ce755ace16a2510a" id="r_a656bc6c8d4414798ce755ace16a2510a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a656bc6c8d4414798ce755ace16a2510a">processInteractCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_zone.html">Zone</a> &amp;zone)</td></tr>
+<tr class="memdesc:a656bc6c8d4414798ce755ace16a2510a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a interact command.  <br /></td></tr>
+<tr class="memitem:a9ccfac4dccc523b819e5c4f0c3f7c053" id="r_a9ccfac4dccc523b819e5c4f0c3f7c053"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ccfac4dccc523b819e5c4f0c3f7c053">processPickupCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_zone.html">Zone</a> &amp;zone)</td></tr>
+<tr class="memdesc:a9ccfac4dccc523b819e5c4f0c3f7c053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a Pickup command.  <br /></td></tr>
+<tr class="memitem:ad6066bf1ac26e9cea1949a7b4b52790e" id="r_ad6066bf1ac26e9cea1949a7b4b52790e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6066bf1ac26e9cea1949a7b4b52790e">processOpenCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player)</td></tr>
+<tr class="memdesc:ad6066bf1ac26e9cea1949a7b4b52790e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the players inventory.  <br /></td></tr>
+<tr class="memitem:ab51a831eb41b209d42853705425c053e" id="r_ab51a831eb41b209d42853705425c053e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab51a831eb41b209d42853705425c053e">processQuitCommand</a> ()</td></tr>
+<tr class="memdesc:ab51a831eb41b209d42853705425c053e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user if the want to quit.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles and executes player-related actions in the game. </p>
-<p>Acts as the bridge between parsed <a class="el" href="class_command.html" title="Represents a single parsed player command.">Command</a> objects and game state updates. Interprets player intent (movement, help, etc.) and applies effects to relevant game objects such as the <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> and <a class="el" href="class_map.html">Map</a>.</p>
-<p>Current functionality includes movement and help display. Future expansions may include item handling, combat, and NPC interaction.</p>
+<p>Acts as the bridge between parsed <a class="el" href="class_command.html" title="Represents a single parsed player command.">Command</a> objects and game state updates. Interprets player intent (movement, help, etc.) and applies effects to relevant game objects such as the <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> and Map.</p>
+<p>Current functionality includes movement and help display. Future expansions may include item handling, combat, and <a class="el" href="class_n_p_c.html">NPC</a> interaction.</p>
 <dl class="section note"><dt>Note</dt><dd>This class executes actions but does not parse player input. </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aefd0c888228bb146cfceba9721070d7e" name="aefd0c888228bb146cfceba9721070d7e"></a>
@@ -138,8 +146,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab37c825e102d8234ecc8f741b4911429" name="ab37c825e102d8234ecc8f741b4911429"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab37c825e102d8234ecc8f741b4911429">&#9670;&#160;</a></span>processGoCommand()</h2>
+<a id="a09b23a2db7ff006e420d44a372b90167" name="a09b23a2db7ff006e420d44a372b90167"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b23a2db7ff006e420d44a372b90167">&#9670;&#160;</a></span>processGoCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +165,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_map.html">Map</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>world</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_zone.html">Zone</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>world</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,7 +177,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">command</td><td>Parsed command containing a direction (e.g., "north", "west"). </td></tr>
     <tr><td class="paramname">player</td><td>Reference to the active <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> object. </td></tr>
-    <tr><td class="paramname">world</td><td>Reference to the current <a class="el" href="class_map.html">Map</a> for rendering updates.</td></tr>
+    <tr><td class="paramname">zone</td><td>Reference to the current Map for rendering updates.</td></tr>
   </table>
   </dd>
 </dl>
@@ -183,6 +191,141 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>If the command has no direction (e.g just "go"), prints a prompt and returns. </dd></dl>
+
+</div>
+</div>
+<a id="a656bc6c8d4414798ce755ace16a2510a" name="a656bc6c8d4414798ce755ace16a2510a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656bc6c8d4414798ce755ace16a2510a">&#9670;&#160;</a></span>processInteractCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerActionManager::processInteractCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_zone.html">Zone</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>zone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes a interact command. </p>
+<p>Validates and performs player interaction based on the parsed command. Interacts with an entity if one exists where the player is standing</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Parsed command containing a interactable (ex., "NPC"). </td></tr>
+    <tr><td class="paramname">player</td><td>Reference to the active <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> object. </td></tr>
+    <tr><td class="paramname">zone</td><td>Reference to the current <a class="el" href="class_zone.html" title="@breif A container for a single game level.">Zone</a> for rendering updates.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Validates and performs player interaction based on the parsed command. Interacts with an entity if one exists where the player is standing</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Parsed command containing a direction (ex., "NPC"). </td></tr>
+    <tr><td class="paramname">player</td><td>Reference to the active <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> object. </td></tr>
+    <tr><td class="paramname">zone</td><td>Reference to the current <a class="el" href="class_zone.html" title="@breif A container for a single game level.">Zone</a> for rendering updates. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>If there is nothing to interact with a message will be displayed that there are no interactables. </dd></dl>
+
+</div>
+</div>
+<a id="ad6066bf1ac26e9cea1949a7b4b52790e" name="ad6066bf1ac26e9cea1949a7b4b52790e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6066bf1ac26e9cea1949a7b4b52790e">&#9670;&#160;</a></span>processOpenCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerActionManager::processOpenCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the players inventory. </p>
+<p>Opens the players inventory and displays what the player has picked up from the world</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Parsed command containing an open. </td></tr>
+    <tr><td class="paramname">player</td><td>Reference to the active <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ccfac4dccc523b819e5c4f0c3f7c053" name="a9ccfac4dccc523b819e5c4f0c3f7c053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ccfac4dccc523b819e5c4f0c3f7c053">&#9670;&#160;</a></span>processPickupCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerActionManager::processPickupCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_zone.html">Zone</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>zone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes a Pickup command. </p>
+<p>Validates and performs player pickup based on the parsed command. Pickup an item if one exists where the player is standing</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Parsed command containing an item (ex., "NPC"). </td></tr>
+    <tr><td class="paramname">player</td><td>Reference to the active <a class="el" href="class_player.html" title="Represents the player and manages their current location and position.">Player</a> object. </td></tr>
+    <tr><td class="paramname">zone</td><td>Reference to the current <a class="el" href="class_zone.html" title="@breif A container for a single game level.">Zone</a> for rendering updates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab51a831eb41b209d42853705425c053e" name="ab51a831eb41b209d42853705425c053e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51a831eb41b209d42853705425c053e">&#9670;&#160;</a></span>processQuitCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerActionManager::processQuitCommand </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asks the user if the want to quit. </p>
+<p>This function handles a prompt confirming if the user would like to quit the game. "Are you sure (y/n)" </p><dl class="section return"><dt>Returns</dt><dd>True if the user confirms, otherwise false. </dd></dl>
 
 </div>
 </div>

@@ -123,6 +123,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a249092e4ecba82638211a07fe00cbebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an exit leading to a neighboring room.  <br /></td></tr>
 <tr class="memitem:a4bc5cd5006568bccd15547fbb7beb6af" id="r_a4bc5cd5006568bccd15547fbb7beb6af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_room.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bc5cd5006568bccd15547fbb7beb6af">getExit</a> (const string &amp;direction)</td></tr>
 <tr class="memdesc:a4bc5cd5006568bccd15547fbb7beb6af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the neighboring room for a given direction.  <br /></td></tr>
+<tr class="memitem:ade5f38b899b4f02d4d6d4a2211252f7d" id="r_ade5f38b899b4f02d4d6d4a2211252f7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade5f38b899b4f02d4d6d4a2211252f7d">setNPC</a> (<a class="el" href="class_n_p_c.html">NPC</a> *npc)</td></tr>
+<tr class="memitem:a45558007ff8f4039cf3891fd3ea7d73a" id="r_a45558007ff8f4039cf3891fd3ea7d73a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_p_c.html">NPC</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45558007ff8f4039cf3891fd3ea7d73a">getNPC</a> () const</td></tr>
+<tr class="memitem:ad811aab6b8171f243d114b51fe8c8af4" id="r_ad811aab6b8171f243d114b51fe8c8af4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_item.html">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad811aab6b8171f243d114b51fe8c8af4">getItem</a> ()</td></tr>
+<tr class="memitem:ac2c350c95ad5af1a100a03cedb38300f" id="r_ac2c350c95ad5af1a100a03cedb38300f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2c350c95ad5af1a100a03cedb38300f">setItem</a> (<a class="el" href="class_item.html">Item</a> *i)</td></tr>
+<tr class="memitem:aa0d0cd63fca0f0e7f70a0a157f8739ed" id="r_aa0d0cd63fca0f0e7f70a0a157f8739ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0d0cd63fca0f0e7f70a0a157f8739ed">removeItem</a> ()</td></tr>
+<tr class="memitem:aab6e82fb76f37c8ae7237948cb3d8e01" id="r_aab6e82fb76f37c8ae7237948cb3d8e01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab6e82fb76f37c8ae7237948cb3d8e01">hasItem</a> () const</td></tr>
+<tr class="memitem:aed31f94cafc3c2e56e1342d1c1b478a4" id="r_aed31f94cafc3c2e56e1342d1c1b478a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed31f94cafc3c2e56e1342d1c1b478a4">getEnemy</a> ()</td></tr>
+<tr class="memitem:a12d52d394b29dc39090015ba546d426a" id="r_a12d52d394b29dc39090015ba546d426a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12d52d394b29dc39090015ba546d426a">setEnemy</a> (<a class="el" href="class_enemy.html">Enemy</a> *e)</td></tr>
+<tr class="memitem:a0a4b4d9b6ecb9d9a53325e050f778499" id="r_a0a4b4d9b6ecb9d9a53325e050f778499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a4b4d9b6ecb9d9a53325e050f778499">removeEnemy</a> ()</td></tr>
+<tr class="memitem:ae0b3f209705bf636245305dbd0c81c54" id="r_ae0b3f209705bf636245305dbd0c81c54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0b3f209705bf636245305dbd0c81c54">hasEnemy</a> () const</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a single location in the game world. </p>
@@ -244,6 +254,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aed31f94cafc3c2e56e1342d1c1b478a4" name="aed31f94cafc3c2e56e1342d1c1b478a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed31f94cafc3c2e56e1342d1c1b478a4">&#9670;&#160;</a></span>getEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_enemy.html">Enemy</a> * Room::getEnemy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4bc5cd5006568bccd15547fbb7beb6af" name="a4bc5cd5006568bccd15547fbb7beb6af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4bc5cd5006568bccd15547fbb7beb6af">&#9670;&#160;</a></span>getExit()</h2>
 
@@ -301,6 +328,40 @@ True if the room has been visited; otherwise false. </dd></dl>
 
 </div>
 </div>
+<a id="ad811aab6b8171f243d114b51fe8c8af4" name="ad811aab6b8171f243d114b51fe8c8af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad811aab6b8171f243d114b51fe8c8af4">&#9670;&#160;</a></span>getItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_item.html">Item</a> * Room::getItem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45558007ff8f4039cf3891fd3ea7d73a" name="a45558007ff8f4039cf3891fd3ea7d73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45558007ff8f4039cf3891fd3ea7d73a">&#9670;&#160;</a></span>getNPC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_p_c.html">NPC</a> * Room::getNPC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad5397ac8e1831af6ce1f3f3eff2ce2e4" name="ad5397ac8e1831af6ce1f3f3eff2ce2e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5397ac8e1831af6ce1f3f3eff2ce2e4">&#9670;&#160;</a></span>getRoomDescription()</h2>
 
@@ -347,6 +408,40 @@ The name of the room as a string. </dd></dl>
 
 </div>
 </div>
+<a id="ae0b3f209705bf636245305dbd0c81c54" name="ae0b3f209705bf636245305dbd0c81c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b3f209705bf636245305dbd0c81c54">&#9670;&#160;</a></span>hasEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Room::hasEnemy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab6e82fb76f37c8ae7237948cb3d8e01" name="aab6e82fb76f37c8ae7237948cb3d8e01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6e82fb76f37c8ae7237948cb3d8e01">&#9670;&#160;</a></span>hasItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Room::hasItem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a828b9f0bfedca98e2d6bce6e31183e54" name="a828b9f0bfedca98e2d6bce6e31183e54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a828b9f0bfedca98e2d6bce6e31183e54">&#9670;&#160;</a></span>printRoomInformation()</h2>
 
@@ -365,6 +460,91 @@ The name of the room as a string. </dd></dl>
 <p>Prints the room's name and description to the console. </p>
 <p>Prints the room's name, description, and available exits.</p>
 <p>If the room has no exits, an appropriate message is shown. </p>
+
+</div>
+</div>
+<a id="a0a4b4d9b6ecb9d9a53325e050f778499" name="a0a4b4d9b6ecb9d9a53325e050f778499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4b4d9b6ecb9d9a53325e050f778499">&#9670;&#160;</a></span>removeEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Room::removeEnemy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0d0cd63fca0f0e7f70a0a157f8739ed" name="aa0d0cd63fca0f0e7f70a0a157f8739ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d0cd63fca0f0e7f70a0a157f8739ed">&#9670;&#160;</a></span>removeItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Room::removeItem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12d52d394b29dc39090015ba546d426a" name="a12d52d394b29dc39090015ba546d426a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d52d394b29dc39090015ba546d426a">&#9670;&#160;</a></span>setEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Room::setEnemy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_enemy.html">Enemy</a> *</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2c350c95ad5af1a100a03cedb38300f" name="ac2c350c95ad5af1a100a03cedb38300f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c350c95ad5af1a100a03cedb38300f">&#9670;&#160;</a></span>setItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Room::setItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_item.html">Item</a> *</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade5f38b899b4f02d4d6d4a2211252f7d" name="ade5f38b899b4f02d4d6d4a2211252f7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade5f38b899b4f02d4d6d4a2211252f7d">&#9670;&#160;</a></span>setNPC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Room::setNPC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_n_p_c.html">NPC</a> *</td>          <td class="paramname"><span class="paramname"><em>npc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
