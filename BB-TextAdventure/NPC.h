@@ -7,6 +7,9 @@
 #include <map>
 #include "Verb.h"
 #include "Noun.h"
+#include "QuestProgress.h"
+//#include "Zone.h"
+class Zone;
 using namespace std;
 
 
@@ -16,16 +19,16 @@ class NPC
 {
 private:
     string npcName;
-    int npc_xcoord;
-    int npc_ycoord;
-
+    bool questItemCollected;
+    QuestProgress questProgress;
+    Zone* currentZone;
 public:
 
     NPC();
 
-    NPC(string npcName);
+    NPC(const string& npcName);
 
-    void interact(Verb playerVerb, Noun playerNoun, int playerX, int playerY);
+    void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY);
 
     /**
     * 
@@ -54,7 +57,27 @@ public:
 
 
 
-    //void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
+    /*void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
+     * @brief Sets Quest item as collected
+     */
+    void setQuestItemCollected(bool collected);
+    /**
+     * @brief Gets Quest item as collected
+     */
+    bool getQuestItemCollected() const;
+
+    void setZone(Zone* zone);
+    Zone* getZone() const;
+
+    string getName() const;
+
+    void startedQuest();
+    void completedQuest();
+    void pickUpItemBeforeQuest();
+    bool canCompleteQuest() const;
+    bool isQuestStarted() const;
+    bool isQuestComplete() const;
+
 };
 
 

@@ -133,17 +133,17 @@ void PlayerActionManager::processInteractCommand(Command command, Player& player
 		// If the NPC exists... Interact with them
 		if (npc != nullptr)
 		{
-			npc->interact(Verb::Interact, Noun::NPC, playerX, playerY);
+			npc->interact(Verb::Interact, Noun::NPC, &zone, playerX, playerY);
 		}
 		else
 		{
-			cout << "There is no one here to interact with!" << endl;
+			cout << "There is no one here to interact with!\n";
 			UI::Pause();
 		}
 	}
 	else
 	{
-		cout << "You can not interact with that." << endl;
+		cout << "You can not interact with that.\n";
 		UI::Pause();
 	}
 }
@@ -160,13 +160,42 @@ void PlayerActionManager::processInteractCommand(Command command, Player& player
 */
 void PlayerActionManager::processPickupCommand(Command command, Player& player, Zone& zone)
 {
-	// Get the players position
 	int playerX = player.getX();
 	int playerY = player.getY();
 
-	// Get what tile the player is standing on
-	Item* itemToPickup = zone.removeItemsAt(playerX, playerY);
+	//  Check if there's an item at current tile
+	Item* itemToPickup = zone.getItemsAt(playerX, playerY);
+	if (itemToPickup == nullptr)
+	{
+		cout << "There is nothing to pick up here!\n";
+		UI::Pause();
+		return;
+	}
 
+	//  Prevent picking up item before talking to NPC
+	if (!QuestProgress::isQuestStarted())
+	{
+		cout << "You can't pick this up yet! Try talking to the NPC first!\n";
+		UI::Pause();
+		return;
+	}
+
+	//  Prevent double pickup
+	if (QuestProgress::hasPickedUpItem())
+	{
+		cout << "You already picked up this item!\n";
+		UI::Pause();
+		return;
+	}
+
+	//  Pickup success
+	player.ItemPickUp(itemToPickup);
+	zone.removeItemsAt(playerX, playerY);
+	QuestProgress::setItemPickedUp(true);
+
+	UI::Pause();
+}
+	/*
 	// Check if the item exits
 	if (itemToPickup != nullptr)
 	{
@@ -175,12 +204,8 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 
 		UI::Pause();
 	}
-	else
-	{
-		cout << "There is nothing to pick up here!" << endl;
-		UI::Pause();
-	}
-}
+	*/
+
 
 /**
 * @brief Opens the players inventory.

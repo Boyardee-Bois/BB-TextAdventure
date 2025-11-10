@@ -9,6 +9,8 @@
 #pragma once
 #include "Zone.h"
 #include "Player.h"
+#include "NPC.h"
+#include "QuestProgress.h"
 #include "Renderer.h"
 #include "CommandParser.h"
 #include "UI.h"

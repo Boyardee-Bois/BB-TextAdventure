@@ -129,6 +129,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="HealthUI.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="QuestProgress.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Zone.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="HealthUI.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="QuestProgress.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Zone.h" />
