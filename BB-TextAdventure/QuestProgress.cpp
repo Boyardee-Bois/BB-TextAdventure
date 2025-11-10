@@ -6,6 +6,7 @@ using namespace std;
 bool QuestProgress::questStarted = false;
 bool QuestProgress::questCompleted = false;
 bool QuestProgress::itemPickedUp = false;
+bool QuestProgress::enemyUnlocked = false;
 std::string QuestProgress::questName = "Main Quest";
 
 // === Function Definitions ===
@@ -30,6 +31,7 @@ void QuestProgress::completeQuest()
     if (questStarted && itemPickedUp && !questCompleted)
     {
         questCompleted = true;
+        enemyUnlocked = true; 
         std::cout << "\n[Quest Completed] '" << questName
             << "'\nReward: You made the NPC happy!\n";
     }
@@ -87,4 +89,25 @@ void QuestProgress::printStatus()
         cout << "No (Quest still in progress)\n";
 
     cout << "=====================================\n";
+}
+
+string QuestProgress::GetCurrentObjective()
+{
+    if (!questStarted)
+        return "Talk to the NPC to begin your quest.";
+    else if (questStarted && !itemPickedUp)
+        return "Find the shiny thing by the water.";
+    else if (questStarted && itemPickedUp && !questCompleted)
+        return "Return to the NPC to complete your quest.";
+    else if (questCompleted)
+        return "Quest Completed! Great job.";
+    else if (enemyUnlocked)
+        return "A new threat has appeared! Survive!"; 
+    else
+        return "No active objectives.";
+}
+
+bool QuestProgress::isEnemyUnlocked()
+{
+    return enemyUnlocked;
 }

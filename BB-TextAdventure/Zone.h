@@ -79,6 +79,8 @@ private:
     */
     void CreateDefaultZone();
 
+	bool enemySpawned = false;
+
 public:
 
     /**
@@ -162,4 +164,9 @@ public:
     int getHeight() const;
 
     Enemy* removeEnemyAt(int xEnPos, int yEnPos);
+
+	void spawnEnemy();
+	bool hasEnemySpawned() const { return enemySpawned; }
+	void setEnemySpawned(bool spawned) { enemySpawned = spawned; }
+	void spawnEnemyAt(int xPos, int yPos, const Enemy& enemy);
 };

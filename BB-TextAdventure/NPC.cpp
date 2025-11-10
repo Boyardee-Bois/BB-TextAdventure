@@ -127,55 +127,40 @@ bool NPC::isQuestComplete() const
 {
 	return QuestProgress::isQuestCompleted();
 }
+
 void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY)
 {
-	// Validate input command
-	if (!(playerVerb == Verb::Interact && playerNoun == Noun::NPC))
-	{
-		cout << "Try again.\n";
-		UI::Pause();
-		return;
-	}
-
-	//  Ensure player is near NPC
-	NPC* startingAreaNPC = activeZone->getNpcsAt(playerX, playerY);
-	if (!startingAreaNPC)
-	{
-		cout << "oog wha- (Hey, I can't hear you! Come closer!)\n";
-		UI::Pause();
-		return;
-	}
-
-	//  Quest not started yet
+	// --- STEP 1: Quest not started ---
 	if (!QuestProgress::isQuestStarted())
 	{
-		//cout << npcName << ": Ooga Booga! (There's a shiny thing by the water!)\n";
+		cout << " Hey there! Could you find the shiny thing by the water?" << endl;
 		QuestProgress::startQuest("Find the Shiny Thing");
 		UI::Pause();
 		return;
 	}
 
-	//  Quest started but item not picked up yet
+	// --- STEP 2: Quest started but item not yet picked up ---
 	if (QuestProgress::isQuestStarted() && !QuestProgress::hasPickedUpItem())
 	{
-		cout << npcName << ": FIND shiny thing!\n";
+		cout << " WHERE?!? It's by the water — keep looking!" << endl;
 		UI::Pause();
 		return;
 	}
 
-	//  Item picked up, ready to complete quest
-	if (QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted())
+	// --- STEP 3: Item picked up but quest not yet completed ---
+	if (QuestProgress::isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted())
 	{
-		cout << npcName << ": YES! You found it!\n";
-		QuestProgress::completeQuest();
+		cout << " You found it?! Amazing work!" << endl;
+		QuestProgress::completeQuest();  // marks quest complete + unlocks enemy
+		activeZone->spawnEnemy();        // now reactivates or shows the enemy
 		UI::Pause();
 		return;
 	}
 
-	//Quest already completed
+	// --- STEP 4: Quest already completed ---
 	if (QuestProgress::isQuestCompleted())
 	{
-		cout << npcName << ": Thank you again for finding shiny thing!\n";
+		cout << " You’ve already helped me, hero. Be careful... something’s out there now." << endl;
 		UI::Pause();
 		return;
 	}

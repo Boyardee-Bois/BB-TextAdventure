@@ -223,6 +223,27 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 	return nullptr; // no enemy found
 }
 
+void Zone::spawnEnemy()
+{
+	if (QuestProgress::isQuestCompleted())
+	{
+		for (auto& pair : enemies)
+		{
+			Enemy* enemy = pair.second;
+			if (enemy != nullptr && !enemy->getIsVisible())
+			{
+				enemy->setIsVisible(true);
+			}
+		}
+	}
+}
+
+void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
+{
+	Enemy* newEnemy = new Enemy(enemy);
+	enemies[{xPos, yPos}] = newEnemy;
+}
+
 /*
 * This will get replaced when reading from a file
 * is functioning this is the original Map creation.
@@ -332,6 +353,7 @@ void Zone::CreateDefaultZone()
 	*	 item on the map.
 	*/
 	Enemy* testEnemy = new Enemy();
+	testEnemy->setIsVisible(false);  // Hide until quest completion
 	enemies[{7, 7}] = testEnemy;
 
 
