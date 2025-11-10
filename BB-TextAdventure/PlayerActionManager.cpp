@@ -175,7 +175,7 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	//  Prevent picking up item before talking to NPC
 	if (!QuestProgress::isQuestStarted())
 	{
-		cout << "You can’t pick this up yet! Try talking to the NPC first!\n";
+		cout << "You can't pick this up yet! Try talking to the NPC first!\n";
 		UI::Pause();
 		return;
 	}
