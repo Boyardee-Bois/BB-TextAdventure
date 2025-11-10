@@ -388,13 +388,13 @@ void Zone::CreateDefaultZone()
 	* (5,8) arrival tile in the lab zone
 	*
 	*/
-	portals.push_back(Portal{ 5,7, "beach", 5, 8 });
+	portals.push_back(Portal{ 0,7, "beach", 23, 5 });
 }
 
 void Zone::CreateBeachZone()
 {
-	width = 10;
-	height = 8;
+	width = 25;
+	height = 20;
 
 	// Creat a zone filled with sand.
 	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Sand)));
@@ -405,19 +405,21 @@ void Zone::CreateBeachZone()
 		// Left most columns are water
 		grid[vertical][0] = Tile(TileType::Water);
 		grid[vertical][1] = Tile(TileType::Water);
+		grid[vertical][2] = Tile(TileType::Water);
+		grid[vertical][3] = Tile(TileType::Water);
 	}
 
-	grid[4][2] = Tile(TileType::Water);
-	grid[5][2] = Tile(TileType::Water);
+	//grid[4][2] = Tile(TileType::Water);
+	//grid[5][2] = Tile(TileType::Water);
 
 	/*
 	* 
 	* Add a portal to the Lab Zone
 	* 
-	* (5,5) Location of the portal
+	* (5,5) Location of the portal in the current room
 	* -> lab
 	* (5,8) arrival tile in the lab zone
 	* 
 	*/ 
-	portals.push_back(Portal{ 5,5, "lab", 5, 8 });
+	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
 }

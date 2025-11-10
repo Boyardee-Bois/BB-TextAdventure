@@ -81,5 +81,22 @@ void Tile::SetType(TileType t)
 */
 bool Tile::isWalkable() const
 {
+    switch (type)
+    {
+    // Walkable Tiles
+    case TileType::Grass:
+    case TileType::Dirt:
+    case TileType::Sand:
+        return true;
 
+    // Non-Walkable Tiles
+    case TileType::Water:
+    case TileType::Stone:
+    case TileType::RedLight:
+        return false;
+
+    // Default to non-walkable
+    default:
+        return false;
+    }
 }

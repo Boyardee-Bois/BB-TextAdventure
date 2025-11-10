@@ -34,61 +34,53 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Zone
 		return;
 	}
 
-	string direction;
-	char moveChar = 0; // for controlling player movement
+	int newXPos = player.getX();
+	int newYPos = player.getY();
+
+	char moveChar = 0;
 
 	switch (command.getNoun())
 	{
-	case Noun::North:
-		direction = "north";
+	case Noun::North: case::Noun::W:
+		newYPos--;
 		moveChar = 'w';
 		break;
-	case Noun::South:
-		direction = "south";
+	case Noun::South: case::Noun::S:
+		newYPos++;
 		moveChar = 's';
 		break;
-	case Noun::East:
-		direction = "east";
+	case Noun::East: case::Noun::D:
+		newXPos++;
 		moveChar = 'd';
 		break;
-	case Noun::West:
-		direction = "west";
-		moveChar = 'a';
-		break;
-	case Noun::W:
-		direction = "north";
-		moveChar = 'w';
-		break;
-	case Noun::S:
-		direction = "south";
-		moveChar = 's';
-		break;
-	case Noun::D:
-		direction = "east";
-		moveChar = 'd';
-		break;
-	case Noun::A:
-		direction = "west";
+	case Noun::West: case::Noun::A:
+		newXPos--;
 		moveChar = 'a';
 		break;
 	default:
-		break;
+		return;
 	}
 
-	/*
-	*  TODO: Add collision detection
-	*
-	*  int newX = player.getX()
-	*  int newY = player.getY()
-	*
-	*  calculate new X & Y
-	*
-	* if (zone.getTileAt(newX, newY).isWalkable())
-	*	 player.movePlayer(moveChar)
-	*
-	*/
+	// Check if the players movement will result in an out of bounds.
+	if (newXPos < 0 || newXPos >= world.getWidth() || newYPos < 0 || newYPos >= world.getHeight())
+	{
+		cout << "You can't go that way!" << endl;
+		UI::Pause();
+		return;
+	}
 
-	player.movePlayer(moveChar); // This is temporary need to implement collision check for type of tile
+	// Reference to the tile the player is trying to walk on.
+	const Tile& targetTile = world.getTileAt(newXPos, newYPos);
+	
+	// If the tile is not walkable return, otherwise allow the movement.
+	if (!targetTile.isWalkable())
+	{
+		cout << "You cant walk on that." << endl;
+		UI::Pause();
+		return;
+	}
+
+	player.movePlayer(moveChar);
 }
 
 

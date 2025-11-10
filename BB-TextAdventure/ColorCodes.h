@@ -17,6 +17,7 @@ enum class ColorCode : int
     Brown = 94,   /**< Dirt path */
     Gray = 240,  /**< Stone surface */
     Red = 196,   /**< Lights, warning indicators */
-    Tan =  102,     /**< Sand terrain*/
-    Pink = 201  /**< Portal Color (Pink for testing) */
+    Tan =  180,     /**< Sand terrain*/
+    Pink = 201,  /**< Portal Color (Pink for testing) */
+    Black = 0 /**< Black to contrast the player */
 };

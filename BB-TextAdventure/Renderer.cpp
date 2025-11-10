@@ -62,6 +62,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 
 			if (x == playerX && y == playerY)
 			{
+				UI::SetColor(static_cast<int>(ColorCode::Black));
 				std::cout << "P ";
 			}
 			else if (zone.getItemsAt(x,y) != nullptr)
@@ -79,7 +80,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			else if (zone.getPortalAt(x, y) != nullptr)
 			{
 				UI::SetColor(static_cast<int>(ColorCode::Pink));
-				cout << "O ";
+				cout << "" " ";
 			}
 			else
 			{
