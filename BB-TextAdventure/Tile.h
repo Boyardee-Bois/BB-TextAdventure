@@ -30,7 +30,8 @@ enum class TileType
 	Stone,
 	Water,
 	Dirt,
-	RedLight
+	RedLight,
+	Sand
 };
 
 
@@ -80,4 +81,10 @@ public:
 	 * @param t The new terrain type to assign.
 	 */
 	void SetType(TileType t);
+
+	/**
+	* @brief Determines if a tile is walkable
+	* @return True if the player can walk on a tile, False otherwise.
+	*/
+	bool isWalkable() const;
 };

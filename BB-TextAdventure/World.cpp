@@ -58,11 +58,17 @@ void World::StartGame()
 */
 void World::LoadWorld()
 {
-	// Load the default room for now
-	allZones["lab"] = new Zone();
+	// Create the lab zone
+	allZones["lab"] = new Zone(ZoneLocation::DefaultLab);
 
-	// TODO: Read from file
-	// allZones["beach"] = new Zone("beach.txt");
+	// Create the beach location
+	allZones["beach"] = new Zone(ZoneLocation::Beach);
+
+	/* 
+		TODO: Read from file
+		allZones["beach"] = new Zone("beach.txt");
+	*/ 
+	
 }
 
 /**

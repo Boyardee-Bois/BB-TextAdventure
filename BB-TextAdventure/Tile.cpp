@@ -36,6 +36,7 @@ int Tile::getColorCode() const
     case TileType::Dirt:     return static_cast<int>(ColorCode::Brown);
     case TileType::Stone:    return static_cast<int>(ColorCode::Gray);
     case TileType::RedLight: return static_cast<int>(ColorCode::Red);
+    case TileType::Sand:     return static_cast<int>(ColorCode::Tan);
     default:                 return static_cast<int>(ColorCode::Green);
     }
 }
@@ -72,4 +73,13 @@ TileType Tile::GetType() const
 void Tile::SetType(TileType t)
 {
     type = t;
+}
+
+/**
+* @brief Determines if a tile is walkable
+* @return True if the player can walk on a tile, False otherwise.
+*/
+bool Tile::isWalkable() const
+{
+
 }

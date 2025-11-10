@@ -76,6 +76,11 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			{
 				std::cout << "N ";
 			}
+			else if (zone.getPortalAt(x, y) != nullptr)
+			{
+				UI::SetColor(static_cast<int>(ColorCode::Pink));
+				cout << "O ";
+			}
 			else
 			{
 				tile.Display();
