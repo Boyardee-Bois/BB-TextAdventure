@@ -8,6 +8,7 @@
  * Movement is controlled using character-based input (W, A, S, D),
  */
 #include "Player.h"
+#include "Enemy.h"
 #include "NPC.h"
 #include <iostream>
 #include <limits>
@@ -223,7 +224,7 @@ void Player::attackEnemy(Enemy* enemy)
 	enemy->takeDamage(attackPower);
 }
 
-bool Player::getInCombat(bool state)
+bool Player::getInCombat() const
 {
 	return inCombat;
 }
@@ -231,4 +232,9 @@ bool Player::getInCombat(bool state)
 bool Player::isAlive() const
 {
 	return health > 0;
+}
+
+void Player::setInCombat(bool state)
+{
+	inCombat = state;
 }

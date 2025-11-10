@@ -1,8 +1,9 @@
 #pragma once
-
 #include <string>
+#include <iostream>
 using namespace std; 
 
+class Player; 
 
 class Enemy
 {
@@ -14,6 +15,7 @@ protected:
 	bool alive = true;
 	int enemy_xcoord;
 	int enemy_ycoord;
+	int attackPower; 
 
 public: 
 	Enemy();
@@ -32,7 +34,6 @@ public:
 
 	virtual void printEnemyInfo() const;
 
-	void takeDamage(int dmgAmount);
 
 	void setEnemy_Position(int enemyX, int enemyY);
 
@@ -43,4 +44,10 @@ public:
 	int getHealth() const;
 	bool getIsAlive() const;
 	void setIsAlive(bool state);
+
+	
+	int getAttackPower() const;
+	void attackPlayer(Player* player) const;
+	bool isAlive() const;
+	void takeDamage(int amount);
 };

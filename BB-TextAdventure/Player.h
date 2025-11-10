@@ -110,8 +110,10 @@ public:
     int getAttackPower() const;
     void setAttackPower(int newPower);
     void attackEnemy(Enemy* enemy);
-    
-    bool getInCombat(bool state);
-    bool isAlive() const; 
+
+    bool getInCombat() const;
+    bool isAlive() const;
+    void setInCombat(bool state);
+
     void resetHealth();
 };

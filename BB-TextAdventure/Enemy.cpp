@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include <iostream>
+#include "Player.h"
 using namespace std; 
 
 Enemy::Enemy()
@@ -68,25 +69,38 @@ void Enemy::setIsAlive(bool healthState)
 {
 	alive = healthState;
 }
-//Removes X amount from player health
-void Enemy::takeDamage(int dmgAmount)
+int Enemy::getAttackPower() const
 {
-	if (!alive) {
-		std::cout << enemyName << " is already defeated!\n";
-		return;
-	}
+	return attackPower;
+}
+void Enemy::attackPlayer(Player* player) const
+{
+	if (!alive) return; 
 
-	health -= dmgAmount;
-	std::cout << "You hit " << enemyName << " for " << dmgAmount << " damage!\n";
 
-	if (health <= 0)
-	{
+	cout << enemyName << " attacks you for " << attackPower << " damage!\n";
+	player->takeDamage(attackPower);
+	
+}
+bool Enemy::isAlive() const
+{
+	return health > 0;
+}
+//Removes X amount from player health
+void Enemy::takeDamage(int amount)
+{
+	if (!alive) return;
+
+	health -= amount;
+	if (health <= 0) {
+		health = 0;
 		alive = false;
 		std::cout << enemyName << " has been defeated!\n";
 	}
-	else
-	{
-		std::cout << enemyName << " has " << health << " HP remaining.\n";
+	else {
+		std::cout << "You hit " << enemyName
+			<< " for " << amount
+			<< " damage! (" << health << " HP remaining)\n";
 	}
 }
  
