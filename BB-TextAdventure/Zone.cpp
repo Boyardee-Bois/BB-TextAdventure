@@ -208,6 +208,21 @@ int Zone::getHeight() const
 	return height;
 }
 
+Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
+{
+	auto it = enemies.find({ xEnPos, yEnPos });
+
+	// Check if there’s an enemy at that coordinate
+	if (it != enemies.end())
+	{
+		Enemy* enemyToRemove = it->second; // store pointer before erasing
+		enemies.erase(it);                 // remove from the map
+		return enemyToRemove;              // return the pointer if you need it
+	}
+
+	return nullptr; // no enemy found
+}
+
 /*
 * This will get replaced when reading from a file
 * is functioning this is the original Map creation.

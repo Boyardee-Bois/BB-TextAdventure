@@ -160,4 +160,6 @@ public:
     * @return The height of the level.
     */
     int getHeight() const;
+
+    Enemy* removeEnemyAt(int xEnPos, int yEnPos);
 };

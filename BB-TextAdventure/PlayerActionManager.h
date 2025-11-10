@@ -110,4 +110,5 @@ public:
 	* @return True if the user confirms, otherwise false.
 	*/
 	bool processQuitCommand();
+	void processAttackCommand(Command command, Player& player, Zone& zone);
 };

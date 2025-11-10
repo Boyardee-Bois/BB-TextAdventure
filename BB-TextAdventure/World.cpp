@@ -129,7 +129,7 @@ void World::Update()
 
 	case Verb::Attack:
 
-		// TODO: Do something
+		actionManager.processAttackCommand(command, player, *currentZone);
 		break;
 
 	case Verb::Interact:

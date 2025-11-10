@@ -51,7 +51,7 @@ private:
     /** @brief List of items in the players inventory. */
     std::vector<Item*> inventory; 
 
-    int attackPower; 
+    int attackPower = 10;
 public:
     
     /** @brief Default constructor initializing position and room. */
@@ -107,6 +107,5 @@ public:
     bool isDead();
     int getAttackPower() const;
     void setAttackPower(int newPower);
-    void attackEnemy(Enemy* enemy) const;
     void attackEnemy(Enemy* enemy);
 };

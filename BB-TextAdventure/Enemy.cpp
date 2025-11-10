@@ -69,21 +69,27 @@ void Enemy::setIsAlive(bool healthState)
 	alive = healthState;
 }
 //Removes X amount from player health
-void Enemy::takeDamage(int amount) {
-	if (!alive) return;
+void Enemy::takeDamage(int dmgAmount)
+{
+	if (!alive) {
+		std::cout << enemyName << " is already defeated!\n";
+		return;
+	}
 
-	health -= amount;
-	std::cout << "You attack " << enemyName << " for " << amount << " damage!\n";
+	health -= dmgAmount;
+	std::cout << "You hit " << enemyName << " for " << dmgAmount << " damage!\n";
 
-	if (health <= 0) {
-		health = 0;
+	if (health <= 0)
+	{
 		alive = false;
 		std::cout << enemyName << " has been defeated!\n";
 	}
-	else {
+	else
+	{
 		std::cout << enemyName << " has " << health << " HP remaining.\n";
 	}
 }
+ 
 
 void Enemy::setEnemy_Position(int enemyX, int enemyY)
 {

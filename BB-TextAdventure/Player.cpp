@@ -204,12 +204,10 @@ void Player::setAttackPower(int newPower)
 	attackPower = newPower;
 }
 
-void Player::attackEnemy(Enemy* enemy) const
+void Player::attackEnemy(Enemy* enemy)
 {
-	if (enemy == nullptr) {
-		std::cout << "There is nothing to attack here.\n";
+	if (enemy == nullptr)
 		return;
-	}
 
 	if (!enemy->getIsAlive()) {
 		std::cout << "That enemy is already defeated.\n";

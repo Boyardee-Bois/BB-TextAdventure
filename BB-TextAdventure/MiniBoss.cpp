@@ -26,19 +26,6 @@ void MiniBoss::setAttackPower(int attack)
 	attackPower = attack;
 }
 
-void Player::attackEnemy(Enemy* enemy) 
-{
-	if (enemy == nullptr)
-	{
-		cout << "There is no enemy to attack!" << endl;
-		return; 
-	}
-	if(!enemy->getIsAlive())
-	{
-		cout << "There is no enemy to attack!" << endl;
-	}
-}
-
 void MiniBoss::printMiniBossInfo() const
 {
 	printEnemyInfo();

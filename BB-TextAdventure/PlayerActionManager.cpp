@@ -229,3 +229,43 @@ bool PlayerActionManager::processQuitCommand()
 	UI::Pause();
 	return false;
 }
+
+void PlayerActionManager::processAttackCommand(Command command, Player& player, Zone& zone)
+{
+	// Get the player's current coordinates
+	int playerX = player.getX();
+	int playerY = player.getY();
+
+	// Attempt to get the enemy at the player's current position
+	Enemy* target = zone.getEnemyAt(playerX, playerY);
+
+	// If no enemy exists at that position
+	if (target == nullptr)
+	{
+		std::cout << "There’s no enemy here to attack.\n";
+		UI::Pause(); // optional for consistency with other commands
+		return;
+	}
+
+	// If the enemy exists but is already defeated
+	if (!target->getIsAlive())
+	{
+		std::cout << "That enemy is already defeated.\n";
+		UI::Pause();
+		return;
+	}
+
+	// Attack the enemy
+	player.attackEnemy(target);
+
+	// If the enemy was defeated by the attack
+	if (!target->getIsAlive())
+	{
+		zone.removeEnemyAt(playerX, playerY);
+		std::cout << "You defeated " << target->getEnemyName() << "!\n";
+	}
+
+	UI::Pause();
+	
+}
+
