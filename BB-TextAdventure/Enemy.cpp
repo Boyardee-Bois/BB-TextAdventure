@@ -47,7 +47,7 @@ void Enemy::setEnemyDescription(const string& description)
 
 bool Enemy::getIsVisible() const
 {
-	return false;
+	return isVisible;
 }
 
 void Enemy::setIsVisible(bool visibility)

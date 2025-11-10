@@ -227,13 +227,19 @@ void Zone::spawnEnemy()
 {
 	if (QuestProgress::isQuestCompleted())
 	{
+	
 		for (auto& pair : enemies)
 		{
 			Enemy* enemy = pair.second;
 			if (enemy != nullptr && !enemy->getIsVisible())
 			{
+				
 				enemy->setIsVisible(true);
+				enemy->setActive(true);
+		
 			}
+		
+		
 		}
 	}
 }
@@ -352,7 +358,7 @@ void Zone::CreateDefaultZone()
 	*	 renderer will reference zones map to place the
 	*	 item on the map.
 	*/
-	Enemy* testEnemy = new Enemy();
+	Enemy* testEnemy = new Enemy("Bob", "bob", 100);
 	testEnemy->setIsVisible(false);  // Hide until quest completion
 	enemies[{7, 7}] = testEnemy;
 
