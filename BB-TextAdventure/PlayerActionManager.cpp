@@ -133,17 +133,17 @@ void PlayerActionManager::processInteractCommand(Command command, Player& player
 		// If the NPC exists... Interact with them
 		if (npc != nullptr)
 		{
-			npc->interact(Verb::Interact, Noun::NPC, playerX, playerY);
+			npc->interact(Verb::Interact, Noun::NPC, &zone, playerX, playerY);
 		}
 		else
 		{
-			cout << "There is no one here to interact with!" << endl;
+			cout << "There is no one here to interact with!\n";
 			UI::Pause();
 		}
 	}
 	else
 	{
-		cout << "You can not interact with that." << endl;
+		cout << "You can not interact with that.\n";
 		UI::Pause();
 	}
 }
@@ -166,7 +166,22 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 
 	// Get what tile the player is standing on
 	Item* itemToPickup = zone.removeItemsAt(playerX, playerY);
+	//Item* itemToPickup = zone.getItemsAt(playerX, playerY);
 
+	if (itemToPickup == nullptr)
+	{
+		cout << "There is nothing to pick up here!\n";
+		UI::Pause();
+		return;
+	}
+	NPC* npc = zone.getNpcsAt(playerX, playerY);
+	//Prevents user from picking up an item before starting a quest
+	if (!npc->isQuestStarted())
+	{
+		cout << "You can't pick this up yet! Try starting a quest first!\n";
+		return;
+	}
+	/*
 	// Check if the item exits
 	if (itemToPickup != nullptr)
 	{
@@ -175,11 +190,10 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 
 		UI::Pause();
 	}
-	else
-	{
-		cout << "There is nothing to pick up here!" << endl;
-		UI::Pause();
-	}
+	*/
+	zone.removeItemsAt(playerX, playerY);
+	player.ItemPickUp(itemToPickup);
+	UI::Pause();
 }
 
 /**
