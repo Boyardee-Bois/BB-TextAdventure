@@ -242,7 +242,7 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 	// If no enemy exists at that position
 	if (target == nullptr)
 	{
-		std::cout << "There’s no enemy here to attack.\n";
+		std::cout << "There's no enemy here to attack.\n";
 		UI::Pause(); // optional for consistency with other commands
 		return;
 	}
