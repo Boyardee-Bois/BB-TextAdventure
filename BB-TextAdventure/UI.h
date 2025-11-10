@@ -1,52 +1,79 @@
+/*
+* @file UI.h
+* @breif Console UI utilities for rendering, prompts, and styling.
+* 
+* @details
+* Responsibilities:
+*	- Printing Static Screens
+*	- Console formatting
+*	- Terminal helpers like clear, pause, reset.
+* 
+* Do not include 
+*	- Gamestate
+*	- Map related jobs
+*	- Tiling
+*/
 #pragma once
-#ifndef UI_H
-#define UI_H
 
 
 #include <iostream>
 using namespace std;
 
-/*
-Scope:
-Implement files for OOP to allow Messages to be displayed in the game
-Create a class called Messages which will handle all messages and pop-ups in game.
-This will handle all output text for the game (UI stuff, messages, backstory, Map, and future dialog).
+/**
+ * @class UI
+ * @brief Presentation helper for console output.
+ *
+ * @details
+ * Provides static methods for common UI tasks without owning game state.
+ * Callers decide *what* to render; UI decides *how* to print/format.
  */
-
-//This class should hold every display message/Color for the UI and map
-
-enum Color 
-{
-	Green = 34,
-	Blue = 27,
-	Brown = 94,
-	Gray = 240,
-	Red = 196
-};
-
 class UI
 {
 public:
 
-	static void GameIntro();
+	/** @brief Print the title screen banner. */
+	static void TitleScreen();
+
+	/** @brief Print the narrative intro and handle basic start/help prompt. */
+	static bool GameIntro();
+
+	/** @brief Print the help menu. */
 	static void HelpMenu();
+
+	/** @brief Enable Windows console virtual terminal sequences (ANSI colors). */
 	static void EnableColor();
+
+	/**
+	 * @brief Set background color using 0–255 ANSI 8-bit color code.
+	 * @param color 8-bit color code.
+	 */
 	static void SetColor(int color);
+
+	/** @brief Reset console styles (color, attributes). */
 	static void Reset();
+
+	/**
+	 * @brief Print the current objective line.
+	 * @param objective Text of the current objective.
+	 */
 	void DisplayObjective(const string& objective);
+
+	/** @brief Print a visible section separator line. */
 	static void SectionSeperator();
 	
+	/** @brief Pause until user input (Windows-friendly). */
+	static void Pause();
 
-	//Will have more room to add more messages ie. error messages and more
+	/** @brief Clear the console screen. */
+	static void Clear();
 
 
 private:
+
+	/** @brief Print a small title header used within other screens. */
 	static void GameTitle();
+
+	/** @brief Handle intro menu input loop; returns true when user starts. */
 	static bool GameIntroParser();
 
 };
-
-
-
-#endif 
-
