@@ -238,8 +238,6 @@ void Zone::spawnEnemy()
 				enemy->setActive(true);
 		
 			}
-		
-		
 		}
 	}
 }

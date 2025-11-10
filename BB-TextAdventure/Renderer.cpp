@@ -78,6 +78,10 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				{
 					std::cout << "E ";
 				}
+				else
+				{
+					cout << "  "; 
+				}
 			}
 			else if (zone.getNpcsAt(x,y) != nullptr)
 			{
