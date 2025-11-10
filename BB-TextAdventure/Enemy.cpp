@@ -5,19 +5,23 @@ using namespace std;
 
 Enemy::Enemy()
 {
+	srand((unsigned)time(0));
 	enemyName = "Unknown Enemy";
 	enemyDescription = "No description available.";
 	health = 100;
 	alive = true;
+	attackPower = 10; 
 }
 
 Enemy::Enemy(string name, string description, int newHealth)
 {
+	srand((unsigned)time(0));
 	enemyName = name;
 	enemyDescription = description;
 	isVisible = true;
 	health = newHealth; 
 	alive = true; 
+	attackPower = 10; 
 }
 
 string Enemy::getEnemyName() const

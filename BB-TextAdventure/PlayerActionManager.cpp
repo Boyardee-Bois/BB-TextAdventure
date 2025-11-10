@@ -232,22 +232,22 @@ bool PlayerActionManager::processQuitCommand()
 
 void PlayerActionManager::processAttackCommand(Command command, Player& player, Zone& zone)
 {
-	// Get the player's current coordinates
+	// Get the player's current position
 	int playerX = player.getX();
 	int playerY = player.getY();
 
-	// Attempt to get the enemy at the player's current position
+	// Try to find an enemy on the same tile
 	Enemy* target = zone.getEnemyAt(playerX, playerY);
 
-	// If no enemy exists at that position
+	// --- No enemy present ---
 	if (target == nullptr)
 	{
 		std::cout << "There's no enemy here to attack.\n";
-		UI::Pause(); // optional for consistency with other commands
+		UI::Pause();
 		return;
 	}
 
-	// If the enemy exists but is already defeated
+	// --- Enemy already defeated ---
 	if (!target->getIsAlive())
 	{
 		std::cout << "That enemy is already defeated.\n";
@@ -255,17 +255,91 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 		return;
 	}
 
-	// Attack the enemy
-	player.attackEnemy(target);
-
-	// If the enemy was defeated by the attack
-	if (!target->getIsAlive())
+	// --- Player already in combat ---
+	if (player.getInCombat())
 	{
-		zone.removeEnemyAt(playerX, playerY);
-		std::cout << "You defeated " << target->getEnemyName() << "!\n";
+		std::cout << "You are already in combat!\n";
+		UI::Pause();
+		return;
 	}
 
+	// --- Begin turn-based combat ---
+	std::cout << "  Combat initiated against " << target->getEnemyName() << "!\n";
+	player.setInCombat(true);
+
+	// Enter combat loop until one side dies
+	while (player.isAlive() && target->getIsAlive())
+	{
+		// --- Player's turn ---
+		player.attackEnemy(target);
+
+		if (!target->getIsAlive())
+		{
+			std::cout << "You defeated " << target->getEnemyName() << "!\n";
+			zone.removeEnemyAt(playerX, playerY);
+			break;
+		}
+
+		UI::Pause();
+		UI::Clear();
+
+		// --- Enemy's turn ---
+		target->attackPlayer(&player);
+
+		if (!player.isAlive())
+		{
+			std::cout << "You were defeated by " << target->getEnemyName() << "...\n";
+			break;
+		}
+
+		UI::Pause();
+		UI::Clear();
+	}
+
+	// --- End of Combat ---
+	player.setInCombat(false);
+	std::cout << "Combat has ended.\n";
 	UI::Pause();
-	
 }
 
+
+void PlayerActionManager::startCombat(Player& player, Enemy* enemy, Zone& zone)
+{
+	UI::Clear();
+	std::cout << " Combat begins with " << enemy->getEnemyName() << "!\n";
+	player.setInCombat(true);
+
+	while (player.isAlive() && enemy->getIsAlive())
+	{
+		// --- PLAYER TURN ---
+		std::cout << "\nYour turn! Type 'attack enemy' to strike.\n";
+		player.attackEnemy(enemy);
+
+		if (!enemy->getIsAlive())
+		{
+			std::cout << "You defeated " << enemy->getEnemyName() << "!\n";
+			zone.removeEnemyAt(player.getX(), player.getY());
+			break;
+		}
+
+		UI::Pause();
+		UI::Clear();
+
+		// --- ENEMY TURN ---
+		std::cout << enemy->getEnemyName() << "'s turn!\n";
+		enemy->attackPlayer(&player);
+
+		if (!player.isAlive())
+		{
+			std::cout << "You were defeated by " << enemy->getEnemyName() << "...\n";
+			break;
+		}
+
+		UI::Pause();
+		UI::Clear();
+	}
+
+	player.setInCombat(false);
+	std::cout << "Combat has ended.\n";
+	UI::Pause();
+}

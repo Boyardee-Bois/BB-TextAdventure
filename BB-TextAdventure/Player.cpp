@@ -27,7 +27,7 @@ Player::Player()
 	playerY = 0;
 	currentHealth = maxHealth;
 	health = 100; 
-	inCombat = true; 
+	inCombat = false; 
 }
 
 /**

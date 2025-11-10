@@ -111,4 +111,5 @@ public:
 	*/
 	bool processQuitCommand();
 	void processAttackCommand(Command command, Player& player, Zone& zone);
+	void startCombat(Player& player, Enemy* enemy, Zone& zone);
 };

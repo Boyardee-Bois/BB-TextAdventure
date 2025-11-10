@@ -50,4 +50,5 @@ public:
 	void attackPlayer(Player* player) const;
 	bool isAlive() const;
 	void takeDamage(int amount);
+
 };
