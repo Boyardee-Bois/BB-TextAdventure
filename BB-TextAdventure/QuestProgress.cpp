@@ -33,7 +33,7 @@ void QuestProgress::completeQuest()
         questCompleted = true;
         enemyUnlocked = true; 
         std::cout << "\n[Quest Completed] '" << questName
-            << "'\nReward: You made the NPC happy!\n";
+            << "'\nWoah, someone showed up near your lab!\n";
     }
     else if (questCompleted)
     {
@@ -99,9 +99,7 @@ string QuestProgress::GetCurrentObjective()
         return "Find the shiny thing by the water.";
     else if (questStarted && itemPickedUp && !questCompleted)
         return "Return to the NPC to complete your quest.";
-    else if (questCompleted)
-        return "Quest Completed! Great job.";
-    else if (enemyUnlocked)
+    else if (enemyUnlocked && questCompleted)
         return "A new threat has appeared! Survive!"; 
     else
         return "No active objectives.";
