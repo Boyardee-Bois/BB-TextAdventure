@@ -93,80 +93,95 @@ string NPC::getName() const {
 }
 
 // Quest progress methods (delegate directly to the local QuestProgress object)
-void NPC::startedQuest() {
-	questProgress.startedQuest();
+void NPC::startedQuest()
+{
+	//  Use the new static global quest system
+	QuestProgress::startQuest("Find the Shiny Thing");
 }
 
-void NPC::completedQuest() {
-	questProgress.completedQuest();
+void NPC::completedQuest()
+{
+	QuestProgress::completeQuest();
 }
 
-void NPC::pickUpItemBeforeQuest() {
-	questProgress.pickUpItemBeforeQuest();
+void NPC::pickUpItemBeforeQuest()
+{
+	// Optional — can print warning or perform pre-checks
+	if (!QuestProgress::isQuestStarted())
+	{
+		std::cout << "This item can't be picked up yet! Talk to the NPC first!\n";
+	}
 }
 
-bool NPC::canCompleteQuest() const {
-	return questProgress.canCompleteQuest();
+bool NPC::canCompleteQuest() const
+{
+	// Quest can be completed if it's started, item picked up, and not completed yet
+	return QuestProgress::isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted();
 }
 
-bool NPC::isQuestStarted() const {
-	return questProgress.isQuestStarted();
+bool NPC::isQuestStarted() const
+{
+	return QuestProgress::isQuestStarted();
 }
 
-bool NPC::isQuestComplete() const {
-	return questProgress.isQuestCompleted();
+bool NPC::isQuestComplete() const
+{
+	return QuestProgress::isQuestCompleted();
 }
-
-void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY) {
-	if (!(playerVerb == Verb::Interact && playerNoun == Noun::NPC)) {
+void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY)
+{
+	// Validate input command
+	if (!(playerVerb == Verb::Interact && playerNoun == Noun::NPC))
+	{
 		cout << "Try again.\n";
 		UI::Pause();
 		return;
 	}
-	//Tells user they need to be closer to NPC to interact
+
+	//  Ensure player is near NPC
 	NPC* startingAreaNPC = activeZone->getNpcsAt(playerX, playerY);
-	if (!startingAreaNPC) {
-		cout << "oog wha- (Hey, I can't hear you! Come closer!\n";
-		UI::Pause();
-		return;
-	}
-	//Prevents user from picking up an item to early
-	if (startingAreaNPC->getQuestItemCollected() && !startingAreaNPC->isQuestStarted()) {
-		cout << startingAreaNPC->getName() << "Start a quest before picking up this item!\n";
+	if (!startingAreaNPC)
+	{
+		cout << "oog wha- (Hey, I can't hear you! Come closer!)\n";
 		UI::Pause();
 		return;
 	}
 
-	if (!startingAreaNPC->isQuestStarted()) {
-		cout << npcName << ": Ooga Booga! (There's a shiny thing by the water!)\n";
-		startingAreaNPC->startedQuest();
+	//  Quest not started yet
+	if (!QuestProgress::isQuestStarted())
+	{
+		//cout << npcName << ": Ooga Booga! (There's a shiny thing by the water!)\n";
+		QuestProgress::startQuest("Find the Shiny Thing");
 		UI::Pause();
 		return;
 	}
 
-	if (startingAreaNPC->isQuestStarted() && !startingAreaNPC->canCompleteQuest()) {
-		cout << npcName << ": FIND?!?\n";
+	//  Quest started but item not picked up yet
+	if (QuestProgress::isQuestStarted() && !QuestProgress::hasPickedUpItem())
+	{
+		cout << npcName << ": FIND shiny thing!\n";
 		UI::Pause();
 		return;
 	}
 
-	if (startingAreaNPC->canCompleteQuest()) {
-		if (!startingAreaNPC->getQuestItemCollected()) {
-			cout << npcName << ": WHERE?!?\n";
-			UI::Pause();
-			return;
-		}
-		cout << npcName << ": yes.\n";
-		startingAreaNPC->completedQuest();
+	//  Item picked up, ready to complete quest
+	if (QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted())
+	{
+		cout << npcName << ": YES! You found it!\n";
+		QuestProgress::completeQuest();
 		UI::Pause();
 		return;
 	}
 
-	if (startingAreaNPC->isQuestComplete()) {
-		cout << npcName << ": yes!?\n";
+	//Quest already completed
+	if (QuestProgress::isQuestCompleted())
+	{
+		cout << npcName << ": Thank you again for finding shiny thing!\n";
 		UI::Pause();
 		return;
 	}
+}
+
 	/*
 		if (firstQuest->isQuestStarted())
 		{
@@ -226,4 +241,3 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	*/
-}

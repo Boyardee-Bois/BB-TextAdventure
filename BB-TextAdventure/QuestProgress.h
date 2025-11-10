@@ -1,24 +1,30 @@
 #pragma once
 #include <string>
-#include <iostream>
-using namespace std;
 
-class QuestProgress {
+class QuestProgress
+{
 private:
-    bool questStarted;
-    bool itemPickUp;
-    bool questCompleted;
-    string questName;
+    static bool questStarted;
+    static bool questCompleted;
+    static bool itemPickedUp;
+    static std::string questName;
 
 public:
-    QuestProgress();
-    QuestProgress(const string& name);
+    // Constructors
+    QuestProgress() = default;
 
-    void startedQuest();
-    void pickUpItemBeforeQuest();
-    bool canCompleteQuest() const;
-    void completedQuest();
+    // Quest Control
+    static void startQuest(const std::string& name = "Main Quest");
+    static void completeQuest();
 
-    bool isQuestStarted() const;
-    bool isQuestCompleted() const;
+    // State Checks
+    static bool isQuestStarted();
+    static bool isQuestCompleted();
+
+    //  Item Tracking
+    static void setItemPickedUp(bool value);
+    static bool hasPickedUpItem();
+
+    //Debug Info
+    static void printStatus();
 };

@@ -1,64 +1,90 @@
-/**
- * @file QuestProgress.cpp
- * @brief
- *
- * @details
- *
- */
-#include <iostream>
-#include <string>
-#include <map>
 #include "QuestProgress.h"
+#include <iostream>
+using namespace std; 
 
-using namespace std;
+// Define static variables (shared across entire game)
+bool QuestProgress::questStarted = false;
+bool QuestProgress::questCompleted = false;
+bool QuestProgress::itemPickedUp = false;
+std::string QuestProgress::questName = "Main Quest";
 
-QuestProgress::QuestProgress() {
-	questStarted = false;
-	questCompleted = false;
-	itemPickUp = false;
-	questName = "";
-}
+// === Function Definitions ===
 
-QuestProgress::QuestProgress(const string& name) {
-    questStarted = false;
-    questCompleted = false;
-    itemPickUp = false;
-    questName = name;
-}
-
-void QuestProgress::startedQuest() {
-	if (!questStarted) {
-		cout << "Quest '" << questName << "' started!\n Objective:\n";
-		questStarted = true;
-		system("pause");
-		return;
-	}
-}
-
-void QuestProgress::pickUpItemBeforeQuest() {
-	if (!questStarted) {
-		cout << "This item can't be picked up yet! Try starting a quest!\n";
-		system("pause");
-		return;
-	}
-	if (!itemPickUp) {
-		itemPickUp = true;
-	}
-}
-bool QuestProgress::canCompleteQuest() const {
-	return questStarted && itemPickUp && !questCompleted;
-}
-void QuestProgress::completedQuest() {
-	if (canCompleteQuest()) {
-		cout << "Quest '" << questName << "' completed!\nRewards:\n";
-		questCompleted = true;
-		system("pause");
-	}
-}
-bool QuestProgress::isQuestStarted() const {
-	return questStarted;
+void QuestProgress::startQuest(const std::string& name)
+{
+    if (!questStarted)
+    {
+        questName = name;
+        questStarted = true;
+        std::cout << "\n[Quest Started] '" << questName
+            << "'\nObjective: Find the shiny thing by the water.\n";
+    }
+    else
+    {
+        std::cout << "[Quest Info] Quest already started.\n";
+    }
 }
 
-bool QuestProgress::isQuestCompleted() const {
-	return questCompleted;
+void QuestProgress::completeQuest()
+{
+    if (questStarted && itemPickedUp && !questCompleted)
+    {
+        questCompleted = true;
+        std::cout << "\n[Quest Completed] '" << questName
+            << "'\nReward: You made the NPC happy!\n";
+    }
+    else if (questCompleted)
+    {
+        std::cout << "[Quest Info] Quest already completed.\n";
+    }
+    else
+    {
+        std::cout << "[Quest Info] You can’t complete this quest yet.\n";
+    }
+}
+
+bool QuestProgress::isQuestStarted()
+{
+    return questStarted;
+}
+
+bool QuestProgress::isQuestCompleted()
+{
+    return questCompleted;
+}
+
+void QuestProgress::setItemPickedUp(bool value)
+{
+    itemPickedUp = value;
+}
+
+bool QuestProgress::hasPickedUpItem()
+{
+    return itemPickedUp;
+}
+
+void QuestProgress::printStatus()
+{
+   
+    cout << "Quest Name: " << questName << "\n";
+
+    cout << "Started: ";
+    if (questStarted)
+        cout << "Yes (Quest has been started)\n";
+    else
+        cout << "No (Player has not spoken to the NPC yet)\n";
+
+    cout << "Item Picked: ";
+    if (itemPickedUp)
+        cout << "Yes (Quest item has been collected)\n";
+    else
+        cout << "No (Item still available in the world)\n";
+
+   cout << "Completed: ";
+    if (questCompleted)
+        cout << "Yes (Quest is finished)\n";
+    else
+        cout << "No (Quest still in progress)\n";
+
+    cout << "=====================================\n";
 }
