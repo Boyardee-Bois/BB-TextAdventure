@@ -24,7 +24,36 @@ using namespace std;
  */
 void UI::GameTitle()
 {
-	cout << "Project:Chronoscape\n";
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10); // greenish
+
+
+	cout << R"(              ________________________________________________
+            /                                                 \
+           |    _________________________________________      |
+           |   |                                          |    |
+           |   |             PROJECT CHRONOSCAPE          |    |
+           |   |                                          |    |
+           |   |      C:\> Initializing time systems...   |    |
+           |   |      Loading assets...                   |    |
+           |   |      Establishing chrono-link...         |    |
+           |   |      Ready.                              |    |
+           |   |                                          |    |
+           |   |__________________________________________|    |
+           |                                                   |
+            \_________________________________________________/
+                   \___________________________________/
+                ___________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-------------------------. .-.---. .---.-.-.-.`-_
+:-------------------------------------------------------------------------:
+`---._.-------------------------------------------------------------._.---'
+)" << endl;
+
+	SetConsoleTextAttribute(hConsole, 7); // reset to white
 
 	Pause();
 }
@@ -48,7 +77,7 @@ void UI::TitleScreen()
 
 	SectionSeperator();
 
-	cout << "[P] Play    [H] Help    [Q] Quit\n";
+	//cout << "[P] Play    [H] Help    [Q] Quit\n";
 
 	Reset();
 }
@@ -112,11 +141,13 @@ void UI::HelpMenu()
 
 	SectionSeperator();
 
-	cout << "Movement: W/A/S/D or 'go north/south/east/west'\n";
+	cout << "Movement:'go north/south/east/west' or 'go W/A/S/D'\n";
 
 	cout << "Open inventory: 'open inventory'\n";
 
 	cout << "Interact: 'interact npc' or 'pickup item'\n";
+
+	cout << "Attack: 'attack enemy' Use  '1 or 2' for light/heavy attack\n";
 
 	cout << "Quit: 'quit'\n";
 
