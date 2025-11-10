@@ -5,6 +5,12 @@ using namespace std;
 
 class Player; 
 
+enum class AttackType
+{
+	Light, 
+	Heavy
+};
+
 class Enemy
 {
 protected:

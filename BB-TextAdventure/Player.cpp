@@ -213,15 +213,40 @@ void Player::setAttackPower(int newPower)
 
 void Player::attackEnemy(Enemy* enemy)
 {
-	if (enemy == nullptr)
-		return;
-
-	if (!enemy->getIsAlive()) {
-		std::cout << "That enemy is already defeated.\n";
+	if (enemy == nullptr || !enemy->getIsAlive())
+	{
+		std::cout << "There’s no living enemy to attack.\n";
 		return;
 	}
 
-	enemy->takeDamage(attackPower);
+	int choice = 0;
+	int damage = 0;
+
+	std::cout << "\nChoose your attack:\n";
+	std::cout << "1. Light Attack (10 damage)\n";
+	std::cout << "2. Heavy Attack (20 damage)\n";
+	std::cout << "Enter choice (1 or 2): ";
+
+	while (!(std::cin >> choice) || (choice != 1 && choice != 2))
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid choice! Please enter 1 (Light) or 2 (Heavy): ";
+	}
+
+	if (choice == 1)
+	{
+		damage = 10;
+		std::cout << "You perform a light attack!\n";
+	}
+	else
+	{
+		damage = 20;
+		std::cout << "You perform a heavy attack!\n";
+	}
+
+	enemy->takeDamage(damage);
+
 }
 
 bool Player::getInCombat() const

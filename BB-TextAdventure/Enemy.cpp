@@ -79,12 +79,28 @@ int Enemy::getAttackPower() const
 }
 void Enemy::attackPlayer(Player* player) const
 {
-	if (!alive) return; 
+	if (!alive) return;
 
+	// Randomize choice: 0 = Light, 1 = Heavy
+	int choice = rand() % 2;
+	int damage = 0;
+	std::string attackName;
 
-	cout << enemyName << " attacks you for " << attackPower << " damage!\n";
-	player->takeDamage(attackPower);
-	
+	if (choice == 0)
+	{
+		attackName = "light";
+		damage = 10;
+	}
+	else
+	{
+		attackName = "heavy";
+		damage = 20;
+	}
+
+	cout << enemyName << " uses a " << attackName
+		<< " attack and deals " << damage << " damage!\n";
+
+	player->takeDamage(damage);
 }
 bool Enemy::isAlive() const
 {
