@@ -176,10 +176,12 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	}
 	NPC* npc = zone.getNpcsAt(playerX, playerY);
 	//Prevents user from picking up an item before starting a quest
-	if (!npc->isQuestStarted())
-	{
-		cout << "You can't pick this up yet! Try starting a quest first!\n";
-		return;
+	if (npc != nullptr) {
+		if (!npc->isQuestStarted())
+		{
+			cout << "You can't pick this up yet! Try starting a quest first!\n";
+			return;
+		}
 	}
 	/*
 	// Check if the item exits
