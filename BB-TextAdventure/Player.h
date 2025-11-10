@@ -52,6 +52,8 @@ private:
     std::vector<Item*> inventory; 
 
     int attackPower = 10;
+    int health; 
+    int inCombat; 
 public:
     
     /** @brief Default constructor initializing position and room. */
@@ -108,4 +110,8 @@ public:
     int getAttackPower() const;
     void setAttackPower(int newPower);
     void attackEnemy(Enemy* enemy);
+    
+    bool getInCombat(bool state);
+    bool isAlive() const; 
+    void resetHealth();
 };

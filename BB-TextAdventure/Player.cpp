@@ -25,6 +25,8 @@ Player::Player()
 	playerX = 0;
 	playerY = 0;
 	currentHealth = maxHealth;
+	health = 100; 
+	inCombat = true; 
 }
 
 /**
@@ -177,12 +179,16 @@ int Player::getMaxHealth()
  */
 void Player::takeDamage(int amount)
 {
-	currentHealth -= amount;
+	health -= amount;
+	if (health < 0) health = 0;
 
-	if (currentHealth < 0)
-	{
-		currentHealth = 0;
-	}
+	cout << "You take " << amount << " damage! (HP: "
+		<< health << "/" << maxHealth << ")\n";
+}
+
+void Player::resetHealth()
+{
+	health = maxHealth;
 }
 
 /**
@@ -215,4 +221,14 @@ void Player::attackEnemy(Enemy* enemy)
 	}
 
 	enemy->takeDamage(attackPower);
+}
+
+bool Player::getInCombat(bool state)
+{
+	return inCombat;
+}
+
+bool Player::isAlive() const
+{
+	return health > 0;
 }
