@@ -96,6 +96,12 @@ private:
 
 	bool enemySpawned = false;
 
+    /**
+    * @breif Creates a hardcoded beach map.
+    * @details Used as the fallback map.
+    */
+    void CreateBeachZone();
+
 public:
 
     /**
