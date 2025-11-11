@@ -19,9 +19,20 @@ using namespace std;
 /**
  * @brief Default constructor. Creates the hardcoded Lab zone (fallback).
  */
-Zone::Zone()
+Zone::Zone(ZoneLocation name)
 {
-	CreateDefaultZone();
+	switch (name)
+	{
+	case ZoneLocation::DefaultLab:
+			CreateDefaultZone();
+			break;
+	case ZoneLocation::Beach:
+			CreateBeachZone();
+			break;
+	default:
+		CreateDefaultZone();
+			break;
+	}
 }
 
 /**
@@ -102,6 +113,26 @@ const Tile& Zone::getTileAt(int xPos, int yPos) const
  * @return A pointer to a portal if it exits. Otherwise nullptr.
  */
 Portal* Zone::getPortalAt(int xPos, int yPos)
+{
+	for (auto& portal : portals)
+	{
+		if (portal.xPosition == xPos && portal.yPosition == yPos)
+		{
+			return &portal;
+		}
+	}
+
+	return nullptr;
+}
+
+/**
+ * @brief Checks if a portal exists at a given coordinate (xPos,yPos).
+ * @param xPos The x position of a portal.
+ * @param yPos The y position of a protal.
+ * @return A pointer to a portal if it exits. Otherwise nullptr.
+ * @note READ ONLY
+ */
+const Portal* Zone::getPortalAt(int xPos, int yPos) const
 {
 	for (auto& portal : portals)
 	{
@@ -251,6 +282,8 @@ void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
 /*
 * This will get replaced when reading from a file
 * is functioning this is the original Map creation.
+* 
+* Creates the original Lab area
 */
 void Zone::CreateDefaultZone()
 {
@@ -336,11 +369,11 @@ void Zone::CreateDefaultZone()
 
 	/*
 	* Steps for Item Creation & Placement
-	* 
+	*
 	* 1. Create the item
 	* 2. Set is quest item
 	* 3. Place at a location inside of the items map
-	*	 renderer will reference zones map to place the 
+	*	 renderer will reference zones map to place the
 	*	 item on the map.
 	*/
 	Item* questItem = new Item("Arc Reactor", "It's glowing.");
@@ -350,7 +383,7 @@ void Zone::CreateDefaultZone()
 
 	/*
 	* Steps for Item Creation & Placement
-	* 
+	*
 	* 1. Create the enemy
 	* 2. Place at a location inside of the items map
 	*	 renderer will reference zones map to place the
@@ -363,7 +396,7 @@ void Zone::CreateDefaultZone()
 
 	/*
 	* Steps for Item Creation & Placement
-	* 
+	*
 	* 1. Create the NPC
 	* 2. Place at a location inside of the items map
 	*	 renderer will reference zones map to place the
@@ -371,4 +404,48 @@ void Zone::CreateDefaultZone()
 	*/
 	NPC* testNPC = new NPC("BOB");
 	npcs[{9, 10}] = testNPC;
+
+	/*
+	*
+	* Add a portal to the Lab Zone
+	*
+	* (5,5) Location of the portal
+	* -> lab
+	* (5,8) arrival tile in the lab zone
+	*
+	*/
+	portals.push_back(Portal{ 0,7, "beach", 23, 5 });
+}
+
+void Zone::CreateBeachZone()
+{
+	width = 25;
+	height = 20;
+
+	// Creat a zone filled with sand.
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Sand)));
+
+	// Create the water area
+	for (int vertical = 0; vertical < height; ++vertical)
+	{
+		// Left most columns are water
+		grid[vertical][0] = Tile(TileType::Water);
+		grid[vertical][1] = Tile(TileType::Water);
+		grid[vertical][2] = Tile(TileType::Water);
+		grid[vertical][3] = Tile(TileType::Water);
+	}
+
+	//grid[4][2] = Tile(TileType::Water);
+	//grid[5][2] = Tile(TileType::Water);
+
+	/*
+	* 
+	* Add a portal to the Lab Zone
+	* 
+	* (5,5) Location of the portal in the current room
+	* -> lab
+	* (5,8) arrival tile in the lab zone
+	* 
+	*/ 
+	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
 }

@@ -14,7 +14,17 @@
 #include "Tile.h"
 #include "Enemy.h"
 #include "NPC.h"
+#include "Item.h"
 using namespace std;
+
+/**
+* @brief Defines possible zones players may travel to.
+*/
+enum class ZoneLocation
+{
+    DefaultLab,
+    Beach
+};
 
 /**
 * @struct Portal
@@ -31,8 +41,13 @@ using namespace std;
 */
 struct Portal
 {
+    // Location of the portal in a room
     int xPosition, yPosition;
-    std::string targetZoneID;
+
+    // Name of the zone to load
+    string targetZoneID;
+
+    // The target tile to load on in the new zone
     int targetX, targetY;
 };
 
@@ -86,7 +101,7 @@ public:
     /**
     * @brief Default constructor. Creates the hardcoded Lab zone
     */
-    Zone();
+    Zone(ZoneLocation name);
 
     /**
     * @brief File-Loading constructor. Creates a zone based on a parsed file.
@@ -118,6 +133,15 @@ public:
     * @return A pointer to a portal if it exits. Otherwise nullptr.
     */
     Portal* getPortalAt(int xPos, int yPos);
+
+    /**
+    * @brief Checks if a portal exists at a given coordinate (xPos,yPos).
+    * @param xPos The x position of a portal.
+    * @param yPos The y position of a protal.
+    * @return A pointer to a portal if it exits. Otherwise nullptr.
+    * @note READ ONLY
+    */
+    const Portal* getPortalAt(int xPos, int yPos) const;
 
     /**
     * @brief Gets an enemy exists at a given coordinate (xPos,yPos).
