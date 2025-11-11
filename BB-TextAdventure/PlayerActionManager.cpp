@@ -257,7 +257,7 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 	Enemy* target = zone.getEnemyAt(playerX, playerY);
 
 	// --- No enemy present ---
-	if (target == nullptr)
+	if (target == nullptr || !target->getActive())
 	{
 		std::cout << "There's no enemy here to attack.\n";
 		UI::Pause();

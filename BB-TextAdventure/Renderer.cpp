@@ -10,6 +10,7 @@
 #include "UI.h"
 #include "Tile.h"
 #include "ColorCodes.h"
+#include "Windows.h"
 #include <iostream>
 
 /**
@@ -71,7 +72,17 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			}
 			else if (zone.getEnemyAt(x,y) != nullptr)
 			{
-				std::cout << "E ";
+				Enemy* enemy = zone.getEnemyAt(x, y);
+
+				// Only show enemies that are visible (unlocked after quest)
+				if (enemy->getIsVisible())
+				{
+					std::cout << "E ";
+				}
+				else
+				{
+					cout << "  "; 
+				}
 			}
 			else if (zone.getNpcsAt(x,y) != nullptr)
 			{
@@ -104,7 +115,14 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 */
 void Renderer::DrawHUD(const Player& player)
 {
-	std::cout << healthBar.render(const_cast<Player&>(player)) << endl;
-	std::cout << "This is where an objective will be" << endl;
-	//TODO: Display Objective here!
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	std::cout << healthBar.render(const_cast<Player&>(player)) << std::endl;
+
+	SetConsoleTextAttribute(hConsole, 10); // Green text for HUD
+	std::cout << "===============================" << std::endl;
+	std::cout << " Quest: " << QuestProgress::questName << std::endl;
+	std::cout << " Objective: " << QuestProgress::GetCurrentObjective() << std::endl;
+	std::cout << "===============================" << std::endl;
+	SetConsoleTextAttribute(hConsole, 7); // Reset color
 }
