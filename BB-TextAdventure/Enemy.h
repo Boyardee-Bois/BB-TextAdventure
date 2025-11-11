@@ -17,7 +17,6 @@ protected:
 	string enemyName; 
 	string enemyDescription;
 	bool isVisible; 
-	bool isActive; 
 	int health;
 	bool alive = true;
 	int enemy_xcoord;
@@ -57,8 +56,5 @@ public:
 	void attackPlayer(Player* player) const;
 	bool isAlive() const;
 	void takeDamage(int amount);
-
-	void setActive(bool value);
-	bool getActive() const;
 
 };

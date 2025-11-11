@@ -10,19 +10,18 @@ Enemy::Enemy()
 	enemyDescription = "No description available.";
 	health = 100;
 	alive = true;
-	attackPower = 10;
-	isActive = false; 
+	attackPower = 10; 
 }
 
 Enemy::Enemy(string name, string description, int newHealth)
 {
+	srand((unsigned)time(0));
 	enemyName = name;
 	enemyDescription = description;
 	isVisible = true;
 	health = newHealth; 
 	alive = true; 
 	attackPower = 10; 
-	isActive = false; 
 }
 
 string Enemy::getEnemyName() const
@@ -47,7 +46,7 @@ void Enemy::setEnemyDescription(const string& description)
 
 bool Enemy::getIsVisible() const
 {
-	return isVisible;
+	return false;
 }
 
 void Enemy::setIsVisible(bool visibility)
@@ -123,16 +122,6 @@ void Enemy::takeDamage(int amount)
 			<< " for " << amount
 			<< " damage! (" << health << " HP remaining)\n";
 	}
-}
-
-void Enemy::setActive(bool value)
-{
-	isActive = value; 
-}
-
-bool Enemy::getActive() const
-{
-	return isActive; 
 }
  
 

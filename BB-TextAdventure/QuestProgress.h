@@ -7,7 +7,7 @@ private:
     static bool questStarted;
     static bool questCompleted;
     static bool itemPickedUp;
-    static bool enemyUnlocked;
+    static std::string questName;
 
 public:
     // Constructors
@@ -21,18 +21,10 @@ public:
     static bool isQuestStarted();
     static bool isQuestCompleted();
 
-    // Item Tracking
+    //  Item Tracking
     static void setItemPickedUp(bool value);
     static bool hasPickedUpItem();
 
-    // Debug Info
+    //Debug Info
     static void printStatus();
-
-    // HUD Helper
-    static std::string GetCurrentObjective();
-
-    // Quest Name (public for HUD access)
-    static std::string questName;
-
-    static bool isEnemyUnlocked();
 };
