@@ -35,4 +35,7 @@ public:
     static std::string questName;
 
     static bool isEnemyUnlocked();
+
+    //Automated Testing Reset Method
+    static void Reset();
 };

@@ -2,8 +2,12 @@
 #include "CppUnitTest.h"
 #include <iostream>
 #include "../BB-TextAdventure/World.h"
+#include "../BB-TextAdventure/Verb.h"
+#include "../BB-TextAdventure/Noun.h"
 #include "../BB-TextAdventure/Zone.h"
 #include "../BB-TextAdventure/Player.h"
+#include "../BB-TextAdventure/NPC.h"
+#include "../BB-TextAdventure/QuestProgress.h"
 #include "../BB-TextAdventure/Renderer.h"
 #include "../BB-TextAdventure/CommandParser.h"
 #include "../BB-TextAdventure/UI.h"
@@ -18,13 +22,69 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace RefactorTesting
 {
-	TEST_CLASS(RefactorTesting)
-	{
-	public:
-		
-		TEST_METHOD(Get_Grid)
-		{
+    TEST_CLASS(RefactorTesting)
+    {
+    public:
+        
+        NPC autoTestNPC; //NPC that will be used in all the tests
+        TEST_METHOD_INITIALIZE(npcTestSetup)
+        {
+            QuestProgress::Reset(); //Resets the quest progress every time
+        }
+        TEST_METHOD(Get_Grid)
+        {
 
-		}
-	};
+        }
+
+        TEST_METHOD(canStartQuest)
+        {
+            Logger::WriteMessage("Testing if quest can be started again when already true/started");
+            Assert::IsTrue(autoTestNPC.isQuestStarted()); //Sets quest to started
+            autoTestNPC.startedQuest(); //Calls NPC to start the quest again
+            Assert::IsTrue(autoTestNPC.isQuestStarted()); //Check to see if quest can be started once already started (Should fail here) 
+        }
+
+        TEST_METHOD(pickUpItem_BeforeQuestStarted)
+        {
+            Logger::WriteMessage("Testing if you can pick up an item before talking to the NPC to start the quest");
+            autoTestNPC.pickUpItemBeforeQuest(); //Calls NPC to prevent item pickup before quest
+            Assert::IsTrue(QuestProgress::hasPickedUpItem()); //Sets picked up item to true despite not talking to NPC first (Should fail)
+        }
+
+        TEST_METHOD(hasItem_AfterQuestStarted)
+        {
+            Logger::WriteMessage("Testing if the item can be picked up after starting quest\n");
+            Logger::WriteMessage("Testing if player can complete quest without picking up the item");
+            autoTestNPC.startedQuest();
+            QuestProgress::setItemPickedUp(true); //Sets the item being picked up as true already (Item has been picked up)
+            Assert::IsFalse(QuestProgress::hasPickedUpItem()); //Says the item has NOT been picked up (Should fail)
+            Assert::IsFalse(autoTestNPC.canCompleteQuest()); //Checks if player can complete quest despite not having the item (Should fail)
+        }
+    };
+
+/*
+Common Test Automation Asserts including Examples
+•	Assert::AreEqual(expected, actual, message): Checks if two values are equal.
+         Assert::AreEqual(5, my_function(2, 3), L"my_function should return 5 for inputs 2 and 3");
+•	Assert::AreNotEqual(expected, actual, message): Checks if two values are not equal.
+         Assert::AreNotEqual(0, my_function(1, 0), L"my_function should not return 0 for inputs 1 and 0");
+•	Assert::IsTrue(condition, message): Checks if a condition is true.
+        Assert::IsTrue(my_object.IsValid(), L"my_object should be valid after initialization");
+•	Assert::IsFalse(condition, message): Checks if a condition is false.
+        Assert::IsFalse(my_object.IsEmpty(), L"my_object should not be empty after adding elements");
+•	Assert::IsNull(pointer, message): Checks if a pointer is null.
+        Assert::IsNull(my_pointer, L"my_pointer should be null after deletion");
+•	Assert::IsNotNull(pointer, message): Checks if a pointer is not null.
+        Assert::IsNotNull(my_pointer, L"my_pointer should not be null after allocation");
+•	Assert::Fail(message): Forces a test failure with a specified message.
+        Assert::Fail(L"This code path should never be reached");
+
+Important Notes:
+•	The message parameter in these methods is optional but highly recommended for providing context about the assertion's purpose, especially when a test fails.
+•	The string literals used for messages should be wide-character strings (prefixed with L) to be compatible with the framework.
+•	These assertions are part of the Microsoft::VisualStudio::CppUnitTestFramework namespace. You typically include the necessary header and use this namespace in your test files.
+C++
+    #include "CppUnitTest.h"
+    using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+*/
 }
