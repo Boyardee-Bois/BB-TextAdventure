@@ -109,3 +109,13 @@ bool QuestProgress::isEnemyUnlocked()
 {
     return enemyUnlocked;
 }
+
+//Automated Testing reset to set everything back to the default (False)
+void QuestProgress::Reset()
+{
+    questStarted = false;
+    questCompleted = false;
+    itemPickedUp = false;
+    enemyUnlocked = false;
+    questName = "First Quest for Arc Reactor";
+}
