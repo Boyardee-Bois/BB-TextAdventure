@@ -20,7 +20,7 @@ class NPC
 private:
     string npcName;
     bool questItemCollected;
-    QuestProgress questProgress;
+    QuestProgress questProgress_;  // LV - already created, not used since all methods static - changing this behavior
     Zone* currentZone;
 public:
 
@@ -28,39 +28,19 @@ public:
 
     NPC(const string& npcName);
 
+    QuestProgress getQuestObject();
+
     void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY);
+    void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug);  // support debug flag, false uses pauses, true - don't pause
 
-    /**
-    * 
-    * DEPRECATED ZONE SETS THE LOCATION OF THE NPC 
-    *
-    *
-    void setNPC_Position(int npcX, int npcY);
-
-    /**
-     * 
-     * DEPRECATED ZONE SETS THE LOCATION OF THE NPC
-* 
-     *
-    int getNPC_X() const;
-
-    /**
-     * 
-     DEPRECATED ZONE SETS THE LOCATION OF THE NPC
-     *
-    int getNPC_Y() const;
-    /**
-    * DEPRECATED ZONE CHECKS THE LOCATION OF THE NPC
-    * 
-    bool player_Coord_Check(int playerX, int playerY);
-    */
+    // LV - deleted deprecated methods
 
 
 
     /*void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
      * @brief Sets Quest item as collected
      */
-    void setQuestItemCollected(bool collected);
+    bool setQuestItemCollected(bool collected);
     /**
      * @brief Gets Quest item as collected
      */
@@ -77,7 +57,6 @@ public:
     bool canCompleteQuest() const;
     bool isQuestStarted() const;
     bool isQuestComplete() const;
-
 };
 
 

@@ -183,7 +183,9 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	//  Pickup success
 	player.ItemPickUp(itemToPickup);
 	zone.removeItemsAt(playerX, playerY);
-	QuestProgress::setItemPickedUp(true);
+	// QuestProgress::setItemPickedUp(true);  -- comment this out for now
+	NPC* npc = zone.getNpcInZone();   // LV - to be changed to go through the NPC class
+	npc->setQuestItemCollected(true);
 
 	UI::Pause();
 }

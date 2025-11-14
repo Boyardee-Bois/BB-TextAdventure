@@ -1,19 +1,20 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <iostream>
-#include "../BB-TextAdventure/World.h"
-#include "../BB-TextAdventure/Verb.h"
-#include "../BB-TextAdventure/Noun.h"
-#include "../BB-TextAdventure/Zone.h"
-#include "../BB-TextAdventure/Player.h"
 #include "../BB-TextAdventure/NPC.h"
 #include "../BB-TextAdventure/QuestProgress.h"
+#include "../BB-TextAdventure/Zone.h"
+#include "../BB-TextAdventure/Verb.h"
+#include "../BB-TextAdventure/Noun.h"
+#include "../BB-TextAdventure/World.h"
+#include "../BB-TextAdventure/Player.h"
 #include "../BB-TextAdventure/Renderer.h"
 #include "../BB-TextAdventure/CommandParser.h"
 #include "../BB-TextAdventure/UI.h"
 #include "../BB-TextAdventure/PlayerActionManager.h"
 #include "../BB-TextAdventure/Tile.h"
 #include "../BB-TextAdventure/HealthUI.h"
+
 #include <map>
 #include <string>
 
@@ -35,12 +36,57 @@ namespace RefactorTesting
         {
 
         }
+        // verify NPC* Zone::getNpcInZone() const works as expected
+        //    first create the zone
+        TEST_METHOD(VerifyNpcInZone) {
+            Zone *testZone = new Zone(ZoneLocation::DefaultLab);
+            NPC *npc = testZone->getNpcInZone();   // verify this does return the expected NPC - Bob?
+            Logger::WriteMessage(npc->getName().c_str());
+
+            // test picking the item
+            //    first verify item hasn't picked up, then call the NPC class to record the item is picked up & verify Quest & NPC both think we have the item
+            Logger::WriteMessage("\n Testing we use the NPC class to record the item has picked up\n");
+            Assert::IsFalse(npc->getQuestItemCollected());
+            Assert::IsFalse(npc->getQuestObject().hasPickedUpItem());
+            Assert::IsFalse(npc->setQuestItemCollected(true), L"expected item to be collected, but failed");    // should fail
+            npc->startedQuest();
+            Assert::IsTrue(npc->setQuestItemCollected(true), L"expected item to be collected, but failed");    // now we should be able to pick up the item
+            Assert::IsTrue(npc->getQuestItemCollected());
+            Assert::IsTrue(npc->getQuestObject().hasPickedUpItem());
+        }
+
+        // Walk through a quest
+        TEST_METHOD(StepThroughASunnyDayQuestScenario) {
+            Zone* testZone = new Zone(ZoneLocation::DefaultLab);
+            NPC* npc = testZone->getNpcInZone();   // verify this does return the expected NPC - Bob?
+            Logger::WriteMessage(npc->getName().c_str());
+  
+            Assert::IsFalse(npc->setQuestItemCollected(true));     // should not be able to retreive item before the quest
+
+            Logger::WriteMessage("\n Talk to NPC\n");   // should start the quest
+            npc->interact(Verb::Interact, Noun::NPC, testZone, 0, 0, true);  // first interaction
+            Assert::IsTrue(npc->isQuestStarted());
+            Assert::IsTrue(npc->getQuestObject().isQuestStarted());
+
+            // next step pick-up the item & talk to NPC, should complete the quest & spawn an enemy
+            Logger::WriteMessage("\n Talk to NPC after picking up the item - quest completed\n");   // should start the quest
+            Assert::IsTrue(npc->setQuestItemCollected(true));     // should allow us to retrieve the item
+            Assert::IsFalse(testZone->hasEnemySpawned());
+            npc->interact(Verb::Interact, Noun::NPC, testZone, 0, 0, true);  // first interaction
+            //   can't test this, no zone method to test if the enemy is visible, and hasEnemySpawned() doesn't work - never initialized
+            Assert::IsTrue(npc->isQuestComplete());
+            // Assert::IsTrue(testZone->hasEnemySpawned(), L"expecting enemy has spawned, but enemy hasn't spawned!");
+        }
+
+        // 
+
+        // test case to verify that trying to pickup the item before talking to NPC fails
 
         TEST_METHOD(canStartQuest)
         {
             Logger::WriteMessage("Testing if quest can be started again when already true/started");
-            Assert::IsTrue(autoTestNPC.isQuestStarted()); //Sets quest to started
-            autoTestNPC.startedQuest(); //Calls NPC to start the quest again
+            Assert::IsFalse(autoTestNPC.isQuestStarted()); //  quest should not be started
+            autoTestNPC.startedQuest();                    //Calls NPC to start the quest again
             Assert::IsTrue(autoTestNPC.isQuestStarted()); //Check to see if quest can be started once already started (Should fail here) 
         }
 

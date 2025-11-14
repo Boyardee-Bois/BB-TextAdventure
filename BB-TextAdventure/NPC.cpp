@@ -20,65 +20,34 @@ NPC::NPC(const string& npcName) {
 	this->npcName = npcName;
 	this->questItemCollected = false;
 	this->currentZone = nullptr;
+	// LV note: questProgress_ object created in the .h file when this object is created
 }
 
-/**
-* DEPRECATED ZONE SETS THE LOCATION OF THE NPC
-*
- * @brief Sets the NPC's position on the map.
- * @param x The new X coordinate.
- * @param y The new Y coordinate.
-void NPC::setNPC_Position(int npcX, int npcY)
-{
-	npc_xcoord = npcX;
-	npc_ycoord = npcY;
+QuestProgress NPC::getQuestObject() {
+	return questProgress_;
 }
- */
 
- /**
- * DEPRECATED ZONE SETS THE LOCATION OF THE NPC
- *
- *
-  * @brief Returns the NPC's current X coordinate.
-  * @return The NPC’s X position.
- int NPC::getNPC_X() const
- {
-	 return npc_xcoord;
- }
-  */
+/* deleted deprecated methods */
 
-  /**
-  * DEPRECATED ZONE SETS THE LOCATION OF THE NPC
-  *
-  *
-   * @brief Returns the NPC's current Y coordinate.
-   * @return The NPC’s Y position.
-  int NPC::getNPC_Y() const
-  {
-	  return npc_ycoord;
-  }
-   */
+// Return true if the quest has started, so it is okay to pick up the item
+//   false, otherwise
 
-void NPC::setQuestItemCollected(bool collected)
+bool NPC::setQuestItemCollected(bool collected)
 {
-	questItemCollected = collected;
+	if (questProgress_.isQuestStarted()) {
+		questItemCollected = collected;   // LV - now redundant - can be replaced with the status in the questProgress
+		questProgress_.setItemPickedUp(true);
+		return(true);
+	}
+	else
+		return(false);
 }
 
 bool NPC::getQuestItemCollected() const
 {
-	return questItemCollected;
+	return questProgress_.hasPickedUpItem();
 }
 
-//Checks if the player is standing where the NPC is standing to confirm if they can interact with the NPC or not
-/*
-*
-* DEPRECATED ZONE SETS & CHECKS THE LOCATION OF THE NPC
-*
-
-bool NPC::player_Coord_Check(int playerX, int playerY) {
-	return (playerX == npc_xcoord && playerY == npc_ycoord);
-}
-*/
 void NPC::setZone(Zone* zone) {
 	currentZone = zone;
 }
@@ -95,18 +64,18 @@ string NPC::getName() const {
 void NPC::startedQuest()
 {
 	//  Use the new static global quest system
-	QuestProgress::startQuest("Find the Shiny Thing");
+	questProgress_.startQuest("Find the Shiny Thing");
 }
 
 void NPC::completedQuest()
 {
-	QuestProgress::completeQuest();
+	questProgress_.completeQuest();
 }
 
 void NPC::pickUpItemBeforeQuest()
 {
 	// Optional — can print warning or perform pre-checks
-	if (!QuestProgress::isQuestStarted())
+	if (!questProgress_.isQuestStarted())
 	{
 		std::cout << "This item can't be picked up yet! Talk to the NPC first!\n";
 	}
@@ -115,27 +84,32 @@ void NPC::pickUpItemBeforeQuest()
 bool NPC::canCompleteQuest() const
 {
 	// Quest can be completed if it's started, item picked up, and not completed yet
-	return QuestProgress::isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted();
+	return questProgress_.isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted();
 }
 
 bool NPC::isQuestStarted() const
 {
-	return QuestProgress::isQuestStarted();
+	return questProgress_.isQuestStarted();
 }
 
 bool NPC::isQuestComplete() const
 {
-	return QuestProgress::isQuestCompleted();
+	return questProgress_.isQuestCompleted();
 }
 
 void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY)
 {
+	interact(playerVerb, playerNoun, activeZone, playerX, playerY, false);
+}
+
+void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug)
+{
 	// --- STEP 1: Quest not started ---
-	if (!QuestProgress::isQuestStarted())
+	if (!isQuestStarted())
 	{
 		cout << " Hey there! Could you find the shiny thing by the water?" << endl;
-		QuestProgress::startQuest("Find the Shiny Thing");
-		UI::Pause();
+		questProgress_.startQuest("Find the Shiny Thing");
+		if (!debug) UI::Pause();   // if in debug mode - don't pause - hangs the test harness
 		return;
 	}
 
@@ -143,7 +117,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	if (QuestProgress::isQuestStarted() && !QuestProgress::hasPickedUpItem())
 	{
 		cout << " WHERE?!? It's by the water — keep looking!" << endl;
-		UI::Pause();
+		if (!debug) UI::Pause();
 		return;
 	}
 
@@ -151,9 +125,9 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	if (QuestProgress::isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted())
 	{
 		cout << " You found it?! Amazing work!" << endl;
-		QuestProgress::completeQuest();  // marks quest complete + unlocks enemy
+		questProgress_.completeQuest();  // marks quest complete + unlocks enemy
 		activeZone->spawnEnemy();        // now reactivates or shows the enemy
-		UI::Pause();
+		if (!debug) UI::Pause();
 		return;
 	}
 
@@ -161,67 +135,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	if (QuestProgress::isQuestCompleted())
 	{
 		cout << " You’ve already helped me, hero. Be careful... something’s out there now." << endl;
-		UI::Pause();
+		if (!debug) UI::Pause();
 		return;
 	}
 }
-
-	/*
-		if (firstQuest->isQuestStarted())
-		{
-			firstQuest->pickUpItemBeforeQuest();
-		}
-		else
-		{
-			beachNPC.setQuestItemCollected(false);
-			system("pause");
-		}
-	}
-	*/
-	/*
-	//Accepts enum parser "Interact NPC" only if Player and NPC same coords
-	if (playerVerb == Verb::Interact && playerNoun == Noun::NPC) {
-
-		if (questItemCollected)
-		{
-			cout << npcName << ": yes.\nQuest Completed!\n";
-			system("pause");
-			return;
-		}
-
-		cout << npcName << ": Help me X_X\n" << endl;
-		bool helpNPC = false;
-
-		while (!helpNPC) //Loop to let player try again after incorrect input
-		{
-			//Dialogue couts and choices
-			cout << "1) With what?\n2) No, goodbye!\n";
-
-			int choice;
-			cin >> choice;
-
-			if (choice == 1) {
-				cout << npcName << " Ooga Booga! (There's a shiny thing by the water!)\n";
-				system("pause");
-				helpNPC = true;
-			}
-			else if (choice == 2) {
-				cout << npcName << " Wow okay...\n";
-				helpNPC = true;
-			}
-			else
-			{ //Invalid input catcher
-				cout << "Not a correct input. Please enter 1/2." << endl;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			}
-		}
-	}
-	else if (playerVerb == Verb::Interact && playerNoun == Noun::NPC) {
-		cout << "You can't interact yet!\n";
-	}
-
-	else {
-		cout << "Not a correct input. Please enter Y/N." << endl;
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	}
-	*/

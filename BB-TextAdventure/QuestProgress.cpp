@@ -55,6 +55,7 @@ bool QuestProgress::isQuestCompleted()
     return questCompleted;
 }
 
+// LV - currently called from playaer action manager - process pickup command
 void QuestProgress::setItemPickedUp(bool value)
 {
     itemPickedUp = value;

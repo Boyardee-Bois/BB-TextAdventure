@@ -164,6 +164,7 @@ public:
     * @return A pointer to a NPC if it exits. Otherwise nullptr.
     */
     NPC* getNpcsAt(int xPos, int yPos) const;
+    NPC* getNpcInZone() const;
 
     /**
     * @brief Gets an Item exists at a given coordinate (xPos,yPos).
