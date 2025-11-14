@@ -106,6 +106,16 @@ namespace RefactorTesting
             Assert::IsFalse(QuestProgress::hasPickedUpItem()); //Says the item has NOT been picked up (Should fail)
             Assert::IsFalse(autoTestNPC.canCompleteQuest()); //Checks if player can complete quest despite not having the item (Should fail)
         }
+
+        TEST_METHOD(CreateTwoQuests) {
+            QuestProgress mythicalJourney();
+            QuestProgress mySpiritualJourney();
+            mySpiritualJourney.startQuest("Journey to a land of peace of quiet");
+            QuestProgress::startQuest("Journey to a magic land");
+            QuestProgress::startQuest("Journey to a land of peace and quiet");
+// prent the output ehre - will show peach & quiet
+            Logger::
+        }
     };
 
 /*
