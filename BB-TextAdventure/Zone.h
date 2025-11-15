@@ -73,6 +73,16 @@ private:
     /**@breif A list of all portals in this zone */
     vector<Portal> portals;
 
+
+    /*
+    * These need to be updated to a vector
+    * Each NPC, Item, Enemy should have 
+    * their own coordinates then put into a vector
+    * 
+    * Each zone should have access to the list of enemies
+    * and their locations
+    * 
+    */
     /**@breif A map pairing enemies to coordinates (x,y).*/
     map<pair<int, int>, Enemy*> enemies;
 
