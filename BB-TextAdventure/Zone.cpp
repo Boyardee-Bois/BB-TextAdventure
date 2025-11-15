@@ -271,7 +271,7 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 
 void Zone::spawnEnemy()
 {
-	if (QuestProgress::isQuestCompleted())
+	if (getNpcInZone()->isQuestComplete())
 	{
 	
 		for (auto& pair : enemies)
@@ -419,6 +419,7 @@ void Zone::CreateDefaultZone()
 	*/
 	NPC* testNPC = new NPC("BOB");
 	npcs[{9, 10}] = testNPC;
+	//staticNPC = testNPC;
 
 	/*
 	*

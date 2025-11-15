@@ -4,38 +4,38 @@
 class QuestProgress
 {
 private:
-    static bool questStarted;
-    static bool questCompleted;
-    static bool itemPickedUp;
-    static bool enemyUnlocked;
+    bool questStarted;
+    bool questCompleted;
+    bool itemPickedUp;
+    bool enemyUnlocked;
 
 public:
     // Constructors
-    QuestProgress() = default;
+    QuestProgress();
 
     // Quest Control
-    static void startQuest(const std::string& name = "Main Quest");
-    static void completeQuest();
+    void startQuest(std::string name);
+    void completeQuest();
 
     // State Checks
-    static bool isQuestStarted();
-    static bool isQuestCompleted();
+    bool isQuestStarted();
+    bool isQuestCompleted();
 
     // Item Tracking
-    static void setItemPickedUp(bool value);
-    static bool hasPickedUpItem();
+    void setItemPickedUp(bool value);
+    bool hasPickedUpItem();
 
     // Debug Info
-    static void printStatus();
+    void printStatus();
 
     // HUD Helper
-    static std::string GetCurrentObjective();
+    std::string GetCurrentObjective();
 
     // Quest Name (public for HUD access)
-    static std::string questName;
+    std::string questName;
 
-    static bool isEnemyUnlocked();
+    bool isEnemyUnlocked();
 
     //Automated Testing Reset Method
-    static void Reset();
+    void Reset();
 };

@@ -154,7 +154,7 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 {
 	int playerX = player.getX();
 	int playerY = player.getY();
-
+	NPC* npc = zone.getNpcInZone();   // LV - to be changed to go through the NPC class
 	//  Check if there's an item at current tile
 	Item* itemToPickup = zone.getItemsAt(playerX, playerY);
 	if (itemToPickup == nullptr)
@@ -165,7 +165,7 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	}
 
 	//  Prevent picking up item before talking to NPC
-	if (!QuestProgress::isQuestStarted())
+	if (!npc->isQuestStarted())
 	{
 		cout << "You can't pick this up yet! Try talking to the NPC first!\n";
 		UI::Pause();
@@ -173,7 +173,7 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	}
 
 	//  Prevent double pickup
-	if (QuestProgress::hasPickedUpItem())
+	if (!npc->getQuestItemCollected())
 	{
 		cout << "You already picked up this item!\n";
 		UI::Pause();
@@ -183,8 +183,8 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 	//  Pickup success
 	player.ItemPickUp(itemToPickup);
 	zone.removeItemsAt(playerX, playerY);
-	// QuestProgress::setItemPickedUp(true);  -- comment this out for now
-	NPC* npc = zone.getNpcInZone();   // LV - to be changed to go through the NPC class
+	// 
+	// setItemPickedUp(true);  -- comment this out for now
 	npc->setQuestItemCollected(true);
 
 	UI::Pause();

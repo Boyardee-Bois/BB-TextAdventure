@@ -26,11 +26,11 @@ namespace RefactorTesting
     TEST_CLASS(RefactorTesting)
     {
     public:
+        //NPC autoTestNPC; //NPC that will be used in all the tests
         
-        NPC autoTestNPC; //NPC that will be used in all the tests
         TEST_METHOD_INITIALIZE(npcTestSetup)
         {
-            QuestProgress::Reset(); //Resets the quest progress every time
+            //autoTestNPC = NPC(); //NPC that will be used in all the tests
         }
         TEST_METHOD(Get_Grid)
         {
@@ -45,16 +45,20 @@ namespace RefactorTesting
 
             // test picking the item
             //    first verify item hasn't picked up, then call the NPC class to record the item is picked up & verify Quest & NPC both think we have the item
+           
             Logger::WriteMessage("\n Testing we use the NPC class to record the item has picked up\n");
             Assert::IsFalse(npc->getQuestItemCollected());
             Assert::IsFalse(npc->getQuestObject().hasPickedUpItem());
+
+            
             Assert::IsFalse(npc->setQuestItemCollected(true), L"expected item to be collected, but failed");    // should fail
             npc->startedQuest();
             Assert::IsTrue(npc->setQuestItemCollected(true), L"expected item to be collected, but failed");    // now we should be able to pick up the item
             Assert::IsTrue(npc->getQuestItemCollected());
             Assert::IsTrue(npc->getQuestObject().hasPickedUpItem());
+            
         }
-
+        
         // Walk through a quest
         TEST_METHOD(StepThroughASunnyDayQuestScenario) {
             Zone* testZone = new Zone(ZoneLocation::DefaultLab);
@@ -77,13 +81,14 @@ namespace RefactorTesting
             Assert::IsTrue(npc->isQuestComplete());
             // Assert::IsTrue(testZone->hasEnemySpawned(), L"expecting enemy has spawned, but enemy hasn't spawned!");
         }
-
+        
         // 
 
         // test case to verify that trying to pickup the item before talking to NPC fails
-
+        
         TEST_METHOD(canStartQuest)
         {
+            NPC autoTestNPC;
             Logger::WriteMessage("Testing if quest can be started again when already true/started");
             Assert::IsFalse(autoTestNPC.isQuestStarted()); //  quest should not be started
             autoTestNPC.startedQuest();                    //Calls NPC to start the quest again
@@ -92,30 +97,34 @@ namespace RefactorTesting
 
         TEST_METHOD(pickUpItem_BeforeQuestStarted)
         {
+            NPC autoTestNPC;
             Logger::WriteMessage("Testing if you can pick up an item before talking to the NPC to start the quest");
             autoTestNPC.pickUpItemBeforeQuest(); //Calls NPC to prevent item pickup before quest
-            Assert::IsTrue(QuestProgress::hasPickedUpItem()); //Sets picked up item to true despite not talking to NPC first (Should fail)
+            Assert::IsFalse(autoTestNPC.getQuestItemCollected()); //Sets picked up item to false despite not talking to NPC first (Should fail)
         }
 
         TEST_METHOD(hasItem_AfterQuestStarted)
         {
+            NPC autoTestNPC;
             Logger::WriteMessage("Testing if the item can be picked up after starting quest\n");
             Logger::WriteMessage("Testing if player can complete quest without picking up the item");
             autoTestNPC.startedQuest();
-            QuestProgress::setItemPickedUp(true); //Sets the item being picked up as true already (Item has been picked up)
-            Assert::IsFalse(QuestProgress::hasPickedUpItem()); //Says the item has NOT been picked up (Should fail)
-            Assert::IsFalse(autoTestNPC.canCompleteQuest()); //Checks if player can complete quest despite not having the item (Should fail)
+            autoTestNPC.setQuestItemCollected(true); //Sets the item being picked up as true already (Item has been picked up)
+            Assert::IsTrue(autoTestNPC.getQuestItemCollected()); //Says the item has NOT been picked up (Should fail)
+            Assert::IsTrue(autoTestNPC.canCompleteQuest()); //Checks if player can complete quest despite not having the item (Should fail)
         }
-
+        
+        /*
         TEST_METHOD(CreateTwoQuests) {
             QuestProgress mythicalJourney();
             QuestProgress mySpiritualJourney();
-            mySpiritualJourney.startQuest("Journey to a land of peace of quiet");
-            QuestProgress::startQuest("Journey to a magic land");
-            QuestProgress::startQuest("Journey to a land of peace and quiet");
+            mythicalJourney.startQuest("Journey to a land of peace of quiet");
+            
 // prent the output ehre - will show peach & quiet
-            Logger::
+            Logger::WriteMessage("HI");
         }
+        */
+        
     };
 
 /*

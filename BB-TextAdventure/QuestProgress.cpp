@@ -1,17 +1,24 @@
 #include "QuestProgress.h"
 #include <iostream>
 using namespace std; 
-
+/*
 // Define static variables (shared across entire game)
 bool QuestProgress::questStarted = false;
 bool QuestProgress::questCompleted = false;
 bool QuestProgress::itemPickedUp = false;
 bool QuestProgress::enemyUnlocked = false;
 std::string QuestProgress::questName = "Main Quest";
-
+*/
 // === Function Definitions ===
+QuestProgress::QuestProgress() { //Constructor
+    questStarted = false;
+    questCompleted = false;
+    itemPickedUp = false;
+    enemyUnlocked = false;
+    questName = "Main Quest";
+}
 
-void QuestProgress::startQuest(const std::string& name)
+void QuestProgress::startQuest(std::string name)
 {
     if (!questStarted)
     {

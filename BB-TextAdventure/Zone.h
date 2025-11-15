@@ -103,7 +103,7 @@ private:
     void CreateBeachZone();
 
 public:
-
+    //static NPC* staticNPC; // Temporary
     /**
     * @brief Default constructor. Creates the hardcoded Lab zone
     */

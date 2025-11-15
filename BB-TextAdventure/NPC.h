@@ -37,14 +37,14 @@ public:
 
 
 
-    /*void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
+    /**void DisplayWithNPC(int npc_xcoord, int npc_ycoord) const;
      * @brief Sets Quest item as collected
-     */
+    */
     bool setQuestItemCollected(bool collected);
     /**
      * @brief Gets Quest item as collected
      */
-    bool getQuestItemCollected() const;
+    bool getQuestItemCollected();
 
     void setZone(Zone* zone);
     Zone* getZone() const;
@@ -54,9 +54,9 @@ public:
     void startedQuest();
     void completedQuest();
     void pickUpItemBeforeQuest();
-    bool canCompleteQuest() const;
-    bool isQuestStarted() const;
-    bool isQuestComplete() const;
+    bool canCompleteQuest();
+    bool isQuestStarted();
+    bool isQuestComplete();
 };
 
 

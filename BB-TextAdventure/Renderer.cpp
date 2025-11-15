@@ -11,6 +11,7 @@
 #include "Tile.h"
 #include "ColorCodes.h"
 #include "Windows.h"
+#include "Zone.h"
 #include <iostream>
 
 /**
@@ -121,8 +122,8 @@ void Renderer::DrawHUD(const Player& player)
 
 	SetConsoleTextAttribute(hConsole, 10); // Green text for HUD
 	std::cout << "===============================" << std::endl;
-	std::cout << " Quest: " << QuestProgress::questName << std::endl;
-	std::cout << " Objective: " << QuestProgress::GetCurrentObjective() << std::endl;
+	//std::cout << " Quest: " << Zone::staticNPC->getName() << std::endl;
+	//std::cout << " Objective: " << Zone::staticNPC->getQuestObject().GetCurrentObjective() << std::endl;
 	std::cout << "===============================" << std::endl;
 	SetConsoleTextAttribute(hConsole, 7); // Reset color
 }

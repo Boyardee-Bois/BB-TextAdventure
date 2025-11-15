@@ -43,7 +43,7 @@ bool NPC::setQuestItemCollected(bool collected)
 		return(false);
 }
 
-bool NPC::getQuestItemCollected() const
+bool NPC::getQuestItemCollected()
 {
 	return questProgress_.hasPickedUpItem();
 }
@@ -81,18 +81,18 @@ void NPC::pickUpItemBeforeQuest()
 	}
 }
 
-bool NPC::canCompleteQuest() const
+bool NPC::canCompleteQuest()
 {
 	// Quest can be completed if it's started, item picked up, and not completed yet
-	return questProgress_.isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted();
+	return questProgress_.isQuestStarted() && questProgress_.hasPickedUpItem() && !questProgress_.isQuestCompleted();
 }
 
-bool NPC::isQuestStarted() const
+bool NPC::isQuestStarted()
 {
 	return questProgress_.isQuestStarted();
 }
 
-bool NPC::isQuestComplete() const
+bool NPC::isQuestComplete()
 {
 	return questProgress_.isQuestCompleted();
 }
@@ -114,7 +114,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	}
 
 	// --- STEP 2: Quest started but item not yet picked up ---
-	if (QuestProgress::isQuestStarted() && !QuestProgress::hasPickedUpItem())
+	if (questProgress_.isQuestStarted() && !questProgress_.hasPickedUpItem())
 	{
 		cout << " WHERE?!? It's by the water — keep looking!" << endl;
 		if (!debug) UI::Pause();
@@ -122,7 +122,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	}
 
 	// --- STEP 3: Item picked up but quest not yet completed ---
-	if (QuestProgress::isQuestStarted() && QuestProgress::hasPickedUpItem() && !QuestProgress::isQuestCompleted())
+	if (questProgress_.isQuestStarted() && questProgress_.hasPickedUpItem() && !questProgress_.isQuestCompleted())
 	{
 		cout << " You found it?! Amazing work!" << endl;
 		questProgress_.completeQuest();  // marks quest complete + unlocks enemy
@@ -132,7 +132,7 @@ void NPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playe
 	}
 
 	// --- STEP 4: Quest already completed ---
-	if (QuestProgress::isQuestCompleted())
+	if (questProgress_.isQuestCompleted())
 	{
 		cout << " You’ve already helped me, hero. Be careful... something’s out there now." << endl;
 		if (!debug) UI::Pause();
