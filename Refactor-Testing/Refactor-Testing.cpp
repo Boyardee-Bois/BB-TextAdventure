@@ -114,16 +114,36 @@ namespace RefactorTesting
             Assert::IsTrue(autoTestNPC.canCompleteQuest()); //Checks if player can complete quest despite not having the item (Should fail)
         }
         
-        /*
+
         TEST_METHOD(CreateTwoQuests) {
-            QuestProgress mythicalJourney();
-            QuestProgress mySpiritualJourney();
-            mythicalJourney.startQuest("Journey to a land of peace of quiet");
+            Logger::WriteMessage("Creating two quests & independently checking behavior of all of the methods & state transitions\n");
+            Logger::WriteMessage("  Verifying the quests behave independently, and all of the interactions behave as specified\n");
+            Logger::WriteMessage("  for example, a user should not be able to complete a quest that hasn't started!\n");
+            // create two quests
+            QuestProgress mythicalJourney;
+            string mythicalJourneyDescription = "Journey to a far off realm of mysticism";
+            QuestProgress mySpiritualJourney;
+            string mySpiritualJourneyDescription = "Journey to a land of peace and quiet";
+            mythicalJourney.startQuest(mythicalJourneyDescription);
+            mySpiritualJourney.startQuest(mySpiritualJourneyDescription);
             
-// prent the output ehre - will show peach & quiet
-            Logger::WriteMessage("HI");
+            // verify quests are different
+            Assert::AreEqual(mythicalJourneyDescription, mythicalJourney.getQuestName());
+            Assert::AreEqual(mySpiritualJourneyDescription, mySpiritualJourney.getQuestName());
+
+            // ideas for additional tests - I'm  you can find others ..
+            //       Note: many of these interactions should be documented in the class header (e.g. can't complete a quest unless you've picked up the associated item)
+            //         Can't complete a quest, if you haven't started the quest
+            //         You also have some WIP here - checking if enemy is unlocked, but no method apparant to unlock the enemy
+            //              maybe in another class, an external method was changing the lock status directly since it had direct access to the data elements?
+            //    try to pickup an item, before the quest has started (current code in QuestProgress allows this - should it?  currently verified by the NPC class)
+            //    start one of the quests, verify it is started
+            //    try to complete the first quest - shouldn't be able to, since the item is not picked up
+            //    try to complete the second quest, verify it cannot be completed since it hasn't been in progress
+            //    start and complete the second quest, verify it is complete & the other quest is not complete (still in-progress)
+            //    others?
+            Logger::WriteMessage("\n\n more tests to come ... \n");
         }
-        */
         
     };
 

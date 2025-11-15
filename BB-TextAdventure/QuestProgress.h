@@ -8,6 +8,7 @@ private:
     bool questCompleted;
     bool itemPickedUp;
     bool enemyUnlocked;
+    std::string questName;
 
 public:
     // Constructors
@@ -16,6 +17,9 @@ public:
     // Quest Control
     void startQuest(std::string name);
     void completeQuest();
+
+    // returns the name given to the quest, when the quest was started
+    std::string getQuestName();
 
     // State Checks
     bool isQuestStarted();
@@ -30,9 +34,6 @@ public:
 
     // HUD Helper
     std::string GetCurrentObjective();
-
-    // Quest Name (public for HUD access)
-    std::string questName;
 
     bool isEnemyUnlocked();
 

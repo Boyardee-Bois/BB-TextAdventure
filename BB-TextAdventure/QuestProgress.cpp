@@ -33,6 +33,10 @@ void QuestProgress::startQuest(std::string name)
     }
 }
 
+std::string QuestProgress::getQuestName() {
+    return questName;
+}
+
 void QuestProgress::completeQuest()
 {
     if (questStarted && itemPickedUp && !questCompleted)
