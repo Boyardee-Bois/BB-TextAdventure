@@ -33,12 +33,24 @@ Renderer::Renderer()
 * @param zone A constant reference to the active zone.
 * @param player A constant reference to the Player.
 */
+
+
 void Renderer::Draw(const Zone& zone, const Player& player)
 {
 	UI::Clear();
 	DrawZone(zone, player);
 	UI::SectionSeperator();
 	DrawHUD(player);
+
+	//Allow Renderer to access NPC using Zone's connection to NPC
+	NPC* npc = zone.getNpcInZone();
+
+	//Test to see if Renderer can call NPC using Zone
+	/*
+	if (npc != nullptr) {
+		cout << "HI TEST NPC: " << npc->getName() << "\n";
+	}
+	*/
 }
 
 /**
