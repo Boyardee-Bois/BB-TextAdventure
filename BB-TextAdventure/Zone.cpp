@@ -292,10 +292,7 @@ void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
 }
 
 /*
-* This will get replaced when reading from a file
-* is functioning this is the original Map creation.
-* 
-* Creates the original Lab area
+* @breif The initial zone players load into
 */
 void Zone::CreateDefaultZone()
 {
@@ -427,6 +424,18 @@ void Zone::CreateDefaultZone()
 	*
 	*/
 	portals.push_back(Portal{ 0,7, "beach", 23, 5 });
+
+	/*
+	*
+	* Add a portal to the Lab interior Zone
+	*
+	* (5,5) Location of the portal in the current room
+	* -> lab
+	* (5,8) arrival tile in the lab interior zone
+	*
+	*/
+	grid[0][12] = Tile(TileType::Dirt);
+	portals.push_back(Portal{ doorX, doorY, "lab_interior", 7, 8 });
 }
 
 void Zone::CreateBeachZone()
@@ -462,16 +471,51 @@ void Zone::CreateBeachZone()
 	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
 }
 
+/*
+* @breif The interior of the lab located in the inital zone
+*/
 void Zone::CreateLabInteriorZone()
 {
+	width = 15;
+	height = 10;
 
+	// Creat a zone filled with stone (walls)
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Stone)));
+
+	// Fill the interior of the zone with a walkable tile ie., flooring
+	for (int y = 1; y < height - 1; ++y)
+	{
+		for (int x = 1; x < width - 1; x++)
+		{
+			grid[y][x] = Tile(TileType::Flooring);
+		}
+	}
+
+	/*
+	*
+	* Add a portal to the Lab exterior Zone
+	*
+	* (7,9) Location of the portal in the current room
+	* -> lab
+	* (12,23) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 7,9, "lab", 5, 6 });
+
+	grid[9][7] = Tile(TileType::Dirt);
 }
 
+/*
+* @breif The lower level of the interior of the interior lab zone
+*/
 void Zone::CreateLabBasementZone()
 {
 
 }
 
+/*
+* @breif Additional biome zone for future quests
+*/
 void Zone::CreateJungleZone()
 {
 

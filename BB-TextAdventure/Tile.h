@@ -31,7 +31,8 @@ enum class TileType
 	Water,
 	Dirt,
 	RedLight,
-	Sand
+	Sand,
+	Flooring
 };
 
 

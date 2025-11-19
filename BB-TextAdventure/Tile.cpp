@@ -37,6 +37,7 @@ int Tile::getColorCode() const
     case TileType::Stone:    return static_cast<int>(ColorCode::Gray);
     case TileType::RedLight: return static_cast<int>(ColorCode::Red);
     case TileType::Sand:     return static_cast<int>(ColorCode::Tan);
+    case TileType::Flooring: return static_cast<int>(ColorCode::DarkGray);
     default:                 return static_cast<int>(ColorCode::Green);
     }
 }
@@ -87,6 +88,7 @@ bool Tile::isWalkable() const
     case TileType::Grass:
     case TileType::Dirt:
     case TileType::Sand:
+    case TileType::Flooring:
         return true;
 
     // Non-Walkable Tiles
