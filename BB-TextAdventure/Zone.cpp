@@ -436,8 +436,22 @@ void Zone::CreateDefaultZone()
 	*/
 	grid[0][12] = Tile(TileType::Dirt);
 	portals.push_back(Portal{ doorX, doorY, "lab_interior", 7, 8 });
+
+	/*
+	*
+	* Add a portal to the Jungle Zone
+	*
+	* (5,5) Location of the portal in the current room
+	* -> lab
+	* (5,8) arrival tile in the Jungle zone
+	*
+	*/
+	portals.push_back(Portal{ 24, 18, "jungle", 1, 18 });
 }
 
+/*
+* @breif The beach zone west of the load zone
+*/
 void Zone::CreateBeachZone()
 {
 	width = 25;
@@ -554,5 +568,29 @@ void Zone::CreateLabBasementZone()
 */
 void Zone::CreateJungleZone()
 {
+	width = 20;
+	height = 20;
 
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Grass)));
+
+	for (int x = 0; x < width; ++x)
+	{
+		grid[9][x] = Tile(TileType::Water);
+		grid[8][x] = Tile(TileType::Water);
+	}
+
+	// Bridge to cross water
+	grid[8][10] = Tile(TileType::Dirt);
+	grid[9][10] = Tile(TileType::Dirt);
+
+	/*
+	*
+	* Add a portal to the Default Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab_basement
+	* (2,1) arrival tile in the default zone
+	*/
+	portals.push_back(Portal{ 0,18, "lab", 23,18 });
+	
 }
