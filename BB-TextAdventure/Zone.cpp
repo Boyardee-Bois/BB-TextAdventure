@@ -503,6 +503,17 @@ void Zone::CreateLabInteriorZone()
 	portals.push_back(Portal{ 7,9, "lab", 5, 6 });
 
 	grid[9][7] = Tile(TileType::Dirt);
+
+	/*
+	*
+	* Add a portal to the Lab basement Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab
+	* (5,1) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 1,1, "lab_basement", 2, 1 });
 }
 
 /*
@@ -510,6 +521,31 @@ void Zone::CreateLabInteriorZone()
 */
 void Zone::CreateLabBasementZone()
 {
+	width = 10;
+	height = 10;
+
+	// Creat a zone filled with stone (walls)
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::BasementWall)));
+
+	// Fill the interior of the zone with a walkable tile ie., flooring
+	for (int y = 1; y < height - 1; ++y)
+	{
+		for (int x = 1; x < width - 1; x++)
+		{
+			grid[y][x] = Tile(TileType::Dirt);
+		}
+	}
+
+	/*
+	*
+	* Add a portal to the Lab interior Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab_basement
+	* (2,1) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 1,1, "lab_interior", 2, 1 });
 
 }
 

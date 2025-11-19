@@ -32,7 +32,8 @@ enum class TileType
 	Dirt,
 	RedLight,
 	Sand,
-	Flooring
+	Flooring,
+	BasementWall
 };
 
 
