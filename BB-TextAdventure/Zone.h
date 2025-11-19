@@ -49,6 +49,9 @@ struct Portal
 
     // The target tile to load on in the new zone
     int targetX, targetY;
+
+    // A NPC in a zone
+    NPC* npc;
 };
 
 /**

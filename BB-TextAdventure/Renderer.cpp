@@ -40,10 +40,11 @@ void Renderer::Draw(const Zone& zone, const Player& player)
 	UI::Clear();
 	DrawZone(zone, player);
 	UI::SectionSeperator();
-	DrawHUD(player);
+	
 
 	//Allow Renderer to access NPC using Zone's connection to NPC
 	NPC* npc = zone.getNpcInZone();
+	DrawHUD(player, npc);
 
 	//Test to see if Renderer can call NPC using Zone
 	/*
@@ -126,7 +127,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 * This should be expanded when more UI elements need to be displayed.
 * @param player A reference to the player.
 */
-void Renderer::DrawHUD(const Player& player)
+void Renderer::DrawHUD(const Player& player, NPC* npc)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -134,8 +135,14 @@ void Renderer::DrawHUD(const Player& player)
 
 	SetConsoleTextAttribute(hConsole, 10); // Green text for HUD
 	std::cout << "===============================" << std::endl;
-	//std::cout << " Quest: " << Zone::staticNPC->getName() << std::endl;
-	//std::cout << " Objective: " << Zone::staticNPC->getQuestObject().GetCurrentObjective() << std::endl;
-	std::cout << "===============================" << std::endl;
+	if (npc != nullptr)
+	{
+		std::cout << " Quest: " << npc->getName() << std::endl;
+		std::cout << " Objective: " << npc->getQuestObject().GetCurrentObjective() << std::endl;
+	}
+	else {
+		std::cout << " Objective: N/A " << std::endl;
+	}
+		std::cout << "===============================" << std::endl;
 	SetConsoleTextAttribute(hConsole, 7); // Reset color
 }
