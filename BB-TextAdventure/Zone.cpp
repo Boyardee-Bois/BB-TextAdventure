@@ -23,11 +23,22 @@ Zone::Zone(ZoneLocation name)
 {
 	switch (name)
 	{
-	case ZoneLocation::DefaultLab:
+	case ZoneLocation::ExteriorLab:
 			CreateDefaultZone();
+			break;
+
+	case ZoneLocation::InteriorLab:
+			CreateLabInteriorZone();
+			break;
+
+	case ZoneLocation::BasementLab:
+			CreateLabBasementZone();
 			break;
 	case ZoneLocation::Beach:
 			CreateBeachZone();
+			break;
+	case ZoneLocation::Jungle:
+			CreateJungleZone();
 			break;
 	default:
 		CreateDefaultZone();
@@ -239,6 +250,7 @@ int Zone::getHeight() const
 	return height;
 }
 
+// This needs comments
 Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 {
 	auto it = enemies.find({ xEnPos, yEnPos });
@@ -253,7 +265,7 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 
 	return nullptr; // no enemy found
 }
-
+// This needs comments
 void Zone::spawnEnemy()
 {
 	if (QuestProgress::isQuestCompleted())
@@ -272,7 +284,7 @@ void Zone::spawnEnemy()
 		}
 	}
 }
-
+// This needs comments
 void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
 {
 	Enemy* newEnemy = new Enemy(enemy);
@@ -448,4 +460,19 @@ void Zone::CreateBeachZone()
 	* 
 	*/ 
 	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
+}
+
+void Zone::CreateLabInteriorZone()
+{
+
+}
+
+void Zone::CreateLabBasementZone()
+{
+
+}
+
+void Zone::CreateJungleZone()
+{
+
 }
