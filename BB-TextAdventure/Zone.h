@@ -49,6 +49,9 @@ struct Portal
 
     // The target tile to load on in the new zone
     int targetX, targetY;
+
+    // A NPC in a zone
+    NPC* npc;
 };
 
 /**
@@ -113,7 +116,7 @@ private:
     void CreateBeachZone();
 
 public:
-
+    //static NPC* staticNPC; // Temporary
     /**
     * @brief Default constructor. Creates the hardcoded Lab zone
     */
@@ -174,6 +177,7 @@ public:
     * @return A pointer to a NPC if it exits. Otherwise nullptr.
     */
     NPC* getNpcsAt(int xPos, int yPos) const;
+    NPC* getNpcInZone() const;
 
     /**
     * @brief Gets an Item exists at a given coordinate (xPos,yPos).

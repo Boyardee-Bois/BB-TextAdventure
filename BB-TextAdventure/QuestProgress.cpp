@@ -1,17 +1,24 @@
 #include "QuestProgress.h"
 #include <iostream>
 using namespace std; 
-
+/*
 // Define static variables (shared across entire game)
 bool QuestProgress::questStarted = false;
 bool QuestProgress::questCompleted = false;
 bool QuestProgress::itemPickedUp = false;
 bool QuestProgress::enemyUnlocked = false;
 std::string QuestProgress::questName = "Main Quest";
-
+*/
 // === Function Definitions ===
+QuestProgress::QuestProgress() { //Constructor
+    questStarted = false;
+    questCompleted = false;
+    itemPickedUp = false;
+    enemyUnlocked = false;
+    questName = "Main Quest";
+}
 
-void QuestProgress::startQuest(const std::string& name)
+void QuestProgress::startQuest(std::string name)
 {
     if (!questStarted)
     {
@@ -24,6 +31,10 @@ void QuestProgress::startQuest(const std::string& name)
     {
         std::cout << "[Quest Info] Quest already started.\n";
     }
+}
+
+std::string QuestProgress::getQuestName() {
+    return questName;
 }
 
 void QuestProgress::completeQuest()
@@ -55,6 +66,7 @@ bool QuestProgress::isQuestCompleted()
     return questCompleted;
 }
 
+// LV - currently called from playaer action manager - process pickup command
 void QuestProgress::setItemPickedUp(bool value)
 {
     itemPickedUp = value;
@@ -108,4 +120,14 @@ string QuestProgress::GetCurrentObjective()
 bool QuestProgress::isEnemyUnlocked()
 {
     return enemyUnlocked;
+}
+
+//Automated Testing reset to set everything back to the default (False)
+void QuestProgress::Reset()
+{
+    questStarted = false;
+    questCompleted = false;
+    itemPickedUp = false;
+    enemyUnlocked = false;
+    questName = "First Quest for Arc Reactor";
 }

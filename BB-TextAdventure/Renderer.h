@@ -41,7 +41,7 @@ private:
 	* @brief Draws the HUD for the player (Health, Objective)
 	* @param player A reference to the player.
 	*/
-	void DrawHUD(const Player& player);
+	void DrawHUD(const Player& player, NPC* npc);
 
 public:
 	/**

@@ -180,6 +180,21 @@ NPC* Zone::getNpcsAt(int xPos, int yPos) const
 
 	return nullptr;
 }
+/**
+ * LV
+ * @brief Returns the first NPC in a zone - don't ask ..
+ *   if no NPCs exist in the zone - return the nullptr
+ */
+NPC* Zone::getNpcInZone() const
+{
+	if (!npcs.empty()) {
+		auto iterator = npcs.begin();
+		return iterator->second;
+	}
+	else {
+		return nullptr;
+	}
+}
 
 /**
  * @brief Gets an Item exists at a given coordinate (xPos,yPos).
@@ -256,7 +271,7 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 
 void Zone::spawnEnemy()
 {
-	if (QuestProgress::isQuestCompleted())
+	if (getNpcInZone()->isQuestComplete())
 	{
 	
 		for (auto& pair : enemies)
@@ -404,6 +419,7 @@ void Zone::CreateDefaultZone()
 	*/
 	NPC* testNPC = new NPC("BOB");
 	npcs[{9, 10}] = testNPC;
+	//staticNPC = testNPC;
 
 	/*
 	*
