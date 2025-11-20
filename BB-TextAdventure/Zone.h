@@ -22,8 +22,12 @@ using namespace std;
 */
 enum class ZoneLocation
 {
-    DefaultLab,
-    Beach
+    ExteriorLab,
+    InteriorLab,
+    BasementLab,
+    Beach,
+    Jungle
+
 };
 
 /**
@@ -111,9 +115,27 @@ private:
 
     /**
     * @breif Creates a hardcoded beach map.
-    * @details Used as the fallback map.
+    * @details This connects to main default zone.
     */
     void CreateBeachZone();
+
+    /**
+    * @breif Creates a hardcoded lab interior map.
+    * @details This is the interior of the lab in the default zone.
+    */
+    void CreateLabInteriorZone();
+
+    /**
+    * @breif Creates a hardcoded lab basement map.
+    * @details This is located "inside" of the lab interior zone.
+    */
+    void CreateLabBasementZone();
+
+    /**
+    * @breif Creates a hardcoded Jungle map.
+    * @details This connects to main default zone.
+    */
+    void CreateJungleZone();
 
 public:
     //static NPC* staticNPC; // Temporary
@@ -207,6 +229,12 @@ public:
     */
     int getHeight() const;
 
+
+
+    /*
+    * These need comments
+    * 
+    */
     Enemy* removeEnemyAt(int xEnPos, int yEnPos);
 
 	void spawnEnemy();

@@ -59,10 +59,16 @@ void World::StartGame()
 void World::LoadWorld()
 {
 	// Create the lab zone
-	allZones["lab"] = new Zone(ZoneLocation::DefaultLab);
+	allZones["lab"] = new Zone(ZoneLocation::ExteriorLab);
 
 	// Create the beach location
 	allZones["beach"] = new Zone(ZoneLocation::Beach);
+
+	allZones["lab_interior"] = new Zone(ZoneLocation::InteriorLab);
+
+	allZones["lab_basement"] = new Zone(ZoneLocation::BasementLab);
+
+	allZones["jungle"] = new Zone(ZoneLocation::Jungle);
 
 	/* 
 		TODO: Read from file

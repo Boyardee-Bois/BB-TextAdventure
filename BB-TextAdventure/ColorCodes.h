@@ -19,5 +19,7 @@ enum class ColorCode : int
     Red = 196,   /**< Lights, warning indicators */
     Tan =  180,     /**< Sand terrain*/
     Pink = 201,  /**< Portal Color (Pink for testing) */
-    Black = 0 /**< Black to contrast the player */
+    Black = 0, /**< Black to contrast the player */
+    DarkGray = 235, /**< Flooring color in lab */
+    LightGray = 252 /**< Wall color in lab basement */
 };
