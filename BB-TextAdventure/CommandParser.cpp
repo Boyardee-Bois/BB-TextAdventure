@@ -6,6 +6,10 @@
  * Reads a line from stdin, tokenizes to words, normalizes to lowercase,
  * and maps the first word to a Verb and the second (optional) word to a Noun.
  * Returns a Command reflecting the player’s intent.
+ * 
+ * @note
+ * Attributes for direct input processing
+ * URL: https://www.digitalocean.com/community/tutorials/getch-function-in-c-plus-plus
  */
 #include "CommandParser.h"
 #include <iostream>
@@ -14,6 +18,7 @@
 #include <sstream>
 #include <iterator>
 #include <algorithm>
+#include <conio.h>
 
 using namespace std;
 
@@ -34,17 +39,38 @@ CommandParser::CommandParser() {};
  */
 Command CommandParser::getCommand()
 {
-	string input;
+	// Get a single character without the buffer
+	int inputCharacter = _getch();
+
+	// If the input character is equal to a move character... instantly return a move command
+	if (inputCharacter == 'w' || inputCharacter == 'W') return Command(Verb::Go, Noun::North);
+	if (inputCharacter == 'a' || inputCharacter == 'A') return Command(Verb::Go, Noun::West);
+	if (inputCharacter == 's' || inputCharacter == 'S') return Command(Verb::Go, Noun::South);
+	if (inputCharacter == 'd' || inputCharacter == 'D') return Command(Verb::Go, Noun::East);
+
+	// Print the command key pressed
+	cout << (char)inputCharacter;
+
+	/*
+	* Read the command normally if the input character
+	* is not one of the dedicated movement cases.
+	* 
+	* Need to concatenate the input char into a string
+	* to read the rest of the command
+	*/
+	string remainingInput;
 
 	Verb inputVerb = Verb::Unknown;
 	Noun inputNoun = Noun::Unknown;
 
-	if (!getline(cin, input))
+	if (!getline(cin, remainingInput))
 	{
 		return Command(Verb::Quit, Noun::Unknown);
 	}
 
-	vector<string> inputWords = splitLine(input);
+	string fullInput = (char)inputCharacter + remainingInput;
+
+	vector<string> inputWords = splitLine(fullInput);
 
 	if (!inputWords.empty())
 	{

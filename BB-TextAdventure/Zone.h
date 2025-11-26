@@ -22,7 +22,7 @@ using namespace std;
 */
 enum class ZoneLocation
 {
-    ExteriorLab,
+    DefaultLab,
     InteriorLab,
     BasementLab,
     Beach,

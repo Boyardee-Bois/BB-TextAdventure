@@ -59,7 +59,7 @@ void World::StartGame()
 void World::LoadWorld()
 {
 	// Create the lab zone
-	allZones["lab"] = new Zone(ZoneLocation::ExteriorLab);
+	allZones["lab"] = new Zone(ZoneLocation::DefaultLab);
 
 	// Create the beach location
 	allZones["beach"] = new Zone(ZoneLocation::Beach);
@@ -137,6 +137,7 @@ void World::Update()
 	case Verb::Help:
 
 		actionManager.printHelp(parser);
+		UI::Pause();
 		break;
 
 	case Verb::Attack:
