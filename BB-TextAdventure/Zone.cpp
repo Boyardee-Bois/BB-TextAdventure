@@ -453,7 +453,7 @@ void Zone::CreateBeachZone()
 	}
 
 	// Create the NPC
-	TimeMachineLiquidQuest* reach_beachNPC = new TimeMachineLiquidQuest("TempNameBeachNPC");
+	TimeMachineLiquidQuest* reach_beachNPC = new TimeMachineLiquidQuest("Beachkeeper Cole");
 
 	// Set the zone for the NPC to this beach
 	reach_beachNPC->setZone(this);
@@ -472,6 +472,10 @@ void Zone::CreateBeachZone()
 	Item* vial3 = new Item("Liquid Vial 3", "WHOAAAAAAAAAAA");
 	vial3->setIsQuestItem(true);
 	items[{19, 2}] = vial3;
+
+	Enemy* sandEnemy = new Enemy("Sand-Dweller ", "Sand-Dweller!", 150);
+	sandEnemy->setIsVisible(false);
+	enemies[{10, 15}] = sandEnemy;
 
 	//grid[4][2] = Tile(TileType::Water);
 	//grid[5][2] = Tile(TileType::Water);

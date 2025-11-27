@@ -175,7 +175,7 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 		return;
 	}
 
-	if (npc->getName() == "TempNameBeachNPC")
+	if (npc->getName() == "Beachkeeper Cole")
 	{
 		TimeMachineLiquidQuest* questNPC = (TimeMachineLiquidQuest*) npc;
 

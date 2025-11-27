@@ -118,18 +118,18 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
 
 /**
  * @brief Main interaction method handling quest dialogue based on progress
- * @param Ignores UI pausing if we're using debug (Automatic testing basically)
+ * @param Ignores UI pausing if we're using debug (For automatic testing basically)
  */
 void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug)
 {
     // --- STEP 1: Quest not started ---
     if (!NPC::isQuestStarted())
     {
-        cout << "You looking for something?" << endl;
+        cout << NPC::getName() << ": You looking for something?" << endl;
         if (!debug) {
             UI::Pause();
         }
-        cout << NPC::getName() << " Uh, yeah...I think I saw something like that over there..." << endl;
+        cout << NPC::getName() << ": Uh, yeah...I think I saw something like that over there..." << endl;
         NPC::startedQuest();
         if (!debug) {
             UI::Pause();
@@ -141,7 +141,7 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
     if (NPC::isQuestStarted() && !allVialsCollected())
     {
         int collected = getCollectedVialCount();
-        cout << " Whoa! You got " << collected << " vials. There should be more out there!" << endl;
+        cout << NPC::getName() << ": Whoa! You got " << collected << " vials. There should be more out there!" << endl;
 
         if (!debug) {
             UI::Pause();
@@ -152,7 +152,8 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
     // --- STEP 3: All vials collected but quest not yet completed ---
     if (NPC::isQuestStarted() && allVialsCollected() && !NPC::isQuestComplete())
     {
-        cout << NPC::getName() << " Whoa, you got them all!" << endl;
+        cout << NPC::getName() << ": Whoa, you got them all!" << endl;
+        setQuestItemCollected(true);
         NPC::completedQuest();
         activeZone->spawnEnemy();
         if (!debug) {
@@ -164,7 +165,7 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
     // --- STEP 4: Quest already completed ---
     if (NPC::isQuestComplete())
     {
-        cout << NPC::getName() << " Good job O_O Watch out for any enemies that appeared!" << endl;
+        cout << NPC::getName() << ": Good job O_O Watch out for any enemies that appeared!" << endl;
         if (!debug) {
             UI::Pause();
         }
