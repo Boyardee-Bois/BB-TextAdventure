@@ -13,6 +13,7 @@
  * 5. Inventory
  */
 #include "PlayerActionManager.h"
+#include "TimeMachineLiquidQuest.h"
 
  /**
   * @brief Execute a movement command (e.g., "go north", "go w").
@@ -154,9 +155,11 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 {
 	int playerX = player.getX();
 	int playerY = player.getY();
-	NPC* npc = zone.getNpcInZone();   // LV - to be changed to go through the NPC class
+	NPC* npc = zone.getNpcInZone();
+
 	//  Check if there's an item at current tile
 	Item* itemToPickup = zone.getItemsAt(playerX, playerY);
+
 	if (itemToPickup == nullptr)
 	{
 		cout << "There is nothing to pick up here!\n";
@@ -172,22 +175,56 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 		return;
 	}
 
-	//  Prevent double pickup
-	if (!npc->getQuestItemCollected())
+	if (npc->getName() == "TempNameBeachNPC")
 	{
-		cout << "You already picked up this item!\n";
+		TimeMachineLiquidQuest* questNPC = (TimeMachineLiquidQuest*) npc;
+
+		string itemName = itemToPickup->getItemName();
+		int vialNumber = 0;
+		if (itemName == "Liquid Vial 1") {
+			vialNumber = 1;
+		}
+		else if (itemName == "Liquid Vial 2") {
+			vialNumber = 2;
+		}
+		else if (itemName == "Liquid Vial 3") {
+			vialNumber = 3;
+		}
+
+		if (vialNumber > 0 && questNPC->isVialCollected(vialNumber))
+		{
+			cout << "You already picked up this vial!\n";
+			UI::Pause();
+			return;
+		}
+
+		if (vialNumber > 0)
+		{
+			questNPC->setVialCollected(vialNumber, true);
+		}
+		player.ItemPickUp(itemToPickup);
+		zone.removeItemsAt(playerX, playerY);
 		UI::Pause();
 		return;
 	}
 
-	//  Pickup success
-	player.ItemPickUp(itemToPickup);
-	zone.removeItemsAt(playerX, playerY);
-	// 
-	// setItemPickedUp(true);  -- comment this out for now
-	npc->setQuestItemCollected(true);
+	if (!npc->getQuestItemCollected()) {
+		//  Pickup success
+		player.ItemPickUp(itemToPickup);
+		zone.removeItemsAt(playerX, playerY);
+		// 
+		// setItemPickedUp(true);  -- comment this out for now
+		npc->setQuestItemCollected(true);
 
-	UI::Pause();
+		UI::Pause();
+	}
+
+	//  Prevent double pickup
+	else {
+		cout << "You already picked up this item!\n";
+		UI::Pause();
+		return;
+	}
 }
 	/*
 	// Check if the item exits

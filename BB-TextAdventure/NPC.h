@@ -30,8 +30,8 @@ public:
 
     QuestProgress getQuestObject();
 
-    void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY);
-    void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug);  // support debug flag, false uses pauses, true - don't pause
+    virtual void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY);
+    virtual void interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug);  // support debug flag, false uses pauses, true - don't pause
 
     // LV - deleted deprecated methods
 

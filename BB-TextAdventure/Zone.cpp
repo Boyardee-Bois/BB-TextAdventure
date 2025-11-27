@@ -11,6 +11,7 @@
 #include "UI.h"
 #include "Item.h"
 #include "Enemy.h"
+#include "TimeMachineLiquidQuest.h"
 #include <iostream>
 #include <fstream>
 
@@ -450,6 +451,27 @@ void Zone::CreateBeachZone()
 		grid[vertical][2] = Tile(TileType::Water);
 		grid[vertical][3] = Tile(TileType::Water);
 	}
+
+	// Create the NPC
+	TimeMachineLiquidQuest* reach_beachNPC = new TimeMachineLiquidQuest("TempNameBeachNPC");
+
+	// Set the zone for the NPC to this beach
+	reach_beachNPC->setZone(this);
+
+	// Add NPC to beach map
+	npcs[{10, 10}] = reach_beachNPC;
+
+	Item* vial1 = new Item("Liquid Vial 1", "whoa");
+	vial1->setIsQuestItem(true);
+	items[{13, 19}] = vial1;
+
+	Item* vial2 = new Item("Liquid Vial 2", "Whoaaaaa");
+	vial2->setIsQuestItem(true);
+	items[{7, 7}] = vial2;
+
+	Item* vial3 = new Item("Liquid Vial 3", "WHOAAAAAAAAAAA");
+	vial3->setIsQuestItem(true);
+	items[{19, 2}] = vial3;
 
 	//grid[4][2] = Tile(TileType::Water);
 	//grid[5][2] = Tile(TileType::Water);
