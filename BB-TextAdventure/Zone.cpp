@@ -473,7 +473,7 @@ void Zone::CreateBeachZone()
 	vial3->setIsQuestItem(true);
 	items[{19, 2}] = vial3;
 
-	Enemy* sandEnemy = new Enemy("Sand-Dweller ", "Sand-Dweller!", 150);
+	Enemy* sandEnemy = new Enemy("Sand-Dweller", "Sand-Dweller!", 150);
 	sandEnemy->setIsVisible(false);
 	enemies[{10, 15}] = sandEnemy;
 

@@ -27,12 +27,12 @@ Enemy::Enemy(string name, string description, int newHealth)
 
 string Enemy::getEnemyName() const
 {
-	return string();
+	return enemyName;
 }
 
 string Enemy::getEnemyDescription() const
 {
-	return string();
+	return enemyDescription;
 }
 
 void Enemy::setEnemyName(const string& name)
