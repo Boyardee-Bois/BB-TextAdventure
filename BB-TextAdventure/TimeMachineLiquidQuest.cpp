@@ -122,6 +122,7 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
  */
 void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug)
 {
+
     // --- STEP 1: Quest not started ---
     if (!NPC::isQuestStarted())
     {
@@ -152,7 +153,7 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
     // --- STEP 3: All vials collected but quest not yet completed ---
     if (NPC::isQuestStarted() && allVialsCollected() && !NPC::isQuestComplete())
     {
-        cout << NPC::getName() << ": Whoa, you got them all!" << endl;
+        cout << NPC::getName() << ": Whoa, you got them all!\n" << NPC::getName() << ": An enemy appeared and it looks like it's holding something!" << endl;
         setQuestItemCollected(true);
         NPC::completedQuest();
         activeZone->spawnEnemy();
@@ -165,7 +166,7 @@ void TimeMachineLiquidQuest::interact(Verb playerVerb, Noun playerNoun, Zone* ac
     // --- STEP 4: Quest already completed ---
     if (NPC::isQuestComplete())
     {
-        cout << NPC::getName() << ": Good job O_O Watch out for any enemies that appeared!" << endl;
+        cout << NPC::getName() << ": Good job O_O" << endl;
         if (!debug) {
             UI::Pause();
         }

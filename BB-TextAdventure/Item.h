@@ -33,6 +33,9 @@ private:
 	string itemDescription;
 	bool isQuestItem = false; 
 
+	// If Item is visible to user or not
+	bool itemIsVisible = false;
+
 public:
 
 	/** @brief Default constructor creating an empty item. */
@@ -65,6 +68,10 @@ public:
 	 * @param newDescription The new description to assign.
 	 */
 	void setItemDescription(string newDescription);
+
+	// Gets and Sets item being visible or not as a bool
+	bool getItemIsVisible() const;
+	void setItemIsVisible(bool visible);
 
 	/**
 	 * @brief Prints the item's name and description to the console.

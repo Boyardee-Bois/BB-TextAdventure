@@ -82,20 +82,37 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			}
 			else if (zone.getItemsAt(x,y) != nullptr)
 			{
-				std::cout << "@ ";
+				Item* item = zone.getItemsAt(x, y);
+				// If statement that displays regular tile for dropped items if an enemy hasn't been defeated yet
+				if (item->getItemIsVisible() || item->getItemName() != "Data Drive")
+				{
+					std::cout << "@ ";
+				}
+				else
+				{
+					tile.Display();
+				}
 			}
 			else if (zone.getEnemyAt(x,y) != nullptr)
 			{
 				Enemy* enemy = zone.getEnemyAt(x, y);
 
 				// Only show enemies that are visible (unlocked after quest)
-				if (enemy->getIsVisible())
+				if (enemy->getIsVisible() && enemy->getIsAlive())
 				{
 					std::cout << "E ";
 				}
 				else
 				{
-					cout << "  "; 
+					Item* item = zone.getItemsAt(x, y);
+					if (item != nullptr)
+					{
+						std::cout << "@ ";
+					}
+					else
+					{
+						cout << "  ";
+					}
 				}
 			}
 			else if (zone.getNpcsAt(x,y) != nullptr)

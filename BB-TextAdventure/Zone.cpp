@@ -286,6 +286,19 @@ void Zone::spawnEnemy()
 		
 			}
 		}
+		for (auto& pair : enemies)
+		{
+			Enemy* enemy = pair.second;
+			if (enemy != nullptr && !enemy->getIsAlive())
+			{
+				Item* item = getItemsAt(enemy->getEnemy_X(), enemy->getEnemy_Y());
+				if (item != nullptr && !item->getItemIsVisible())
+				{
+					item->setItemIsVisible(true);
+					cout << "Looks like the enemy dropped something!\n";
+				}
+			}
+		}
 	}
 }
 
@@ -473,10 +486,14 @@ void Zone::CreateBeachZone()
 	vial3->setIsQuestItem(true);
 	items[{19, 2}] = vial3;
 
-	Enemy* sandEnemy = new Enemy("Sand-Dweller", "Sand-Dweller!", 150);
+	Enemy* sandEnemy = new Enemy("Sand-Dweller", "Sand-Dweller!", 100);
 	sandEnemy->setIsVisible(false);
 	enemies[{10, 15}] = sandEnemy;
 
+	Item* dataDrive = new Item("Data Drive", "It has all the time periods!");
+	dataDrive->setItemIsVisible(false);
+	//dataDrive->setIsQuestItem(true);
+	items[{10, 15}] = dataDrive;
 	//grid[4][2] = Tile(TileType::Water);
 	//grid[5][2] = Tile(TileType::Water);
 
