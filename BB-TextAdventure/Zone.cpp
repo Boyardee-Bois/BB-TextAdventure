@@ -12,6 +12,7 @@
 #include "Item.h"
 #include "Enemy.h"
 #include "TimeMachineLiquidQuest.h"
+#include "GearsQuest.h"
 #include <iostream>
 #include <fstream>
 
@@ -508,3 +509,36 @@ void Zone::CreateBeachZone()
 	*/ 
 	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
 }
+
+/* Code for adding things to lab basement
+* // Create the Gear Quest NPC
+GearsQuest* gearsNPC = new GearsQuest("Hoarder Riley");
+gearsNPC->setZone(this);
+npcs[{15, 5}] = gearsNPC;
+
+// Creates the 5 Different Gear quest items
+Item* gear1 = new Item("Gear 1", "A shiny gear");
+gear1->setIsQuestItem(true);
+items[{8, 12}] = gear1;
+
+Item* gear2 = new Item("Gear 2", "A medium sized gear");
+gear2->setIsQuestItem(true);
+items[{8, 13}] = gear2;
+
+Item* gear3 = new Item("Gear 3", "A large sized gear");
+gear3->setIsQuestItem(true);
+items[{8, 14}] = gear3;
+
+Item* gear4 = new Item("Gear 4", "A small sized gear");
+gear4->setIsQuestItem(true);
+items[{8, 15}] = gear4;
+
+Item* gear5 = new Item("Gear 5", "The master gear!");
+gear5->setIsQuestItem(true);
+items[{8, 16}] = gear5;
+
+// Spawns the enemy but sets it to invisible
+Enemy* gearEnemy = new Enemy("Gear Guardian", "Gear Guardian!", 120);
+gearEnemy->setIsVisible(false);
+enemies[{15, 5}] = gearEnemy;
+*/

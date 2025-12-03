@@ -127,6 +127,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GearsQuest.cpp" />
     <ClCompile Include="HealthUI.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="QuestProgress.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GearsQuest.h" />
     <ClInclude Include="HealthUI.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="QuestProgress.h" />
