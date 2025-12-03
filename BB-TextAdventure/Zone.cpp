@@ -25,7 +25,7 @@ Zone::Zone(ZoneLocation name)
 {
 	switch (name)
 	{
-	case ZoneLocation::ExteriorLab:
+	case ZoneLocation::DefaultLab:
 			CreateDefaultZone();
 			break;
 

@@ -23,13 +23,37 @@ using namespace std;
  */
 static const vector<pair<string, Verb>> VERB_LIST = {
 
+	// Movement
 	{"go", Verb::Go},
+	{"move", Verb::Go},
+	{"walk", Verb::Go},
+
+	{"interact", Verb::Interact},
+	{"talk", Verb::Interact},
+	{"speak", Verb::Interact},
+
+	// Interaction
+	{"pickup", Verb::Pickup},
+	{"grab", Verb::Pickup},
+	{"take", Verb::Pickup},
+	{"collect", Verb::Pickup},
+	{"take", Verb::Pickup},
+
+	// Combat
+	{"attack", Verb::Attack},
+	{"fight", Verb::Attack},
+	{"hit", Verb::Attack},
+	{"strike", Verb::Attack},
+
+	// Inventory
+	{"open", Verb::Open},
+	{"view", Verb::Open},
+	{"show", Verb::Open},
+
+	// System
 	{"help", Verb::Help},
 	{"quit", Verb::Quit},
-	{"interact", Verb::Interact},
-	{"pickup", Verb::Pickup},
-	{"attack", Verb::Attack},
-	{"open", Verb::Open}
+	{"exit", Verb::Quit}
 };
 
 /**
