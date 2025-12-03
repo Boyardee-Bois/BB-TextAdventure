@@ -14,6 +14,7 @@
  */
 #include "PlayerActionManager.h"
 #include "TimeMachineLiquidQuest.h"
+#include "GearsQuest.h"
 
  /**
   * @brief Execute a movement command (e.g., "go north", "go w").
@@ -207,7 +208,44 @@ void PlayerActionManager::processPickupCommand(Command command, Player& player, 
 		UI::Pause();
 		return;
 	}
+	if (npc->getName() == "Hoarder Riley")
+	{
+		GearsQuest* questNPC = (GearsQuest*)npc;
 
+		string itemName = itemToPickup->getItemName();
+		int gearNumber = 0;
+		if (itemName == "Gear 1") {
+			gearNumber = 1;
+		}
+		else if (itemName == "Gear 2") {
+			gearNumber = 2;
+		}
+		else if (itemName == "Gear 3") {
+			gearNumber = 3;
+		}
+		else if (itemName == "Gear 4") {
+			gearNumber = 4;
+		}
+		else if (itemName == "Gear 5") {
+			gearNumber = 5;
+		}
+
+		if (gearNumber > 0 && questNPC->isGearCollected(gearNumber))
+		{
+			cout << "You already picked up this gear!\n";
+			UI::Pause();
+			return;
+		}
+
+		if (gearNumber > 0)
+		{
+			questNPC->setGearCollected(gearNumber, true);
+		}
+		player.ItemPickUp(itemToPickup);
+		zone.removeItemsAt(playerX, playerY);
+		UI::Pause();
+		return;
+	}
 	if (!npc->getQuestItemCollected()) {
 		//  Pickup success
 		player.ItemPickUp(itemToPickup);
