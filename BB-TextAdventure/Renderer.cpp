@@ -1,4 +1,4 @@
-/**
+﻿/**
 * @file Renderer.cpp
 * @brief Defines the Renderer class for drawing the game to the console.
 *
@@ -64,9 +64,10 @@ void Renderer::Draw(const Zone& zone, const Player& player)
 */
 void Renderer::DrawZone(const Zone& zone, const Player& player)
 {
+
 	int playerX = player.getX();
 	int playerY = player.getY();
-
+	system("chcp 65001 > nul");
 	for (int y = 0; y < zone.getHeight(); ++y)
 	{
 		for (int x = 0; x < zone.getWidth(); ++x)
@@ -78,7 +79,10 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			if (x == playerX && y == playerY)
 			{
 				UI::SetColor(static_cast<int>(ColorCode::Black));
-				std::cout << "P ";
+				//std::cout << "P ";
+				SetConsoleOutputCP(CP_UTF8);
+				std::cout << u8"🧑‍🔬";
+
 			}
 			else if (zone.getItemsAt(x,y) != nullptr)
 			{
@@ -86,7 +90,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				// If statement that displays regular tile for dropped items if an enemy hasn't been defeated yet
 				if (item->getItemIsVisible() || item->getItemName() != "Data Drive")
 				{
-					std::cout << "@ ";
+					std::cout << u8"🔩";
 				}
 				else
 				{
@@ -100,14 +104,14 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				// Only show enemies that are visible (unlocked after quest)
 				if (enemy->getIsVisible() && enemy->getIsAlive())
 				{
-					std::cout << "E ";
+					std::cout << "🤺";
 				}
 				else
 				{
 					Item* item = zone.getItemsAt(x, y);
 					if (item != nullptr)
 					{
-						std::cout << "@ ";
+						std::cout << u8"🔩";
 					}
 					else
 					{
@@ -117,12 +121,12 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 			}
 			else if (zone.getNpcsAt(x,y) != nullptr)
 			{
-				std::cout << "N ";
+				std::cout << u8"🧌";
 			}
 			else if (zone.getPortalAt(x, y) != nullptr)
 			{
 				UI::SetColor(static_cast<int>(ColorCode::Pink));
-				cout << "O ";
+				cout << "  ";
 			}
 			else
 			{
