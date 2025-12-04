@@ -379,7 +379,7 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 
 	// --- Begin turn-based combat ---
 	std::cout << "  Combat initiated against " << target->getEnemyName() << "!\n";
-	player.setInCombat(true);
+	displayCombatScreen(player, *target);
 
 	// Enter combat loop until one side dies
 	while (player.isAlive() && target->getIsAlive())
@@ -389,8 +389,8 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 
 		if (!target->getIsAlive())
 		{
-			zone.removeEnemyAt(playerX, playerY);
-			break;
+			std::cout << "You defeated " << target->getEnemyName() << "!\n";
+			player.setInCombat(false);
 		}
 
 		UI::Pause();
@@ -402,11 +402,11 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 		if (!player.isAlive())
 		{
 			std::cout << "You were defeated by " << target->getEnemyName() << "...\n";
+			player.setInCombat(false);
 			break;
 		}
 
 		UI::Pause();
-		UI::Clear();
 	}
 
 	// --- End of Combat ---
@@ -455,4 +455,23 @@ void PlayerActionManager::startCombat(Player& player, Enemy* enemy, Zone& zone)
 	player.setInCombat(false);
 	std::cout << "Combat has ended.\n";
 	UI::Pause();
+}
+
+
+void PlayerActionManager::displayCombatScreen(Player& player, Enemy& enemy)
+{
+	UI::Clear();
+	cout << "========================================" << endl;
+	cout << "              COMBAT MODE               " << endl;
+	cout << "========================================" << endl;
+	cout << "ENEMY NAME: " << enemy.getEnemyName() << endl;
+	cout << "ENEMY HEALTH: " << enemy.getHealth() << endl;
+	cout << "----------------------------------------" << endl;
+	cout << "PLAYER HEALTH: " << player.getCurrentHealth() << "/" << player.getMaxHealth() << endl;
+	cout << "----------------------------------------" << endl;
+	cout << "ACTIONS:" << endl;
+	cout << "[1] LIGHT ATTACK (10 DMG)" << endl;
+	cout << "[2] HEAVY ATTACK (20 DMG)" << endl;
+	cout << "========================================" << endl;
+	cout << "Enter your choice: ";
 }

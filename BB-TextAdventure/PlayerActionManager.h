@@ -14,6 +14,7 @@
 #include "Command.h"
 #include "CommandParser.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Item.h"
 #include <string>
 #include <unordered_map>
@@ -112,4 +113,5 @@ public:
 	bool processQuitCommand();
 	void processAttackCommand(Command command, Player& player, Zone& zone);
 	void startCombat(Player& player, Enemy* enemy, Zone& zone);
+	void displayCombatScreen(Player& player, Enemy &enemy);
 };
