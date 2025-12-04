@@ -25,7 +25,7 @@ void QuestProgress::startQuest(std::string name)
         questName = name;
         questStarted = true;
         std::cout << "\n[Quest Started] '" << questName
-            << "'\nObjective: Find the shiny thing by the water.\n";
+            << "'\nObjective: Collect the quest item(s).\n";
     }
     else
     {
@@ -108,7 +108,7 @@ string QuestProgress::GetCurrentObjective()
     if (!questStarted)
         return "Talk to the NPC to begin your quest.";
     else if (questStarted && !itemPickedUp)
-        return "Find the shiny thing by the water.";
+        return "Collect the quest item(s).";
     else if (questStarted && itemPickedUp && !questCompleted)
         return "Return to the NPC to complete your quest.";
     else if (enemyUnlocked && questCompleted)

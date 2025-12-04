@@ -127,10 +127,13 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GearsQuest.cpp" />
     <ClCompile Include="HealthUI.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="JungleNPC.cpp" />
     <ClCompile Include="QuestProgress.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="TimeMachineLiquidQuest.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Zone.cpp" />
     <ClCompile Include="MiniBoss.cpp" />
@@ -147,10 +150,13 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GearsQuest.h" />
     <ClInclude Include="HealthUI.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="JungleNPC.h" />
     <ClInclude Include="QuestProgress.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="TimeMachineLiquidQuest.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Zone.h" />
     <ClInclude Include="MiniBoss.h" />
