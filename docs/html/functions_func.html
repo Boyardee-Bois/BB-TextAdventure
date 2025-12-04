@@ -91,14 +91,18 @@ $(function(){initNavTree('functions_func.html','',''); });
 <div class="textblock">Here is a list of all functions with links to the classes they belong to:</div>
 
 <h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>addExit()&#160;:&#160;<a class="el" href="class_room.html#a249092e4ecba82638211a07fe00cbebb">Room</a></li>
+<li>attackEnemy()&#160;:&#160;<a class="el" href="class_player.html#ac73c7bdc2b6c412c0559614f036fb8ae">Player</a></li>
+<li>attackPlayer()&#160;:&#160;<a class="el" href="class_enemy.html#a575b7ed7dbad0995f9f86f1d99c65c22">Enemy</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>canCompleteQuest()&#160;:&#160;<a class="el" href="class_n_p_c.html#abdaff64d5fd4dbee2e5d5594afe7c6b5">NPC</a></li>
 <li>Clear()&#160;:&#160;<a class="el" href="class_u_i.html#a0de2d71c4193212290d09b41229c6c19">UI</a></li>
 <li>Command()&#160;:&#160;<a class="el" href="class_command.html#a5490de35744d9cce095740597ba72baa">Command</a></li>
 <li>CommandParser()&#160;:&#160;<a class="el" href="class_command_parser.html#a1fd17c361d85ec13c212cbac1999b9b3">CommandParser</a></li>
+<li>completedQuest()&#160;:&#160;<a class="el" href="class_n_p_c.html#a4a5b289b013bf4c5132a58f757f2f4b0">NPC</a></li>
+<li>completeQuest()&#160;:&#160;<a class="el" href="class_quest_progress.html#a9b102259ad34a337618cd2abf395884e">QuestProgress</a></li>
 </ul>
 
 
@@ -113,66 +117,86 @@ $(function(){initNavTree('functions_func.html','',''); });
 <h3 class="doxsection"><a id="index_e" name="index_e"></a>- e -</h3><ul>
 <li>EnableColor()&#160;:&#160;<a class="el" href="class_u_i.html#aa8844501e85e251b6bbf220edb0d55a7">UI</a></li>
 <li>Enemy()&#160;:&#160;<a class="el" href="class_enemy.html#a94f30d348b6d2840fd71675472ba38dd">Enemy</a></li>
-<li>enterRoom()&#160;:&#160;<a class="el" href="class_room.html#a90025db8dfa7c65065fc3212bc00ddbc">Room</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>GameIntro()&#160;:&#160;<a class="el" href="class_u_i.html#af0fa2eac139780e7d7d3760a64d7d87b">UI</a></li>
-<li>getAttackPower()&#160;:&#160;<a class="el" href="class_mini_boss.html#abcc5bcfd4d43328a61fe453f1411d89c">MiniBoss</a></li>
+<li>GearsQuest()&#160;:&#160;<a class="el" href="class_gears_quest.html#a4b7fe22816f759b467c3893076bc8eff">GearsQuest</a></li>
+<li>getActive()&#160;:&#160;<a class="el" href="class_enemy.html#a269bfe66f1665c629c388fba9b773a0f">Enemy</a></li>
+<li>getAttackPower()&#160;:&#160;<a class="el" href="class_enemy.html#a4c878f794a9ead21ad5e597be4337292">Enemy</a>, <a class="el" href="class_mini_boss.html#abcc5bcfd4d43328a61fe453f1411d89c">MiniBoss</a>, <a class="el" href="class_player.html#a9d43e2876bbc07670c9fb8bd1188ffc0">Player</a></li>
+<li>getCollectedGearCount()&#160;:&#160;<a class="el" href="class_gears_quest.html#a8ca6635dfc55bd7baec21354f34f19c5">GearsQuest</a></li>
+<li>getCollectedVialCount()&#160;:&#160;<a class="el" href="class_time_machine_liquid_quest.html#a902e4a1b3c08519c158ecf95e365846e">TimeMachineLiquidQuest</a></li>
 <li>getColorCode()&#160;:&#160;<a class="el" href="class_tile.html#a6690130dc1a5ef2426bdf35c543f5d6b">Tile</a></li>
 <li>getCommand()&#160;:&#160;<a class="el" href="class_command_parser.html#a96bed37362e9f8036c5699f4df4b079f">CommandParser</a></li>
 <li>getCurrentHealth()&#160;:&#160;<a class="el" href="class_player.html#a3666d4350d0199dfcf105d9e8699018a">Player</a></li>
-<li>getCurrentRoom()&#160;:&#160;<a class="el" href="class_player.html#adf6ade2627e061608a4051c603d709fc">Player</a></li>
-<li>getEnemy()&#160;:&#160;<a class="el" href="class_room.html#aed31f94cafc3c2e56e1342d1c1b478a4">Room</a></li>
+<li>GetCurrentObjective()&#160;:&#160;<a class="el" href="class_quest_progress.html#acb4fcae580e07242f2ef7662df6e4812">QuestProgress</a></li>
+<li>getEnemy_X()&#160;:&#160;<a class="el" href="class_enemy.html#a1d9e7efb4368c631544dd11f50e1f045">Enemy</a></li>
+<li>getEnemy_Y()&#160;:&#160;<a class="el" href="class_enemy.html#a02376bde7b828df7a48994f7d3f4d978">Enemy</a></li>
 <li>getEnemyAt()&#160;:&#160;<a class="el" href="class_zone.html#a0927a6b5044420c4699337f9f343075a">Zone</a></li>
 <li>getEnemyDescription()&#160;:&#160;<a class="el" href="class_enemy.html#a5ad3bc591e9e0f938a16e39d716ec977">Enemy</a></li>
 <li>getEnemyName()&#160;:&#160;<a class="el" href="class_enemy.html#aec1e5f064c3968d2b871bc6184d3c188">Enemy</a></li>
-<li>getExit()&#160;:&#160;<a class="el" href="class_room.html#a4bc5cd5006568bccd15547fbb7beb6af">Room</a></li>
-<li>getHealth()&#160;:&#160;<a class="el" href="class_mini_boss.html#ab82d11964a630dbce7cd5621e16ce3c6">MiniBoss</a></li>
+<li>getHealth()&#160;:&#160;<a class="el" href="class_enemy.html#a3473f9f24e815aebb44c85943204d31c">Enemy</a>, <a class="el" href="class_mini_boss.html#ab82d11964a630dbce7cd5621e16ce3c6">MiniBoss</a></li>
 <li>getHeight()&#160;:&#160;<a class="el" href="class_zone.html#a184cec5665c3a30c510e1474b60cfd69">Zone</a></li>
+<li>getInCombat()&#160;:&#160;<a class="el" href="class_player.html#a14e280ea726cc5604b2462ffa286a431">Player</a></li>
+<li>getIsAlive()&#160;:&#160;<a class="el" href="class_enemy.html#aa7124cb33bb2dd9bb4f8ceb98c5d649b">Enemy</a></li>
 <li>getIsQuestItem()&#160;:&#160;<a class="el" href="class_item.html#a634b03a208997e43a5de11e2d0b7dd76">Item</a></li>
 <li>getIsVisible()&#160;:&#160;<a class="el" href="class_enemy.html#a3603190a40ec68efac5c9f53fe22b3dd">Enemy</a></li>
-<li>getIsVisited()&#160;:&#160;<a class="el" href="class_room.html#a035344fbe6a7d49d1a0d63021cd9ca42">Room</a></li>
-<li>getItem()&#160;:&#160;<a class="el" href="class_room.html#ad811aab6b8171f243d114b51fe8c8af4">Room</a>, <a class="el" href="class_tile.html#a0cf7537a2f404d4d78d4351107a3b3d8">Tile</a></li>
 <li>getItemDescription()&#160;:&#160;<a class="el" href="class_item.html#ae56b28c98b15d7101b4878fa01e22f19">Item</a></li>
+<li>getItemIsVisible()&#160;:&#160;<a class="el" href="class_item.html#a131bafc8e79c5707c8793a1615aeee7c">Item</a></li>
 <li>getItemName()&#160;:&#160;<a class="el" href="class_item.html#aafe99466e68f6b99539f25e4985c1ed7">Item</a></li>
+<li>getItemsAt()&#160;:&#160;<a class="el" href="class_zone.html#a50f633f8e87ffab9f1086c5cde8816fd">Zone</a></li>
 <li>getMaxHealth()&#160;:&#160;<a class="el" href="class_player.html#abecc36b8ec9a012901caf74493a31d70">Player</a></li>
+<li>getName()&#160;:&#160;<a class="el" href="class_n_p_c.html#ac5a2869b8cca0009e018c6eba67b0fc5">NPC</a></li>
 <li>getNoun()&#160;:&#160;<a class="el" href="class_command.html#afbbb1f9442c6e9dee9c762cbcd4a2af2">Command</a>, <a class="el" href="class_noun_lookup.html#ad3df6c37b65f90d31358f446bb3ac3a2">NounLookup</a></li>
-<li>getNPC()&#160;:&#160;<a class="el" href="class_room.html#a45558007ff8f4039cf3891fd3ea7d73a">Room</a></li>
-<li>getNPC_X()&#160;:&#160;<a class="el" href="class_n_p_c.html#a01980d11dc659ff310115acd11263460">NPC</a></li>
-<li>getNPC_Y()&#160;:&#160;<a class="el" href="class_n_p_c.html#afa9fa8f9985ffd68abc4240ee841aafd">NPC</a></li>
+<li>getNpcInZone()&#160;:&#160;<a class="el" href="class_zone.html#aaeef12db5d068bbd2eb64384e75a7a25">Zone</a></li>
 <li>getNpcsAt()&#160;:&#160;<a class="el" href="class_zone.html#a86ecb758648d9c6230efde43449f5b8b">Zone</a></li>
 <li>getPortalAt()&#160;:&#160;<a class="el" href="class_zone.html#a58c03cd30939a686d936a01d0278bd8e">Zone</a></li>
-<li>getRoomDescription()&#160;:&#160;<a class="el" href="class_room.html#ad5397ac8e1831af6ce1f3f3eff2ce2e4">Room</a></li>
-<li>getRoomName()&#160;:&#160;<a class="el" href="class_room.html#a470a0f4a646109ab6367034a5d2343b4">Room</a></li>
+<li>getQuestItemCollected()&#160;:&#160;<a class="el" href="class_n_p_c.html#aeb2e5d8c6ca1a825d69668b5ee38db44">NPC</a></li>
+<li>getQuestName()&#160;:&#160;<a class="el" href="class_quest_progress.html#a1d64ae03affe8772b77f1cc5ebb12536">QuestProgress</a></li>
+<li>getQuestObject()&#160;:&#160;<a class="el" href="class_n_p_c.html#a6bff7de633abe684ce74020654b6797c">NPC</a></li>
 <li>getTileAt()&#160;:&#160;<a class="el" href="class_zone.html#aca394ef721f2476e53e71191677f3dc0">Zone</a></li>
 <li>GetType()&#160;:&#160;<a class="el" href="class_tile.html#a2e2aee6394f21c1f146323150b8d7a10">Tile</a></li>
 <li>getVerb()&#160;:&#160;<a class="el" href="class_command.html#ac18e61669dbc70f3bf404bc7785dff60">Command</a>, <a class="el" href="class_verb_lookup.html#a66eb6ea408dceef1a7cfb79c62bdb471">VerbLookup</a></li>
 <li>getWidth()&#160;:&#160;<a class="el" href="class_zone.html#ada1a0675d0736a70b6d23eb124e87e19">Zone</a></li>
 <li>getX()&#160;:&#160;<a class="el" href="class_player.html#ae9bcae10b1841b186b2ac0a5b07dd6e1">Player</a></li>
 <li>getY()&#160;:&#160;<a class="el" href="class_player.html#ab761a1ddba353a619403be9af249b835">Player</a></li>
+<li>getZone()&#160;:&#160;<a class="el" href="class_n_p_c.html#af3c765123beeb4a60b173375b4254e06">NPC</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>hasDirection()&#160;:&#160;<a class="el" href="class_command.html#a8ff6b3be9237d706bdea4aac165e2c02">Command</a></li>
-<li>hasEnemy()&#160;:&#160;<a class="el" href="class_room.html#ae0b3f209705bf636245305dbd0c81c54">Room</a></li>
-<li>hasItem()&#160;:&#160;<a class="el" href="class_room.html#aab6e82fb76f37c8ae7237948cb3d8e01">Room</a></li>
+<li>hasEnemySpawned()&#160;:&#160;<a class="el" href="class_zone.html#ae9c05b80901a76067304c4ae2dc17163">Zone</a></li>
 <li>hasItemName()&#160;:&#160;<a class="el" href="class_player.html#aed3d3f7ac76fd6db33d6e90ccd134a7e">Player</a></li>
+<li>hasPickedUpItem()&#160;:&#160;<a class="el" href="class_quest_progress.html#a8ca15bbaf762a0e6f56bc9b8151c627e">QuestProgress</a></li>
 <li>HealthUI()&#160;:&#160;<a class="el" href="class_health_u_i.html#a4ddca3d3cc0a038e21b1242f2806f857">HealthUI</a></li>
 <li>HelpMenu()&#160;:&#160;<a class="el" href="class_u_i.html#a40bbf4cf9e356abd065fc681aa5f88b8">UI</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>interact()&#160;:&#160;<a class="el" href="class_n_p_c.html#a8267d38756ed77b19024bec0a0a7ba9a">NPC</a></li>
+<li>interact()&#160;:&#160;<a class="el" href="class_gears_quest.html#a5bcb48dbbab048994668e01e7b56ed3c">GearsQuest</a>, <a class="el" href="class_jungle_n_p_c.html#aeecc9750db7785b18bda9e6c9a5964f3">JungleNPC</a>, <a class="el" href="class_n_p_c.html#a451c14e9fe3842a363c08c04ebcc4575">NPC</a>, <a class="el" href="class_time_machine_liquid_quest.html#a23e763c48ed51b7bf12f75ecae8dbc59">TimeMachineLiquidQuest</a></li>
+<li>isAlive()&#160;:&#160;<a class="el" href="class_enemy.html#a2801f42818600b19a7381dd2d1635af8">Enemy</a>, <a class="el" href="class_player.html#a3966588630ad0a127c9250f985865392">Player</a></li>
 <li>isDead()&#160;:&#160;<a class="el" href="class_player.html#ac0b88c415cb264d54c227dd4ef82a7d1">Player</a></li>
+<li>isEnemyKilled()&#160;:&#160;<a class="el" href="class_jungle_n_p_c.html#ab62c3e3cf784ca4d630eb8dae70fd14e">JungleNPC</a></li>
+<li>isEnemyUnlocked()&#160;:&#160;<a class="el" href="class_quest_progress.html#a8ab4a8c116826f1bca913e3873db755f">QuestProgress</a></li>
+<li>isGearCollected()&#160;:&#160;<a class="el" href="class_gears_quest.html#a54f1143b49d4cba26bbc9ada39bb0004">GearsQuest</a></li>
 <li>isNoun()&#160;:&#160;<a class="el" href="class_noun_lookup.html#adaed8a55624f478bfc3bfb670f0a775a">NounLookup</a></li>
+<li>isQuestComplete()&#160;:&#160;<a class="el" href="class_n_p_c.html#a2c3356e0da26b31923bdca1dceec72b5">NPC</a></li>
+<li>isQuestCompleted()&#160;:&#160;<a class="el" href="class_quest_progress.html#af6b4094731ce89aa1ffa27968aa2cbaf">QuestProgress</a></li>
+<li>isQuestStarted()&#160;:&#160;<a class="el" href="class_n_p_c.html#a197a6fd548f177e95e13262eea55f0c7">NPC</a>, <a class="el" href="class_quest_progress.html#aa60240cda41049876c34121eeaeeaa3f">QuestProgress</a></li>
 <li>isUnknown()&#160;:&#160;<a class="el" href="class_command.html#a15fba440e0eb3df75bea367448f52a1a">Command</a></li>
 <li>isVerb()&#160;:&#160;<a class="el" href="class_verb_lookup.html#ae779d901d703ccb76ecd4ef7bbe9dc01">VerbLookup</a></li>
+<li>isVialCollected()&#160;:&#160;<a class="el" href="class_time_machine_liquid_quest.html#ada8ae4d4ac8b59fb9b95488ec71aacb3">TimeMachineLiquidQuest</a></li>
+<li>isWalkable()&#160;:&#160;<a class="el" href="class_tile.html#a2f9971efdf7b36249a491ca7ceb2ef57">Tile</a></li>
 <li>Item()&#160;:&#160;<a class="el" href="class_item.html#a297720c02984eab37332ae795d22189d">Item</a></li>
 <li>ItemPickUp()&#160;:&#160;<a class="el" href="class_player.html#a48715d254e20595e11fac75ea62d537e">Player</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_j" name="index_j"></a>- j -</h3><ul>
+<li>JungleNPC()&#160;:&#160;<a class="el" href="class_jungle_n_p_c.html#acbbfd6516f8c8eec9813f287af96b153">JungleNPC</a></li>
 </ul>
 
 
@@ -190,13 +214,14 @@ $(function(){initNavTree('functions_func.html','',''); });
 
 <h3 class="doxsection"><a id="index_p" name="index_p"></a>- p -</h3><ul>
 <li>Pause()&#160;:&#160;<a class="el" href="class_u_i.html#a09f2e2e675fa5e75741fd70b9e0ea8d1">UI</a></li>
+<li>pickUpItemBeforeQuest()&#160;:&#160;<a class="el" href="class_n_p_c.html#a836356aef4a66839bde6006dce48d43c">NPC</a></li>
 <li>Player()&#160;:&#160;<a class="el" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a></li>
-<li>player_Coord_Check()&#160;:&#160;<a class="el" href="class_n_p_c.html#a2b5429565cbc11087cd6c524afc921b3">NPC</a></li>
 <li>printEnemyInfo()&#160;:&#160;<a class="el" href="class_enemy.html#aa4418e9f8ac6d9942a68fbd542152931">Enemy</a></li>
 <li>printHelp()&#160;:&#160;<a class="el" href="class_player_action_manager.html#aefd0c888228bb146cfceba9721070d7e">PlayerActionManager</a></li>
 <li>printItemInformation()&#160;:&#160;<a class="el" href="class_item.html#ac2fa531cd0da2a1a21e3015dd3c7e1c9">Item</a></li>
 <li>printMiniBossInfo()&#160;:&#160;<a class="el" href="class_mini_boss.html#a1584211ca007ccc0f2902fedc6041bda">MiniBoss</a></li>
-<li>printRoomInformation()&#160;:&#160;<a class="el" href="class_room.html#a828b9f0bfedca98e2d6bce6e31183e54">Room</a></li>
+<li>printStatus()&#160;:&#160;<a class="el" href="class_quest_progress.html#aef691ae1060eb2c7e231096b2066ce3a">QuestProgress</a></li>
+<li>processAttackCommand()&#160;:&#160;<a class="el" href="class_player_action_manager.html#af123c1c130ce6a5057329ec38684fb1c">PlayerActionManager</a></li>
 <li>processGoCommand()&#160;:&#160;<a class="el" href="class_player_action_manager.html#a09b23a2db7ff006e420d44a372b90167">PlayerActionManager</a></li>
 <li>processInteractCommand()&#160;:&#160;<a class="el" href="class_player_action_manager.html#a656bc6c8d4414798ce755ace16a2510a">PlayerActionManager</a></li>
 <li>processOpenCommand()&#160;:&#160;<a class="el" href="class_player_action_manager.html#ad6066bf1ac26e9cea1949a7b4b52790e">PlayerActionManager</a></li>
@@ -205,45 +230,60 @@ $(function(){initNavTree('functions_func.html','',''); });
 </ul>
 
 
+<h3 class="doxsection"><a id="index_q" name="index_q"></a>- q -</h3><ul>
+<li>QuestProgress()&#160;:&#160;<a class="el" href="class_quest_progress.html#a47b5ccbe544c83c716047a79198d6a44">QuestProgress</a></li>
+</ul>
+
+
 <h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>removeEnemy()&#160;:&#160;<a class="el" href="class_room.html#a0a4b4d9b6ecb9d9a53325e050f778499">Room</a></li>
-<li>removeItem()&#160;:&#160;<a class="el" href="class_room.html#aa0d0cd63fca0f0e7f70a0a157f8739ed">Room</a>, <a class="el" href="class_tile.html#a4b0503733b8eff9de84a02547f6e799e">Tile</a></li>
+<li>removeEnemyAt()&#160;:&#160;<a class="el" href="class_zone.html#a1d1990f5f88b0c7628a442fad9a8f874">Zone</a></li>
+<li>removeItemsAt()&#160;:&#160;<a class="el" href="class_zone.html#ae3f95c2547b1f9c5d77a97840a72f783">Zone</a></li>
 <li>render()&#160;:&#160;<a class="el" href="class_health_u_i.html#a6c066a1994a5eeb82d9d5fd45be54af9">HealthUI</a></li>
 <li>Renderer()&#160;:&#160;<a class="el" href="class_renderer.html#a7ebf46f54dab9905f79b80f7fddb76a6">Renderer</a></li>
-<li>Reset()&#160;:&#160;<a class="el" href="class_u_i.html#a7ff88be86d7573a2e08ff72c62208715">UI</a></li>
-<li>Room()&#160;:&#160;<a class="el" href="class_room.html#ac6ef93a7d9c3e1d624e025058d5f16ff">Room</a></li>
+<li>Reset()&#160;:&#160;<a class="el" href="class_quest_progress.html#a35235bfc333b47d7df9f42fd7fa31293">QuestProgress</a>, <a class="el" href="class_u_i.html#a7ff88be86d7573a2e08ff72c62208715">UI</a></li>
+<li>resetHealth()&#160;:&#160;<a class="el" href="class_player.html#a713060327f44fd131d978419405a135e">Player</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>SectionSeperator()&#160;:&#160;<a class="el" href="class_u_i.html#aa0f20c89b3c3fb38bebca362532dda33">UI</a></li>
-<li>setAttackPower()&#160;:&#160;<a class="el" href="class_mini_boss.html#a46124263c44379639613e8eb8883b114">MiniBoss</a></li>
+<li>setActive()&#160;:&#160;<a class="el" href="class_enemy.html#aa4d6dec3025576a6dd8857296c846352">Enemy</a></li>
+<li>setAttackPower()&#160;:&#160;<a class="el" href="class_mini_boss.html#a46124263c44379639613e8eb8883b114">MiniBoss</a>, <a class="el" href="class_player.html#aecab7a3cd775870dc668c7f988a3e377">Player</a></li>
 <li>SetColor()&#160;:&#160;<a class="el" href="class_u_i.html#ab74be4144e62ec41de4c7e961af54ef7">UI</a></li>
-<li>setCurrentRoom()&#160;:&#160;<a class="el" href="class_player.html#ae3e19a3d04695b7612d51b8b752827a1">Player</a></li>
-<li>setEnemy()&#160;:&#160;<a class="el" href="class_room.html#a12d52d394b29dc39090015ba546d426a">Room</a></li>
+<li>setEnemy_Position()&#160;:&#160;<a class="el" href="class_enemy.html#a35963a9bd4303825f651b36a837c4195">Enemy</a></li>
 <li>setEnemyDescription()&#160;:&#160;<a class="el" href="class_enemy.html#aa60e415501e410cc46ddaebaab1a19d5">Enemy</a></li>
+<li>setEnemyKilled()&#160;:&#160;<a class="el" href="class_jungle_n_p_c.html#a09708d4356ef588147e30e4625775331">JungleNPC</a></li>
 <li>setEnemyName()&#160;:&#160;<a class="el" href="class_enemy.html#afabbae269b28f6039d64197c98c4dd0f">Enemy</a></li>
+<li>setEnemySpawned()&#160;:&#160;<a class="el" href="class_zone.html#a20c2c6588b97f7cb0e0a8dabe0d0eba0">Zone</a></li>
+<li>setGearCollected()&#160;:&#160;<a class="el" href="class_gears_quest.html#a3fd904a1ce1bcd67a9bdeee3e0a63a87">GearsQuest</a></li>
 <li>setHealth()&#160;:&#160;<a class="el" href="class_mini_boss.html#a15dc5380309bf2bf47d6c37a31248740">MiniBoss</a></li>
+<li>setInCombat()&#160;:&#160;<a class="el" href="class_player.html#afb030426b0f4fd3d5c5a8f911bc53b4b">Player</a></li>
+<li>setIsAlive()&#160;:&#160;<a class="el" href="class_enemy.html#a69f5987f0ceda79ad9fe814c3a535c64">Enemy</a></li>
 <li>setIsQuestItem()&#160;:&#160;<a class="el" href="class_item.html#ac5a3d4de1de676236cc88b02c5bf3bd5">Item</a></li>
 <li>setIsVisible()&#160;:&#160;<a class="el" href="class_enemy.html#a9422f664bcd26f6dfba2a48e8edc00f6">Enemy</a></li>
-<li>setItem()&#160;:&#160;<a class="el" href="class_room.html#ac2c350c95ad5af1a100a03cedb38300f">Room</a>, <a class="el" href="class_tile.html#a430643560665771bba182682df38b03b">Tile</a></li>
 <li>setItemDescription()&#160;:&#160;<a class="el" href="class_item.html#aedae0c563de5090389113405d580c72c">Item</a></li>
+<li>setItemIsVisible()&#160;:&#160;<a class="el" href="class_item.html#a80fec207df0dfa26f93ddcdace1d8c80">Item</a></li>
 <li>setItemName()&#160;:&#160;<a class="el" href="class_item.html#a3b239a47dded8b9d0866eea092491979">Item</a></li>
-<li>setNPC()&#160;:&#160;<a class="el" href="class_room.html#ade5f38b899b4f02d4d6d4a2211252f7d">Room</a></li>
-<li>setNPC_Position()&#160;:&#160;<a class="el" href="class_n_p_c.html#ab23a967cdc8c472e069ce66e4aef2e57">NPC</a></li>
+<li>setItemPickedUp()&#160;:&#160;<a class="el" href="class_quest_progress.html#afeaa5892ca6ed7222402e962a8553634">QuestProgress</a></li>
 <li>setPosition()&#160;:&#160;<a class="el" href="class_player.html#a0beac62fb5b35d68e47fef56752b0368">Player</a></li>
-<li>setRoomDescription()&#160;:&#160;<a class="el" href="class_room.html#aeb8c698263cf1aa289ff5e46c812c657">Room</a></li>
-<li>setRoomName()&#160;:&#160;<a class="el" href="class_room.html#aeff60b0ddcfa8edcb432e81d314a6efc">Room</a></li>
+<li>setQuestItemCollected()&#160;:&#160;<a class="el" href="class_n_p_c.html#a096e965b3f4e8bbf4f5c8a734f4d66f8">NPC</a></li>
 <li>SetType()&#160;:&#160;<a class="el" href="class_tile.html#abf7737bb501c73b91c523d4852ba65ee">Tile</a></li>
-<li>setVisited()&#160;:&#160;<a class="el" href="class_room.html#a7db8382e437fb08539a148b56b279e9d">Room</a></li>
+<li>setVialCollected()&#160;:&#160;<a class="el" href="class_time_machine_liquid_quest.html#a547aca449839d467099e4a6167776892">TimeMachineLiquidQuest</a></li>
+<li>setZone()&#160;:&#160;<a class="el" href="class_n_p_c.html#ab5284bbeadfa96561e479ac6f7001200">NPC</a></li>
 <li>showAllVerbs()&#160;:&#160;<a class="el" href="class_command_parser.html#ac8244eb6cadba2a859429be08478e5b4">CommandParser</a>, <a class="el" href="class_verb_lookup.html#a25aa626e6f0d4eb09ee347d6c7c50d13">VerbLookup</a></li>
+<li>spawnEnemy()&#160;:&#160;<a class="el" href="class_zone.html#ace9db4097c548888090dd4cbd9c58570">Zone</a></li>
+<li>spawnEnemyAt()&#160;:&#160;<a class="el" href="class_zone.html#a93e2dd9aed39f1c2615f89be90f0e914">Zone</a></li>
+<li>startCombat()&#160;:&#160;<a class="el" href="class_player_action_manager.html#a2bc4d304918f9231413087e831960bf6">PlayerActionManager</a></li>
+<li>startedQuest()&#160;:&#160;<a class="el" href="class_n_p_c.html#afb9e8323ff38a442d08a5ec2177e4635">NPC</a></li>
 <li>StartGame()&#160;:&#160;<a class="el" href="class_world.html#a25c27c0a0359fbd280b493833e50c414">World</a></li>
+<li>startQuest()&#160;:&#160;<a class="el" href="class_quest_progress.html#a1fb4f5c3d5bf2785f148322b48e3e360">QuestProgress</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>takeDamage()&#160;:&#160;<a class="el" href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">Player</a></li>
+<li>takeDamage()&#160;:&#160;<a class="el" href="class_enemy.html#a29465820c3774a2fd58176e20cc9ffcd">Enemy</a>, <a class="el" href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">Player</a></li>
 <li>Tile()&#160;:&#160;<a class="el" href="class_tile.html#a6a975a0cc9d3e5fbfbe1ed712c4cd641">Tile</a></li>
+<li>TimeMachineLiquidQuest()&#160;:&#160;<a class="el" href="class_time_machine_liquid_quest.html#a675016a5c4b2894a5bf7996b98afdd97">TimeMachineLiquidQuest</a></li>
 <li>TitleScreen()&#160;:&#160;<a class="el" href="class_u_i.html#ac27dee9f261eed9fe1d8dd88e2ca56c4">UI</a></li>
 <li>toLower()&#160;:&#160;<a class="el" href="class_command_parser.html#a1f1396d4441f3454971fd36884977a43">CommandParser</a></li>
 </ul>
@@ -260,7 +300,7 @@ $(function(){initNavTree('functions_func.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_z" name="index_z"></a>- z -</h3><ul>
-<li>Zone()&#160;:&#160;<a class="el" href="class_zone.html#a37c9721c0d592a7a231f4e6dbae93277">Zone</a></li>
+<li>Zone()&#160;:&#160;<a class="el" href="class_zone.html#ad904b2f1c4f3f48e25d8d6daab9ed771">Zone</a></li>
 </ul>
 
 

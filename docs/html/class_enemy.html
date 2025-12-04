@@ -106,7 +106,7 @@ Inheritance diagram for Enemy:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a94f30d348b6d2840fd71675472ba38dd" id="r_a94f30d348b6d2840fd71675472ba38dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94f30d348b6d2840fd71675472ba38dd">Enemy</a> ()</td></tr>
-<tr class="memitem:a56c2e6ab5997caed9043f08f3e5b6925" id="r_a56c2e6ab5997caed9043f08f3e5b6925"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56c2e6ab5997caed9043f08f3e5b6925">Enemy</a> (string name, string description)</td></tr>
+<tr class="memitem:a036989ad3347613a80f7f8d50cfb4df7" id="r_a036989ad3347613a80f7f8d50cfb4df7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036989ad3347613a80f7f8d50cfb4df7">Enemy</a> (string name, string description, int newHealth)</td></tr>
 <tr class="memitem:aafb628c66008e33afdd750e2f492bd98" id="r_aafb628c66008e33afdd750e2f492bd98"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafb628c66008e33afdd750e2f492bd98">~Enemy</a> ()=default</td></tr>
 <tr class="memitem:aec1e5f064c3968d2b871bc6184d3c188" id="r_aec1e5f064c3968d2b871bc6184d3c188"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1e5f064c3968d2b871bc6184d3c188">getEnemyName</a> () const</td></tr>
 <tr class="memitem:a5ad3bc591e9e0f938a16e39d716ec977" id="r_a5ad3bc591e9e0f938a16e39d716ec977"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ad3bc591e9e0f938a16e39d716ec977">getEnemyDescription</a> () const</td></tr>
@@ -115,12 +115,32 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3603190a40ec68efac5c9f53fe22b3dd" id="r_a3603190a40ec68efac5c9f53fe22b3dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3603190a40ec68efac5c9f53fe22b3dd">getIsVisible</a> () const</td></tr>
 <tr class="memitem:a9422f664bcd26f6dfba2a48e8edc00f6" id="r_a9422f664bcd26f6dfba2a48e8edc00f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9422f664bcd26f6dfba2a48e8edc00f6">setIsVisible</a> (bool visibility)</td></tr>
 <tr class="memitem:aa4418e9f8ac6d9942a68fbd542152931" id="r_aa4418e9f8ac6d9942a68fbd542152931"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4418e9f8ac6d9942a68fbd542152931">printEnemyInfo</a> () const</td></tr>
+<tr class="memitem:a35963a9bd4303825f651b36a837c4195" id="r_a35963a9bd4303825f651b36a837c4195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35963a9bd4303825f651b36a837c4195">setEnemy_Position</a> (int enemyX, int enemyY)</td></tr>
+<tr class="memitem:a1d9e7efb4368c631544dd11f50e1f045" id="r_a1d9e7efb4368c631544dd11f50e1f045"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d9e7efb4368c631544dd11f50e1f045">getEnemy_X</a> () const</td></tr>
+<tr class="memdesc:a1d9e7efb4368c631544dd11f50e1f045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="class_n_p_c.html">NPC</a>'s current X coordinate.  <br /></td></tr>
+<tr class="memitem:a02376bde7b828df7a48994f7d3f4d978" id="r_a02376bde7b828df7a48994f7d3f4d978"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02376bde7b828df7a48994f7d3f4d978">getEnemy_Y</a> () const</td></tr>
+<tr class="memdesc:a02376bde7b828df7a48994f7d3f4d978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="class_n_p_c.html">NPC</a>'s current Y coordinate.  <br /></td></tr>
+<tr class="memitem:a3473f9f24e815aebb44c85943204d31c" id="r_a3473f9f24e815aebb44c85943204d31c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3473f9f24e815aebb44c85943204d31c">getHealth</a> () const</td></tr>
+<tr class="memitem:aa7124cb33bb2dd9bb4f8ceb98c5d649b" id="r_aa7124cb33bb2dd9bb4f8ceb98c5d649b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7124cb33bb2dd9bb4f8ceb98c5d649b">getIsAlive</a> () const</td></tr>
+<tr class="memitem:a69f5987f0ceda79ad9fe814c3a535c64" id="r_a69f5987f0ceda79ad9fe814c3a535c64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69f5987f0ceda79ad9fe814c3a535c64">setIsAlive</a> (bool state)</td></tr>
+<tr class="memitem:a4c878f794a9ead21ad5e597be4337292" id="r_a4c878f794a9ead21ad5e597be4337292"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c878f794a9ead21ad5e597be4337292">getAttackPower</a> () const</td></tr>
+<tr class="memitem:a575b7ed7dbad0995f9f86f1d99c65c22" id="r_a575b7ed7dbad0995f9f86f1d99c65c22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a575b7ed7dbad0995f9f86f1d99c65c22">attackPlayer</a> (<a class="el" href="class_player.html">Player</a> *player) const</td></tr>
+<tr class="memitem:a2801f42818600b19a7381dd2d1635af8" id="r_a2801f42818600b19a7381dd2d1635af8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2801f42818600b19a7381dd2d1635af8">isAlive</a> () const</td></tr>
+<tr class="memitem:a29465820c3774a2fd58176e20cc9ffcd" id="r_a29465820c3774a2fd58176e20cc9ffcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29465820c3774a2fd58176e20cc9ffcd">takeDamage</a> (int amount)</td></tr>
+<tr class="memitem:aa4d6dec3025576a6dd8857296c846352" id="r_aa4d6dec3025576a6dd8857296c846352"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4d6dec3025576a6dd8857296c846352">setActive</a> (bool value)</td></tr>
+<tr class="memitem:a269bfe66f1665c629c388fba9b773a0f" id="r_a269bfe66f1665c629c388fba9b773a0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a269bfe66f1665c629c388fba9b773a0f">getActive</a> () const</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a2ce9b3a855d504ea483934c1a661111c" id="r_a2ce9b3a855d504ea483934c1a661111c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ce9b3a855d504ea483934c1a661111c">enemyName</a></td></tr>
 <tr class="memitem:aa468a1186cac494b00e6143bb43562d2" id="r_aa468a1186cac494b00e6143bb43562d2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa468a1186cac494b00e6143bb43562d2">enemyDescription</a></td></tr>
 <tr class="memitem:a967d2c7ab30f7386762358a820327cef" id="r_a967d2c7ab30f7386762358a820327cef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a967d2c7ab30f7386762358a820327cef">isVisible</a></td></tr>
+<tr class="memitem:a42f7739ff4bedad774d642112486f851" id="r_a42f7739ff4bedad774d642112486f851"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42f7739ff4bedad774d642112486f851">isActive</a></td></tr>
+<tr class="memitem:aedd5e7bf8ef07ee97be433c853a10d8d" id="r_aedd5e7bf8ef07ee97be433c853a10d8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedd5e7bf8ef07ee97be433c853a10d8d">health</a></td></tr>
+<tr class="memitem:a26c34811424e665a6c2efb9100cae0d8" id="r_a26c34811424e665a6c2efb9100cae0d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26c34811424e665a6c2efb9100cae0d8">alive</a> = true</td></tr>
+<tr class="memitem:a3dd295baef803047adedf1844b8d8105" id="r_a3dd295baef803047adedf1844b8d8105"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dd295baef803047adedf1844b8d8105">enemy_xcoord</a></td></tr>
+<tr class="memitem:a8f1c5e5d47e06d6a6f3003afd894853f" id="r_a8f1c5e5d47e06d6a6f3003afd894853f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f1c5e5d47e06d6a6f3003afd894853f">enemy_ycoord</a></td></tr>
+<tr class="memitem:a5cad1bc01d7f830a5a76217aa704ecf0" id="r_a5cad1bc01d7f830a5a76217aa704ecf0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cad1bc01d7f830a5a76217aa704ecf0">attackPower</a></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94f30d348b6d2840fd71675472ba38dd" name="a94f30d348b6d2840fd71675472ba38dd"></a>
@@ -140,8 +160,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a56c2e6ab5997caed9043f08f3e5b6925" name="a56c2e6ab5997caed9043f08f3e5b6925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56c2e6ab5997caed9043f08f3e5b6925">&#9670;&#160;</a></span>Enemy() <span class="overload">[2/2]</span></h2>
+<a id="a036989ad3347613a80f7f8d50cfb4df7" name="a036989ad3347613a80f7f8d50cfb4df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036989ad3347613a80f7f8d50cfb4df7">&#9670;&#160;</a></span>Enemy() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +174,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>description</em></span>&#160;)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>newHealth</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -187,6 +212,97 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a575b7ed7dbad0995f9f86f1d99c65c22" name="a575b7ed7dbad0995f9f86f1d99c65c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575b7ed7dbad0995f9f86f1d99c65c22">&#9670;&#160;</a></span>attackPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::attackPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *</td>          <td class="paramname"><span class="paramname"><em>player</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a269bfe66f1665c629c388fba9b773a0f" name="a269bfe66f1665c629c388fba9b773a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269bfe66f1665c629c388fba9b773a0f">&#9670;&#160;</a></span>getActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::getActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c878f794a9ead21ad5e597be4337292" name="a4c878f794a9ead21ad5e597be4337292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c878f794a9ead21ad5e597be4337292">&#9670;&#160;</a></span>getAttackPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::getAttackPower </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d9e7efb4368c631544dd11f50e1f045" name="a1d9e7efb4368c631544dd11f50e1f045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9e7efb4368c631544dd11f50e1f045">&#9670;&#160;</a></span>getEnemy_X()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::getEnemy_X </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="class_n_p_c.html">NPC</a>'s current X coordinate. </p>
+<dl class="section return"><dt>Returns</dt><dd>The NPC’s X position. </dd></dl>
+
+</div>
+</div>
+<a id="a02376bde7b828df7a48994f7d3f4d978" name="a02376bde7b828df7a48994f7d3f4d978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02376bde7b828df7a48994f7d3f4d978">&#9670;&#160;</a></span>getEnemy_Y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::getEnemy_Y </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="class_n_p_c.html">NPC</a>'s current Y coordinate. </p>
+<dl class="section return"><dt>Returns</dt><dd>The NPC’s Y position. </dd></dl>
+
+</div>
+</div>
 <a id="a5ad3bc591e9e0f938a16e39d716ec977" name="a5ad3bc591e9e0f938a16e39d716ec977"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ad3bc591e9e0f938a16e39d716ec977">&#9670;&#160;</a></span>getEnemyDescription()</h2>
 
@@ -237,6 +353,40 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3473f9f24e815aebb44c85943204d31c" name="a3473f9f24e815aebb44c85943204d31c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3473f9f24e815aebb44c85943204d31c">&#9670;&#160;</a></span>getHealth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::getHealth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7124cb33bb2dd9bb4f8ceb98c5d649b" name="aa7124cb33bb2dd9bb4f8ceb98c5d649b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7124cb33bb2dd9bb4f8ceb98c5d649b">&#9670;&#160;</a></span>getIsAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::getIsAlive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3603190a40ec68efac5c9f53fe22b3dd" name="a3603190a40ec68efac5c9f53fe22b3dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3603190a40ec68efac5c9f53fe22b3dd">&#9670;&#160;</a></span>getIsVisible()</h2>
 
@@ -245,6 +395,23 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool Enemy::getIsVisible </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2801f42818600b19a7381dd2d1635af8" name="a2801f42818600b19a7381dd2d1635af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2801f42818600b19a7381dd2d1635af8">&#9670;&#160;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::isAlive </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -275,6 +442,44 @@ Protected Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4d6dec3025576a6dd8857296c846352" name="aa4d6dec3025576a6dd8857296c846352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4d6dec3025576a6dd8857296c846352">&#9670;&#160;</a></span>setActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::setActive </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35963a9bd4303825f651b36a837c4195" name="a35963a9bd4303825f651b36a837c4195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35963a9bd4303825f651b36a837c4195">&#9670;&#160;</a></span>setEnemy_Position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::setEnemy_Position </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>enemyX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>enemyY</em></span>&#160;)</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -313,6 +518,23 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a69f5987f0ceda79ad9fe814c3a535c64" name="a69f5987f0ceda79ad9fe814c3a535c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f5987f0ceda79ad9fe814c3a535c64">&#9670;&#160;</a></span>setIsAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::setIsAlive </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9422f664bcd26f6dfba2a48e8edc00f6" name="a9422f664bcd26f6dfba2a48e8edc00f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9422f664bcd26f6dfba2a48e8edc00f6">&#9670;&#160;</a></span>setIsVisible()</h2>
 
@@ -330,7 +552,112 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a29465820c3774a2fd58176e20cc9ffcd" name="a29465820c3774a2fd58176e20cc9ffcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29465820c3774a2fd58176e20cc9ffcd">&#9670;&#160;</a></span>takeDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::takeDamage </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>amount</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a26c34811424e665a6c2efb9100cae0d8" name="a26c34811424e665a6c2efb9100cae0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c34811424e665a6c2efb9100cae0d8">&#9670;&#160;</a></span>alive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::alive = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cad1bc01d7f830a5a76217aa704ecf0" name="a5cad1bc01d7f830a5a76217aa704ecf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cad1bc01d7f830a5a76217aa704ecf0">&#9670;&#160;</a></span>attackPower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::attackPower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3dd295baef803047adedf1844b8d8105" name="a3dd295baef803047adedf1844b8d8105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd295baef803047adedf1844b8d8105">&#9670;&#160;</a></span>enemy_xcoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::enemy_xcoord</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f1c5e5d47e06d6a6f3003afd894853f" name="a8f1c5e5d47e06d6a6f3003afd894853f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f1c5e5d47e06d6a6f3003afd894853f">&#9670;&#160;</a></span>enemy_ycoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::enemy_ycoord</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa468a1186cac494b00e6143bb43562d2" name="aa468a1186cac494b00e6143bb43562d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa468a1186cac494b00e6143bb43562d2">&#9670;&#160;</a></span>enemyDescription</h2>
 
@@ -364,6 +691,50 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">string Enemy::enemyName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedd5e7bf8ef07ee97be433c853a10d8d" name="aedd5e7bf8ef07ee97be433c853a10d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedd5e7bf8ef07ee97be433c853a10d8d">&#9670;&#160;</a></span>health</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::health</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42f7739ff4bedad774d642112486f851" name="a42f7739ff4bedad774d642112486f851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f7739ff4bedad774d642112486f851">&#9670;&#160;</a></span>isActive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::isActive</td>
         </tr>
       </table>
   </td>

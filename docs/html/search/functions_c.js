@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['takedamage_0',['takeDamage',['../class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c',1,'Player']]],
-  ['tile_1',['Tile',['../class_tile.html#a6a975a0cc9d3e5fbfbe1ed712c4cd641',1,'Tile']]],
-  ['titlescreen_2',['TitleScreen',['../class_u_i.html#ac27dee9f261eed9fe1d8dd88e2ca56c4',1,'UI']]],
-  ['tolower_3',['toLower',['../class_command_parser.html#a1f1396d4441f3454971fd36884977a43',1,'CommandParser']]]
+  ['removeenemyat_0',['removeEnemyAt',['../class_zone.html#a1d1990f5f88b0c7628a442fad9a8f874',1,'Zone']]],
+  ['removeitemsat_1',['removeItemsAt',['../class_zone.html#ae3f95c2547b1f9c5d77a97840a72f783',1,'Zone']]],
+  ['render_2',['render',['../class_health_u_i.html#a6c066a1994a5eeb82d9d5fd45be54af9',1,'HealthUI']]],
+  ['renderer_3',['Renderer',['../class_renderer.html#a7ebf46f54dab9905f79b80f7fddb76a6',1,'Renderer']]],
+  ['reset_4',['Reset',['../class_quest_progress.html#a35235bfc333b47d7df9f42fd7fa31293',1,'QuestProgress::Reset()'],['../class_u_i.html#a7ff88be86d7573a2e08ff72c62208715',1,'UI::Reset()']]],
+  ['resethealth_5',['resetHealth',['../class_player.html#a713060327f44fd131d978419405a135e',1,'Player']]]
 ];

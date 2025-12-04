@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['enemydescription_0',['enemyDescription',['../class_enemy.html#aa468a1186cac494b00e6143bb43562d2',1,'Enemy']]],
-  ['enemyname_1',['enemyName',['../class_enemy.html#a2ce9b3a855d504ea483934c1a661111c',1,'Enemy']]]
+  ['alive_0',['alive',['../class_enemy.html#a26c34811424e665a6c2efb9100cae0d8',1,'Enemy']]],
+  ['attackpower_1',['attackPower',['../class_enemy.html#a5cad1bc01d7f830a5a76217aa704ecf0',1,'Enemy']]]
 ];

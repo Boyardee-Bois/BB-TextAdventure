@@ -6,6 +6,9 @@ var _tile_8h =
       [ "Stone", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1a2ff4ab1d379832d3edee28194fb4e7b2", null ],
       [ "Water", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1a27634ff8002b12e75d98e07ccd005d18", null ],
       [ "Dirt", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1a7cf334b79a84091f27dfc019b4b79229", null ],
-      [ "RedLight", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1ae013bd87777bf69ac62fe5a52420a23d", null ]
+      [ "RedLight", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1ae013bd87777bf69ac62fe5a52420a23d", null ],
+      [ "Sand", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1acec7ca178e2f7b1ae3a4600868c57aca", null ],
+      [ "Flooring", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1a4ab5f53873db7250dc192ada23cb02b9", null ],
+      [ "BasementWall", "_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1a132bd1001684ea75823497b46759cc00", null ]
     ] ]
 ];

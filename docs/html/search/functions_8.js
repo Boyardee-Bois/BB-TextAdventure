@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['nounlookup_0',['NounLookup',['../class_noun_lookup.html#a41e7a5299828e0cdc0665a8f566b35ce',1,'NounLookup']]],
-  ['npc_1',['NPC',['../class_n_p_c.html#a59b45912692304d555df9d6957046962',1,'NPC::NPC()'],['../class_n_p_c.html#affb44ae9dad73aacd6f73775fba3841d',1,'NPC::NPC(string npcName, int x_coord, int y_coord)']]]
+  ['main_0',['main',['../_b_b-_text_adventure_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'BB-TextAdventure.cpp']]],
+  ['miniboss_1',['MiniBoss',['../class_mini_boss.html#af582fde7591f24be7b5c4e17938466bc',1,'MiniBoss']]],
+  ['moveplayer_2',['movePlayer',['../class_player.html#a67cd824d6596b81de99dcb0309add9c0',1,'Player']]]
 ];

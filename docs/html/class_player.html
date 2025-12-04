@@ -101,12 +101,8 @@ $(function(){initNavTree('class_player.html','','class_player-members'); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:affe0cc3cb714f6deb4e62f0c0d3f1fd8" id="r_affe0cc3cb714f6deb4e62f0c0d3f1fd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a> ()</td></tr>
 <tr class="memdesc:affe0cc3cb714f6deb4e62f0c0d3f1fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializing position and room.  <br /></td></tr>
-<tr class="memitem:ae3e19a3d04695b7612d51b8b752827a1" id="r_ae3e19a3d04695b7612d51b8b752827a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e19a3d04695b7612d51b8b752827a1">setCurrentRoom</a> (<a class="el" href="class_room.html">Room</a> *newRoom)</td></tr>
-<tr class="memdesc:ae3e19a3d04695b7612d51b8b752827a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the player's current room.  <br /></td></tr>
-<tr class="memitem:adf6ade2627e061608a4051c603d709fc" id="r_adf6ade2627e061608a4051c603d709fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_room.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6ade2627e061608a4051c603d709fc">getCurrentRoom</a> ()</td></tr>
-<tr class="memdesc:adf6ade2627e061608a4051c603d709fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the player's current room.  <br /></td></tr>
 <tr class="memitem:a0beac62fb5b35d68e47fef56752b0368" id="r_a0beac62fb5b35d68e47fef56752b0368"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0beac62fb5b35d68e47fef56752b0368">setPosition</a> (int x, int y)</td></tr>
-<tr class="memdesc:a0beac62fb5b35d68e47fef56752b0368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the player's position on the map.  <br /></td></tr>
+<tr class="memdesc:a0beac62fb5b35d68e47fef56752b0368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the player's current room.  <br /></td></tr>
 <tr class="memitem:ae9bcae10b1841b186b2ac0a5b07dd6e1" id="r_ae9bcae10b1841b186b2ac0a5b07dd6e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9bcae10b1841b186b2ac0a5b07dd6e1">getX</a> () const</td></tr>
 <tr class="memdesc:ae9bcae10b1841b186b2ac0a5b07dd6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the player's current X coordinate.  <br /></td></tr>
 <tr class="memitem:ab761a1ddba353a619403be9af249b835" id="r_ab761a1ddba353a619403be9af249b835"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab761a1ddba353a619403be9af249b835">getY</a> () const</td></tr>
@@ -124,6 +120,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1315f9a1d0b763ffdc37297cec1eee5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take damage from sources in the game.  <br /></td></tr>
 <tr class="memitem:ac0b88c415cb264d54c227dd4ef82a7d1" id="r_ac0b88c415cb264d54c227dd4ef82a7d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0b88c415cb264d54c227dd4ef82a7d1">isDead</a> ()</td></tr>
 <tr class="memdesc:ac0b88c415cb264d54c227dd4ef82a7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the player is dead.  <br /></td></tr>
+<tr class="memitem:a9d43e2876bbc07670c9fb8bd1188ffc0" id="r_a9d43e2876bbc07670c9fb8bd1188ffc0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d43e2876bbc07670c9fb8bd1188ffc0">getAttackPower</a> () const</td></tr>
+<tr class="memitem:aecab7a3cd775870dc668c7f988a3e377" id="r_aecab7a3cd775870dc668c7f988a3e377"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecab7a3cd775870dc668c7f988a3e377">setAttackPower</a> (int newPower)</td></tr>
+<tr class="memitem:ac73c7bdc2b6c412c0559614f036fb8ae" id="r_ac73c7bdc2b6c412c0559614f036fb8ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac73c7bdc2b6c412c0559614f036fb8ae">attackEnemy</a> (<a class="el" href="class_enemy.html">Enemy</a> *enemy)</td></tr>
+<tr class="memitem:a14e280ea726cc5604b2462ffa286a431" id="r_a14e280ea726cc5604b2462ffa286a431"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e280ea726cc5604b2462ffa286a431">getInCombat</a> () const</td></tr>
+<tr class="memitem:a3966588630ad0a127c9250f985865392" id="r_a3966588630ad0a127c9250f985865392"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3966588630ad0a127c9250f985865392">isAlive</a> () const</td></tr>
+<tr class="memitem:afb030426b0f4fd3d5c5a8f911bc53b4b" id="r_afb030426b0f4fd3d5c5a8f911bc53b4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb030426b0f4fd3d5c5a8f911bc53b4b">setInCombat</a> (bool state)</td></tr>
+<tr class="memitem:a713060327f44fd131d978419405a135e" id="r_a713060327f44fd131d978419405a135e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a713060327f44fd131d978419405a135e">resetHealth</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the player and manages their current location and position. </p>
@@ -152,6 +155,23 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac73c7bdc2b6c412c0559614f036fb8ae" name="ac73c7bdc2b6c412c0559614f036fb8ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73c7bdc2b6c412c0559614f036fb8ae">&#9670;&#160;</a></span>attackEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::attackEnemy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_enemy.html">Enemy</a> *</td>          <td class="paramname"><span class="paramname"><em>enemy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a017ec9e4eb9f589dbc73f070c438226a" name="a017ec9e4eb9f589dbc73f070c438226a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a017ec9e4eb9f589dbc73f070c438226a">&#9670;&#160;</a></span>displayInventory()</h2>
 
@@ -163,6 +183,23 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d43e2876bbc07670c9fb8bd1188ffc0" name="a9d43e2876bbc07670c9fb8bd1188ffc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d43e2876bbc07670c9fb8bd1188ffc0">&#9670;&#160;</a></span>getAttackPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Player::getAttackPower </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -189,26 +226,20 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adf6ade2627e061608a4051c603d709fc" name="adf6ade2627e061608a4051c603d709fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf6ade2627e061608a4051c603d709fc">&#9670;&#160;</a></span>getCurrentRoom()</h2>
+<a id="a14e280ea726cc5604b2462ffa286a431" name="a14e280ea726cc5604b2462ffa286a431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e280ea726cc5604b2462ffa286a431">&#9670;&#160;</a></span>getInCombat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_room.html">Room</a> * Player::getCurrentRoom </td>
+          <td class="memname">bool Player::getInCombat </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the player's current room. </p>
-<p>Retrieves the player's current room.</p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the current <a class="el" href="class_room.html" title="Represents a single location in the game world.">Room</a> object.</dd>
-<dd>
-Pointer to the current <a class="el" href="class_room.html" title="Represents a single location in the game world.">Room</a>. </dd></dl>
 
 </div>
 </div>
@@ -248,7 +279,7 @@ Pointer to the current <a class="el" href="class_room.html" title="Represents a 
 </div><div class="memdoc">
 
 <p>Returns the player's current X coordinate. </p>
-<dl class="section return"><dt>Returns</dt><dd>The player’s X position. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The playerâ€™s X position. </dd></dl>
 
 </div>
 </div>
@@ -268,7 +299,7 @@ Pointer to the current <a class="el" href="class_room.html" title="Represents a 
 </div><div class="memdoc">
 
 <p>Returns the player's current Y coordinate. </p>
-<dl class="section return"><dt>Returns</dt><dd>The player’s Y position. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The playerâ€™s Y position. </dd></dl>
 
 </div>
 </div>
@@ -282,6 +313,23 @@ Pointer to the current <a class="el" href="class_room.html" title="Represents a 
           <td class="memname">bool Player::hasItemName </td>
           <td>(</td>
           <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3966588630ad0a127c9250f985865392" name="a3966588630ad0a127c9250f985865392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3966588630ad0a127c9250f985865392">&#9670;&#160;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Player::isAlive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -354,29 +402,54 @@ True if the player health is 0, otherwise false. </dd></dl>
 
 </div>
 </div>
-<a id="ae3e19a3d04695b7612d51b8b752827a1" name="ae3e19a3d04695b7612d51b8b752827a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3e19a3d04695b7612d51b8b752827a1">&#9670;&#160;</a></span>setCurrentRoom()</h2>
+<a id="a713060327f44fd131d978419405a135e" name="a713060327f44fd131d978419405a135e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713060327f44fd131d978419405a135e">&#9670;&#160;</a></span>resetHealth()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Player::setCurrentRoom </td>
+          <td class="memname">void Player::resetHealth </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_room.html">Room</a> *</td>          <td class="paramname"><span class="paramname"><em>newRoom</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the player's current room. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newRoom</td><td>Pointer to the <a class="el" href="class_room.html" title="Represents a single location in the game world.">Room</a> object to set as current.</td></tr>
-    <tr><td class="paramname">newRoom</td><td>Pointer to the next <a class="el" href="class_room.html" title="Represents a single location in the game world.">Room</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+</div>
+</div>
+<a id="aecab7a3cd775870dc668c7f988a3e377" name="aecab7a3cd775870dc668c7f988a3e377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecab7a3cd775870dc668c7f988a3e377">&#9670;&#160;</a></span>setAttackPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::setAttackPower </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>newPower</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb030426b0f4fd3d5c5a8f911bc53b4b" name="afb030426b0f4fd3d5c5a8f911bc53b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb030426b0f4fd3d5c5a8f911bc53b4b">&#9670;&#160;</a></span>setInCombat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::setInCombat </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -399,8 +472,21 @@ True if the player health is 0, otherwise false. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the player's position on the map. </p>
+<p>Sets the player's current room. </p>
 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newRoom</td><td>Pointer to the Room object to set as current.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Gets the player's current room. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the current Room object.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newRoom</td><td>Pointer to the next Room.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Sets the player's position on the map. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The new X coordinate. </td></tr>
     <tr><td class="paramname">y</td><td>The new Y coordinate. </td></tr>

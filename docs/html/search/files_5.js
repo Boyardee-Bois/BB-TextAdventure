@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['miniboss_2ecpp_0',['MiniBoss.cpp',['../_mini_boss_8cpp.html',1,'']]],
-  ['miniboss_2eh_1',['MiniBoss.h',['../_mini_boss_8h.html',1,'']]]
+  ['item_2ecpp_0',['Item.cpp',['../_item_8cpp.html',1,'']]],
+  ['item_2eh_1',['Item.h',['../_item_8h.html',1,'']]]
 ];

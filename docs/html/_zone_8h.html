@@ -100,6 +100,7 @@ $(function(){initNavTree('_zone_8h.html','',''); });
 <code>#include &quot;<a class="el" href="_tile_8h_source.html">Tile.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_enemy_8h_source.html">Enemy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_n_p_c_8h_source.html">NPC.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_item_8h_source.html">Item.h</a>&quot;</code><br />
 </div>
 <p><a href="_zone_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -109,11 +110,56 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a connection (teleport/load) between two <a class="el" href="class_zone.html" title="@breif A container for a single game level.">Zone</a> objects.  <a href="struct_portal.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Zone" id="r_Zone"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_zone.html">Zone</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">@breif A container for a single game level.  <a href="class_zone.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad48a31e6fa9295a6269e6cd867b39531" id="r_ad48a31e6fa9295a6269e6cd867b39531"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531">ZoneLocation</a> { <br />
+&#160;&#160;<a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531a28f30f24a48132c4020013bd2663b41e">DefaultLab</a>
+, <a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531acacb50c582ca696a82341340b840cf0d">InteriorLab</a>
+, <a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531a2c3a955594c8a72492b5d6be92f1d922">BasementLab</a>
+, <a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531a1e7f72cb01415f5e800f3e1e32f91ee9">Beach</a>
+, <br />
+&#160;&#160;<a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531a4ddf4cb005260f1c5b21adca4d27c4ab">Jungle</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ad48a31e6fa9295a6269e6cd867b39531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines possible zones players may travel to.  <a href="#ad48a31e6fa9295a6269e6cd867b39531">More...</a><br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>@breif Defines the <a class="el" href="class_zone.html" title="@breif A container for a single game level.">Zone</a> class, which represents a single grid based level. </p>
 <p>The zone class holds the grid of Tiles, a list of portals (exits to another zones), and a collection of entities (<a class="el" href="class_n_p_c.html">NPC</a>'s, Enemies, Items), withing that a zone. </p>
-</div></div><!-- contents -->
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="ad48a31e6fa9295a6269e6cd867b39531" name="ad48a31e6fa9295a6269e6cd867b39531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48a31e6fa9295a6269e6cd867b39531">&#9670;&#160;</a></span>ZoneLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ad48a31e6fa9295a6269e6cd867b39531">ZoneLocation</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Defines possible zones players may travel to. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad48a31e6fa9295a6269e6cd867b39531a28f30f24a48132c4020013bd2663b41e" name="ad48a31e6fa9295a6269e6cd867b39531a28f30f24a48132c4020013bd2663b41e"></a>DefaultLab&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad48a31e6fa9295a6269e6cd867b39531acacb50c582ca696a82341340b840cf0d" name="ad48a31e6fa9295a6269e6cd867b39531acacb50c582ca696a82341340b840cf0d"></a>InteriorLab&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad48a31e6fa9295a6269e6cd867b39531a2c3a955594c8a72492b5d6be92f1d922" name="ad48a31e6fa9295a6269e6cd867b39531a2c3a955594c8a72492b5d6be92f1d922"></a>BasementLab&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad48a31e6fa9295a6269e6cd867b39531a1e7f72cb01415f5e800f3e1e32f91ee9" name="ad48a31e6fa9295a6269e6cd867b39531a1e7f72cb01415f5e800f3e1e32f91ee9"></a>Beach&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad48a31e6fa9295a6269e6cd867b39531a4ddf4cb005260f1c5b21adca4d27c4ab" name="ad48a31e6fa9295a6269e6cd867b39531a4ddf4cb005260f1c5b21adca4d27c4ab"></a>Jungle&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

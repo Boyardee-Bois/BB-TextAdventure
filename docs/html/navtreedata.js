@@ -25,6 +25,13 @@
 var NAVTREE =
 [
   [ "Project: Chronoscape", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -50,7 +57,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_b_b-_text_adventure_8cpp.html",
-"struct_portal.html#a73e195da9aa117b8f6c6d7ec8c7b9ea1"
+"class_player_action_manager.html#a656bc6c8d4414798ce755ace16a2510a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
