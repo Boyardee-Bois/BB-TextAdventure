@@ -11,6 +11,9 @@
 #include "UI.h"
 #include "Item.h"
 #include "Enemy.h"
+#include "TimeMachineLiquidQuest.h"
+#include "GearsQuest.h"
+#include "JungleNPC.h"
 #include <iostream>
 #include <fstream>
 
@@ -297,6 +300,19 @@ void Zone::spawnEnemy()
 		
 			}
 		}
+		for (auto& pair : enemies)
+		{
+			Enemy* enemy = pair.second;
+			if (enemy != nullptr && !enemy->getIsAlive())
+			{
+				Item* item = getItemsAt(enemy->getEnemy_X(), enemy->getEnemy_Y());
+				if (item != nullptr && !item->getItemIsVisible())
+				{
+					item->setItemIsVisible(true);
+					cout << "Looks like the enemy dropped something!\n";
+				}
+			}
+		}
 	}
 }
 // This needs comments
@@ -486,6 +502,35 @@ void Zone::CreateBeachZone()
 		grid[vertical][3] = Tile(TileType::Water);
 	}
 
+	// Create the NPC
+	TimeMachineLiquidQuest* reach_beachNPC = new TimeMachineLiquidQuest("Beachkeeper Cole");
+
+	// Set the zone for the NPC to this beach
+	reach_beachNPC->setZone(this);
+
+	// Add NPC to beach map
+	npcs[{10, 10}] = reach_beachNPC;
+
+	Item* vial1 = new Item("Liquid Vial 1", "whoa");
+	vial1->setIsQuestItem(true);
+	items[{13, 19}] = vial1;
+
+	Item* vial2 = new Item("Liquid Vial 2", "Whoaaaaa");
+	vial2->setIsQuestItem(true);
+	items[{7, 7}] = vial2;
+
+	Item* vial3 = new Item("Liquid Vial 3", "WHOAAAAAAAAAAA");
+	vial3->setIsQuestItem(true);
+	items[{19, 2}] = vial3;
+
+	Enemy* sandEnemy = new Enemy("Sand-Dweller", "Sand-Dweller!", 100);
+	sandEnemy->setIsVisible(false);
+	enemies[{10, 15}] = sandEnemy;
+
+	Item* dataDrive = new Item("Data Drive", "It has all the time periods!");
+	dataDrive->setItemIsVisible(false);
+	//dataDrive->setIsQuestItem(true);
+	items[{10, 15}] = dataDrive;
 	//grid[4][2] = Tile(TileType::Water);
 	//grid[5][2] = Tile(TileType::Water);
 
@@ -566,6 +611,37 @@ void Zone::CreateLabBasementZone()
 		}
 	}
 
+	// Create the Gear Quest NPC
+	GearsQuest* gearsNPC = new GearsQuest("Hoarder Riley");
+	gearsNPC->setZone(this);
+	npcs[{6, 1}] = gearsNPC;
+
+	// Creates the 5 Different Gear quest items
+	Item* gear1 = new Item("Gear 1", "A shiny gear");
+	gear1->setIsQuestItem(true);
+	items[{8, 4}] = gear1;
+
+	Item* gear2 = new Item("Gear 2", "A medium sized gear");
+	gear2->setIsQuestItem(true);
+	items[{8, 5}] = gear2;
+
+	Item* gear3 = new Item("Gear 3", "A large sized gear");
+	gear3->setIsQuestItem(true);
+	items[{8, 6}] = gear3;
+
+	Item* gear4 = new Item("Gear 4", "A small sized gear");
+	gear4->setIsQuestItem(true);
+	items[{8, 7}] = gear4;
+
+	Item* gear5 = new Item("Gear 5", "The master gear!");
+	gear5->setIsQuestItem(true);
+	items[{8, 8}] = gear5;
+
+	// Spawns the enemy but sets it to invisible
+	Enemy* gearEnemy = new Enemy("Gear Guardian", "Gear Guardian!", 120);
+	gearEnemy->setIsVisible(false);
+	enemies[{5, 5}] = gearEnemy;
+
 	/*
 	*
 	* Add a portal to the Lab interior Zone
@@ -594,6 +670,15 @@ void Zone::CreateJungleZone()
 		grid[9][x] = Tile(TileType::Water);
 		grid[8][x] = Tile(TileType::Water);
 	}
+
+	JungleNPC* jungleNPC = new JungleNPC("Hunter Darwin");
+	jungleNPC->setZone(this);
+	npcs[{6, 1}] = jungleNPC;
+
+	Enemy* jungleEnemy1 = new Enemy("Jungle Lurker", "Jungle Lurker!", 140);
+	jungleEnemy1->setIsVisible(true);
+	jungleEnemy1->setActive(true);
+	enemies[{15, 5}] = jungleEnemy1;
 
 	// Bridge to cross water
 	grid[8][10] = Tile(TileType::Dirt);

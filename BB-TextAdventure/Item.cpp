@@ -76,6 +76,16 @@ void Item::setItemDescription(string newDescription)
 	itemDescription = newDescription;
 }
 
+bool Item::getItemIsVisible() const
+{
+	return itemIsVisible;
+}
+
+void Item::setItemIsVisible(bool visible)
+{
+	itemIsVisible = visible;
+}
+
 /**
  * @brief Prints the item's name and description.
  * 

@@ -27,12 +27,12 @@ Enemy::Enemy(string name, string description, int newHealth)
 
 string Enemy::getEnemyName() const
 {
-	return string();
+	return enemyName;
 }
 
 string Enemy::getEnemyDescription() const
 {
-	return string();
+	return enemyDescription;
 }
 
 void Enemy::setEnemyName(const string& name)
@@ -80,8 +80,10 @@ int Enemy::getAttackPower() const
 }
 void Enemy::attackPlayer(Player* player) const
 {
-	if (!alive) return;
-
+	if (!alive) {
+		player->resetHealth();
+		return;
+	}
 	// Randomize choice: 0 = Light, 1 = Heavy
 	int choice = rand() % 2;
 	int damage = 0;
@@ -117,6 +119,7 @@ void Enemy::takeDamage(int amount)
 		health = 0;
 		alive = false;
 		std::cout << enemyName << " has been defeated!\n";
+		std::cout << "Defeating the enemy recovered your HP!\n";
 	}
 	else {
 		std::cout << "You hit " << enemyName
