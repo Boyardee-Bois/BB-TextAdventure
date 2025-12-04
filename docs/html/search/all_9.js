@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['north_0',['North',['../_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0a601560b94fbb188919dd1d36c8ab70a4',1,'Noun.h']]],
-  ['noun_1',['Noun',['../_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0',1,'Noun.h']]],
-  ['noun_2eh_2',['Noun.h',['../_noun_8h.html',1,'']]],
-  ['nounlookup_3',['NounLookup',['../class_noun_lookup.html',1,'NounLookup'],['../class_noun_lookup.html#a41e7a5299828e0cdc0665a8f566b35ce',1,'NounLookup::NounLookup()']]],
-  ['nounlookup_2ecpp_4',['NounLookup.cpp',['../_noun_lookup_8cpp.html',1,'']]],
-  ['nounlookup_2eh_5',['NounLookup.h',['../_noun_lookup_8h.html',1,'']]],
-  ['npc_6',['NPC',['../class_n_p_c.html',1,'NPC'],['../class_n_p_c.html#a59b45912692304d555df9d6957046962',1,'NPC::NPC()'],['../class_n_p_c.html#affb44ae9dad73aacd6f73775fba3841d',1,'NPC::NPC(string npcName, int x_coord, int y_coord)'],['../_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0a2bda99597da06a11feafd8760b68aec6',1,'NPC:&#160;Noun.h']]],
-  ['npc_2ecpp_7',['NPC.cpp',['../_n_p_c_8cpp.html',1,'']]],
-  ['npc_2eh_8',['NPC.h',['../_n_p_c_8h.html',1,'']]],
-  ['npc_5fh_9',['NPC_H',['../_n_p_c_8h.html#ae3a526891e0cf5cbacc0826f39e05c53',1,'NPC.h']]]
+  ['jungle_0',['Jungle',['../_zone_8h.html#ad48a31e6fa9295a6269e6cd867b39531a4ddf4cb005260f1c5b21adca4d27c4ab',1,'Zone.h']]],
+  ['jungle_5fnpc_5fh_1',['JUNGLE_NPC_H',['../_jungle_n_p_c_8h.html#abce9956532b79206bd01a58dde8cb4b5',1,'JungleNPC.h']]],
+  ['junglenpc_2',['JungleNPC',['../class_jungle_n_p_c.html',1,'JungleNPC'],['../class_jungle_n_p_c.html#acbbfd6516f8c8eec9813f287af96b153',1,'JungleNPC::JungleNPC()'],['../class_jungle_n_p_c.html#ae8d1abab685fba536c9ec5f6df0857e1',1,'JungleNPC::JungleNPC(const string &amp;npcName)']]],
+  ['junglenpc_2ecpp_3',['JungleNPC.cpp',['../_jungle_n_p_c_8cpp.html',1,'']]],
+  ['junglenpc_2eh_4',['JungleNPC.h',['../_jungle_n_p_c_8h.html',1,'']]]
 ];

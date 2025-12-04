@@ -93,9 +93,29 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Zone
  */
 void PlayerActionManager::printHelp(CommandParser& parser)
 {
-	cout << "Your available command words are:" << endl;
-	parser.showAllVerbs();
-	cout << "Example: 'go north' or 'quit'" << endl;
+	UI::Clear();
+
+	cout << "========================================" << endl;
+	cout << "              HELP MENU                 " << endl;
+	cout << "========================================" << endl;
+
+	cout << "  MOVEMENT:" << endl;
+	cout << "    [W] North  [S] South " << endl;
+	cout << "    [A] West   [S] East " << endl;
+	cout << "" << endl;
+
+	cout << "   ACTIONS:" << endl;
+	cout << "    Interact / Talk / Speak - Talk to NPC's" << endl;
+	cout << "    Pickup / Take / Grab    - Pick up items in the world" << endl;
+	cout << "    Open / View / Show      - Open your inventory" << endl;
+	cout << "    Quit / Exit             - Exit the game" << endl;
+	cout << "" << endl;
+
+	cout << "  Combat:" << endl;
+	cout << "    Attack, Fight, Hit      - Attack enemies" << endl;
+	cout << "========================================" << endl;
+
+	UI::Pause();
 }
 
 /**
@@ -359,7 +379,6 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 
 	// --- Begin turn-based combat ---
 	std::cout << "  Combat initiated against " << target->getEnemyName() << "!\n";
-	player.setInCombat(true);
 
 	// Enter combat loop until one side dies
 	while (player.isAlive() && target->getIsAlive())
@@ -369,8 +388,8 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 
 		if (!target->getIsAlive())
 		{
-			zone.removeEnemyAt(playerX, playerY);
-			break;
+			std::cout << "You defeated " << target->getEnemyName() << "!\n";
+			player.setInCombat(false);
 		}
 
 		UI::Pause();
@@ -382,11 +401,11 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 		if (!player.isAlive())
 		{
 			std::cout << "You were defeated by " << target->getEnemyName() << "...\n";
+			player.setInCombat(false);
 			break;
 		}
 
 		UI::Pause();
-		UI::Clear();
 	}
 
 	// --- End of Combat ---
@@ -404,8 +423,7 @@ void PlayerActionManager::startCombat(Player& player, Enemy* enemy, Zone& zone)
 
 	while (player.isAlive() && enemy->getIsAlive())
 	{
-		// --- PLAYER TURN ---
-		std::cout << "\nYour turn! Type 'attack enemy' to strike.\n";
+		// --- PLAYER TURN --
 		player.attackEnemy(enemy);
 
 		if (!enemy->getIsAlive())

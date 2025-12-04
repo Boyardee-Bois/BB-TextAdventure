@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../_b_b-_text_adventure_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'BB-TextAdventure.cpp']]],
-  ['miniboss_1',['MiniBoss',['../class_mini_boss.html#af582fde7591f24be7b5c4e17938466bc',1,'MiniBoss']]],
-  ['moveplayer_2',['movePlayer',['../class_player.html#a67cd824d6596b81de99dcb0309add9c0',1,'Player']]]
+  ['junglenpc_0',['JungleNPC',['../class_jungle_n_p_c.html#acbbfd6516f8c8eec9813f287af96b153',1,'JungleNPC::JungleNPC()'],['../class_jungle_n_p_c.html#ae8d1abab685fba536c9ec5f6df0857e1',1,'JungleNPC::JungleNPC(const string &amp;npcName)']]]
 ];

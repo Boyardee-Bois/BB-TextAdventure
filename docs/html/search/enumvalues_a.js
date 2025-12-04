@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quit_0',['Quit',['../_verb_8h.html#ade0965e0a67628e635e5563810600822a0d82790b0612935992bd564a17ce37d6',1,'Verb.h']]]
+  ['north_0',['North',['../_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0a601560b94fbb188919dd1d36c8ab70a4',1,'Noun.h']]],
+  ['npc_1',['NPC',['../_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0a2bda99597da06a11feafd8760b68aec6',1,'Noun.h']]]
 ];

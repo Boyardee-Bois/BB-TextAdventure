@@ -174,6 +174,7 @@ int Player::getMaxHealth()
 void Player::takeDamage(int amount)
 {
 	health -= amount;
+	
 	if (health < 0) health = 0;
 
 	cout << "You take " << amount << " damage! (HP: "
@@ -215,10 +216,21 @@ void Player::attackEnemy(Enemy* enemy)
 	int choice = 0;
 	int damage = 0;
 
-	std::cout << "\nChoose your attack:\n";
-	std::cout << "1. Light Attack (10 damage)\n";
-	std::cout << "2. Heavy Attack (20 damage)\n";
-	std::cout << "Enter choice (1 or 2): ";
+	UI::Clear();
+
+	cout << "========================================" << endl;
+	cout << "              COMBAT MODE               " << endl;
+	cout << "========================================" << endl;
+	cout << "ENEMY NAME: " << enemy->getEnemyName() << endl;
+	cout << "ENEMY HEALTH: " << enemy->getHealth() << endl;
+	cout << "----------------------------------------" << endl;
+	cout << "PLAYER HEALTH: " << health << "/" << getMaxHealth() << endl;
+	cout << "----------------------------------------" << endl;
+	cout << "ACTIONS:" << endl;
+	cout << "[1] LIGHT ATTACK (10 DMG)" << endl;
+	cout << "[2] HEAVY ATTACK (20 DMG)" << endl;
+	cout << "========================================" << endl;
+	cout << "Enter your choice: ";
 
 	while (!(std::cin >> choice) || (choice != 1 && choice != 2))
 	{

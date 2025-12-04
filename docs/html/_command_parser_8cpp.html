@@ -101,6 +101,7 @@ $(function(){initNavTree('_command_parser_8cpp.html','',''); });
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;conio.h&gt;</code><br />
 </div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements the <a class="el" href="class_command_parser.html" title="Converts player text input into Command objects.">CommandParser</a> for interpreting player input. </p>
 <p>Reads a line from stdin, tokenizes to words, normalizes to lowercase, and maps the first word to a <a class="el" href="_verb_8h.html#ade0965e0a67628e635e5563810600822" title="Action keywords accepted by the command system.">Verb</a> and the second (optional) word to a <a class="el" href="_noun_8h.html#a5590a51534fc71b6bb3cda6c2a5a84b0" title="Represents valid target or directional terms in player commands.">Noun</a>. Returns a <a class="el" href="class_command.html" title="Represents a single parsed player command.">Command</a> reflecting the player’s intent. </p>

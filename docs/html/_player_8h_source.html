@@ -93,74 +93,95 @@ $(function(){initNavTree('_player_8h_source.html','',''); });
 <div class="contents">
 <a href="_player_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_room_8h.html">Room.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_player.html">   32</a></span><span class="keyword">class </span><a class="code hl_function" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> playerX;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> playerY;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> currentHealth;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> maxHealth = 100;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="class_room.html">Room</a>* currentRoom;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::vector&lt;Item*&gt; inventory; </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_function" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#ae3e19a3d04695b7612d51b8b752827a1">setCurrentRoom</a>(<a class="code hl_class" href="class_room.html">Room</a>* newRoom);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_room.html">Room</a>* <a class="code hl_function" href="class_player.html#adf6ade2627e061608a4051c603d709fc">getCurrentRoom</a>();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a0beac62fb5b35d68e47fef56752b0368">setPosition</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);        <span class="comment">// sets player&#39;s position</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#ae9bcae10b1841b186b2ac0a5b07dd6e1">getX</a>() <span class="keyword">const</span>;                      <span class="comment">// returns player&#39;s x position</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#ab761a1ddba353a619403be9af249b835">getY</a>() <span class="keyword">const</span>;                      <span class="comment">// returns player&#39;s y position</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a67cd824d6596b81de99dcb0309add9c0">movePlayer</a>(<span class="keywordtype">char</span> direction);       <span class="comment">// moves player based on input</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a48715d254e20595e11fac75ea62d537e">ItemPickUp</a>(<a class="code hl_class" href="class_item.html">Item</a>* item); </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a017ec9e4eb9f589dbc73f070c438226a">displayInventory</a>(); </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#aed3d3f7ac76fd6db33d6e90ccd134a7e">hasItemName</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; n) <span class="keyword">const</span>; </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#a3666d4350d0199dfcf105d9e8699018a">getCurrentHealth</a>();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#abecc36b8ec9a012901caf74493a31d70">getMaxHealth</a>();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">takeDamage</a>(<span class="keywordtype">int</span> amount);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#ac0b88c415cb264d54c227dd4ef82a7d1">isDead</a>();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_zone_8h.html">Zone.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_player.html">   31</a></span><span class="keyword">class </span><a class="code hl_function" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> playerX;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> playerY;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> currentHealth;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">int</span> maxHealth = 100;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::vector&lt;Item*&gt; inventory; </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> attackPower = 10;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> health; </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> inCombat; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> ;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a0beac62fb5b35d68e47fef56752b0368">setPosition</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);        <span class="comment">// sets player&#39;s position</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#ae9bcae10b1841b186b2ac0a5b07dd6e1">getX</a>() <span class="keyword">const</span>;                      <span class="comment">// returns player&#39;s x position</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#ab761a1ddba353a619403be9af249b835">getY</a>() <span class="keyword">const</span>;                      <span class="comment">// returns player&#39;s y position</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a67cd824d6596b81de99dcb0309add9c0">movePlayer</a>(<span class="keywordtype">char</span> direction);       <span class="comment">// moves player based on input</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">    * Pick up from a zone</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a48715d254e20595e11fac75ea62d537e">ItemPickUp</a>(<a class="code hl_class" href="class_item.html">Item</a>* item); </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a017ec9e4eb9f589dbc73f070c438226a">displayInventory</a>(); </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#aed3d3f7ac76fd6db33d6e90ccd134a7e">hasItemName</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; n) <span class="keyword">const</span>; </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#a3666d4350d0199dfcf105d9e8699018a">getCurrentHealth</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#abecc36b8ec9a012901caf74493a31d70">getMaxHealth</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">takeDamage</a>(<span class="keywordtype">int</span> amount);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#ac0b88c415cb264d54c227dd4ef82a7d1">isDead</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player.html#a9d43e2876bbc07670c9fb8bd1188ffc0">getAttackPower</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#aecab7a3cd775870dc668c7f988a3e377">setAttackPower</a>(<span class="keywordtype">int</span> newPower);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#ac73c7bdc2b6c412c0559614f036fb8ae">attackEnemy</a>(<a class="code hl_class" href="class_enemy.html">Enemy</a>* enemy);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#a14e280ea726cc5604b2462ffa286a431">getInCombat</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_player.html#a3966588630ad0a127c9250f985865392">isAlive</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#afb030426b0f4fd3d5c5a8f911bc53b4b">setInCombat</a>(<span class="keywordtype">bool</span> state);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player.html#a713060327f44fd131d978419405a135e">resetHealth</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
 </div>
-<div class="ttc" id="a_room_8h_html"><div class="ttname"><a href="_room_8h.html">Room.h</a></div><div class="ttdoc">Defines the Room class representing a location in the text adventure.</div></div>
+<div class="ttc" id="a_zone_8h_html"><div class="ttname"><a href="_zone_8h.html">Zone.h</a></div><div class="ttdoc">@breif Defines the Zone class, which represents a single grid based level.</div></div>
+<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition</b> Enemy.h:15</div></div>
 <div class="ttc" id="aclass_item_html"><div class="ttname"><a href="class_item.html">Item</a></div><div class="ttdoc">Represents a single interactable or collectible object in the game.</div><div class="ttdef"><b>Definition</b> Item.h:26</div></div>
-<div class="ttc" id="aclass_player_html_a017ec9e4eb9f589dbc73f070c438226a"><div class="ttname"><a href="class_player.html#a017ec9e4eb9f589dbc73f070c438226a">Player::displayInventory</a></div><div class="ttdeci">void displayInventory()</div><div class="ttdef"><b>Definition</b> Player.cpp:125</div></div>
-<div class="ttc" id="aclass_player_html_a0beac62fb5b35d68e47fef56752b0368"><div class="ttname"><a href="class_player.html#a0beac62fb5b35d68e47fef56752b0368">Player::setPosition</a></div><div class="ttdeci">void setPosition(int x, int y)</div><div class="ttdoc">Sets the player&#39;s position on the map.</div><div class="ttdef"><b>Definition</b> Player.cpp:55</div></div>
-<div class="ttc" id="aclass_player_html_a1315f9a1d0b763ffdc37297cec1eee5c"><div class="ttname"><a href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">Player::takeDamage</a></div><div class="ttdeci">void takeDamage(int amount)</div><div class="ttdoc">Take damage from sources in the game.</div><div class="ttdef"><b>Definition</b> Player.cpp:184</div></div>
-<div class="ttc" id="aclass_player_html_a3666d4350d0199dfcf105d9e8699018a"><div class="ttname"><a href="class_player.html#a3666d4350d0199dfcf105d9e8699018a">Player::getCurrentHealth</a></div><div class="ttdeci">int getCurrentHealth()</div><div class="ttdoc">Gets the player&#39;s current health.</div><div class="ttdef"><b>Definition</b> Player.cpp:162</div></div>
-<div class="ttc" id="aclass_player_html_a48715d254e20595e11fac75ea62d537e"><div class="ttname"><a href="class_player.html#a48715d254e20595e11fac75ea62d537e">Player::ItemPickUp</a></div><div class="ttdeci">void ItemPickUp(Item *item)</div><div class="ttdef"><b>Definition</b> Player.cpp:112</div></div>
-<div class="ttc" id="aclass_player_html_a67cd824d6596b81de99dcb0309add9c0"><div class="ttname"><a href="class_player.html#a67cd824d6596b81de99dcb0309add9c0">Player::movePlayer</a></div><div class="ttdeci">void movePlayer(char direction)</div><div class="ttdoc">Moves the player in a specified direction.</div><div class="ttdef"><b>Definition</b> Player.cpp:86</div></div>
-<div class="ttc" id="aclass_player_html_ab761a1ddba353a619403be9af249b835"><div class="ttname"><a href="class_player.html#ab761a1ddba353a619403be9af249b835">Player::getY</a></div><div class="ttdeci">int getY() const</div><div class="ttdoc">Returns the player&#39;s current Y coordinate.</div><div class="ttdef"><b>Definition</b> Player.cpp:74</div></div>
-<div class="ttc" id="aclass_player_html_abecc36b8ec9a012901caf74493a31d70"><div class="ttname"><a href="class_player.html#abecc36b8ec9a012901caf74493a31d70">Player::getMaxHealth</a></div><div class="ttdeci">int getMaxHealth()</div><div class="ttdoc">Gets the player&#39;s max health.</div><div class="ttdef"><b>Definition</b> Player.cpp:171</div></div>
-<div class="ttc" id="aclass_player_html_ac0b88c415cb264d54c227dd4ef82a7d1"><div class="ttname"><a href="class_player.html#ac0b88c415cb264d54c227dd4ef82a7d1">Player::isDead</a></div><div class="ttdeci">bool isDead()</div><div class="ttdoc">Checks if the player is dead.</div><div class="ttdef"><b>Definition</b> Player.cpp:198</div></div>
-<div class="ttc" id="aclass_player_html_adf6ade2627e061608a4051c603d709fc"><div class="ttname"><a href="class_player.html#adf6ade2627e061608a4051c603d709fc">Player::getCurrentRoom</a></div><div class="ttdeci">Room * getCurrentRoom()</div><div class="ttdoc">Gets the player&#39;s current room.</div><div class="ttdef"><b>Definition</b> Player.cpp:45</div></div>
-<div class="ttc" id="aclass_player_html_ae3e19a3d04695b7612d51b8b752827a1"><div class="ttname"><a href="class_player.html#ae3e19a3d04695b7612d51b8b752827a1">Player::setCurrentRoom</a></div><div class="ttdeci">void setCurrentRoom(Room *newRoom)</div><div class="ttdoc">Sets the player&#39;s current room.</div><div class="ttdef"><b>Definition</b> Player.cpp:36</div></div>
-<div class="ttc" id="aclass_player_html_ae9bcae10b1841b186b2ac0a5b07dd6e1"><div class="ttname"><a href="class_player.html#ae9bcae10b1841b186b2ac0a5b07dd6e1">Player::getX</a></div><div class="ttdeci">int getX() const</div><div class="ttdoc">Returns the player&#39;s current X coordinate.</div><div class="ttdef"><b>Definition</b> Player.cpp:65</div></div>
-<div class="ttc" id="aclass_player_html_aed3d3f7ac76fd6db33d6e90ccd134a7e"><div class="ttname"><a href="class_player.html#aed3d3f7ac76fd6db33d6e90ccd134a7e">Player::hasItemName</a></div><div class="ttdeci">bool hasItemName(const string &amp;n) const</div><div class="ttdef"><b>Definition</b> Player.cpp:150</div></div>
+<div class="ttc" id="aclass_player_html_a017ec9e4eb9f589dbc73f070c438226a"><div class="ttname"><a href="class_player.html#a017ec9e4eb9f589dbc73f070c438226a">Player::displayInventory</a></div><div class="ttdeci">void displayInventory()</div><div class="ttdef"><b>Definition</b> Player.cpp:115</div></div>
+<div class="ttc" id="aclass_player_html_a0beac62fb5b35d68e47fef56752b0368"><div class="ttname"><a href="class_player.html#a0beac62fb5b35d68e47fef56752b0368">Player::setPosition</a></div><div class="ttdeci">void setPosition(int x, int y)</div><div class="ttdoc">Sets the player&#39;s current room.</div><div class="ttdef"><b>Definition</b> Player.cpp:46</div></div>
+<div class="ttc" id="aclass_player_html_a1315f9a1d0b763ffdc37297cec1eee5c"><div class="ttname"><a href="class_player.html#a1315f9a1d0b763ffdc37297cec1eee5c">Player::takeDamage</a></div><div class="ttdeci">void takeDamage(int amount)</div><div class="ttdoc">Take damage from sources in the game.</div><div class="ttdef"><b>Definition</b> Player.cpp:174</div></div>
+<div class="ttc" id="aclass_player_html_a14e280ea726cc5604b2462ffa286a431"><div class="ttname"><a href="class_player.html#a14e280ea726cc5604b2462ffa286a431">Player::getInCombat</a></div><div class="ttdeci">bool getInCombat() const</div><div class="ttdef"><b>Definition</b> Player.cpp:257</div></div>
+<div class="ttc" id="aclass_player_html_a3666d4350d0199dfcf105d9e8699018a"><div class="ttname"><a href="class_player.html#a3666d4350d0199dfcf105d9e8699018a">Player::getCurrentHealth</a></div><div class="ttdeci">int getCurrentHealth()</div><div class="ttdoc">Gets the player&#39;s current health.</div><div class="ttdef"><b>Definition</b> Player.cpp:152</div></div>
+<div class="ttc" id="aclass_player_html_a3966588630ad0a127c9250f985865392"><div class="ttname"><a href="class_player.html#a3966588630ad0a127c9250f985865392">Player::isAlive</a></div><div class="ttdeci">bool isAlive() const</div><div class="ttdef"><b>Definition</b> Player.cpp:262</div></div>
+<div class="ttc" id="aclass_player_html_a48715d254e20595e11fac75ea62d537e"><div class="ttname"><a href="class_player.html#a48715d254e20595e11fac75ea62d537e">Player::ItemPickUp</a></div><div class="ttdeci">void ItemPickUp(Item *item)</div><div class="ttdef"><b>Definition</b> Player.cpp:101</div></div>
+<div class="ttc" id="aclass_player_html_a67cd824d6596b81de99dcb0309add9c0"><div class="ttname"><a href="class_player.html#a67cd824d6596b81de99dcb0309add9c0">Player::movePlayer</a></div><div class="ttdeci">void movePlayer(char direction)</div><div class="ttdoc">Moves the player in a specified direction.</div><div class="ttdef"><b>Definition</b> Player.cpp:77</div></div>
+<div class="ttc" id="aclass_player_html_a713060327f44fd131d978419405a135e"><div class="ttname"><a href="class_player.html#a713060327f44fd131d978419405a135e">Player::resetHealth</a></div><div class="ttdeci">void resetHealth()</div><div class="ttdef"><b>Definition</b> Player.cpp:184</div></div>
+<div class="ttc" id="aclass_player_html_a9d43e2876bbc07670c9fb8bd1188ffc0"><div class="ttname"><a href="class_player.html#a9d43e2876bbc07670c9fb8bd1188ffc0">Player::getAttackPower</a></div><div class="ttdeci">int getAttackPower() const</div><div class="ttdef"><b>Definition</b> Player.cpp:199</div></div>
+<div class="ttc" id="aclass_player_html_ab761a1ddba353a619403be9af249b835"><div class="ttname"><a href="class_player.html#ab761a1ddba353a619403be9af249b835">Player::getY</a></div><div class="ttdeci">int getY() const</div><div class="ttdoc">Returns the player&#39;s current Y coordinate.</div><div class="ttdef"><b>Definition</b> Player.cpp:65</div></div>
+<div class="ttc" id="aclass_player_html_abecc36b8ec9a012901caf74493a31d70"><div class="ttname"><a href="class_player.html#abecc36b8ec9a012901caf74493a31d70">Player::getMaxHealth</a></div><div class="ttdeci">int getMaxHealth()</div><div class="ttdoc">Gets the player&#39;s max health.</div><div class="ttdef"><b>Definition</b> Player.cpp:161</div></div>
+<div class="ttc" id="aclass_player_html_ac0b88c415cb264d54c227dd4ef82a7d1"><div class="ttname"><a href="class_player.html#ac0b88c415cb264d54c227dd4ef82a7d1">Player::isDead</a></div><div class="ttdeci">bool isDead()</div><div class="ttdoc">Checks if the player is dead.</div><div class="ttdef"><b>Definition</b> Player.cpp:193</div></div>
+<div class="ttc" id="aclass_player_html_ac73c7bdc2b6c412c0559614f036fb8ae"><div class="ttname"><a href="class_player.html#ac73c7bdc2b6c412c0559614f036fb8ae">Player::attackEnemy</a></div><div class="ttdeci">void attackEnemy(Enemy *enemy)</div><div class="ttdef"><b>Definition</b> Player.cpp:208</div></div>
+<div class="ttc" id="aclass_player_html_ae9bcae10b1841b186b2ac0a5b07dd6e1"><div class="ttname"><a href="class_player.html#ae9bcae10b1841b186b2ac0a5b07dd6e1">Player::getX</a></div><div class="ttdeci">int getX() const</div><div class="ttdoc">Returns the player&#39;s current X coordinate.</div><div class="ttdef"><b>Definition</b> Player.cpp:56</div></div>
+<div class="ttc" id="aclass_player_html_aecab7a3cd775870dc668c7f988a3e377"><div class="ttname"><a href="class_player.html#aecab7a3cd775870dc668c7f988a3e377">Player::setAttackPower</a></div><div class="ttdeci">void setAttackPower(int newPower)</div><div class="ttdef"><b>Definition</b> Player.cpp:203</div></div>
+<div class="ttc" id="aclass_player_html_aed3d3f7ac76fd6db33d6e90ccd134a7e"><div class="ttname"><a href="class_player.html#aed3d3f7ac76fd6db33d6e90ccd134a7e">Player::hasItemName</a></div><div class="ttdeci">bool hasItemName(const string &amp;n) const</div><div class="ttdef"><b>Definition</b> Player.cpp:140</div></div>
+<div class="ttc" id="aclass_player_html_afb030426b0f4fd3d5c5a8f911bc53b4b"><div class="ttname"><a href="class_player.html#afb030426b0f4fd3d5c5a8f911bc53b4b">Player::setInCombat</a></div><div class="ttdeci">void setInCombat(bool state)</div><div class="ttdef"><b>Definition</b> Player.cpp:267</div></div>
 <div class="ttc" id="aclass_player_html_affe0cc3cb714f6deb4e62f0c0d3f1fd8"><div class="ttname"><a href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player::Player</a></div><div class="ttdeci">Player()</div><div class="ttdoc">Default constructor initializing position and room.</div><div class="ttdef"><b>Definition</b> Player.cpp:24</div></div>
-<div class="ttc" id="aclass_room_html"><div class="ttname"><a href="class_room.html">Room</a></div><div class="ttdoc">Represents a single location in the game world.</div><div class="ttdef"><b>Definition</b> Room.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

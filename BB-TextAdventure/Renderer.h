@@ -43,6 +43,8 @@ private:
 	*/
 	void DrawHUD(const Player& player, NPC* npc);
 
+	string displayCommand(int lineNumber);
+
 public:
 	/**
 	* @breif Constructor that enables colors for use in the console.

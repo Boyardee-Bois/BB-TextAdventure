@@ -1,25 +1,4 @@
 var searchData=
 [
-  ['sectionseperator_0',['SectionSeperator',['../class_u_i.html#aa0f20c89b3c3fb38bebca362532dda33',1,'UI']]],
-  ['setattackpower_1',['setAttackPower',['../class_mini_boss.html#a46124263c44379639613e8eb8883b114',1,'MiniBoss']]],
-  ['setcolor_2',['SetColor',['../class_u_i.html#ab74be4144e62ec41de4c7e961af54ef7',1,'UI']]],
-  ['setcurrentroom_3',['setCurrentRoom',['../class_player.html#ae3e19a3d04695b7612d51b8b752827a1',1,'Player']]],
-  ['setenemy_4',['setEnemy',['../class_room.html#a12d52d394b29dc39090015ba546d426a',1,'Room']]],
-  ['setenemydescription_5',['setEnemyDescription',['../class_enemy.html#aa60e415501e410cc46ddaebaab1a19d5',1,'Enemy']]],
-  ['setenemyname_6',['setEnemyName',['../class_enemy.html#afabbae269b28f6039d64197c98c4dd0f',1,'Enemy']]],
-  ['sethealth_7',['setHealth',['../class_mini_boss.html#a15dc5380309bf2bf47d6c37a31248740',1,'MiniBoss']]],
-  ['setisquestitem_8',['setIsQuestItem',['../class_item.html#ac5a3d4de1de676236cc88b02c5bf3bd5',1,'Item']]],
-  ['setisvisible_9',['setIsVisible',['../class_enemy.html#a9422f664bcd26f6dfba2a48e8edc00f6',1,'Enemy']]],
-  ['setitem_10',['setItem',['../class_room.html#ac2c350c95ad5af1a100a03cedb38300f',1,'Room::setItem()'],['../class_tile.html#a430643560665771bba182682df38b03b',1,'Tile::setItem()']]],
-  ['setitemdescription_11',['setItemDescription',['../class_item.html#aedae0c563de5090389113405d580c72c',1,'Item']]],
-  ['setitemname_12',['setItemName',['../class_item.html#a3b239a47dded8b9d0866eea092491979',1,'Item']]],
-  ['setnpc_13',['setNPC',['../class_room.html#ade5f38b899b4f02d4d6d4a2211252f7d',1,'Room']]],
-  ['setnpc_5fposition_14',['setNPC_Position',['../class_n_p_c.html#ab23a967cdc8c472e069ce66e4aef2e57',1,'NPC']]],
-  ['setposition_15',['setPosition',['../class_player.html#a0beac62fb5b35d68e47fef56752b0368',1,'Player']]],
-  ['setroomdescription_16',['setRoomDescription',['../class_room.html#aeb8c698263cf1aa289ff5e46c812c657',1,'Room']]],
-  ['setroomname_17',['setRoomName',['../class_room.html#aeff60b0ddcfa8edcb432e81d314a6efc',1,'Room']]],
-  ['settype_18',['SetType',['../class_tile.html#abf7737bb501c73b91c523d4852ba65ee',1,'Tile']]],
-  ['setvisited_19',['setVisited',['../class_room.html#a7db8382e437fb08539a148b56b279e9d',1,'Room']]],
-  ['showallverbs_20',['showAllVerbs',['../class_command_parser.html#ac8244eb6cadba2a859429be08478e5b4',1,'CommandParser::showAllVerbs()'],['../class_verb_lookup.html#a25aa626e6f0d4eb09ee347d6c7c50d13',1,'VerbLookup::showAllVerbs()']]],
-  ['startgame_21',['StartGame',['../class_world.html#a25c27c0a0359fbd280b493833e50c414',1,'World']]]
+  ['questprogress_0',['QuestProgress',['../class_quest_progress.html#a47b5ccbe544c83c716047a79198d6a44',1,'QuestProgress']]]
 ];

@@ -14,6 +14,7 @@
 #include "Command.h"
 #include "CommandParser.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Item.h"
 #include <string>
 #include <unordered_map>
@@ -103,9 +104,9 @@ public:
 
 	/**
 	* @brief Asks the user if the want to quit
-	* 
+	*
 	* @details
-	* This function handles a prompt confirming if the 
+	* This function handles a prompt confirming if the
 	* user would like to quit the game.  "Are you sure (y/n)"
 	* @return True if the user confirms, otherwise false.
 	*/

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['colorcode_0',['ColorCode',['../_color_codes_8h.html#a38f28aff0c9a5e08175d46b9d40f7078',1,'ColorCodes.h']]]
+  ['attacktype_0',['AttackType',['../_enemy_8h.html#a904b2f9c8f3951116c343784c59d6afe',1,'Enemy.h']]]
 ];

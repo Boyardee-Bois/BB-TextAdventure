@@ -111,6 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad6066bf1ac26e9cea1949a7b4b52790e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the players inventory.  <br /></td></tr>
 <tr class="memitem:ab51a831eb41b209d42853705425c053e" id="r_ab51a831eb41b209d42853705425c053e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab51a831eb41b209d42853705425c053e">processQuitCommand</a> ()</td></tr>
 <tr class="memdesc:ab51a831eb41b209d42853705425c053e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user if the want to quit.  <br /></td></tr>
+<tr class="memitem:af123c1c130ce6a5057329ec38684fb1c" id="r_af123c1c130ce6a5057329ec38684fb1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af123c1c130ce6a5057329ec38684fb1c">processAttackCommand</a> (<a class="el" href="class_command.html">Command</a> command, <a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_zone.html">Zone</a> &amp;zone)</td></tr>
+<tr class="memitem:a2bc4d304918f9231413087e831960bf6" id="r_a2bc4d304918f9231413087e831960bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bc4d304918f9231413087e831960bf6">startCombat</a> (<a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_enemy.html">Enemy</a> *enemy, <a class="el" href="class_zone.html">Zone</a> &amp;zone)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles and executes player-related actions in the game. </p>
@@ -143,6 +145,32 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af123c1c130ce6a5057329ec38684fb1c" name="af123c1c130ce6a5057329ec38684fb1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af123c1c130ce6a5057329ec38684fb1c">&#9670;&#160;</a></span>processAttackCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerActionManager::processAttackCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_zone.html">Zone</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>zone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -326,6 +354,32 @@ Public Member Functions</h2></td></tr>
 
 <p>Asks the user if the want to quit. </p>
 <p>This function handles a prompt confirming if the user would like to quit the game. "Are you sure (y/n)" </p><dl class="section return"><dt>Returns</dt><dd>True if the user confirms, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a2bc4d304918f9231413087e831960bf6" name="a2bc4d304918f9231413087e831960bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc4d304918f9231413087e831960bf6">&#9670;&#160;</a></span>startCombat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerActionManager::startCombat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_enemy.html">Enemy</a> *</td>          <td class="paramname"><span class="paramname"><em>enemy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_zone.html">Zone</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>zone</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

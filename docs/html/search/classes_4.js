@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['miniboss_0',['MiniBoss',['../class_mini_boss.html',1,'']]]
+  ['item_0',['Item',['../class_item.html',1,'']]]
 ];

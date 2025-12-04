@@ -429,7 +429,6 @@ void Zone::CreateDefaultZone()
 	testEnemy->setIsVisible(false);  // Hide until quest completion
 	enemies[{7, 7}] = testEnemy;
 
-
 	/*
 	* Steps for Item Creation & Placement
 	*

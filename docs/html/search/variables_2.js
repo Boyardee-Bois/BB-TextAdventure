@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['targetx_0',['targetX',['../struct_portal.html#a8fe0baf742947d38aba956f0a8f8b849',1,'Portal']]],
-  ['targety_1',['targetY',['../struct_portal.html#ae841503970733b8a3c31e1d162a7d1c2',1,'Portal']]],
-  ['targetzoneid_2',['targetZoneID',['../struct_portal.html#a109769ef1cbfc81df4dd3c5f3b2456b4',1,'Portal']]]
+  ['health_0',['health',['../class_enemy.html#aedd5e7bf8ef07ee97be433c853a10d8d',1,'Enemy']]]
 ];
