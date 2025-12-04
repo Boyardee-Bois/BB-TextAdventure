@@ -104,7 +104,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				// Only show enemies that are visible (unlocked after quest)
 				if (enemy->getIsVisible() && enemy->getIsAlive())
 				{
-					std::cout << "🤺";
+					std::cout <<u8"🤺";
 				}
 				else
 				{
