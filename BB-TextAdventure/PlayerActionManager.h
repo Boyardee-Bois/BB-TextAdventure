@@ -104,14 +104,13 @@ public:
 
 	/**
 	* @brief Asks the user if the want to quit
-	* 
+	*
 	* @details
-	* This function handles a prompt confirming if the 
+	* This function handles a prompt confirming if the
 	* user would like to quit the game.  "Are you sure (y/n)"
 	* @return True if the user confirms, otherwise false.
 	*/
 	bool processQuitCommand();
 	void processAttackCommand(Command command, Player& player, Zone& zone);
 	void startCombat(Player& player, Enemy* enemy, Zone& zone);
-	void displayCombatScreen(Player& player, Enemy &enemy);
 };
