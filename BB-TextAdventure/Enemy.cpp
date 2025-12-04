@@ -12,6 +12,9 @@ Enemy::Enemy()
 	alive = true;
 	attackPower = 10;
 	isActive = false; 
+	isVisible = false;
+	enemy_xcoord = 0;
+	enemy_ycoord = 0;
 }
 
 Enemy::Enemy(string name, string description, int newHealth)
@@ -23,6 +26,8 @@ Enemy::Enemy(string name, string description, int newHealth)
 	alive = true; 
 	attackPower = 10; 
 	isActive = false; 
+	enemy_xcoord = 0;
+	enemy_ycoord = 0;
 }
 
 string Enemy::getEnemyName() const
@@ -107,7 +112,7 @@ void Enemy::attackPlayer(Player* player) const
 }
 bool Enemy::isAlive() const
 {
-	return health > 0;
+	return health > 0 && alive;
 }
 //Removes X amount from player health
 void Enemy::takeDamage(int amount)
@@ -119,7 +124,7 @@ void Enemy::takeDamage(int amount)
 		health = 0;
 		alive = false;
 		std::cout << enemyName << " has been defeated!\n";
-		std::cout << "Defeating the enemy recovered your HP!\n";
+		std::cout << "Defeating the enemy recovered your HP X_X!\n";
 	}
 	else {
 		std::cout << "You hit " << enemyName
