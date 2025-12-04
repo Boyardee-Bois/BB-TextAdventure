@@ -80,20 +80,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				UI::SetColor(static_cast<int>(ColorCode::Black));
 				std::cout << "P ";
 			}
-			else if (zone.getItemsAt(x,y) != nullptr)
-			{
-				Item* item = zone.getItemsAt(x, y);
-				// If statement that displays regular tile for dropped items if an enemy hasn't been defeated yet
-				if (item->getItemIsVisible() || item->getItemName() != "Data Drive")
-				{
-					std::cout << "@ ";
-				}
-				else
-				{
-					tile.Display();
-				}
-			}
-			else if (zone.getEnemyAt(x,y) != nullptr)
+			else if (zone.getEnemyAt(x, y) != nullptr)
 			{
 				Enemy* enemy = zone.getEnemyAt(x, y);
 
@@ -105,7 +92,7 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 				else
 				{
 					Item* item = zone.getItemsAt(x, y);
-					if (item != nullptr)
+					if (item != nullptr && item->getItemIsVisible())
 					{
 						std::cout << "@ ";
 					}
@@ -113,6 +100,19 @@ void Renderer::DrawZone(const Zone& zone, const Player& player)
 					{
 						cout << "  ";
 					}
+				}
+			}
+			else if (zone.getItemsAt(x,y) != nullptr)
+			{
+				Item* item = zone.getItemsAt(x, y);
+				// If statement that displays regular tile for dropped items if an enemy hasn't been defeated yet
+				if (item->getItemIsVisible() || item->getItemName() != "Data Drive")
+				{
+					std::cout << "@ ";
+				}
+				else
+				{
+					tile.Display();
 				}
 			}
 			else if (zone.getNpcsAt(x,y) != nullptr)

@@ -40,7 +40,14 @@ JungleNPC::JungleNPC(const string& npcName) : NPC(npcName)
  */
 bool JungleNPC::isEnemyKilled() const
 {
-    return enemyKilled;
+    if (currentZone == nullptr) {
+        return false;
+    }
+    Enemy* lurker = currentZone->getEnemyAt(15, 5);
+    if (lurker == nullptr) {
+        return true;
+    }
+    return !lurker->getIsVisible() || !lurker->getIsAlive();
 }
 
 /**
@@ -67,6 +74,7 @@ void JungleNPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int
  */
 void JungleNPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int playerX, int playerY, bool debug)
 {
+    currentZone = activeZone;
     // --- STEP 1: Quest not started ---
     if (!NPC::isQuestStarted())
     {
@@ -81,7 +89,7 @@ void JungleNPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int
     }
 
     // --- STEP 2: Quest started but enemy not killed ---
-    if (NPC::isQuestStarted() && !isEnemyKilled())
+    if (!isEnemyKilled())
     {
         cout << NPC::getName() << ": Hey! An alive jungle lurker means no prize from me!" << endl;
         UI::Pause();
@@ -96,12 +104,10 @@ void JungleNPC::interact(Verb playerVerb, Noun playerNoun, Zone* activeZone, int
         cout << NPC::getName() << ": Here's your reward-!" << endl;
         UI::Pause();
         cout << NPC::getName() << ": A 'Good Job' from me!" << endl;
-        setQuestItemCollected(true);
         NPC::completedQuest();
         UI::Pause();
         return;
     }
-
     // --- STEP 4: Quest completed ---
     if (NPC::isQuestComplete())
     {

@@ -286,8 +286,8 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 // This needs comments
 void Zone::spawnEnemy()
 {
-	if (getNpcInZone()->isQuestComplete())
-	{
+	//if (getNpcInZone()->isQuestComplete())
+	//{
 	
 		for (auto& pair : enemies)
 		{
@@ -297,22 +297,18 @@ void Zone::spawnEnemy()
 				
 				enemy->setIsVisible(true);
 				enemy->setActive(true);
+				if (enemy != nullptr && !enemy->getIsAlive())
+				{
+					Item* item = getItemsAt(enemy->getEnemy_X(), enemy->getEnemy_Y());
+					if (item != nullptr && !item->getItemIsVisible())
+					{
+						item->setItemIsVisible(true);
+						cout << "Looks like the enemy dropped something!\n";
+					}
+				}
 		
 			}
-		}
-		for (auto& pair : enemies)
-		{
-			Enemy* enemy = pair.second;
-			if (enemy != nullptr && !enemy->getIsAlive())
-			{
-				Item* item = getItemsAt(enemy->getEnemy_X(), enemy->getEnemy_Y());
-				if (item != nullptr && !item->getItemIsVisible())
-				{
-					item->setItemIsVisible(true);
-					cout << "Looks like the enemy dropped something!\n";
-				}
-			}
-		}
+		//}
 	}
 }
 // This needs comments
@@ -525,6 +521,7 @@ void Zone::CreateBeachZone()
 
 	Enemy* sandEnemy = new Enemy("Sand-Dweller", "Sand-Dweller!", 100);
 	sandEnemy->setIsVisible(false);
+	sandEnemy->setEnemy_Position(10, 15);
 	enemies[{10, 15}] = sandEnemy;
 
 	Item* dataDrive = new Item("Data Drive", "It has all the time periods!");
