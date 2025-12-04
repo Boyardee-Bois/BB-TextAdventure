@@ -21,6 +21,7 @@
     <ClCompile Include="QuestProgress.cpp" />
     <ClCompile Include="TimeMachineLiquidQuest.cpp" />
     <ClCompile Include="GearsQuest.cpp" />
+    <ClCompile Include="JungleNPC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorCodes.h" />
@@ -46,6 +47,7 @@
     <ClInclude Include="QuestProgress.h" />
     <ClInclude Include="TimeMachineLiquidQuest.h" />
     <ClInclude Include="GearsQuest.h" />
+    <ClInclude Include="JungleNPC.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BB-TextAdventure.rc" />

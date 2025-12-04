@@ -13,6 +13,7 @@
 #include "Enemy.h"
 #include "TimeMachineLiquidQuest.h"
 #include "GearsQuest.h"
+#include "JungleNPC.h"
 #include <iostream>
 #include <fstream>
 
@@ -639,7 +640,7 @@ void Zone::CreateLabBasementZone()
 	// Spawns the enemy but sets it to invisible
 	Enemy* gearEnemy = new Enemy("Gear Guardian", "Gear Guardian!", 120);
 	gearEnemy->setIsVisible(false);
-	enemies[{15, 5}] = gearEnemy;
+	enemies[{5, 5}] = gearEnemy;
 
 	/*
 	*
@@ -670,21 +671,14 @@ void Zone::CreateJungleZone()
 		grid[8][x] = Tile(TileType::Water);
 	}
 
-	Enemy* jungleEnemy1 = new Enemy("Jungle Lurker 1", "Jungle Lurker 1!", 140);
+	JungleNPC* jungleNPC = new JungleNPC("Hunter Darwin");
+	jungleNPC->setZone(this);
+	npcs[{6, 1}] = jungleNPC;
+
+	Enemy* jungleEnemy1 = new Enemy("Jungle Lurker", "Jungle Lurker!", 140);
 	jungleEnemy1->setIsVisible(true);
+	jungleEnemy1->setActive(true);
 	enemies[{15, 5}] = jungleEnemy1;
-
-	Enemy* jungleEnemy2 = new Enemy("Jungle Lurker 2", "Jungle Lurker 2!", 140);
-	jungleEnemy2->setIsVisible(true);
-	enemies[{7, 12}] = jungleEnemy2;
-
-	Enemy* jungleEnemy3 = new Enemy("Jungle Lurker 3", "Jungle Lurker 3!", 140);
-	jungleEnemy3->setIsVisible(true);
-	enemies[{12, 16}] = jungleEnemy3;
-
-	Enemy* jungleEnemy4 = new Enemy("Jungle Lurker 4", "Jungle Lurker 4!", 140);
-	jungleEnemy4->setIsVisible(true);
-	enemies[{17, 10}] = jungleEnemy4;
 
 	// Bridge to cross water
 	grid[8][10] = Tile(TileType::Dirt);

@@ -369,7 +369,6 @@ void PlayerActionManager::processAttackCommand(Command command, Player& player, 
 
 		if (!target->getIsAlive())
 		{
-			std::cout << "You defeated " << target->getEnemyName() << "!\n";
 			zone.removeEnemyAt(playerX, playerY);
 			break;
 		}
