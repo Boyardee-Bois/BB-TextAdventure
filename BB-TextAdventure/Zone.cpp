@@ -27,8 +27,19 @@ Zone::Zone(ZoneLocation name)
 	case ZoneLocation::DefaultLab:
 			CreateDefaultZone();
 			break;
+
+	case ZoneLocation::InteriorLab:
+			CreateLabInteriorZone();
+			break;
+
+	case ZoneLocation::BasementLab:
+			CreateLabBasementZone();
+			break;
 	case ZoneLocation::Beach:
 			CreateBeachZone();
+			break;
+	case ZoneLocation::Jungle:
+			CreateJungleZone();
 			break;
 	default:
 		CreateDefaultZone();
@@ -255,6 +266,7 @@ int Zone::getHeight() const
 	return height;
 }
 
+// This needs comments
 Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 {
 	auto it = enemies.find({ xEnPos, yEnPos });
@@ -269,7 +281,7 @@ Enemy* Zone::removeEnemyAt(int xEnPos, int yEnPos)
 
 	return nullptr; // no enemy found
 }
-
+// This needs comments
 void Zone::spawnEnemy()
 {
 	if (getNpcInZone()->isQuestComplete())
@@ -301,7 +313,7 @@ void Zone::spawnEnemy()
 		}
 	}
 }
-
+// This needs comments
 void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
 {
 	Enemy* newEnemy = new Enemy(enemy);
@@ -309,10 +321,7 @@ void Zone::spawnEnemyAt(int xPos, int yPos, const Enemy& enemy)
 }
 
 /*
-* This will get replaced when reading from a file
-* is functioning this is the original Map creation.
-* 
-* Creates the original Lab area
+* @breif The initial zone players load into
 */
 void Zone::CreateDefaultZone()
 {
@@ -445,8 +454,34 @@ void Zone::CreateDefaultZone()
 	*
 	*/
 	portals.push_back(Portal{ 0,7, "beach", 23, 5 });
+
+	/*
+	*
+	* Add a portal to the Lab interior Zone
+	*
+	* (5,5) Location of the portal in the current room
+	* -> lab
+	* (5,8) arrival tile in the lab interior zone
+	*
+	*/
+	grid[0][12] = Tile(TileType::Dirt);
+	portals.push_back(Portal{ doorX, doorY, "lab_interior", 7, 8 });
+
+	/*
+	*
+	* Add a portal to the Jungle Zone
+	*
+	* (5,5) Location of the portal in the current room
+	* -> lab
+	* (5,8) arrival tile in the Jungle zone
+	*
+	*/
+	portals.push_back(Portal{ 24, 18, "jungle", 1, 18 });
 }
 
+/*
+* @breif The beach zone west of the load zone
+*/
 void Zone::CreateBeachZone()
 {
 	width = 25;
@@ -507,4 +542,114 @@ void Zone::CreateBeachZone()
 	* 
 	*/ 
 	portals.push_back(Portal{ 24,5, "lab", 1, 7 });
+}
+
+/*
+* @breif The interior of the lab located in the inital zone
+*/
+void Zone::CreateLabInteriorZone()
+{
+	width = 15;
+	height = 10;
+
+	// Creat a zone filled with stone (walls)
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Stone)));
+
+	// Fill the interior of the zone with a walkable tile ie., flooring
+	for (int y = 1; y < height - 1; ++y)
+	{
+		for (int x = 1; x < width - 1; x++)
+		{
+			grid[y][x] = Tile(TileType::Flooring);
+		}
+	}
+
+	/*
+	*
+	* Add a portal to the Lab exterior Zone
+	*
+	* (7,9) Location of the portal in the current room
+	* -> lab
+	* (12,23) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 7,9, "lab", 5, 6 });
+
+	grid[9][7] = Tile(TileType::Dirt);
+
+	/*
+	*
+	* Add a portal to the Lab basement Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab
+	* (5,1) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 1,1, "lab_basement", 2, 1 });
+}
+
+/*
+* @breif The lower level of the interior of the interior lab zone
+*/
+void Zone::CreateLabBasementZone()
+{
+	width = 10;
+	height = 10;
+
+	// Creat a zone filled with stone (walls)
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::BasementWall)));
+
+	// Fill the interior of the zone with a walkable tile ie., flooring
+	for (int y = 1; y < height - 1; ++y)
+	{
+		for (int x = 1; x < width - 1; x++)
+		{
+			grid[y][x] = Tile(TileType::Dirt);
+		}
+	}
+
+	/*
+	*
+	* Add a portal to the Lab interior Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab_basement
+	* (2,1) arrival tile in the lab interior zone
+	*
+	*/
+	portals.push_back(Portal{ 1,1, "lab_interior", 2, 1 });
+
+}
+
+/*
+* @breif Additional biome zone for future quests
+*/
+void Zone::CreateJungleZone()
+{
+	width = 20;
+	height = 20;
+
+	grid = vector<vector<Tile>>(height, vector<Tile>(width, Tile(TileType::Grass)));
+
+	for (int x = 0; x < width; ++x)
+	{
+		grid[9][x] = Tile(TileType::Water);
+		grid[8][x] = Tile(TileType::Water);
+	}
+
+	// Bridge to cross water
+	grid[8][10] = Tile(TileType::Dirt);
+	grid[9][10] = Tile(TileType::Dirt);
+
+	/*
+	*
+	* Add a portal to the Default Zone
+	*
+	* (1,1) Location of the portal in the current room
+	* -> lab_basement
+	* (2,1) arrival tile in the default zone
+	*/
+	portals.push_back(Portal{ 0,18, "lab", 23,18 });
+	
 }

@@ -23,7 +23,11 @@ using namespace std;
 enum class ZoneLocation
 {
     DefaultLab,
-    Beach
+    InteriorLab,
+    BasementLab,
+    Beach,
+    Jungle
+
 };
 
 /**
@@ -76,6 +80,16 @@ private:
     /**@breif A list of all portals in this zone */
     vector<Portal> portals;
 
+
+    /*
+    * These need to be updated to a vector
+    * Each NPC, Item, Enemy should have 
+    * their own coordinates then put into a vector
+    * 
+    * Each zone should have access to the list of enemies
+    * and their locations
+    * 
+    */
     /**@breif A map pairing enemies to coordinates (x,y).*/
     map<pair<int, int>, Enemy*> enemies;
 
@@ -101,9 +115,27 @@ private:
 
     /**
     * @breif Creates a hardcoded beach map.
-    * @details Used as the fallback map.
+    * @details This connects to main default zone.
     */
     void CreateBeachZone();
+
+    /**
+    * @breif Creates a hardcoded lab interior map.
+    * @details This is the interior of the lab in the default zone.
+    */
+    void CreateLabInteriorZone();
+
+    /**
+    * @breif Creates a hardcoded lab basement map.
+    * @details This is located "inside" of the lab interior zone.
+    */
+    void CreateLabBasementZone();
+
+    /**
+    * @breif Creates a hardcoded Jungle map.
+    * @details This connects to main default zone.
+    */
+    void CreateJungleZone();
 
 public:
     //static NPC* staticNPC; // Temporary
@@ -197,6 +229,12 @@ public:
     */
     int getHeight() const;
 
+
+
+    /*
+    * These need comments
+    * 
+    */
     Enemy* removeEnemyAt(int xEnPos, int yEnPos);
 
 	void spawnEnemy();

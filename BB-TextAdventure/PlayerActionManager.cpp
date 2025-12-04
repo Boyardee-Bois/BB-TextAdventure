@@ -92,9 +92,29 @@ void PlayerActionManager::processGoCommand(Command command, Player& player, Zone
  */
 void PlayerActionManager::printHelp(CommandParser& parser)
 {
-	cout << "Your available command words are:" << endl;
-	parser.showAllVerbs();
-	cout << "Example: 'go north' or 'quit'" << endl;
+	UI::Clear();
+
+	cout << "========================================" << endl;
+	cout << "              HELP MENU                 " << endl;
+	cout << "========================================" << endl;
+
+	cout << "  MOVEMENT:" << endl;
+	cout << "    [W] North  [S] South " << endl;
+	cout << "    [A] West   [S] East " << endl;
+	cout << "" << endl;
+
+	cout << "   ACTIONS:" << endl;
+	cout << "    Interact / Talk / Speak - Talk to NPC's" << endl;
+	cout << "    Pickup / Take / Grab    - Pick up items in the world" << endl;
+	cout << "    Open / View / Show      - Open your inventory" << endl;
+	cout << "    Quit / Exit             - Exit the game" << endl;
+	cout << "" << endl;
+
+	cout << "  Combat:" << endl;
+	cout << "    Attack, Fight, Hit      - Attack enemies" << endl;
+	cout << "========================================" << endl;
+
+	UI::Pause();
 }
 
 /**

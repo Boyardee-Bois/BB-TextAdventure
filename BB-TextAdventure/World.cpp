@@ -64,6 +64,12 @@ void World::LoadWorld()
 	// Create the beach location
 	allZones["beach"] = new Zone(ZoneLocation::Beach);
 
+	allZones["lab_interior"] = new Zone(ZoneLocation::InteriorLab);
+
+	allZones["lab_basement"] = new Zone(ZoneLocation::BasementLab);
+
+	allZones["jungle"] = new Zone(ZoneLocation::Jungle);
+
 	/* 
 		TODO: Read from file
 		allZones["beach"] = new Zone("beach.txt");
